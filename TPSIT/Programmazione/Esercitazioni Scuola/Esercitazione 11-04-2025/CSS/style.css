@@ -1,0 +1,28 @@
+/*CSS ESTERNO*/
+
+p{
+    color: #00ff22;
+    background-color: #adadad;
+    }  
+
+h1{
+    color: #ff0000;
+    background-color: #adadad;
+}
+
+img{
+    float: left;
+
+}
+
+.container{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+
+.container img{
+    width: 100%;
+    height: auto;
+}

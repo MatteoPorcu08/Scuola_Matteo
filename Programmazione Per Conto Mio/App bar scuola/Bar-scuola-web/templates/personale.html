@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Ordini</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Gestione Ordini</h1>
+    {% if ordini %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Prodotto</th>
+                    <th>Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prodotto, quantita in ordini.items() %}
+                    <tr>
+                        <td>{{ prodotto }}</td>
+                        <td>{{ quantita }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nessun ordine ancora effettuato.</p>
+    {% endif %}
+    <form action="/svuota" method="POST">
+        <button type="submit">Svuota ordini</button>
+    </form>
+</body>
+</html>

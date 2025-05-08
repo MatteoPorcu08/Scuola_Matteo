@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Scolastico</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Benvenuto al Bar Scolastico</h1>
+    <form action="/ordina" method="POST">
+        <label for="prodotto">Seleziona un prodotto:</label>
+        <select name="prodotto" id="prodotto" required>
+            {% for prodotto, prezzo in menu.items() %}
+                <option value="{{ prodotto }}">{{ prodotto }} - €{{ prezzo }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="quantita">Quantità:</label>
+        <input type="number" name="quantita" id="quantita" value="1" min="1" required>
+        
+        <button type="submit">Aggiungi ordine</button>
+    </form>
+</body>
+</html>
