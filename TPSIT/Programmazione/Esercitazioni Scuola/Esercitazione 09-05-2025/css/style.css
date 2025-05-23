@@ -10,7 +10,7 @@ header {
     background-color: #222;
     color: white;
     text-align: center;
-    padding: 30px 10px;
+    padding: 30px;
 }
 
 header h1 {
@@ -55,7 +55,7 @@ section {
 
 .bio-content aside {
     background-color: #eee08b;
-    padding: 10px;
+    padding: 20px 0px 110px;
     font-style: italic;
     font-size: 0.9em;
     max-width: 200px;
@@ -132,5 +132,3 @@ footer a {
     text-decoration: none;
     
 }
-
-
