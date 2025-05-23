@@ -1,0 +1,16 @@
+body {
+    margin: 10px solid white;
+}
+
+header{
+    background-color: green;
+}
+
+.header-content{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}
