@@ -1,0 +1,140 @@
+body {
+    margin: 5px solid white;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.header {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; /* Aumentato il padding laterale */
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+.nav a {
+    margin: 0 85px; /* Aumentata la spaziatura da 10px a 20px */
+    text-decoration: none;
+    color: black;
+    font-size: 18px; /* Aumentata la dimensione del carattere */
+    position: relative;
+    padding: 5px 0;
+}
+
+
+.welcome {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #555;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+}
+
+.about,
+.projects,
+.results,
+.contacts {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #4CAF50;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+/* Stile About Me */
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.about-content p {
+    text-align: left;
+}
+
+.about-img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Stile Progetti */
+.projects-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: white;
+}
+
+.projects {
+    background-color: #d3d3d3;
+    color: black;
+}
+
+.projects-img {
+    width: 200px;
+    max-width: 100%;
+}
+
+/* Stile Risultati */
+.results-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.results-content p {
+    flex: 1;
+    text-align: left;
+}
+
+.results-img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Stile Contatti */
+.contacts {
+    background-color: #d3d3d3;
+    color: black;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+    background-color: black;
+    color: green;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.footer a {
+    color: green;
+    text-decoration: none;
+}
