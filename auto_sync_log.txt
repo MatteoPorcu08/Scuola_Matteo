@@ -1,2 +1,8 @@
 ------------------------------- 
 Sincronizzazione avviata: 25/09/2025  9:28:26,10 
+To https://github.com/MatteoPorcu08/Scuola_Matteo.git
+   af41d68..db22ca5  main -> main
+Sincronizzazione completata: 25/09/2025  9:28:37,32 
+------------------------------- 
+------------------------------- 
+Sincronizzazione avviata: 25/09/2025  9:28:37,32 
