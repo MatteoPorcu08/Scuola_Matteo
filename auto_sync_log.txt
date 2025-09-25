@@ -20,3 +20,6 @@ Sincronizzazione completata: 25/09/2025  9:28:43,00
 ------------------------------- 
 ------------------------------- 
 Sincronizzazione avviata: 25/09/2025  9:28:43,01 
+warning: in the working copy of 'auto_sync_log.txt', LF will be replaced by CRLF the next time Git touches it
+------------------------------- 
+Sincronizzazione avviata: 25/09/2025  9:28:50,10 
