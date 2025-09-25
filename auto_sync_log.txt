@@ -58,3 +58,10 @@ Sincronizzazione completata: 25/09/2025  9:29:04,67
 ------------------------------- 
 ------------------------------- 
 Sincronizzazione avviata: 25/09/2025  9:29:04,68 
+warning: in the working copy of 'auto_sync_log.txt', LF will be replaced by CRLF the next time Git touches it
+To https://github.com/MatteoPorcu08/Scuola_Matteo.git
+   57c8c5b..dec39d8  main -> main
+Sincronizzazione completata: 25/09/2025  9:29:07,48 
+------------------------------- 
+------------------------------- 
+Sincronizzazione avviata: 25/09/2025  9:29:07,48 
