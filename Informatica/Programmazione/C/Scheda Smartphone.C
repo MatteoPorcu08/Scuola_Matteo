@@ -27,7 +27,8 @@ int main(){
     scanf("%d", &S1.ramGB);
     printf("Quanto pesa il tuo telefono?(g)\n");
     scanf("%lf", &S1.peso);
-    
+    printf("\n");
+    printf("\n");
 
     //input dati del secondo telefono
     printf("Inserisci i dati del secondo telefono:\n");
@@ -41,11 +42,13 @@ int main(){
     scanf("%d", &S2.ramGB);
     printf("Quanto pesa il tuo telefono?(g)\n");
     scanf("%lf", &S2.peso);
+    printf("\n");
 
     //stampa dati inseriti
     printf("I dati  del primo smarthone sono:\n");
     stampaSmartphone(S1);
-    printf("\nI dati del seocndo smartphone sono:\n");
+    printf("\n");
+    printf("I dati del seocndo smartphone sono:\n");
     stampaSmartphone(S2);
 
     return 0;
@@ -57,5 +60,5 @@ void stampaSmartphone(Smartphone s){
         printf("La marca dello smarphone e':%s\n",s.marca);
         printf("Il telefono ha %d GB di memoria ROM\n",s.memoriaGB);
         printf("Il telefono ha %d GB di memoria RAM\n",s.ramGB);
-        printf("Il telefono pesa %lf g",s.peso);
+        printf("Il telefono pesa %.2lf g",s.peso);
     }
