@@ -43,18 +43,19 @@ int main(){
     scanf("%lf", &S2.peso);
 
     //stampa dati inseriti
-    printf("I dati  del primo smarthone sono:");
+    printf("I dati  del primo smarthone sono:\n");
     stampaSmartphone(S1);
-    printf("I dati del seocndo smartphone sono:");
+    printf("I dati del seocndo smartphone sono:\n");
     stampaSmartphone(S2);
 
     return 0;
 }
 
+//procedura stampaSmartphone
 void stampaSmartphone(Smartphone s){
         printf("Il modello dello smartphone e':%s\n", s.modello);
         printf("La marca dello smarphone e':%s\n",s.marca);
         printf("Il telefono ha %d GB di memoria ROM\n",s.memoriaGB);
         printf("Il telefono ha %d GB di memoria RAM\n",s.ramGB);
-        printf("Il telefono pesa %lf\n",s.peso);
+        printf("Il telefono pesa %lf g",s.peso);
     }
