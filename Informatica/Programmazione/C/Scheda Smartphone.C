@@ -9,6 +9,8 @@ struct Smartphone{
     double peso;       // peso in grammi
 };
 
+void 
+
 int main(){
     
     Smartphone S1,S2;
@@ -40,6 +42,8 @@ int main(){
     printf("Quanto pesa il tuo telefono?\n");
     scanf("%lf", &S2.peso);
     stampaDati2(S2); //commando per stampare i dati del secondo telefono
+
+
 
 
 
