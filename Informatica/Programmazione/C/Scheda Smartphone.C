@@ -9,7 +9,7 @@ struct Smartphone{
     double peso;       // peso in grammi
 };
 
-void stampaSmartphone(s);
+void stampaSmartphone(Smartphone s);
 
 int main(){
     
@@ -48,17 +48,12 @@ int main(){
     printf("I dati del seocndo smartphone sono:");
     stampaSmartphone(S2);
 
-    void stampaSmartphone(Smartphone s){
-        pritnf("Il modello dello smartphone e':%s\n", s.modello);
-        printf("La marca dello smarphone e':%s\n",s.marca);
-        printf("Il telefono ha %d\n di memoria ROM",s.memoriaGB);
-    }
-
-
-    
-
-
-
-
-
 }
+
+void stampaSmartphone(Smartphone s){
+        printf("Il modello dello smartphone e':%s\n", s.modello);
+        printf("La marca dello smarphone e':%s\n",s.marca);
+        printf("Il telefono ha %d GB di memoria ROM\n",s.memoriaGB);
+        printf("Il telefono ha %d GB di memoria RAM\n",s.ramGB);
+        printf("Il telefono pesa %lf\n",s.peso);
+    }
