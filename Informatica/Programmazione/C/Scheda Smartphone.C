@@ -32,9 +32,9 @@ int main(){
     //input dati del secondo telefono
     printf("Inserisci i dati del secondo telefono:\n");
     printf("Che modello e' il tuo telefono?\n");
-    scanf("%[^\n]s",S2.modello);
+    scanf(" %[^\n]s",S2.modello);
     printf("Che marca e' il tuo telefono?\n");
-    scanf("%s",S2.marca);
+    scanf(" %s",S2.marca);
     printf("Quanta memoria ROM ha il tuo telefono?(GB)\n");
     scanf("%d", &S2.memoriaGB);
     printf("Quanta memoria RAM ha il tuo telefono?(GB)\n");
@@ -45,7 +45,7 @@ int main(){
     //stampa dati inseriti
     printf("I dati  del primo smarthone sono:\n");
     stampaSmartphone(S1);
-    printf("I dati del seocndo smartphone sono:\n");
+    printf("\nI dati del seocndo smartphone sono:\n");
     stampaSmartphone(S2);
 
     return 0;
