@@ -21,11 +21,11 @@ int main(){
     scanf("%[^\n]s",S1.modello);
     printf("Che marca e' il tuo telefono?\n");
     scanf("%s",S1.marca);
-    printf("Quanta memoria ROM ha il tuo telefono?\n");
+    printf("Quanta memoria ROM ha il tuo telefono?(GB)\n");
     scanf("%d", &S1.memoriaGB);
-    printf("Quanta memoria RAM ha il tuo telefono?\n");
+    printf("Quanta memoria RAM ha il tuo telefono?(GB)\n");
     scanf("%d", &S1.ramGB);
-    printf("Quanto pesa il tuo telefono?\n");
+    printf("Quanto pesa il tuo telefono?(g)\n");
     scanf("%lf", &S1.peso);
     
 
@@ -35,11 +35,11 @@ int main(){
     scanf("%[^\n]s",S2.modello);
     printf("Che marca e' il tuo telefono?\n");
     scanf("%s",S2.marca);
-    printf("Quanta memoria ROM ha il tuo telefono?\n");
+    printf("Quanta memoria ROM ha il tuo telefono?(GB)\n");
     scanf("%d", &S2.memoriaGB);
-    printf("Quanta memoria RAM ha il tuo telefono?\n");
+    printf("Quanta memoria RAM ha il tuo telefono?(GB)\n");
     scanf("%d", &S2.ramGB);
-    printf("Quanto pesa il tuo telefono?\n");
+    printf("Quanto pesa il tuo telefono?(g)\n");
     scanf("%lf", &S2.peso);
 
     //stampa dati inseriti
@@ -48,6 +48,7 @@ int main(){
     printf("I dati del seocndo smartphone sono:");
     stampaSmartphone(S2);
 
+    return 0;
 }
 
 void stampaSmartphone(Smartphone s){
