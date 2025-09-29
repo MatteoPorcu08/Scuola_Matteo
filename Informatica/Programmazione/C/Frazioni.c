@@ -1,14 +1,3 @@
-/*Crea un programma per fare i calcoli con le frazioni.
-Crea un tipo di dato personalizzato, Frazione, che contiene un numeratore e un denominatore, entrambi numeri interi.
-Il programma, dopo aver chiesto all'utente di inserire i valori di numeratore e denominatore delle due frazioni dovrà far scegliere all'utente di tra le seguenti operazioni:
-1) Moltiplicazione delle frazioni
-2) Divisione tra due frazioni
-3) Addizione tra due frazioni //opzionale
-4) Sottrazione tra due frazioni //opzionale
-
-L'utente potrà scegliere se proseguire o se uscire dal programma.
-ATTENZIONE: La frazione non può avere 0 come denominatore! Prevedi un sistema per evitarlo.*/
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -17,39 +6,6 @@ typedef struct{
     int numeratore;
     int denominatore;
 } Frazione;
-
-void stampaFrazione(Frazione f){
-    printf("%d/%d\n", f.numeratore, f.denominatore);
-}
-
-Frazione moltiplicaFrazioni(Frazione f1, Frazione f2){
-    Frazione risultato;
-    risultato.numeratore = f1.numeratore * f2.numeratore;
-    risultato.denominatore = f1.denominatore * f2.denominatore;
-    return risultato;
-}
-
-Frazione dividiFrazioni(Frazione f1, Frazione f2){
-    Frazione risultato;
-    risultato.numeratore = f1.numeratore * f2.denominatore;
-    risultato.denominatore = f1.denominatore * f2.numeratore;
-    return risultato;
-}
-
-Frazione sommaFrazioni(Frazione f1, Frazione f2){
-    Frazione risultato;
-    risultato.numeratore = (f1.numeratore * f2.denominatore) + (f2.numeratore * f1.denominatore);
-    risultato.denominatore = f1.denominatore * f2.denominatore;
-    return risultato;
-}
-
-Frazione sottraiFrazioni(Frazione f1, Frazione f2){
-    Frazione risultato;
-    risultato.numeratore = (f1.numeratore * f2.denominatore) - (f2.numeratore * f1.denominatore);
-    risultato.denominatore = f1.denominatore * f2.denominatore;
-    return risultato;
-}
-
 
 int main()
 {
@@ -94,34 +50,45 @@ int main()
         printf("Scelta: ");
         scanf("%d", &scelta);
 
+        // Esecuzione delle operazioni direttamente nel main
         switch (scelta)
         {
         case 1:
-            risultato = moltiplicaFrazioni(f1, f2);
-            printf("Risultato della moltiplicazione: ");
-            stampaFrazione(risultato);
+            // Moltiplicazione
+            risultato.numeratore = f1.numeratore * f2.numeratore;
+            risultato.denominatore = f1.denominatore * f2.denominatore;
+            printf("Risultato della moltiplicazione: %d/%d\n", risultato.numeratore, risultato.denominatore);
             break;
+            
         case 2:
-            risultato = dividiFrazioni(f1, f2);
-            printf("Risultato della divisione: ");
-            stampaFrazione(risultato);
+            // Divisione
+            risultato.numeratore = f1.numeratore * f2.denominatore;
+            risultato.denominatore = f1.denominatore * f2.numeratore;
+            printf("Risultato della divisione: %d/%d\n", risultato.numeratore, risultato.denominatore);
             break;
+            
         case 3:
-            risultato = sommaFrazioni(f1, f2);
-            printf("Risultato dell'addizione: ");
-            stampaFrazione(risultato);
+            // Addizione
+            risultato.numeratore = (f1.numeratore * f2.denominatore) + (f2.numeratore * f1.denominatore);
+            risultato.denominatore = f1.denominatore * f2.denominatore;
+            printf("Risultato dell'addizione: %d/%d\n", risultato.numeratore, risultato.denominatore);
             break;
+            
         case 4:
-            risultato = sottraiFrazioni(f1, f2);
-            printf("Risultato della sottrazione: ");
-            stampaFrazione(risultato);
+            // Sottrazione
+            risultato.numeratore = (f1.numeratore * f2.denominatore) - (f2.numeratore * f1.denominatore);
+            risultato.denominatore = f1.denominatore * f2.denominatore;
+            printf("Risultato della sottrazione: %d/%d\n", risultato.numeratore, risultato.denominatore);
             break;
+            
         default:
             printf("Scelta non valida.\n");
             break;
         }
+        
         printf("Vuoi eseguire un'altra operazione? (s/n): ");
         scanf(" %c", &continua);
     } while (continua == 's' || continua == 'S');
+    
     return 0;
 }
