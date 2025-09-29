@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Definizione della struttura per rappresentare una frazione
 typedef struct{
     int numeratore;
     int denominatore;
