@@ -13,8 +13,6 @@ int main()
     int scelta;
     char continua;
 
-    do
-    {
         // Inserimento della prima frazione
         printf("Inserisci il numeratore della prima frazione: ");
         scanf("%d", &f1.numeratore);
@@ -40,7 +38,7 @@ int main()
                 printf("Il denominatore non puo' essere 0. Riprova.\n");
             }
         } while (f2.denominatore == 0);
-
+    do{
         // Scelta dell'operazione
         printf("Scegli l'operazione da eseguire:\n");
         printf("1) Moltiplicazione delle frazioni\n");
