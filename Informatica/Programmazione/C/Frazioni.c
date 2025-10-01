@@ -8,8 +8,9 @@ typedef struct{
     int denominatore;
 } Frazione;
 
-int main()
-{
+// funzioni per esewguire i calcoli
+
+int main(){
     Frazione f1, f2, risultato;
     int scelta;
     char continua;
@@ -17,12 +18,10 @@ int main()
         // Inserimento della prima frazione
         printf("Inserisci il numeratore della prima frazione: ");
         scanf("%d", &f1.numeratore);
-        do
-        {
+        do{
             printf("Inserisci il denominatore della prima frazione (diverso da 0): ");
             scanf("%d", &f1.denominatore);
-            if (f1.denominatore == 0)
-            {
+            if (f1.denominatore == 0){
                 printf("Il denominatore non puo' essere 0. Riprova.\n");
             }
         } while (f1.denominatore == 0);
@@ -30,12 +29,10 @@ int main()
         // Inserimento della seconda frazione
         printf("Inserisci il numeratore della seconda frazione: ");
         scanf("%d", &f2.numeratore);
-        do
-        {
+        do{
             printf("Inserisci il denominatore della seconda frazione (diverso da 0): ");
             scanf("%d", &f2.denominatore);
-            if (f2.denominatore == 0)
-            {
+            if (f2.denominatore == 0){
                 printf("Il denominatore non puo' essere 0. Riprova.\n");
             }
         } while (f2.denominatore == 0);
@@ -48,11 +45,10 @@ int main()
         printf("3) Addizione tra due frazioni\n");
         printf("4) Sottrazione tra due frazioni\n");
         printf("Scelta: ");
-        scanf("%s", &scelta);
+        scanf("%d", &scelta);
 
         // Esecuzione delle operazioni direttamente nel main
-        switch (scelta)
-        {
+        switch (scelta){
         case 1:
             // Moltiplicazione
             risultato.numeratore = f1.numeratore * f2.numeratore;
@@ -87,7 +83,7 @@ int main()
         }
         
         printf("Vuoi eseguire un'altra operazione? (s/n): ");
-        scanf("%d", &continua);
+        scanf("%s", &continua);
     } while (continua == 's' || continua == 'S');
     
     return 0;
