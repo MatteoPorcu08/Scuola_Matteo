@@ -11,7 +11,8 @@ typedef struct{
 int main()
 {
     Frazione f1, f2, risultato;
-    int scelta,continua;
+    int continua;
+    char scelta;
 
         // Inserimento della prima frazione
         printf("Inserisci il numeratore della prima frazione: ");
@@ -86,7 +87,7 @@ int main()
         }
         
         printf("Vuoi eseguire un'altra operazione? (s/n): ");
-        scanf(" %d", &continua);
+        scanf("%s", &continua);
     } while (continua == 's' || continua == 'S');
     
     return 0;
