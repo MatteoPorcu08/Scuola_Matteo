@@ -9,7 +9,8 @@ typedef struct{
 } Frazione;
 
 // funzioni per eseguire i calcoli
-
+void inserisci(Frazione F1);
+Frazione 
 
 int main(){
     Frazione f1, f2, risultato;
