@@ -1,0 +1,16 @@
+public class Main {
+
+    public static void main(String[] var0) {
+        int a;
+        int c;
+        float m;
+        a = 2;
+        c = 5;
+        m = (a + c) / 2;
+        String nome = "Matteo";
+        System.out.println(m);
+        System.out.println("HelloWorld");
+        System.out.println("Ciao" + nome + "/\n come stai?");
+    }
+
+}
