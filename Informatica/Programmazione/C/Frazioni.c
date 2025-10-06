@@ -8,7 +8,6 @@ typedef struct{
     int denominatore;
 } Frazione;
 
-// funzioni per esewguire i calcoli
 
 int main(){
     Frazione f1, f2, risultato;
