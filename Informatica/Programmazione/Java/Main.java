@@ -8,6 +8,7 @@ public class Main {
         c = 5;
         m = (a + c) / 2;
         System.out.println(m);
+        System.out.println(HelloWorld);
     }
 
 }
