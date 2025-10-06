@@ -7,8 +7,10 @@ public class Main {
         a = 2;
         c = 5;
         m = (a + c) / 2;
+        String nome = "Matteo";
         System.out.println(m);
-        System.out.println(HelloWorld);
+        System.out.println("HelloWorld");
+        System.out.println("Ciao" + nome + "/\n come stai?");
     }
 
 }
