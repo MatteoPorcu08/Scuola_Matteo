@@ -20,7 +20,7 @@ int main(){
         do{
             printf("Inserisci il denominatore della prima frazione (diverso da 0): ");
             scanf("%d", &f1.denominatore);
-            if (f1.denominatore == 0){
+            if (f1.denominatore == 0){ //controllo se il denominatore è diverso da 0
                 printf("Il denominatore non puo' essere 0. Riprova.\n");
             }
         } while (f1.denominatore == 0);
@@ -31,7 +31,7 @@ int main(){
         do{
             printf("Inserisci il denominatore della seconda frazione (diverso da 0): ");
             scanf("%d", &f2.denominatore);
-            if (f2.denominatore == 0){
+            if (f2.denominatore == 0){ //conrollo se il denominatore è divverso da 0
                 printf("Il denominatore non puo' essere 0. Riprova.\n");
             }
         } while (f2.denominatore == 0);
