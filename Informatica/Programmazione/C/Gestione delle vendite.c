@@ -19,13 +19,19 @@ Prevedere un array di vendite.*/
 typedef struct{
     int codice_vendita;
     char nome_prodotto;
-    int vendita;
+    int quantita_venduta;
     float prezzo_prodotto;
 
 }vendita;
 
+typedef struct{
+    int giorno;
+    int mese;
+    int anno;
+}data;
+
 
 int main(){
-
+    
 
 }
