@@ -17,12 +17,12 @@ Prevedere un array di vendite.*/
 #include <string.h>
 
 typedef struct{
-    int codice;
-    char nome;
+    int codice_vendita;
+    char nome_prodotto;
     int vendita;
-    float prezzo;
+    float prezzo_prodotto;
 
-};
+}vendita;
 
 
 int main(){
