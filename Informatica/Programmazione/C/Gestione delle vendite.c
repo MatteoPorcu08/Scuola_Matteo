@@ -32,6 +32,12 @@ typedef struct{
 
 
 int main(){
-    
+    vendita v1;
+
+    printf("Inserisci il codice della vendita:");
+    scanf("%d",&v1.codice_vendita);
+    printf("Inserisci il nome del prodotto:");
+    scanf("%s",&v1.nome_prodotto);
+
 
 }
