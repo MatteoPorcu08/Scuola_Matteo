@@ -33,11 +33,19 @@ typedef struct{
 
 int main(){
     vendita v1;
+    data d1;
 
+
+    //chiede di inserire i dati della vendita
     printf("Inserisci il codice della vendita:");
     scanf("%d",&v1.codice_vendita);
     printf("Inserisci il nome del prodotto:");
     scanf("%s",&v1.nome_prodotto);
+    printf("Inserisci la quantita' della venduta:");
+    scanf("%d",v1.quantita_venduta);
+    printf("Inserisci il prezzo del prodotto:");
+    scanf("%f",v1.prezzo_prodotto);
 
-
+    //stampa i dati della vendita
+    printf("Il codice della vendita e':")
 }
