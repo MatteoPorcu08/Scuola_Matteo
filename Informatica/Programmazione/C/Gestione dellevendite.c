@@ -20,5 +20,13 @@ typedef struct{
 } Vendita;
 
 int main(){
+    Vendita v[N];
+    printf("---Questo programma gestisce le vendite di prodotti.---\n");
+    do{
+        printf("Scegli quale operazione vuoi eseguire:\n");
+        printf("1. Inserisci una vendita\n");
+        printf("2. Visualizza tutte le vendite effetuate\n");
+        printf("3.
+    }
 
 }
