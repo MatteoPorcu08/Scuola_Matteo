@@ -1,13 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define N 100
 
+// Strutture dati
 typedef struct{
-    char codice_vendita[10];
-    char nome_prodotto[50];
+    int giorno;
+    int mese;
+    int anno;
+} Data;
+
+// Struttura per rappresentare un prodotto venduto
+typedef struct{ 
+    int codice_vendita;
+    char nome_prodotto[N];
     float prezzo_prodotto;
     int quantita_venduta;
-} Prodotto;
+    Data data_vendita;
+} Vendita;
 
 int main(){
 
