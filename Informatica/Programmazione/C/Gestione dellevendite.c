@@ -21,12 +21,38 @@ typedef struct{
 
 int main(){
     Vendita v[N];
+    char scelta;
+    int s;
+
+
     printf("---Questo programma gestisce le vendite di prodotti.---\n");
     do{
         printf("Scegli quale operazione vuoi eseguire:\n");
         printf("1. Inserisci una vendita\n");
         printf("2. Visualizza tutte le vendite effetuate\n");
-        printf("3.
-    }
+        printf("3. Calcola il totale delle vendite in un giorno specifico\n");
+        scanf("%d", &s);
+        switch(s){
+            case 1:
+            // Inserimento di una vendita
 
+            case 2:
+            // Visualizzazione di tutte le vendite
+
+            case 3:
+            // Calcolo del totale delle vendite in un giorno specifico
+        }
+   
+        
+        printf("Vuoi eseguire un'altra operazione? (S/N): ");
+        scanf(" %c", &scelta);
+    }while(scelta == 'S' || scelta == 's');
+
+
+    return 0;
+
+}
+
+aggiungivendita(){
+    // Codice per inserire una vendita
 }
