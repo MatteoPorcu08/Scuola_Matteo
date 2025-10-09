@@ -22,7 +22,8 @@ typedef struct{
 Vendita v[N];
 
 // Prototipi delle funzioni
-void aggiungivendita(Vendita v[], int *num_vendite);
+void aggiungivendita();
+
 
 int main(){
     Vendita v[N];
@@ -40,6 +41,8 @@ int main(){
         switch(s){
             case 1:
             // Inserimento di una vendita
+            aggiungivendita(v, N);
+            break;
 
             case 2:
             // Visualizzazione di tutte le vendite
@@ -66,7 +69,7 @@ int main(){
 void aggiungivendita(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i]=NULL){
+        if(v[i]==0){
             printf("Inserisci il codice della vendita: ");
             scanf("%d", &v[i].codice_vendita);
             printf("Inserisci il nome del prodotto: ");
@@ -80,3 +83,19 @@ void aggiungivendita(){
         }
 
 }
+}
+
+visualizzavendite(){
+    int i;
+    for(i=0; i<N; i++){
+        if(v[i]!=NULL){
+            printf("Codice vendita: %d\n", v[i].codice_vendita);
+            printf("Nome prodotto: %s\n", v[i].nome_prodotto);
+            printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
+            printf("Quantita venduta: %d\n", v[i].quantita_venduta);
+            printf("Data vendita: %02d/%02d/%04d\n", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
+            printf("-------------------------\n");
+        }
+    }
+}
+
