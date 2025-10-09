@@ -19,6 +19,11 @@ typedef struct{
     Data data_vendita;
 } Vendita;
 
+Vendita v[N];
+
+// Prototipi delle funzioni
+void aggiungivendita(Vendita v[], int *num_vendite);
+
 int main(){
     Vendita v[N];
     char scelta;
@@ -41,6 +46,10 @@ int main(){
 
             case 3:
             // Calcolo del totale delle vendite in un giorno specifico
+
+            default:
+            printf("Scelta non valida. Riprova.\n");
+            break;
         }
    
         
@@ -53,6 +62,9 @@ int main(){
 
 }
 
-aggiungivendita(){
-    // Codice per inserire una vendita
+// Funzione per aggiungere una vendita
+void aggiungivendita(){
+    
+
+    
 }
