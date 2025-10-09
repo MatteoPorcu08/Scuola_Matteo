@@ -23,6 +23,8 @@ Vendita v[N];
 
 // Prototipi delle funzioni
 void aggiungivendita();
+void visualizzavendite();
+void calcolatotalevendite();
 
 
 int main(){
@@ -46,9 +48,13 @@ int main(){
 
             case 2:
             // Visualizzazione di tutte le vendite
+            visualizzavendite(v, N);
+            break;
 
             case 3:
             // Calcolo del totale delle vendite in un giorno specifico
+            calcolatotalevendite(v, N);
+            break;
 
             default:
             printf("Scelta non valida. Riprova.\n");
@@ -69,7 +75,7 @@ int main(){
 void aggiungivendita(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i]==0){
+        if(v[i].codice_vendita == NULL){
             printf("Inserisci il codice della vendita: ");
             scanf("%d", &v[i].codice_vendita);
             printf("Inserisci il nome del prodotto: ");
@@ -85,10 +91,11 @@ void aggiungivendita(){
 }
 }
 
-visualizzavendite(){
+// Funzione per visualizzare tutte le vendite
+void visualizzavendite(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i]!=NULL){
+        if(v[i].codice_vendita=NULL){
             printf("Codice vendita: %d\n", v[i].codice_vendita);
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
@@ -97,5 +104,23 @@ visualizzavendite(){
             printf("-------------------------\n");
         }
     }
+}
+
+// Funzione per calcolare il totale delle vendite in un giorno specifico
+void calcolatotalevendite(){
+    int giorno, mese, anno;
+    float totale = 0.0;
+    int i;
+
+    printf("Inserisci la data (gg mm aaaa) per calcolare il totale delle vendite: ");
+    scanf("%d %d %d", &giorno, &mese, &anno);
+
+    for(i=0; i<N; i++){
+        if(v[i].data_vendita.giorno == giorno && v[i].data_vendita.mese == mese && v[i].data_vendita.anno == anno){
+            totale += v[i].prezzo_prodotto * v[i].quantita_venduta;
+        }
+    }
+
+    printf("Il totale delle vendite del %02d/%02d/%04d e': %.2f\n", giorno, mese, anno, totale);
 }
 
