@@ -32,7 +32,7 @@ int main(){
 
     printf("---Questo programma gestisce le vendite di prodotti.---\n");
     do{
-        printf("Scegli quale operazione vuoi eseguire:\n");
+        printf("--Scegli quale operazione vuoi eseguire:--\n");
         printf("1. Inserisci una vendita\n");
         printf("2. Visualizza tutte le vendite effetuate\n");
         printf("3. Calcola il totale delle vendite in un giorno specifico\n");
@@ -64,7 +64,20 @@ int main(){
 
 // Funzione per aggiungere una vendita
 void aggiungivendita(){
-    
+    int i;
+    for(i=0; i<N; i++){
+        if(v[i]=NULL){
+            printf("Inserisci il codice della vendita: ");
+            scanf("%d", &v[i].codice_vendita);
+            printf("Inserisci il nome del prodotto: ");
+            scanf("%s", v[i].nome_prodotto);
+            printf("Inserisci il prezzo del prodotto: ");
+            scanf("%f", &v[i].prezzo_prodotto);
+            printf("Inserisci la quantita venduta: ");
+            scanf("%d", &v[i].quantita_venduta);
+            printf("Inserisci la data della vendita (gg mm aaaa): ");
+            scanf("%d %d %d", &v[i].data_vendita.giorno, &v[i].data_vendita.mese, &v[i].data_vendita.anno);
+            break;
+        }
 
-    
 }
