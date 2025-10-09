@@ -77,7 +77,6 @@ void aggiungivendita(){
             scanf("%d", &v[i].quantita_venduta);
             printf("Inserisci la data della vendita (gg mm aaaa): ");
             scanf("%d %d %d", &v[i].data_vendita.giorno, &v[i].data_vendita.mese, &v[i].data_vendita.anno);
-            break;
         }
 
 }
