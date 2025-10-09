@@ -50,4 +50,7 @@ int main(){
     printf("Il codice della vendita e' %d:",v1.codice_vendita);
     printf("Il nome del prodotto e' %s:",v1.nome_prodotto);
     printf("La quantita della venduta e' %d:",v1.quantita_venduta);
+    printf("Il prezzo del prodotto e' %f",v1.prezzo_prodotto);
+
+    return 0;
 }
