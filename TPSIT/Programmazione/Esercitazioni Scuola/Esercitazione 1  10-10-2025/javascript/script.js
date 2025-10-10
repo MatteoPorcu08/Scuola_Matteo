@@ -7,6 +7,22 @@ let risultato;
 switch(scelta){
     case 1:
         alert("Il risultato della somma è:");
-        risultato=
+        risultato=num1+num2;
+        break;
+    case 2:
+        alert("Il risultato della sottrazione è:");
+        risultato=num1-num2;
+        break;
+    case 3:
+        alert("Il risultato della divisione è:");
+        risultato=num1/num2;
+        break;
+    case 4:
+        alert("Il risultato della moltiplicazione è:");
+        risultato=num1*num2;
+        break;
+    default:
+        alert("Operazione non valida.Riprova!");
+        risultato = null;
 
 }
