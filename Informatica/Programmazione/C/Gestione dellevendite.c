@@ -75,7 +75,7 @@ int main(){
 void aggiungivendita(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i].codice_vendita == NULL){
+        if(v[i].codice_vendita == 0){ // Trova la prima posizione libera
             printf("Inserisci il codice della vendita: ");
             scanf("%d", &v[i].codice_vendita);
             printf("Inserisci il nome del prodotto: ");
@@ -84,13 +84,15 @@ void aggiungivendita(){
             scanf("%f", &v[i].prezzo_prodotto);
             printf("Inserisci la quantita venduta: ");
             scanf("%d", &v[i].quantita_venduta);
-           printf("Inserisci la data di acquisto. Giorno: ");
-                scanf("%d", &v[i].giornaliera.giorno);
-                printf("Mese: ");
-                scanf("%d", &v[i].giornaliera.mese);
-                printf("Anno: ");
-                scanf("%d", &v[i].giornaliera.anno);
-
+            printf("Inserisci la data di acquisto. Giorno: ");
+            scanf("%d", &v[i].data_vendita.giorno);
+            printf("Mese: ");
+            scanf("%d", &v[i].data_vendita.mese);
+            printf("Anno: ");
+            scanf("%d", &v[i].data_vendita.anno);
+            break;
+        
+        }
 }
 }
 
@@ -102,25 +104,26 @@ void visualizzavendite(){
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
             printf("Quantita venduta: %d\n", v[i].quantita_venduta);
-            printf("Data vendita: %02d/%02d/%04d\n", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
-    }
+            printf("Data vendita:", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
+            printf("\n-----------------------\n");
+}
 }
 
 // Funzione per calcolare il totale delle vendite in un giorno specifico
 void calcolatotalevendite(){
     int giorno, mese, anno;
     float totale = 0.0;
-    int i;
-
-    printf("Inserisci la data (gg mm aaaa) per calcolare il totale delle vendite: ");
-    scanf("%d %d %d", &giorno, &mese, &anno);
-
-    for(i=0; i<N; i++){
+    printf("Inserisci la data per calcolare il totale delle vendite. Giorno: ");
+    scanf("%d", &giorno);
+    printf("Mese: ");
+    scanf("%d", &mese);
+    printf("Anno: ");
+    scanf("%d", &anno);
+    for(int i=0; i<N; i++){
         if(v[i].data_vendita.giorno == giorno && v[i].data_vendita.mese == mese && v[i].data_vendita.anno == anno){
             totale += v[i].prezzo_prodotto * v[i].quantita_venduta;
         }
     }
-
     printf("Il totale delle vendite del %02d/%02d/%04d e': %.2f\n", giorno, mese, anno, totale);
 }
 
