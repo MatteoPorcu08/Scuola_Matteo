@@ -83,7 +83,7 @@ void aggiungivendita(){
             scanf("%s", v[i].nome_prodotto);
             printf("Inserisci il prezzo del prodotto: ");
             scanf("%f", &v[i].prezzo_prodotto);
-            printf("Inserisci la quantita' venduta: ");
+            printf("Inserisci la quantita' venduta (Kg): ");
             scanf("%d", &v[i].quantita_venduta);
             printf("Inserisci la data di acquisto. Giorno: ");
             scanf("%d", &v[i].data_vendita.giorno);
