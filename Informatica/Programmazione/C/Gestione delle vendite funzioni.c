@@ -12,7 +12,7 @@ typedef struct{
 
 // Struttura per rappresentare un prodotto venduto
 typedef struct{ 
-    char codice_vendita[N];
+    int codice_vendita;
     char nome_prodotto[N];
     float prezzo_prodotto;
     int quantita_venduta;
@@ -78,7 +78,7 @@ void aggiungivendita(){
     for(i=0; i<N; i++){
         if(v[i].codice_vendita == 0){ // Trova la prima posizione libera
             printf("Inserisci il codice della vendita: ");
-            scanf("%s", &v[i].codice_vendita);
+            scanf("%d", &v[i].codice_vendita);
             printf("Inserisci il nome del prodotto: ");
             scanf("%s", v[i].nome_prodotto);
             printf("Inserisci il prezzo del prodotto Eur: ");
@@ -103,7 +103,7 @@ void visualizzavendite(){
     for(i=0; i<N; i++){
         if(v[i].codice_vendita != 0){ // Visualizza solo le vendite inserite
             printf("-----Vendita %d-----\n", i+1);
-            printf("Codice vendita: %s\n", v[i].codice_vendita);
+            printf("Codice vendita: %d\n", v[i].codice_vendita);
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f Eur\n", v[i].prezzo_prodotto);
             printf("Quantita' venduta: %d Kg\n", v[i].quantita_venduta);
