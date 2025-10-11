@@ -84,9 +84,12 @@ void aggiungivendita(){
             scanf("%f", &v[i].prezzo_prodotto);
             printf("Inserisci la quantita venduta: ");
             scanf("%d", &v[i].quantita_venduta);
-            printf("Inserisci la data della vendita (gg mm aaaa): ");
-            scanf("%d %d %d", &v[i].data_vendita.giorno, &v[i].data_vendita.mese, &v[i].data_vendita.anno);
-        }
+           printf("Inserisci la data di acquisto. Giorno: ");
+                scanf("%d", &v[i].giornaliera.giorno);
+                printf("Mese: ");
+                scanf("%d", &v[i].giornaliera.mese);
+                printf("Anno: ");
+                scanf("%d", &v[i].giornaliera.anno);
 
 }
 }
@@ -95,14 +98,11 @@ void aggiungivendita(){
 void visualizzavendite(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i].codice_vendita==NULL){
             printf("Codice vendita: %d\n", v[i].codice_vendita);
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
             printf("Quantita venduta: %d\n", v[i].quantita_venduta);
             printf("Data vendita: %02d/%02d/%04d\n", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
-
-        }
     }
 }
 
