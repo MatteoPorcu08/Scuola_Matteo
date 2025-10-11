@@ -101,11 +101,13 @@ void visualizzavendite(){
     int i;
     for(i=0; i<N; i++){
         if(v[i].codice_vendita != 0){ // Visualizza solo le vendite inserite
+            printf("-----Vendita %d-----\n", i+1);
             printf("Codice vendita: %d\n", v[i].codice_vendita);
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
             printf("Quantita venduta: %d\n", v[i].quantita_venduta);
-            printf("Data vendita: %d,%d,%d", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
+            printf("Data vendita: %d/%d/%d", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
+            printf("\n-------------------\n");
         }
 }
 }
@@ -120,6 +122,11 @@ void calcolatotalevendite(){
     scanf("%d", &mese);
     printf("Anno: ");
     scanf("%d", &anno);
+    for(int i=0; i<N; i++){
+        if(v[i].codice_vendita != 0 && v[i].data_vendita.giorno == giorno && v[i].data_vendita.mese == mese && v[i].data_vendita.anno == anno){
+            totale += v[i].prezzo_prodotto * v[i].quantita_venduta;
+        }
+    }
     printf("Il totale delle vendite del %02d/%02d/%04d e': %.2f\n", giorno, mese, anno, totale);
 }
 
