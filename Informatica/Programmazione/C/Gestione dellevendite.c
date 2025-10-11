@@ -101,7 +101,6 @@ void visualizzavendite(){
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
             printf("Quantita venduta: %d\n", v[i].quantita_venduta);
             printf("Data vendita: %02d/%02d/%04d\n", v[i].data_vendita.giorno, v[i].data_vendita.mese, v[i].data_vendita.anno);
-            printf("-------------------------\n");
         }
     }
 }
