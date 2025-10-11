@@ -100,7 +100,7 @@ void aggiungivendita(){
 void visualizzavendite(){
     int i;
     for(i=0; i<N; i++){
-        if(v[i].codice_vendita == 0){ // Visualizza solo le vendite inserite
+        if(v[i].codice_vendita != 0){ // Visualizza solo le vendite inserite
             printf("Codice vendita: %d\n", v[i].codice_vendita);
             printf("Nome prodotto: %s\n", v[i].nome_prodotto);
             printf("Prezzo prodotto: %.2f\n", v[i].prezzo_prodotto);
