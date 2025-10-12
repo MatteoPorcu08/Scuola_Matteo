@@ -26,23 +26,33 @@ int main() {
         printf("1) Aggiungi dipendente\n2) Mostra dipendenti\n3) Somma stipendi\nScelta: ");
         scanf("%d", &scelta);
         switch(scelta){
-            case 1: aggiungiDipendente(); break;
-            case 2: mostraDipendenti(); break;
-            case 3: totale = sommaStipendi(); printf("Totale stipendi: %.2f\n", totale); break;
-            default: printf("Scelta non valida\n");
+            case 1: 
+                aggiungiDipendente(); break;
+            case 2: 
+                mostraDipendenti(); break;
+            case 3: totale = sommaStipendi();
+                printf("Totale stipendi: %.2f\n", totale); break;
+            default: 
+                printf("Scelta non valida\n");
         }
-        printf("Continua? (S/N) "); scanf(" %c", &continua);
+        printf("Continua? (S/N) ");
+        scanf(" %c", &continua);
     } while(continua=='S'||continua=='s');
 }
 
 void aggiungiDipendente() {
     for(int i=0;i<N;i++){
         if(dipendenti[i].id==0){
-            printf("ID dipendente: "); scanf("%d",&dipendenti[i].id);
-            printf("Nome: "); scanf("%s", dipendenti[i].nome);
-            printf("Cognome: "); scanf("%s", dipendenti[i].cognome);
-            printf("Stipendio: "); scanf("%f",&dipendenti[i].stipendio);
-            printf("Data assunzione (gg mm aaaa): "); scanf("%d %d %d",&dipendenti[i].dataAssunzione.giorno,&dipendenti[i].dataAssunzione.mese,&dipendenti[i].dataAssunzione.anno);
+            printf("ID dipendente: "); 
+            scanf("%d",&dipendenti[i].id);
+            printf("Nome: "); 
+            scanf("%s", dipendenti[i].nome);
+            printf("Cognome: "); 
+            scanf("%s", dipendenti[i].cognome);
+            printf("Stipendio: ");
+             scanf("%f",&dipendenti[i].stipendio);
+            printf("Data assunzione (gg mm aaaa): "); 
+            scanf("%d %d %d",&dipendenti[i].dataAssunzione.giorno,&dipendenti[i].dataAssunzione.mese,&dipendenti[i].dataAssunzione.anno);
             printf("Dipendente aggiunto!\n");
             return;
         }
