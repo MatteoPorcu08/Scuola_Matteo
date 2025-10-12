@@ -1,56 +1,78 @@
 #include <stdio.h>
-#define N 20
+#include <string.h>
 
+#define N 20 // Numero massimo di vendite registrabili
+
+// Struct per la data
 typedef struct {
-    int giorno, mese, anno;
+    int giorno;
+    int mese;
+    int anno;
 } Data;
 
+// Struct per la vendita
 typedef struct {
     int codice;
-    char nome[20];
+    char nome[30];
     int quantita;
     float prezzo;
-    Data data;
-} Prodotto;
+    Data dataVendita;
+} Vendita;
 
-Prodotto p[N];
+// Array di vendite
+Vendita vendite[N];
 
-void aggiungi();
-void mostra();
-float totaleAnno();
+// Dichiarazione funzioni
+void aggiungiVendita();
+void mostraVendite();
+float totaleVendite();
 
 int main() {
-    int scelta; char continua; float tot;
+    int scelta;
+    char continua;
+
     do {
         printf("\n=== GESTIONE VENDITE ===\n");
-        printf("1) Aggiungi vendita\n2) Mostra vendite\n3) Totale anno\nScelta: "); 
-        scanf("%d",&scelta);
-        switch(scelta){
-            case 1: aggiungi(); break;
-            case 2: mostra(); break;
-            case 3: tot=totaleAnno(); 
-            printf("Totale venduto nell'anno: %.2f\n",tot); break;
-            default: 
-            printf("Scelta non valida\n");
+        printf("1) Aggiungi una nuova vendita\n");
+        printf("2) Mostra tutte le vendite\n");
+        printf("3) Calcola il totale delle vendite\n");
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+
+        switch(scelta) {
+            case 1: aggiungiVendita(); break;
+            case 2: mostraVendite(); break;
+            case 3: printf("Totale vendite: %.2f\n", totaleVendite()); break;
+            default: printf("Scelta non valida\n");
         }
-        printf("Continua? (S/N) "); 
-        scanf(" %c",&continua);
-    } while(continua=='S'||continua=='s');
+
+        printf("Vuoi continuare? (S/N): ");
+        scanf(" %c", &continua);
+
+    } while(continua=='S' || continua=='s');
+
+    return 0;
 }
 
-void aggiungi(){
-    for(int i=0;i<N;i++){
-        if(p[i].codice==0){
-            printf("Codice prodotto: "); 
-            scanf("%d",&p[i].codice);
-            printf("Nome prodotto: "); 
-            scanf("%s",p[i].nome);
-            printf("Quantita': "); 
-            scanf("%d",&p[i].quantita);
-            printf("Prezzo: "); 
-            scanf("%f",&p[i].prezzo);
-            printf("Data vendita (gg mm aaaa): "); 
-            scanf("%d %d %d",&p[i].data.giorno,&p[i].data.mese,&p[i].data.anno);
+// Funzione per aggiungere una vendita
+void aggiungiVendita() {
+    for(int i=0; i<N; i++) {
+        if(vendite[i].codice == 0) { // Controlla se lo slot è vuoto
+            printf("Inserisci il codice del prodotto: ");
+            scanf("%d", &vendite[i].codice);
+
+            printf("Inserisci il nome del prodotto: ");
+            scanf("%s", vendite[i].nome);
+
+            printf("Inserisci la quantita': ");
+            scanf("%d", &vendite[i].quantita);
+
+            printf("Inserisci il prezzo unitario: ");
+            scanf("%f", &vendite[i].prezzo);
+
+            printf("Inserisci la data di vendita (gg mm aaaa): ");
+            scanf("%d %d %d", &vendite[i].dataVendita.giorno, &vendite[i].dataVendita.mese, &vendite[i].dataVendita.anno);
+
             printf("Vendita aggiunta!\n");
             return;
         }
@@ -58,23 +80,31 @@ void aggiungi(){
     printf("Archivio pieno!\n");
 }
 
-void mostra(){
-    int count=0;
-    for(int i=0;i<N;i++)
-        if(p[i].codice!=0){
+// Funzione per mostrare tutte le vendite
+void mostraVendite() {
+    int count = 0;
+    for(int i=0; i<N; i++) {
+        if(vendite[i].codice != 0) {
             count++;
-            printf("\nVendita %d: %d %s %d %.2f %02d/%02d/%d\n",count,p[i].codice,p[i].nome,p[i].quantita,p[i].prezzo,p[i].data.giorno,p[i].data.mese,p[i].data.anno);
+            printf("\nVendita %d\n", count);
+            printf("Codice: %d\n", vendite[i].codice);
+            printf("Nome: %s\n", vendite[i].nome);
+            printf("Quantita': %d\n", vendite[i].quantita);
+            printf("Prezzo unitario: %.2f\n", vendite[i].prezzo);
+            printf("Prezzo totale: %.2f\n", vendite[i].quantita * vendite[i].prezzo);
+            printf("Data vendita: %02d/%02d/%04d\n", vendite[i].dataVendita.giorno, vendite[i].dataVendita.mese, vendite[i].dataVendita.anno);
         }
-    if(count==0) printf("Nessuna vendita registrata.\n");
+    }
+    if(count == 0) printf("Nessuna vendita registrata.\n");
 }
 
-float totaleAnno(){
-    int anno; float tot=0;
-    printf("Inserisci anno: "); 
-    scanf("%d",&anno);
-    for(int i=0;i<N;i++)
-        if(p[i].codice!=0 && p[i].data.anno==anno) {
-            tot += p[i].quantita*p[i].prezzo;
+// Funzione per calcolare il totale delle vendite
+float totaleVendite() {
+    float totale = 0;
+    for(int i=0; i<N; i++) {
+        if(vendite[i].codice != 0) {
+            totale += vendite[i].quantita * vendite[i].prezzo;
         }
-    return tot;
+    }
+    return totale;
 }

@@ -1,61 +1,73 @@
 #include <stdio.h>
-#define N 20
+#include <string.h>
+
+#define N 20 // Numero massimo di libri
 
 typedef struct {
-    int giorno, mese, anno;
+    int giorno;
+    int mese;
+    int anno;
 } Data;
 
 typedef struct {
     int codice;
-    char titolo[20];
-    char autore[20];
-    int copie;
-    float prezzo;
-    Data dataVendita;
+    char titolo[30];
+    char autore[30];
+    int pagine;
+    Data dataAcquisto;
 } Libro;
 
-Libro libri[N];
+Libro biblioteca[N];
 
 void aggiungiLibro();
 void mostraLibri();
-float totaleVenduto();
+int totalePagine();
 
 int main() {
-    int scelta; char continua; float tot;
+    int scelta;
+    char continua;
+
     do {
-        printf("\n=== GESTIONE LIBRERIA ===\n");
-        printf("1) Aggiungi libro\n2) Mostra libri\n3) Totale venduto anno\nScelta: "); 
-        scanf("%d",&scelta);
-        switch(scelta){
-            case 1: 
-            aggiungiLibro(); break;
-            case 2: 
-            mostraLibri(); break;
-            case 3: 
-            tot = totaleVenduto(); printf("Totale venduto: %.2f\n", tot); break;
-            default: 
-            printf("Scelta non valida\n");
+        printf("\n=== GESTIONE LIBRI ===\n");
+        printf("1) Aggiungi libro\n");
+        printf("2) Mostra tutti i libri\n");
+        printf("3) Calcola totale pagine\n");
+        printf("Scelta: ");
+        scanf("%d", &scelta);
+
+        switch(scelta) {
+            case 1: aggiungiLibro(); break;
+            case 2: mostraLibri(); break;
+            case 3: printf("Totale pagine: %d\n", totalePagine()); break;
+            default: printf("Scelta non valida\n");
         }
-        printf("Continua? (S/N) "); 
+
+        printf("Vuoi continuare? (S/N): ");
         scanf(" %c", &continua);
-    } while(continua=='S'||continua=='s');
+
+    } while(continua=='S' || continua=='s');
+
+    return 0;
 }
 
 void aggiungiLibro() {
-    for(int i=0;i<N;i++){
-        if(libri[i].codice==0){
-            printf("Codice libro: "); 
-            scanf("%d",&libri[i].codice);
-            printf("Titolo: "); 
-            scanf("%s", libri[i].titolo);
-            printf("Autore: "); 
-            scanf("%s", libri[i].autore);
-            printf("Copie vendute: "); 
-            scanf("%d",&libri[i].copie);
-            printf("Prezzo unitario: "); 
-            scanf("%f",&libri[i].prezzo);
-            printf("Data vendita (gg mm aaaa): "); 
-            scanf("%d %d %d",&libri[i].dataVendita.giorno,&libri[i].dataVendita.mese,&libri[i].dataVendita.anno);
+    for(int i=0; i<N; i++) {
+        if(biblioteca[i].codice == 0) {
+            printf("Codice libro: ");
+            scanf("%d", &biblioteca[i].codice);
+
+            printf("Titolo: ");
+            scanf("%s", biblioteca[i].titolo);
+
+            printf("Autore: ");
+            scanf("%s", biblioteca[i].autore);
+
+            printf("Numero pagine: ");
+            scanf("%d", &biblioteca[i].pagine);
+
+            printf("Data acquisto (gg mm aaaa): ");
+            scanf("%d %d %d", &biblioteca[i].dataAcquisto.giorno, &biblioteca[i].dataAcquisto.mese, &biblioteca[i].dataAcquisto.anno);
+
             printf("Libro aggiunto!\n");
             return;
         }
@@ -64,23 +76,27 @@ void aggiungiLibro() {
 }
 
 void mostraLibri() {
-    int count=0;
-    for(int i=0;i<N;i++)
-        if(libri[i].codice!=0){
+    int count = 0;
+    for(int i=0; i<N; i++) {
+        if(biblioteca[i].codice != 0) {
             count++;
-            printf("\nLibro %d: %d %s %s %d %.2f %02d/%02d/%d\n", count, libri[i].codice, libri[i].titolo, libri[i].autore, libri[i].copie, libri[i].prezzo, libri[i].dataVendita.giorno, libri[i].dataVendita.mese, libri[i].dataVendita.anno);
+            printf("\nLibro %d\n", count);
+            printf("Codice: %d\n", biblioteca[i].codice);
+            printf("Titolo: %s\n", biblioteca[i].titolo);
+            printf("Autore: %s\n", biblioteca[i].autore);
+            printf("Pagine: %d\n", biblioteca[i].pagine);
+            printf("Data acquisto: %02d/%02d/%04d\n", biblioteca[i].dataAcquisto.giorno, biblioteca[i].dataAcquisto.mese, biblioteca[i].dataAcquisto.anno);
         }
-    if(count==0) {
-        printf("Nessun libro registrato.\n");
     }
+    if(count == 0) printf("Nessun libro registrato.\n");
 }
 
-float totaleVenduto() {
-    int anno; float tot=0;
-    printf("Inserisci anno: ");     
-    scanf("%d",&anno);
-    for(int i=0;i<N;i++){
-        if(libri[i].codice!=0 && libri[i].dataVendita.anno==anno) tot += libri[i].copie * libri[i].prezzo;
+int totalePagine() {
+    int totale = 0;
+    for(int i=0; i<N; i++) {
+        if(biblioteca[i].codice != 0) {
+            totale += biblioteca[i].pagine;
+        }
     }
-    return tot;
+    return totale;
 }
