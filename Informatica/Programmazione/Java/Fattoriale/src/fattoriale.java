@@ -5,6 +5,13 @@ Ad esempio, il fattoriale del numero 4 "4!" darà come risultato "4 x 3 x 2 x 1 
 
 public class fattoriale {
     public static void main(String[] args){
-        
+        int varA = 5;
+        int fattoriale = 1;
+
+        for(int i = varA; i > 0; i--){
+            fattoriale = fattoriale * i;
+        }
+
+        System.out.println("Il fattoriale di " + varA + " è: " + fattoriale);
     }
 }
