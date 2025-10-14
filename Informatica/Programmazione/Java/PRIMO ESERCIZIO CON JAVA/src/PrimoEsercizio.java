@@ -1,7 +1,7 @@
 /*Realizzare un programma che dati due valori interi memorizzati nelle variabili varA e varB. In seguito, scambi il valore di tali variabili e stampi a schermo il nuovo contenuto. */
 
 public class PrimoEsercizio {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int varA = 5;
         int varB = 10;
         int varC;
