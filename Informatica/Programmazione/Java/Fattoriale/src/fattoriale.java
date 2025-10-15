@@ -3,10 +3,10 @@ public class fattoriale {
     public static void main(String[] args){
         int fattoriale = 1;
 
-        // Input del numero
+        // Inserisco il numero
         Scanner input = new Scanner(System.in); // Crea un oggetto Scanner per leggere l'input
-        System.out.print("Inserisci un numero intero positivo: "); // Prompt per l'utente
-        int varA = input.nextInt(); // Legge un numero intero dall'input
+        System.out.print("Inserisci un numero: ");
+        int varA = input.nextInt(); // Legge un intero da tastiera
 
         
         // Calcolo del fattoriale
@@ -14,6 +14,7 @@ public class fattoriale {
             fattoriale = fattoriale * i;
         }
 
+        // Stampo il risultato
         System.out.println("Il fattoriale di " + varA + " è: " + fattoriale);
     }
 }
