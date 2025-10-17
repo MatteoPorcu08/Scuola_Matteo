@@ -5,7 +5,7 @@ function verifica() {
     if (password == "admin" && codice == "0000") {
     alert("Accesso speciale");
     }
-    if (password == "admin" && codice != "0000") {
+    else if (password == "admin" && codice != "0000") {
     alert("Codice errato");
     }
     if (password != "admin") {
