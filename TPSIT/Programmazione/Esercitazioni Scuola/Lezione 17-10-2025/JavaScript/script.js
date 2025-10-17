@@ -8,7 +8,7 @@ function verifica() {
     else if (password == "admin" && codice != "0000") {
     alert("Codice errato");
     }
-    if (password != "admin") {
+    else {
     alert("Accesso negato");
     }
 }
