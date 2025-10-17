@@ -1,6 +1,6 @@
 function verifica() {
-    let password = prompt("Inserisci la password:");
-    let codice = prompt("Inserisci il codice segreto:");
+    let password = document.getElementById('pass').value;
+    let codice = document.getElementById('cod').value;
 
     if (password == "admin" && codice == "0000") {
     alert("Accesso speciale");
