@@ -13,11 +13,12 @@ public class Persona {
 
 
     // COSTRUTTORE
-    public Persona (String n, String c, int e, float a) {
-        nome = n;
-        cognome = c;
-        eta = e;
-        altezza = a;
+    public Persona (String nome, String cognome, int eta, float altezza) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.eta = eta;
+        this.altezza = altezza;
 
     }
+    // SETTER:Metodi che assegnano i valori ai singoli parametri
 }
