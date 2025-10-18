@@ -8,7 +8,7 @@ function calcola() {
 
     // importo iniziale
     const importo = copies * cost;
-    alert(`Importo da pagare: €{importo.toFixed(2)} euro`);
+    alert(`Importo da pagare: ${importo.toFixed(2)} euro`);
 
     // sconto via prompt
     const scontoStr = prompt("Inserisci lo sconto percentuale da applicare (es. 5):");
