@@ -51,13 +51,11 @@ public class Persona {
         public float getAltezza () {
             return this.altezza;
         }
-        
+
         //metodo toString:serve per restituire i valori degli attributi
         public String toString () {
             return "Nome=" + this.nome + "\nCognome=" +this.cognome + "\nEtà=" + this.eta + "\nAltezza=" + this.altezza;
         }
 
     
-
-
 }
