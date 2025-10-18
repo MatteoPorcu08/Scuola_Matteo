@@ -20,5 +20,14 @@ public class Persona {
         this.altezza = altezza;
 
     }
-    // SETTER:Metodi che assegnano i valori ai singoli parametri
+    /* SETTER:Metodi che assegnano i valori ai singoli parametri
+        Possono essere pubblici (attributi dinamici) o privato (attributi statici)*/
+
+        private void setNome (String nome) {
+            this.nome = nome;
+        }
+        private void setCognome (String cognome) {
+            this.cognome = cognome;
+        }
+
 }
