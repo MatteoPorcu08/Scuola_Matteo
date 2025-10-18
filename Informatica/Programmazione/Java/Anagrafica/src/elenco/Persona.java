@@ -1,17 +1,23 @@
 package elenco;
 
 public class Persona {
-    // Attributi: nome, cognome, età, altezza
 
+    // ATTRIBUTI: nome, cognome, età, altezza
     private String nome;
     private String cognome;
     private int eta;
     private float  altezza;
 
-    // Metodi
+    // METODI
 
 
-    // Costruttore
 
-    public Persona
+    // COSTRUTTORE
+    public Persona (String n, String c, int e, float a) {
+        nome = n;
+        cognome = c;
+        eta = e;
+        altezza = a;
+
+    }
 }
