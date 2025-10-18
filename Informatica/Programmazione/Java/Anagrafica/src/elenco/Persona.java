@@ -39,6 +39,18 @@ public class Persona {
     /* GETTER: Metodi che restituiscono i valori dei singoli parametri
         Sono sempre pubblici perchè devono essere utilizati anche all'esterno della classe */
 
+        public String getNome () {
+            return this.nome;
+        }
+        public String getCognome () {
+            return this.cognome;
+        }
+        public int getEta () {
+            return this.eta;
+        }
+        public float getAltezza () {
+            return this.altezza;
+        }
 
 
 }
