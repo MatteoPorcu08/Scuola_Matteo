@@ -29,5 +29,16 @@ public class Persona {
         private void setCognome (String cognome) {
             this.cognome = cognome;
         }
+        public void setEta (int eta) {
+            this.eta = eta;
+        }
+        public void setAltezza (float altezza) {
+            this.altezza = altezza;
+        }
+    
+    /* GETTER: Metodi che restituiscono i valori dei singoli parametri
+        Sono sempre pubblici perchè devono essere utilizati anche all'esterno della classe */
+
+
 
 }
