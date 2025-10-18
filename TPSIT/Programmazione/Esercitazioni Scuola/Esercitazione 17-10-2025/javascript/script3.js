@@ -1,18 +1,19 @@
 function calcola() {
-  const copiesStr = document.getElementById("copiesInput").value;
-  const costStr = document.getElementById("costInput").value;
-  const scontoStr = document.getElementById("discountInput").value; // id corretto
+  const copieStr = document.getElementById("copiesInput").value;
+  const costoStr = document.getElementById("costInput").value;
+  const scontoStr = document.getElementById("discountInput").value;
 
-  // Conversione semplice da stringa a numero
-  const copies = parseFloat(copiesStr);
-  const cost = parseFloat(costStr);
+  // Converti le stringhe in numeri
+  const copie = parseFloat(copieStr);
+  const costo = parseFloat(costoStr);
   const sconto = parseFloat(scontoStr);
 
-  // Calcolo importo totale
-  const importo = copies * cost;
+  // Controlla se i valori sono numeri validi
+  const importo = copie * costo;
   alert(`Importo da pagare: ${importo.toFixed(2)} euro`);
 
-  // Applica sconto e mostra nuovo importo
-  const nuovoImporto = importo * (1 - sconto / 100);
-  alert(`Con il ${sconto}% di sconto dovrai pagare ${nuovoImporto.toFixed(2)} euro`);
+  // Calcola l'importo scontato
+  const importoScontato = importo * (1 - sconto / 100);
+  alert(`Con il ${sconto}% di sconto dovrai pagare ${importoScontato.toFixed(2)} euro`);
 }
+
