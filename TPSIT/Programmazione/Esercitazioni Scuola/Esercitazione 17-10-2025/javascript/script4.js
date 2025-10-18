@@ -1,16 +1,15 @@
 function calcolaVelocita() {
-    const spazioStr = prompt("Inserisci lo spazio percorso in metri:");
-    const tempoStr = prompt("Inserisci il tempo impiegato in secondi:");
+  // 1) Leggi i valori dagli input HTML
+  const spazioStr = document.getElementById("spaceInput").value;
+  const tempoStr = document.getElementById("timeInput").value;
 
-    const spazio = parseFloat((spazioStr || "").replace(",", ".").trim());
-    const tempo = parseFloat((tempoStr || "").replace(",", ".").trim());
+  // 2) Converti in numeri
+  const spazio = parseFloat(spazioStr);
+  const tempo = parseFloat(tempoStr);
 
-    // Controlli essenziali
-    if (isNaN(spazio) || isNaN(tempo) || tempo <= 0) {
-      alert("Valori non validi. Inserisci numeri e un tempo maggiore di 0.");
-      return;
-    }
+  // 3) Esegui solo i calcoli
+  const v = spazio / tempo;
 
-    const v = spazio / tempo; // m/s
-    alert(`Per uno spazio di ${spazio} metri e un tempo di ${tempo} secondi, la velocità è ${v.toFixed(2)} m/s.`);
-  }
+  // 4) Mostra il risultato con alert
+  alert(`Per uno spazio di ${spazio} metri e un tempo di ${tempo} secondi, la velocità è ${v.toFixed(2)} m/s.`);
+}
