@@ -9,7 +9,7 @@ public class Main {
         System.out.println("");
 
         //Stampa le informazioni iniziali
-        System.out.println("Informazioni iniziali:");
+        System.out.println("===Informazioni iniziali===");
         System.out.println("Profilo 1:");
         System.out.println(profilo1.toString());
         System.out.println("Influencer?:");
@@ -33,7 +33,7 @@ public class Main {
         System.out.println("");
 
         //Stampa le informazioni aggiornate
-        System.out.println("Dopo gli aggiornamenti:");
+        System.out.println("===Dopo gli aggiornamenti===");
         System.out.println("Profilo 1:");
         System.out.println(profilo1.toString());
         System.out.println(profilo1.pubblica());
