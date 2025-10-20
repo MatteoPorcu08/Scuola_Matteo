@@ -20,10 +20,6 @@ public class Main {
         System.out.println("Influencer?:");
         System.out.println(profilo2.isInfluencer());
 
-        //Aggiunge post ai profili
-        profilo1.pubblica();
-        profilo2.pubblica();
-
         //Aggiunge follower ai profili
         profilo1.aggiungiFollower();
         profilo2.aggiungiFollower();
@@ -40,11 +36,13 @@ public class Main {
         System.out.println("Dopo gli aggiornamenti:");
         System.out.println("Profilo 1:");
         System.out.println(profilo1.toString());
+        System.out.println(profilo1.pubblica());
         System.out.println("Diventato influencer?:");
         System.out.println(profilo1.isInfluencer());
         System.out.println("");
         System.out.println("Profilo 2:");
         System.out.println(profilo2.toString());
+        System.out.println(profilo2.pubblica());
         System.out.println("Diventato influencer?:");
         System.out.println(profilo2.isInfluencer());
 
