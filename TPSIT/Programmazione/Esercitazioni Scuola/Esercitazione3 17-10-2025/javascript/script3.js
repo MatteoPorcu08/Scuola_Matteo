@@ -14,6 +14,6 @@ function calcola() {
 
   // Calcola l'importo scontato
   const importoScontato = importo * (1 - sconto / 100);
-  alert(`Con il ${sconto}% di sconto dovrai pagare ${importoScontato.toFixed(2)} euro`);
+  alert("Con il " + sconto + "% di sconto dovrai pagare " + importoScontato.toFixed(2) + " euro");
 }
 

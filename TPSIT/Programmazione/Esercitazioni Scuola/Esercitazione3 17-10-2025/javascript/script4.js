@@ -11,5 +11,5 @@ function calcolaVelocita() {
     const v = spazio / tempo;
 
   // Mostra il risultato con alert
-    alert(`Per uno spazio di ${spazio} metri e un tempo di ${tempo} secondi, la velocità è ${v.toFixed(2)} m/s.`);
+    alert("Per uno spazio di " + spazio + " metri e un tempo di " + tempo + " secondi, la velocità è " + velocita + " m/s.");
 }

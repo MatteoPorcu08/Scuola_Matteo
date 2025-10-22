@@ -15,5 +15,5 @@ function calcolaIMC() {
   const imc = pesoKg / (altezzaM * altezzaM);
 
   // Mostra il risultato
-    alert(`IMC=${imc.toFixed(2)}`);
+    alert("IMC=" + imc);
 }
