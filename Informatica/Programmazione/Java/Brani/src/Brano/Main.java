@@ -8,19 +8,22 @@ public class Main {
         Canzone canzone5 = new Canzone("Shape of You", "Ed Sheeran", 233, "Pop");
 
     //Stampa dettagli canzoni
+        System.out.println("Dettagli delle canzoni:");
+        System.out.println("\n");
+        System.out.println("Detagli Canzone 1:");
         System.out.println(canzone1.stampaDettagli());
+        System.out.println("Detagli Canzone 2:");
         System.out.println(canzone2.stampaDettagli());
+        System.out.println("Detagli Canzone 3:");
         System.out.println(canzone3.stampaDettagli());
+        System.out.println("Detagli Canzone 4:");
         System.out.println(canzone4.stampaDettagli());
+        System.out.println("Detagli Canzone 5:");
         System.out.println(canzone5.stampaDettagli());
     }
 
     //Simulare riproduzioni
-    static void simulaRiproduzioni(Canzone canzone, int volte) {
-        for (int i = 0; i < volte; i++) {
-            System.out.println(canzone.riproduci());
-        }
-    }
+    canzone1.getRiproduzioni();
 
     //Testare i getter
     
