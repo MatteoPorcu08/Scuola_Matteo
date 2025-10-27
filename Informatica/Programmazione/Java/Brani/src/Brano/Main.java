@@ -9,11 +9,7 @@ public class Main {
         Canzone canzone5 = new Canzone("Shape of You", "Ed Sheeran", 233, "Pop");
 
     //Stampa Detagli Canzoni
-        stampaDettagli(canzone1);
-        stampaDettagli(canzone2);
-        stampaDettagli(canzone3);
-        stampaDettagli(canzone4);
-        stampaDettagli(canzone5);
+    stampaDettagli();
 
     //Simulazione Riproduzioni
         canzone1.riproduci();
@@ -32,10 +28,25 @@ public class Main {
         System.out.println("Durata formattata di '" + canzone2.getTitolo() + "': " + canzone2.getDurataFormattata());
         System.out.println("Categoria durata di '" + canzone3.getTitolo() + "': " + canzone3.getCategoriaDurata());
 
-
-
-
+    //Durata formattata
+        System.out.println("\nDurata formattata di tutte le canzoni:");
+        System.out.println(canzone1.getTitolo() + ": " + canzone1.getDurataFormattata());
+        System.out.println(canzone2.getTitolo() + ": " + canzone2.getDurataFormattata());
+        System.out.println(canzone3.getTitolo() + ": " + canzone3.getDurataFormattata());
+        System.out.println(canzone4.getTitolo() + ": " + canzone4.getDurataFormattata());
+        System.out.println(canzone5.getTitolo() + ": " + canzone5.getDurataFormattata());
+    
+    //ToString
+        System.out.println("\nDettagli completi delle canzoni:");
+        System.out.println(canzone1);
+        System.out.println();
+        System.out.println(canzone2);
+        System.out.println();
+        System.out.println(canzone3);
+        System.out.println();
+        System.out.println(canzone4);
+        System.out.println();
+        System.out.println(canzone5);
 
     }
-
 }

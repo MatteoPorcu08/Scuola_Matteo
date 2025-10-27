@@ -52,9 +52,9 @@ public class Canzone {
     }
 
     //Metodi Specifici
-    void riproduci() {
+    String riproduci() {
         riproduzioni++;
-        System.out.println("Riproducendo: " + titolo + " di " + artista);
+        return "Canzone '" + titolo + "' riprodotta. Totale riproduzioni: " + riproduzioni;
     }
     String getDurataFormattata() {
         int minuti = durata / 60;
