@@ -67,7 +67,7 @@ public class Canzone {
     String getCategoriaDurata(){
         if(durata < 180){
             return "Canzone Breve";
-        } else if(180 && 300){
+        } else if(durata <= 180) && (durata >= 300){
             return "Canzone Media";
         } else {
             return "Canzone Lunga";
