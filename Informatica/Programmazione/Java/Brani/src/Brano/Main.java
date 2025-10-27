@@ -1,5 +1,4 @@
 package brano;
-
 public class Main {
     public static void main(String[] args) {
         Canzone canzone1 = new Canzone("Blinding Lights", "The Weeknd", 200, "Pop");

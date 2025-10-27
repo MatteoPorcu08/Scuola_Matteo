@@ -1,12 +1,10 @@
 package brano;
-
 public class Canzone {
     private String titolo;
     private String artista;
     private int durata; // durata in secondi
     private String genere;
     private int riproduzioni;
-
 
     // Costruttore
     public Canzone (String titolo, String artista, int durata, String genere) {
