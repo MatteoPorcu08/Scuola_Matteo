@@ -22,7 +22,7 @@ public class Main {
         }
     }
 
-    //Testare i getters
+    //Testare i getter
     
 
 }
