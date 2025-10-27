@@ -9,7 +9,7 @@ public class Main {
         Canzone canzone5 = new Canzone("Shape of You", "Ed Sheeran", 233, "Pop");
 
     //Stampa Detagli Canzoni
-    stampaDettagli();
+    stampaDettagli(canzone1);
 
     //Simulazione Riproduzioni
         canzone1.riproduci();

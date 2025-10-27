@@ -59,7 +59,7 @@ public class Canzone {
     String getDurataFormattata() {
         int minuti = durata / 60;
         int secondi = durata % 60;
-        return minuti + "m " + secondi + "s";
+        return "La durata del brano è: " + minuti + " minuti e " + secondi + " secondi.";
     }
     String stampaDettagli() {
         return "Titolo: " + titolo + "\nArtista: " + artista;
