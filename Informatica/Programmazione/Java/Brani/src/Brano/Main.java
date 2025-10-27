@@ -16,6 +16,21 @@ public class Main {
         stampaDettagli(canzone5);
 
     //Simulazione Riproduzioni
+        canzone1.riproduci();
+        canzone1.riproduci();
+        canzone2.riproduci();
+        canzone3.riproduci();
+        canzone3.riproduci();
+        canzone3.riproduci();
+        canzone4.riproduci();
+        canzone5.riproduci();
+        canzone5.riproduci();
+        canzone2.riproduci();
+
+    //Test getter
+        System.out.println("\nNumero di riproduzioni di '" + canzone1.getTitolo() + "': " + canzone1.getRiproduzioni());
+        System.out.println("Durata formattata di '" + canzone2.getTitolo() + "': " + canzone2.getDurataFormattata());
+        System.out.println("Categoria durata di '" + canzone3.getTitolo() + "': " + canzone3.getCategoriaDurata());
 
 
 

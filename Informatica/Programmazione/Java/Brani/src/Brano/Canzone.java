@@ -59,15 +59,15 @@ public class Canzone {
     String getDurataFormattata() {
         int minuti = durata / 60;
         int secondi = durata % 60;
-        return String.format("%02d:%02d", minuti, secondi);
+        return minuti + "m " + secondi + "s";
     }
     String stampaDettagli() {
-        return "Titolo: " + titolo + "\nArtista: " + artista + "\nDurata: " + getDurataFormattata() + "\nGenere: " + genere + "\nRiproduzioni: " + riproduzioni;
+        return "Titolo: " + titolo + "\nArtista: " + artista;
     }
     String getCategoriaDurata(){
         if(durata < 180){
             return "Canzone Breve";
-        } else if(durata >= 180) && (durata <= 300){
+        } else if(durata >= 180 && durata <= 300){
             return "Canzone Media";
         } else {
             return "Canzone Lunga";
@@ -75,6 +75,6 @@ public class Canzone {
 }
     //toString
     public String toString() {
-        return titolo + " - " + artista + " [" + getDurataFormattata() + "]";
+        return "Titolo : " + titolo + "\nArtista: " + artista + "\nDurata: " + getDurataFormattata() + "\nGenere: " + genere + "\nRiproduzioni: " + riproduzioni + "\nCategoria Durata: " + getCategoriaDurata();
     }
 }
