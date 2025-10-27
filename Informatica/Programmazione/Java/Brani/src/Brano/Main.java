@@ -15,5 +15,14 @@ public class Main {
         System.out.println(canzone5.stampaDettagli());
     }
 
+    //Simulare riproduzioni
+    static void simulaRiproduzioni(Canzone canzone, int volte) {
+        for (int i = 0; i < volte; i++) {
+            System.out.println(canzone.riproduci());
+        }
+    }
+
+    //Testare i getters
     
+
 }
