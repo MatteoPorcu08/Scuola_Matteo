@@ -50,7 +50,7 @@ public class Canzone {
     }
 
     //Metodi Specifici
-    String riproduci() {
+    public String riproduci() {
         riproduzioni++;
         return "Canzone '" + titolo + "' riprodotta. Totale riproduzioni: " + riproduzioni;
     }

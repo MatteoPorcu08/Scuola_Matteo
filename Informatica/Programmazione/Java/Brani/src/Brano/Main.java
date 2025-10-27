@@ -20,12 +20,15 @@ public class Main {
         System.out.println(canzone4.stampaDettagli());
         System.out.println("Detagli Canzone 5:");
         System.out.println(canzone5.stampaDettagli());
+
+        //Simulare riproduzioni
+        System.out.println("\nSimulazione riproduzioni:");
+        System.out.println(canzone1.riproduci());
+        System.out.println(canzone2.riproduci());
+        
+
+        //Testare i getter
+        
+
     }
-
-    //Simulare riproduzioni
-    canzone1.getRiproduzioni();
-
-    //Testare i getter
-    
-
 }
