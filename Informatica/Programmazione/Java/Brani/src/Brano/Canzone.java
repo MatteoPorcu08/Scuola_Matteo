@@ -1,10 +1,12 @@
-package Brano;
+package brano;
+
 public class Canzone {
     private String titolo;
     private String artista;
     private int durata; // durata in secondi
     private String genere;
     private int riproduzioni;
+
 
     // Costruttore
     public Canzone (String titolo, String artista, int durata, String genere) {
@@ -65,10 +67,14 @@ public class Canzone {
     String getCategoriaDurata(){
         if(durata < 180){
             return "Canzone Breve";
-        } else if(durata <= 300){
+        } else if(180 && 300){
             return "Canzone Media";
         } else {
             return "Canzone Lunga";
-        }
+    }
+}
+    //toString
+    public String toString() {
+        return titolo + " - " + artista + " [" + getDurataFormattata() + "]";
     }
 }
