@@ -48,13 +48,14 @@ public class Main {
         //Testare i setter
         System.out.println("Test dei setter:");
 
-        //Mostrare la durata formattata
+        /*Mostrare la durata formattata
         System.out.println(canzone1.getDurataFormattata());
         System.out.println(canzone2.getDurataFormattata());
         System.out.println(canzone3.getDurataFormattata());
         System.out.println(canzone4.getDurataFormattata());
         System.out.println(canzone5.getDurataFormattata());
         System.out.println("\n");
+        */
 
         //Utilizzare il metodo toString()
         System.out.println("Dettagli completi delle canzoni:");
@@ -63,5 +64,6 @@ public class Main {
         System.out.println("\nCanzone 3:\n" + canzone3.toString());
         System.out.println("\nCanzone 4:\n" + canzone4.toString());
         System.out.println("\nCanzone 5:\n" + canzone5.toString());
+        
     }
 }
