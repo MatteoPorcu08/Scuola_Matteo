@@ -51,15 +51,21 @@ public class Main {
         System.out.println("Nuove riproduzioni canzone 1: " + canzone1.getRiproduzioni());
         canzone2.setRiproduzioni(5);
         System.out.println("Nuove riproduzioni canzone 2: " + canzone2.getRiproduzioni());
+        canzone3.setRiproduzioni(40);
+        System.out.println("Nuove riproduzioni canzone 3: " + canzone3.getRiproduzioni());
+        canzone4.setRiproduzioni(25);
+        System.out.println("Nuove riproduzioni canzone 4: " + canzone4.getRiproduzioni());
+        canzone5.setRiproduzioni(15);
+        System.out.println("Nuove riproduzioni canzone 5: " + canzone5.getRiproduzioni());
         System.out.println("\n");
-        /*Mostrare la durata formattata
+
+        //Mostrare la durata formattata
         System.out.println(canzone1.getDurataFormattata());
         System.out.println(canzone2.getDurataFormattata());
         System.out.println(canzone3.getDurataFormattata());
         System.out.println(canzone4.getDurataFormattata());
         System.out.println(canzone5.getDurataFormattata());
         System.out.println("\n");
-        */
 
         //Utilizzare il metodo toString()
         System.out.println("Dettagli completi delle canzoni:");
@@ -68,6 +74,5 @@ public class Main {
         System.out.println("\nCanzone 3:\n" + canzone3.toString());
         System.out.println("\nCanzone 4:\n" + canzone4.toString());
         System.out.println("\nCanzone 5:\n" + canzone5.toString());
-        
     }
 }
