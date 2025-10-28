@@ -1,7 +1,6 @@
 package programmi;
 
 public class ProgrammiComputer {
-    //denominazione, produttore, versione, sistema operativo, anno
     private String denominazione;
     private String produttore;
     private String versione;
@@ -35,5 +34,29 @@ public class ProgrammiComputer {
     }
 
     //setter
+    public void setDenominazione(String denominazione) {
+        this.denominazione = denominazione;
+    }
+    public void setProduttore(String produttore) {
+        this.produttore = produttore;
+    }
+    public void setVersione(String versione) {
+        this.versione = versione;
+    }
+    public void setSistemaOperativo(String sistemaOperativo) {
+        this.sistemaOperativo = sistemaOperativo;
+    }
+    public void setAnno(int anno) {
+        this.anno = anno;
+    }
 
+    //toString
+    public String toString() {
+        return "ProgrammiComputer [denominazione=" + denominazione + ", produttore=" + produttore + ", versione="+ versione + ", sistemaOperativo=" + sistemaOperativo + ", anno=" + anno + "]";
+    }
+
+    //metodo di confronto basato sull'anno di rilascio
+    public int compareAnno(ProgrammiComputer altroProgramma) {
+        return Integer.compare(this.anno, altroProgramma.getAnno());
+    }
 }
