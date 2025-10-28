@@ -47,7 +47,11 @@ public class Main {
         
         //Testare i setter
         System.out.println("Test dei setter:");
-
+        canzone1.setRiproduzioni(10);
+        System.out.println("Nuove riproduzioni canzone 1: " + canzone1.getRiproduzioni());
+        canzone2.setRiproduzioni(5);
+        System.out.println("Nuove riproduzioni canzone 2: " + canzone2.getRiproduzioni());
+        System.out.println("\n");
         /*Mostrare la durata formattata
         System.out.println(canzone1.getDurataFormattata());
         System.out.println(canzone2.getDurataFormattata());

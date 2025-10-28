@@ -28,7 +28,7 @@ public class Canzone {
     private void setGenere(String genere) {
         this.genere = genere;
     }
-    private void setRiproduzioni(int riproduzioni) {
+    public void setRiproduzioni(int riproduzioni) {
         this.riproduzioni = riproduzioni;
     }
 
