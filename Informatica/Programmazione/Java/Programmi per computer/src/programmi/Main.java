@@ -14,6 +14,7 @@ public class Main {
         } else {
             System.out.println("Entrambi i programmi sono stati rilasciati nello stesso anno.");
         }
+        System.out.println("\n");
 
         //Metodo toString
         System.out.println("\nDettagli Programma 1:");
