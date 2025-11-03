@@ -98,7 +98,7 @@ public void upgradeRam(int nuovaRam){
 
 //metodo confrontaComputer(Computer altroComputer)
 public int confrontaComputer(Computer altroComputer) {
-        return Integer.confronta(this.prezzo, altroComputer.getPrezzo());
+    return Double.compare(this.prezzo, altroComputer.getPrezzo());
     }
 
 //metodo ottieniInfoDettagliata()
