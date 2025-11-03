@@ -72,8 +72,24 @@ public String ottieniFasciaDiPrezzo(){
         return "fascia Bassa";
     }
 
-//metodo ottieniTipologiaComputer()
-    
+//metodi aggiuntivi
 
+//metodo aggiornaprezzo(double scontoPercentuale)
+public double aggiornaprezzo(double scontoPercentuale){
+
+
+}
+
+//metodo upgradeRam(int nuovaRam)
+public void upgradeRam(int nuovaRam){
+    if(nuovaRam > ram){
+        ram = nuovaRam;
+    }
+    else {
+        System.out.println("La nuova RAM deve essere maggiore di quella attuale.");
+    }
+}
+
+//metodo confrontaComputer(Computer altroComputer)
 
 }
