@@ -76,9 +76,14 @@ public String ottieniFasciaDiPrezzo(){
 //metodi aggiuntivi
 //metodo aggiornaprezzo(double scontoPercentuale)
 public String aggiornaPrezzo(double scontoPercentuale){
-    
-
-
+    if(scontoPercentuale <0 || scontoPercentuale>50){
+        return "Percentuale di sconto non valida.";
+    }
+    else {
+        double sconto = (scontoPercentuale / 100) * prezzo;
+        prezzo -= sconto;
+        return "Prezzo aggiornato: " + prezzo;
+    }
 }
 
 //metodo upgradeRam(int nuovaRam)
