@@ -1,7 +1,4 @@
 package elaboratori;
-
-import programmi.ProgrammiComputer;
-
 public class Computer {
     private String marca;
     private String modello;
@@ -74,9 +71,9 @@ public String ottieniFasciaDiPrezzo(){
     } else {
         return "fascia Bassa";
     }
+}
 
 //metodi aggiuntivi
-
 //metodo aggiornaprezzo(double scontoPercentuale)
 public String aggiornaPrezzo(double scontoPercentuale){
     
