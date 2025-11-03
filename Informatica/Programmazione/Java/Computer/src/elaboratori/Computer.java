@@ -1,4 +1,7 @@
 package elaboratori;
+
+import programmi.ProgrammiComputer;
+
 public class Computer {
     private String marca;
     private String modello;
@@ -91,5 +94,14 @@ public void upgradeRam(int nuovaRam){
 }
 
 //metodo confrontaComputer(Computer altroComputer)
+public int confrontaComputer(Computer altroComputer) {
+        return Integer.confronta(this.prezzo, altroComputer.getPrezzo());
+    }
+
+//metodo ottieniInfoDettagliata()
+public String ottieniInfoDettagliata() {
+        return toString();
+        return "Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
+    }
 
 }
