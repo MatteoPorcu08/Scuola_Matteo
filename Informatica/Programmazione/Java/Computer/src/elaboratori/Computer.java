@@ -63,7 +63,7 @@ public String toString(){
 }
 
 //metodo ottieniFasciaDiPrezzo()
-public string ottieniFasciaDiPrezzo(){
+public String ottieniFasciaDiPrezzo(){
     if(prezzo > 1200){
         return "fascia Alta";
     } else if(prezzo >= 700 && prezzo < 1200){
@@ -71,6 +71,8 @@ public string ottieniFasciaDiPrezzo(){
     } else {
         return "fascia Bassa";
     }
+
+//metodo ottieniTipologiaComputer()
     
 
 
