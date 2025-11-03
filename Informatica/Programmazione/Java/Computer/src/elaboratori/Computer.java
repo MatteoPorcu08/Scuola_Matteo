@@ -57,5 +57,21 @@ private void setStorage(int storage){
     this.storage = storage;
 }
 
+//toString
+public String toString(){
+    return "Marca: " + marca + ", Modello: " + modello + ", Prezzo: " + prezzo + ", CPU: " + cpu + ", RAM: " + ram + "GB, Storage: " + storage + "GB";
+}
+
+//metodo ottieniFasciaDiPrezzo()
+public string ottieniFasciaDiPrezzo(){
+    if(prezzo > 1200){
+        return "fascia Alta";
+    } else if(prezzo >= 700 && prezzo < 1200){
+        return "fascia Media";
+    } else {
+        return "fascia Bassa";
+    }
+    
+
 
 }
