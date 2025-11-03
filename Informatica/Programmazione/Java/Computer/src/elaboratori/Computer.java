@@ -78,7 +78,8 @@ public String ottieniFasciaDiPrezzo(){
 //metodi aggiuntivi
 
 //metodo aggiornaprezzo(double scontoPercentuale)
-public double aggiornaprezzo(double scontoPercentuale){
+public String aggiornaPrezzo(double scontoPercentuale){
+    
 
 
 }
@@ -100,8 +101,9 @@ public int confrontaComputer(Computer altroComputer) {
 
 //metodo ottieniInfoDettagliata()
 public String ottieniInfoDettagliata() {
-        return toString();
-        return "Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
+        String stringa="";
+        stringa+=toString();
+        stringa+="Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
+        return stringa;
     }
-
 }
