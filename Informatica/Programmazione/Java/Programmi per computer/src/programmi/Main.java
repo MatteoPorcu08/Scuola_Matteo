@@ -20,6 +20,6 @@ public class Main {
         System.out.println("\nDettagli Programma 1:");
         System.out.println(programma1.toString());
         System.out.println("\nDettagli Programma 2:");
-        System.out.println(programma2.toString());
+        System.out.println(programma2.toString());  
     }
 }
