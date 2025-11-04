@@ -73,7 +73,6 @@ public String ottieniFasciaDiPrezzo(){
     }
 }
 
-//metodi aggiuntivi
 //metodo aggiornaprezzo(double scontoPercentuale)
 public String aggiornaPrezzo(double scontoPercentuale){
     if(scontoPercentuale <0 || scontoPercentuale>50){
