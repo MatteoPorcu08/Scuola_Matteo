@@ -1,7 +1,7 @@
 package elaboratori;
 public class Main {
     public static void main(String[] args) {
-        elaboratori.Computer pc1 = new elaboratori.Computer("Asus", "ZenBook", 999.99, "Intel i7", 16, 512);
+        elaboratori.Computer pc1 = new elaboratori.Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
         elaboratori.Computer pc2 = new elaboratori.Computer("Dell", "XPS 13", 1199.99, "Intel i5", 8, 256);
 
         // Stampa utilizzando il metodo toString
@@ -47,6 +47,6 @@ public class Main {
         System.out.println(pc1.ottieniInfoDettagliata());
         System.out.println("\nInfo Dettagliate Computer 2:");
         System.out.println(pc2.ottieniInfoDettagliata());
-        system.out.println("\n");
+        System.out.println("\n");
     }
 }

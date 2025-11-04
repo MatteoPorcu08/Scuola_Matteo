@@ -104,12 +104,12 @@ public int confrontaComputer(Computer altroComputer) {
 public String ottieniInfoDettagliata() {
         String stringa="";
         stringa+=toString();
-        stringa+="Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
+        stringa+="|Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
         if (ram > 32 && prezzo >= 1500){
-            stringa+="Idoneo per il gaming avanzato";
+            stringa+="|Idoneo per il gaming avanzato";
         }
         else {
-            stringa+="Non idoneo per il gaming avanzato";
+            stringa+="|Non idoneo per il gaming avanzato";
         }
         return stringa;
     }
