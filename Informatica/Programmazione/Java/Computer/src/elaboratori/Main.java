@@ -5,7 +5,7 @@ public class Main {
         elaboratori.Computer pc2 = new elaboratori.Computer("Dell", "XPS 13", 1199.99, "Intel i5", 8, 256);
 
         // Stampa utilizzando il metodo toString
-        System.out.println("\nUtilizzando toString():");
+        System.out.println("\nUtilizzando toString:");
         System.out.println(pc1.toString());
         System.out.println(pc2.toString());
         System.out.println("\n");
@@ -17,10 +17,10 @@ public class Main {
         System.out.println("\n");
 
         //stampo i metodi aggiuntivi
-        //stampo il emtodo aggiornaPrezzo
+        //stampo il metodo aggiornaPrezzo
         System.out.println("\nAggiorna Prezzo");
         System.out.println("Computer 1 nuovo prezzo: " + pc1.aggiornaPrezzo(0) + "€");
-        System.out.println("Computer 2 nuovo prezzo: " + pc2.aggiornaPrezzo(15) + "€");
+        System.out.println("Computer 2 nuovo prezzo: " + pc2.aggiornaPrezzo(50) + "€");
         System.out.println("\n");
 
         //stampo il metodo upgradeRam
@@ -42,7 +42,7 @@ public class Main {
             System.out.println("Entrambi i computer hanno lo stesso prezzo.");
         }
 
-        //stampo il metodo  ottieniInfoDettagliata
+        //stampo il metodo ottieniInfoDettagliata
         System.out.println("\nInfo Dettagliate Computer 1:");
         System.out.println(pc1.ottieniInfoDettagliata());
         System.out.println("\nInfo Dettagliate Computer 2:");
