@@ -18,10 +18,10 @@ public class Computer {
 }
 
 //getter
-public String getMarca(){
+private String getMarca(){
     return marca;
 }
-public String getModello(){
+private String getModello(){
     return modello;
 }
 public double getPrezzo(){
