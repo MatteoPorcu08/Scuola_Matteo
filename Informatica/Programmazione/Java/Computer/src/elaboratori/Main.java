@@ -43,6 +43,10 @@ public class Main {
         }
 
         //stampo il metodo  ottieniInfoDettagliata
-        
+        System.out.println("\nInfo Dettagliate Computer 1:");
+        System.out.println(pc1.ottieniInfoDettagliata());
+        System.out.println("\nInfo Dettagliate Computer 2:");
+        System.out.println(pc2.ottieniInfoDettagliata());
+        system.out.println("\n");
     }
 }

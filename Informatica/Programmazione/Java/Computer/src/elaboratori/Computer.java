@@ -105,7 +105,12 @@ public String ottieniInfoDettagliata() {
         String stringa="";
         stringa+=toString();
         stringa+="Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
-        stringa+="Idoneo per il gaming avanzato: " + (ram > 32 && prezzo >= 1500 ? "Sì" : "No");
+        if (ram > 32 && prezzo >= 1500){
+            stringa+="Idoneo per il gaming avanzato";
+        }
+        else {
+            stringa+="Non idoneo per il gaming avanzato";
+        }
         return stringa;
     }
 }
