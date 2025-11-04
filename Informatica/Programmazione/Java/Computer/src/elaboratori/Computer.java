@@ -102,6 +102,9 @@ public int confrontaComputer(Computer altroComputer) {
 
 //metodo ottieniInfoDettagliata()
 public String ottieniInfoDettagliata() {
+        if( ram > 32 GB && prezzo >= 1500€){
+
+        }
         String stringa="";
         stringa+=toString();
         stringa+="Fascia di Prezzo: " + ottieniFasciaDiPrezzo();
