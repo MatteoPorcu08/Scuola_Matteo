@@ -19,13 +19,13 @@ public class Main {
         //stampo i metodi aggiuntivi
         //stampo il emtodo aggiornaPrezzo
         System.out.println("\nAggiorna Prezzo");
-        System.out.println("Computer 1 nuovo prezzo: " + pc1.aggiornaPrezzo(10) + "€");
+        System.out.println("Computer 1 nuovo prezzo: " + pc1.aggiornaPrezzo(0) + "€");
         System.out.println("Computer 2 nuovo prezzo: " + pc2.aggiornaPrezzo(15) + "€");
         System.out.println("\n");
 
         //stampo il metodo upgradeRam
         System.out.println("\nUpgrade RAM");
-        pc1.upgradeRam(32);
+        pc1.upgradeRam(64);
         pc2.upgradeRam(16);
         System.out.println("Computer 1 dopo upgrade RAM: " + pc1.toString());
         System.out.println("Computer 2 dopo upgrade RAM: " + pc2.toString());
