@@ -3,8 +3,8 @@ public class Main {
     public static void main(String[] args) {
         Computer pc1 = new Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
         Computer pc2 = new Computer("Dell", "XPS 13", 599.99, "Intel i5", 8, 256);
-
-        System.out.println("Benvenuto! Questo programma serve per conforntare due computer.");
+        
+        System.out.println("Benvenuto! Questo programma serve per conforntare due computer."); //Messaggio di Benvenuto
 
         // Stampa utilizzando il metodo toString
         System.out.println("\nSpecifiche dei computer(Utilizzando toString):");
