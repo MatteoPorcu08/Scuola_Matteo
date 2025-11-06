@@ -4,13 +4,13 @@ public class Main {
         Computer pc1 = new Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
         Computer pc2 = new Computer("Dell", "XPS 13", 599.99, "Intel i5", 8, 256);
 
-        System.out.println("");
+        System.out.println("Benvenuto! Questo programma serve per conforntare due computer.");
 
         // Stampa utilizzando il metodo toString
         System.out.println("\nSpecifiche dei computer(Utilizzando toString):");
         System.out.println("Queste sono le spocifiche del primo computer:\n");
         System.out.println(pc1.toString());
-        System.out.println("Queste sono le spocifiche del secondo computer:\n");
+        System.out.println("\nQueste sono le spocifiche del secondo computer:\n");
         System.out.println(pc2.toString());
         System.out.println("\n");
 
@@ -31,8 +31,8 @@ public class Main {
         System.out.println("\nUpgrade RAM");
         pc1.upgradeRam(64);
         pc2.upgradeRam(16);
-        System.out.println("Computer 1 dopo upgrade RAM: " + pc1.toString());
-        System.out.println("Computer 2 dopo upgrade RAM: " + pc2.toString());
+        System.out.println("Computer 1 dopo upgrade RAM: " + pc1.getRam());
+        System.out.println("Computer 2 dopo upgrade RAM: " + pc2.getRam());
         System.out.println("\n");
 
         //stampo il metodo confrontaComputer
