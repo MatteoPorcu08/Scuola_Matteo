@@ -1,12 +1,16 @@
 package elaboratori;
 public class Main {
     public static void main(String[] args) {
-        elaboratori.Computer pc1 = new elaboratori.Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
-        elaboratori.Computer pc2 = new elaboratori.Computer("Dell", "XPS 13", 599.99, "Intel i5", 8, 256);
+        Computer pc1 = new Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
+        Computer pc2 = new Computer("Dell", "XPS 13", 599.99, "Intel i5", 8, 256);
+
+        System.out.println("");
 
         // Stampa utilizzando il metodo toString
-        System.out.println("\nUtilizzando toString:");
+        System.out.println("\nSpecifiche dei computer(Utilizzando toString):");
+        System.out.println("Queste sono le spocifiche del primo computer:\n");
         System.out.println(pc1.toString());
+        System.out.println("Queste sono le spocifiche del secondo computer:\n");
         System.out.println(pc2.toString());
         System.out.println("\n");
 
