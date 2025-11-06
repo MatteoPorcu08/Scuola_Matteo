@@ -2,7 +2,7 @@ package elaboratori;
 public class Main {
     public static void main(String[] args) {
         elaboratori.Computer pc1 = new elaboratori.Computer("Asus", "ZenBook", 1500.99, "Ryzen 7", 32, 2000);
-        elaboratori.Computer pc2 = new elaboratori.Computer("Dell", "XPS 13", 1199.99, "Intel i5", 8, 256);
+        elaboratori.Computer pc2 = new elaboratori.Computer("Dell", "XPS 13", 599.99, "Intel i5", 8, 256);
 
         // Stampa utilizzando il metodo toString
         System.out.println("\nUtilizzando toString:");
