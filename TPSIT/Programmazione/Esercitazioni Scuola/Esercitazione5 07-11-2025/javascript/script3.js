@@ -3,13 +3,11 @@ let countRight = 0;
 
 function incrementLeft() {
     countLeft++;
-    alert("Contatore Sinistro: " + countLeft);
     updateDisplay();
 }
 
 function incrementRight() {
     countRight++;
-    alert("Contatore Destro: " + countRight);
     updateDisplay();
 }
 
