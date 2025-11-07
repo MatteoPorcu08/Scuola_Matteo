@@ -1,9 +1,9 @@
 function calcolaSomma() {
-    let somma = 0;
-    let numero1 = document.getElementsByClassName("num1");
-    let numero2 = document.getElementsByClassName("num2");
-    let risultato = document.getElementsByClassName("risultato");
+    
+    let num1 = document.getElementsById("num1").value;
+    let num2 = document.getElementsById("num2").value;
+    let risultato = document.getElementsById("risultato").value;
 
-    somma= num1+num2;
-    risultato = "La somma è: " + somma;
+    let somma= num1*1+num2*1;
+    alert("La somma è: " + somma); 
 }
