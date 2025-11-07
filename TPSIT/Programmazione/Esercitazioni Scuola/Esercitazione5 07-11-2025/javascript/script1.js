@@ -1,8 +1,6 @@
 function calcolaSomma() {
-    
-    let num1 = document.getElementsById("num1").value;
-    let num2 = document.getElementsById("num2").value;
-
-    let somma= num1*1+num2*1;
+    const num1 = Number(document.getElementById("num1").value);
+    const num2 = Number(document.getElementById("num2").value);
+    const somma = num1 + num2;
     alert("La somma è: " + somma);
 }
