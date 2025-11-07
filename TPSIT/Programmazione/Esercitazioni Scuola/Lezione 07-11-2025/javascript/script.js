@@ -1,5 +1,6 @@
 function chiediaUtente() {
-    let nome = document.getElementById("campoTesto").value;
-    alert("Ciao, " + nome + "! Benvenuto alla lezione di oggi.");
+    let nome = document.getElementById("campoNome").value;
+    let cognome = document.getElementById("campoCognome").value;
+    alert("Ciao, " + nome + + cognome + "! Benvenuto alla lezione di oggi.");
 }
 
