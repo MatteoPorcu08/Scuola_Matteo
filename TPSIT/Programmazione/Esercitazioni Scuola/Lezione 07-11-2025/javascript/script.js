@@ -1,4 +1,5 @@
 function chiediaUtente() {
-    let nome = prompt("Come ti chiami?");
-    alert("Ciao, " + nome + "!");
+    let nome = document.getElementById("campoTesto").value;
+    alert("Ciao, " + nome + "! Benvenuto alla lezione di oggi.");
 }
+
