@@ -65,13 +65,25 @@ public class ContenutoMultimediale {
 
     //metodo ottieniCategoria()
     public String ottieniCategoria() {
-       if (this.annoUscita == 2025) {
-           return "Nuova Uscita";
-       } else if (this.annoUscita ) {
-           return "Consigliato";
-       } else {
-           return "Standard";
-       }
+    if (this.annoUscita == 2025) {
+        return "Nuova Uscita";
+    } else if (this.annoUscita<=2005 ) {
+        return "Classico";
+    } else {
+        return "Catalogo Standard";
+    }
+    }
+
+    //metodo durataOreMinuti()
+    public String durataOreMinuti() {
+        int ore = this.durata / 60;
+        int minuti = this.durata % 60;
+        return ore + " ore e " + minuti + " minuti";
+    }
+
+    //metodo aggiornaValutazione(nuovaValutazione)
+    public boolean aggiornaValutazione(double nuovaValutazione) {}
+
 
 
 
