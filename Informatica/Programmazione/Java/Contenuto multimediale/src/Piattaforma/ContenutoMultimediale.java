@@ -60,14 +60,14 @@ public class ContenutoMultimediale {
     
     //metodo toString
     public String toString() {
-        return "Titolo: " + titolo + ", Genere: " + genere + ", Durata: " + durata + " min, Anno di Uscita: " + annoUscita + ", Valutazione: " + valutazione + "/5.0";
+        return "Titolo: " + titolo + "\n Genere: " + genere + "\n Durata: " + durata + " min\n Anno di Uscita: " + annoUscita + "\n Valutazione: " + valutazione + "/5.0";
     }
 
     //metodo ottieniCategoria()
     public String ottieniCategoria() {
     if (this.annoUscita == 2025) {
         return "Nuova Uscita";
-    } else if (this.annoUscita<=2005 ) {
+    } else if (this.annoUscita<2005 ) {
         return "Classico";
     } else {
         return "Catalogo Standard";
