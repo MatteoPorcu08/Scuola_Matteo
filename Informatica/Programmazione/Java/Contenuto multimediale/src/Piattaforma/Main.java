@@ -6,6 +6,7 @@ public class Main {
 
         //presentazione della piattaforma
         System.out.println("Benvenuto nella Piattaforma di Contenuto Multimediale!");
+        System.out.println("\n");
 
         //metodo toString
         System.out.println("--- Dettagli Contenuti Multimediali ---");
@@ -32,10 +33,14 @@ public class Main {
 
         //metodo aggiornaValutazione(nuovaValutazione)
         System.out.println("--- Aggiornamento Valutazioni ---");
-        System.out.println("Aggiornamento valutazione del Contenuto 1 a 4.5: " + (c1.aggiornaValutazione(4.5) ? "Successo" : "Fallito"));
-        System.out.println("Aggiornamento valutazione del Contenuto 2 a 5.5: " + (c2.aggiornaValutazione(5.5) ? "Successo" : "Fallito"));
-        System.out.println("Nuova valutazione del Contenuto 1: " + c1.aggiornaValutazione.toString());
-        System.out.println("Nuova valutazione del Contenuto 2: " + c2.toString());
+        System.out.println("Aggiornamento valutazione del Contenuto 1 a 4.5: " + (c1.aggiornaValutazione(4.5) ? "True" : "False"));
+        System.out.println("Aggiornamento valutazione del Contenuto 2 a 5.5: " + (c2.aggiornaValutazione(5.5) ? "True" : "False"));
+        System.out.println("---------------------------------------");
+        System.out.println("\n");
+
+        //metodo confrontaValutazione(altroContenuto)
+        System.out.println("--- Confronto Valutazioni ---");
+        System.out.println("Confronto valutazione tra Contenuto 1 e Contenuto 2: " + c1.confrontaValutazione(c2));
         System.out.println("---------------------------------------");
         System.out.println("\n");
     }
