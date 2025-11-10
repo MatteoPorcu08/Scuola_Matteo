@@ -1,7 +1,7 @@
 package Piattaforma;
 public class ContenutoMultimediale {
     private String titolo;
-    private String genere;
+    private String genere;//il genere del contenuto (es. "Azione", "Commedia")
     private int durata;//durata in minuti
     private int annoUscita;
     private double valutazione;//un punteggio da 0.0 a 5.0 che rappresenta la qualità del contenuto
@@ -92,12 +92,13 @@ public class ContenutoMultimediale {
     }
 
     //metodo confrontaValutazione(altroContenuto)
-    public String confrontaValutazione(ContenutoMultimediale altroContenuto){}
-
-
-
-
-
-
-
+    public String confrontaValutazione(ContenutoMultimediale altroContenuto){
+        if (this.valutazione > altroContenuto.valutazione) {
+            return "Migliore";
+        } else if (this.valutazione < altroContenuto.valutazione) {
+            return "Peggiore";
+        } else {
+            return "Uguale";
+        }
+    }
 }
