@@ -15,5 +15,28 @@ public class Main {
         System.out.println(c2.toString());
         System.out.println("---------------------------------------");
         System.out.println("\n");
+
+        //metodo ottieniCategoria
+        System.out.println("--- Categorie dei Contenuti ---");
+        System.out.println("Categoria del Contenuto 1: " + c1.ottieniCategoria());
+        System.out.println("Categoria del Contenuto 2: " + c2.ottieniCategoria());
+        System.out.println("---------------------------------------");
+        System.out.println("\n");
+
+        //metodo durataOreMinuti()
+        System.out.println("--- Durata dei Contenuti in Ore e Minuti ---");
+        System.out.println("Durata del Contenuto 1: " + c1.durataOreMinuti());
+        System.out.println("Durata del Contenuto 2: " + c2.durataOreMinuti());
+        System.out.println("---------------------------------------");
+        System.out.println("\n");
+
+        //metodo aggiornaValutazione(nuovaValutazione)
+        System.out.println("--- Aggiornamento Valutazioni ---");
+        System.out.println("Aggiornamento valutazione del Contenuto 1 a 4.5: " + (c1.aggiornaValutazione(4.5) ? "Successo" : "Fallito"));
+        System.out.println("Aggiornamento valutazione del Contenuto 2 a 5.5: " + (c2.aggiornaValutazione(5.5) ? "Successo" : "Fallito"));
+        System.out.println("Nuova valutazione del Contenuto 1: " + c1.aggiornaValutazione.toString());
+        System.out.println("Nuova valutazione del Contenuto 2: " + c2.toString());
+        System.out.println("---------------------------------------");
+        System.out.println("\n");
     }
 }
