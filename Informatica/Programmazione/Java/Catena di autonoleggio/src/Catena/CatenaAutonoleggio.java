@@ -29,4 +29,55 @@ public class CatenaAutonoleggio {
 
     //Metodi getter
     public String getTarga() {
+        return targa;
+    }
+    public String getMarca() {
+        return marca;
+    }
+    public String getModello() {
+        return modello;
+    }
+    public int getCilindrata() {
+        return cilindrata;
+    }
+    public int getAnnoacquisto() {
+        return annoacquisto;
+    }
+    public int getNumeroposti() {
+        return numeroposti;
+    }
+
+    //Metodo setter
+    public void setTarga(String targa) {
+        this.targa = targa;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    public void setModello(String modello) {
+        this.modello = modello;
+    }
+    public void setCilindrata(int cilindrata) {
+        this.cilindrata = cilindrata;
+    }
+    public void setAnnoacquisto(int annoacquisto) {
+        this.annoacquisto = annoacquisto;
+    }
+    public void setNumeroposti(int numeroposti) {
+        this.numeroposti = numeroposti;
+    }
+
+    //Metodo toString
+    public String toString() {
+        return "CatenaAutonoleggio [targa=" + targa + ", marca=" + marca + ", modello=" + modello + ", cilindrata=" + cilindrata + ", annoacquisto=" + annoacquisto + ", numeroposti=" + numeroposti + "]";
+    }
+
+    //Metodo confrontaautopotenza
+    public int confrontaautopotenza(CatenaAutonoleggio altraAuto) {
+        if (this.cilindrata > altraAuto.cilindrata) {
+            return 1;
+        } else if (this.cilindrata < altraAuto.cilindrata) {
+            return -1;
+        } else {
+            return 0;
 }
