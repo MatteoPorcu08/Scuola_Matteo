@@ -13,7 +13,7 @@ public class ContenutoMultimediale {
         this.durata = durata;
         this.annoUscita = annoUscita;
         this.valutazione = valutazione;
-}
+    }
 
     //costruttore di copia
     public ContenutoMultimediale(ContenutoMultimediale altro) {
@@ -25,13 +25,53 @@ public class ContenutoMultimediale {
     }
 
     //metodi getter
-    private String getTitolo() {
+    public String getTitolo() {
         return titolo;
+    }
+    public String getGenere() {
         return genere;
+    }
+    public int getDurata() {
         return durata;
+    }
+    public int getAnnoUscita() {
         return annoUscita;
+    }
+    public double getValutazione() {
         return valutazione;
     }
+
+    //metodi setter
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
+    public void setDurata(int durata) {
+        this.durata = durata;
+    }
+    public void setAnnoUscita(int annoUscita) {
+        this.annoUscita = annoUscita;
+    }
+    public void setValutazione(double valutazione) {
+        this.valutazione = valutazione;
+    }
+    
+    //metodo toString
+    public String toString() {
+        return "Titolo: " + titolo + ", Genere: " + genere + ", Durata: " + durata + " min, Anno di Uscita: " + annoUscita + ", Valutazione: " + valutazione + "/5.0";
+    }
+
+    //metodo ottieniCategoria()
+    public String ottieniCategoria() {
+       if (this.annoUscita == 2025) {
+           return "Nuova Uscita";
+       } else if (this.annoUscita ) {
+           return "Consigliato";
+       } else {
+           return "Standard";
+       }
 
 
 
