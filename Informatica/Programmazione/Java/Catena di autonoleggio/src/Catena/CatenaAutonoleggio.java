@@ -73,11 +73,21 @@ public class CatenaAutonoleggio {
     }
 
     //Metodo confrontaautopotenza
-    public int confrontaautopotenza(CatenaAutonoleggio altraAuto) {
+    public String confrontaautopotenza(CatenaAutonoleggio altraAuto) {
         if (this.cilindrata > altraAuto.cilindrata) {
-            return 1;
+            return ("L'auto" + this.marca + " " + this.modello + " ha una cilindrata maggiore.");
         } else if (this.cilindrata < altraAuto.cilindrata) {
-            return -1;
+            return ("L'auto" + altraAuto.marca + " " + altraAuto.modello + " ha una cilindrata maggiore.");
         } else {
-            return 0;
+            return ("Le due auto hanno la stessa cilindrata.");
+        }
+    }
+
+    //Metodo nolleggio
+    public String nolleggio() {
+        if (this.numeroposti >= 5) {
+            return ("L'auto " + this.marca + " " + this.modello + " è adatta per il noleggio familiare.");
+        } else {
+            return ("L'auto " + this.marca + " " + this.modello + " non è adatta per il noleggio familiare.");
+        }
 }
