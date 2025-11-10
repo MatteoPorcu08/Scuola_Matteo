@@ -82,7 +82,18 @@ public class ContenutoMultimediale {
     }
 
     //metodo aggiornaValutazione(nuovaValutazione)
-    public boolean aggiornaValutazione(double nuovaValutazione) {}
+    public boolean aggiornaValutazione(double nuovaValutazione) {
+        if (nuovaValutazione >= 0.0 && nuovaValutazione <= 5.0) {
+            this.valutazione = nuovaValutazione;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //metodo confrontaValutazione(altroContenuto)
+    public String confrontaValutazione(ContenutoMultimediale altroContenuto){}
+
 
 
 
