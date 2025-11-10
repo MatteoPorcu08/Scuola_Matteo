@@ -86,8 +86,9 @@ public class CatenaAutonoleggio {
     //Metodo nolleggio
     public String nolleggio() {
         if (this.numeroposti >= 5) {
-            return ("L'auto " + this.marca + " " + this.modello + " è adatta per il noleggio familiare.");
+            return ("L'auto " + this.marca + " " + this.modello + " è adatta per il noleggio.");
         } else {
-            return ("L'auto " + this.marca + " " + this.modello + " non è adatta per il noleggio familiare.");
+            return ("L'auto " + this.marca + " " + this.modello + " non è adatta per il noleggio. ");
         }
+    }
 }
