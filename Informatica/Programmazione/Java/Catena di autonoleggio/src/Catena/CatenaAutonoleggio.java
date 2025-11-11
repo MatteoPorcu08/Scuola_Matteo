@@ -51,19 +51,19 @@ public class CatenaAutonoleggio {
     public void setTarga(String targa) {
         this.targa = targa;
     }
-    public void setMarca(String marca) {
+    private void setMarca(String marca) {
         this.marca = marca;
     }
-    public void setModello(String modello) {
+    private void setModello(String modello) {
         this.modello = modello;
     }
-    public void setCilindrata(int cilindrata) {
+    private void setCilindrata(int cilindrata) {
         this.cilindrata = cilindrata;
     }
-    public void setAnnoacquisto(int annoacquisto) {
+    private void setAnnoacquisto(int annoacquisto) {
         this.annoacquisto = annoacquisto;
     }
-    public void setNumeroposti(int numeroposti) {
+    private  void setNumeroposti(int numeroposti) {
         this.numeroposti = numeroposti;
     }
 
