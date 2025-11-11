@@ -69,7 +69,7 @@ public class CatenaAutonoleggio {
 
     //Metodo toString
     public String toString() {
-        return "CatenaAutonoleggio [targa=" + targa + ", marca=" + marca + ", modello=" + modello + ", cilindrata=" + cilindrata + ", annoacquisto=" + annoacquisto + ", numeroposti=" + numeroposti + "]";
+        return "CatenaAutonoleggio \ntarga:" + targa + "\n marca:" + marca + "\n modello:" + modello + "\ncilindrata:" + cilindrata + "\nannoacquisto:" + annoacquisto + "\nnumeroposti:" + numeroposti + "";
     }
 
     //Metodo confrontaautopotenza

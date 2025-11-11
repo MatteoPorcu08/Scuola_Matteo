@@ -10,16 +10,17 @@ public class Main {
 
         //Visualizzazione auto toString
         System.out.println("---Ecco le auto attualmente disponibili nel nostro parco auto---");
-        System.out.println("Auto 1:");
+        System.out.println("---Auto 1---");
         System.out.println(v1.toString());
-        System.out.println("Auto 2:");
+        System.out.println("--------------------------------------------------");
+        System.out.println("---Auto 2---");
         System.out.println(v2.toString());
         System.out.println("--------------------------------------------------");
         System.out.println("\n");
 
         //Costruttore di copia
         CatenaAutonoleggio v3 = new CatenaAutonoleggio(v1);
-        System.out.println("Ecco l'auto 3, creata tramite il costruttore di copia a partire dall'auto 1:");
+        System.out.println("---Ecco l'auto 3, creata tramite il costruttore di copia a partire dall'auto 1---");
         System.out.println(v3.toString());
         System.out.println("\n");
 
@@ -30,8 +31,11 @@ public class Main {
         System.out.println("\n");
 
         //Metodo nolleggio
-        System.out.println("Simulazione del noleggio dell'auto 2:");
-        
-
+        System.out.println("---Simulazione del noleggio dell'auto 1 e 2---");
+        System.out.println("Stato noleggio auto 1:");
+        System.out.println(v1.nolleggio());
+        System.out.println("Stato noleggio auto 2:");
+        System.out.println(v2.nolleggio());
+        System.out.println("--------------------------------------------------");
     }
 }
