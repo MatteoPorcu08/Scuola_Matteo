@@ -23,6 +23,10 @@ public class Main {
         CatenaAutonoleggio v4 = new CatenaAutonoleggio(v2);
         System.out.println("---Ecco l'auto 3, creata tramite il costruttore di copia a partire dall'auto 1---");
         System.out.println(v3.toString());
+        System.out.println("--------------------------------------------------");
+        System.out.println("---Ecco l'auto 4, creata tramite il costruttore di copia a partire dall'auto 2---");
+        System.out.println(v4.toString());
+        System.out.println("--------------------------------------------------");
         System.out.println("\n");
 
         //Metodo confrontaautopotenza
