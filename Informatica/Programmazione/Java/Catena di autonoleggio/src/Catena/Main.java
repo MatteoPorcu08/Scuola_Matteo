@@ -1,6 +1,7 @@
 package Catena;
 public class Main {
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         CatenaAutonoleggio v1 = new CatenaAutonoleggio("FI500EP", "Fiat", "500", 499, 1958, 4);
         CatenaAutonoleggio v2 = new CatenaAutonoleggio("BM320LX", "BMW", "Serie 3", 1999, 2023, 5);
 
@@ -43,5 +44,9 @@ public class Main {
         System.out.println("---Stato noleggio auto 2---");
         System.out.println(v2.noleggio());
         System.out.println("--------------------------------------------------");
+=======
+        CatenaAutonoleggio v1 = new CatenaAutonoleggio("FI500EP", "Fiat", "500", 1958, 1958, 0);
+        CatenaAutonoleggio v2 = new CatenaAutonoleggio("BM320LX", "BMW", "Serie 3", 2023, 5, 0);
+>>>>>>> Stashed changes
     }
 }

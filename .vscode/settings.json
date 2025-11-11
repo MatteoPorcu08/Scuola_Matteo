@@ -5,5 +5,8 @@
     },
     "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
     "java.debug.settings.onBuildFailureProceed": true,
-    "commentTranslate.hover.enabled": false
+    "commentTranslate.hover.enabled": false,
+    "cSpell.words": [
+        "Autonoleggio"
+    ]
 }
