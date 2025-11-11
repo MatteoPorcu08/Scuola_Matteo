@@ -69,7 +69,7 @@ public class CatenaAutonoleggio {
 
     //Metodo toString
     public String toString() {
-        return "CatenaAutonoleggio \ntarga:" + targa + "\n marca:" + marca + "\n modello:" + modello + "\ncilindrata:" + cilindrata + "\nannoacquisto:" + annoacquisto + "\nnumeroposti:" + numeroposti + "";
+        return "CatenaAutonoleggio \nTarga:" + targa + "\nMarca:" + marca + "\nModello:" + modello + "\nCilindrata:" + cilindrata + "\nAnnoAcquisto:" + annoacquisto + "\nNumeroPosti:" + numeroposti + "";
     }
 
     //Metodo confrontaautopotenza
@@ -83,8 +83,8 @@ public class CatenaAutonoleggio {
         }
     }
 
-    //Metodo nolleggio
-    public String nolleggio() {
+    //Metodo noleggio
+    public String noleggio() {
         if (this.numeroposti >= 5) {
             return ("L'auto " + this.marca + " " + this.modello + " è adatta per il noleggio.");
         } else {
