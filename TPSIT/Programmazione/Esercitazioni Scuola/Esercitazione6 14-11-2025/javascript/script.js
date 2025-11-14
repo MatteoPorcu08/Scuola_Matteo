@@ -1,8 +1,17 @@
-function aggiungiProdotto() {
-    prompt("Inserisci il nome del prodotto:");
-    const carrello = document.getElementById("carrello");
-    const prodotto = document.createElement("div");
-    c++;
-    document.getElementById("carrello").innerHTML +"Alimento" + c + = +alimento;
+let c = 0;
 
+function aggiungiProdotto() {
+    let nome = prompt("Inserisci il nome del prodotto:");
+
+    let carrello = document.getElementById("carrello");
+    let prodotto = document.createElement("div");
+    c++;
+    prodotto.textContent = "Alimento " + c + " = " + nome;
+    carrello.appendChild(prodotto);
+}
+
+function svuotaCarrello() {
+    let carrello = document.getElementById("carrello");
+    carrello.innerHTML = "Il carrello è vuoto";
+    c = 0;
 }
