@@ -1,13 +1,12 @@
-let c = 0;
-
+let c = 0;// Contatore per i prodotti
 function aggiungiProdotto() {
     let nome = prompt("Inserisci il nome del prodotto:");
 
     let carrello = document.getElementById("carrello");
     let prodotto = document.createElement("div");
     c++;
-    prodotto.textContent = "Alimento " + c + " = " + nome;
-    carrello.appendChild(prodotto);
+    prodotto.innerHTML = "Alimento " + c + " = " + nome;
+    carrello.appendChild(prodotto); // Aggiunge il nuovo prodotto al carrello
 }
 
 function svuotaCarrello() {
