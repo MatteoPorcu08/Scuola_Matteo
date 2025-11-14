@@ -5,7 +5,9 @@ function aggiungiProdotto() {
     let carrello = document.getElementById("carrello");
     let prodotto = document.createElement("div");
     c++;
-    document.getElementById("carrello").innerHTML = "Alimento"  +c+ "=" + nome;
+    prodotto.innerHTML = "Alimento" + c + " = " + nome;
+    carrello.appendChild(prodotto);
+
 
 }
 
