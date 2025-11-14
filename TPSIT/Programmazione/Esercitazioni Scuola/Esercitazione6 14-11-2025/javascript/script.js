@@ -6,13 +6,11 @@ function aggiungiProdotto() {
     let prodotto = document.createElement("div");
     c++;
     document.getElementById("carrello").innerHTML =
-    document.getElementById("carrello").innerHTML +"<br>"+"Alimento" +c + "= " + nome;
-    
+    document.getElementById("carrello").innerHTML +"<br>"+"-" + nome;
 
 }
 
 function svuotaCarrello() {
-    let carrello = document.getElementById("carrello");
-    carrello.innerHTML = "Il carrello è vuoto";
+    let carrello = document.getElementById("carrello").innerHTML = "Il carrello è vuoto";
     c = 0;
 }
