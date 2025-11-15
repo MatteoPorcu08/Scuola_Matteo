@@ -70,13 +70,25 @@ public class Casa {
 
     //metodi di confrontoù
     //confornto della superficie
-    public boolean haSuperficieMaggioreDi(Casa altraCasa) {
-        return this.superficie > altraCasa.superficie;
+    public String haSuperficieMaggioreDi(Casa altraCasa) {
+        if (this.superficie > altraCasa.superficie) {
+            return "La casa in " + this.indirizzo + " ha una superficie maggiore rispetto alla casa in " + altraCasa.indirizzo;
+        } else if (this.superficie < altraCasa.superficie) {
+            return "La casa in " + altraCasa.indirizzo + " ha una superficie maggiore rispetto alla casa in " + this.indirizzo;
+        } else {
+            return "Le due case hanno la stessa superficie.";
+        }
     }
 
     //confronto del prezzo
-    public boolean haPrezzoMinoreDi(Casa altraCasa) {
-        return this.prezzo < altraCasa.prezzo;
+    public String  haPrezzoMinoreDi(Casa altraCasa) {
+        if (this.prezzo < altraCasa.prezzo) {
+            return "La casa in " + this.indirizzo + " ha un prezzo minore rispetto alla casa in " + altraCasa.indirizzo;
+        } else if (this.prezzo > altraCasa.prezzo) {
+            return "La casa in " + altraCasa.indirizzo + " ha un prezzo minore rispetto alla casa in " + this.indirizzo;
+        } else {
+            return "Le due case hanno lo stesso prezzo.";
+        }
     }
 
     //metodo toString
