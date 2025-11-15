@@ -16,18 +16,11 @@ public class Main {
 
         c3.setIndirizzo("Via Manzoni 20");
         c3.setPrezzo(345000.0);
-        System.out.println("---Casa 3 modificata---");
         System.out.println(c3.toString());
-        System.out.println("------------------------------------");
         System.out.println("\n");
 
-        System.out.println("---Confronto tra le case---");
-        System.out.println("---Confronto superficie casa 1 e casa 2---");
+
         System.out.println(c1.haSuperficieMaggioreDi(c2));
-        System.out.println("--------------------------------");
-        System.out.println("---Confronto prezzo casa 1 e casa 2---");
         System.out.println(c1.haPrezzoMinoreDi(c2));
-        System.out.println("--------------------------------");
-        System.out.println("\n");
     }
 }
