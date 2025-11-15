@@ -71,21 +71,16 @@ public class Casa {
     //metodi di confrontoù
     //confornto della superficie
     public boolean haSuperficieMaggioreDi(Casa altraCasa) {
-        if (this.superficie > altraCasa.superficie) {
-            return ("La casa in " + this.indirizzo + " ha una superficie maggiore di " + altraCasa.indirizzo);
-        } else {
-            return false;
-        }
+        return this.superficie > altraCasa.superficie;
     }
+
     //confronto del prezzo
     public boolean haPrezzoMinoreDi(Casa altraCasa) {
         return this.prezzo < altraCasa.prezzo;
     }
 
-
-
-
-
-
-
+    //metodo toString
+    public String toString() {
+        return "Casa: \nindirizzo=" + indirizzo + "\nnumeroStanze=" + numeroStanze + "\nsuperficie=" + superficie+ "\nprezzo=" + prezzo + "\nconGiardino=" + conGiardino + "\nannoCostruzione=" + annoCostruzione;
+    }
 }
