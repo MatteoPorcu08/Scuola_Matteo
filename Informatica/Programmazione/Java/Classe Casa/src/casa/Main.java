@@ -47,8 +47,44 @@ public class Main {
         System.out.println("--------------------------------");
         System.out.println("\n");
 
+        //MAIN PROPRIETARIO
         //creazione di due oggetti Proprietario
-        Proprietario proprietario1 = new Proprietario("Mario", "Rossi", "MRARSS80A01H501U", casa1);
-        
+        Proprietario proprietario1 = new Proprietario("Matteo", "Porcu", "PRCMTT00R31B354B", casa1);
+        Proprietario proprietario2 = new Proprietario("Luca", "Rossi", "RSSLCU90A01C352B", casa2);
+
+        //stampa dei proprietari con il metodo toString
+        System.out.println("---Proprietario 1---");
+        System.out.println(proprietario1.toString());
+        System.out.println("------------------------------------");
+        System.out.println("---Proprietario 2---");
+        System.out.println(proprietario2.toString());
+        System.out.println("------------------------------------");
+        System.out.println("\n");
+
+        //test costruttore di copia
+        Proprietario proprietario3 = new Proprietario(proprietario1);
+        System.out.println("---Proprietario 3 (copia di proprietario 1)---");
+        System.out.println(proprietario3.toString());
+        System.out.println("------------------------------------");
+        Proprietario proprietario4 = new Proprietario(proprietario2);
+        System.out.println("---Proprietario 4 (copia di proprietario 2)---");
+        System.out.println(proprietario4.toString());
+        System.out.println("------------------------------------");
+        System.out.println("\n");
+
+        //verifica se i proprietari hanno una casa con giardino
+        System.out.println("---Verifica casa con giardino---");
+        System.out.println("Proprietario 1 ha casa con giardino? " + proprietario1.haCasaConGiardino());
+        System.out.println("Proprietario 2 ha casa con giardino? " + proprietario2.haCasaConGiardino());
+        System.out.println("------------------------------------");
+        System.out.println("\n");
+
+        //aggiornamento casa del proprietario
+        System.out.println("---Aggiornamento casa del proprietario 1---");
+        String risultatoAggiornamento = proprietario1.aggiornaCasa(casa2);
+        System.out.println(risultatoAggiornamento);
+        System.out.println("Dati aggiornati del proprietario 1:");
+        System.out.println(proprietario1.toString());
+        System.out.println("------------------------------------");
     }
 }
