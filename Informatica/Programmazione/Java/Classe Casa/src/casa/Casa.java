@@ -7,7 +7,6 @@ public class Casa {
     private boolean conGiardino;
     private int annoCostruzione;
 
-
     // Costruttore principale
     public Casa(String indirizzo, int numeroStanze, double superficie, double prezzo, boolean conGiardino, int annoCostruzione) {
         this.indirizzo = indirizzo;
