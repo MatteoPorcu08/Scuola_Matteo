@@ -57,6 +57,10 @@ public class Proprietario {
 
     //haCasaConGiardino()
     public boolean haCasaConGiardino() {
-        if()
+        if(this.home.ConGiardino()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
