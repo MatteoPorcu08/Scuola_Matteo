@@ -52,7 +52,7 @@ public class Proprietario {
     //Metodo toString
     @Override
     public String toString() {
-        return "Proprietario Nome: " + this.nome + ", Cognome: " + this.cognome + ", Codice Fiscale: " + this.codiceFiscale + ", Casa: " + this.home.toString();
+        return "Proprietario:\n Nome: " + this.nome + "\nCognome: " + this.cognome + "\nCodice Fiscale: " + this.codiceFiscale + "\nCasa: " + this.home.toString();
     }
 
     //haCasaConGiardino()
@@ -62,5 +62,11 @@ public class Proprietario {
         } else {
             return false;
         }
+    }
+
+    //aggiornaCasa(Casa c)
+    public String aggiornaCasa(Casa c) {
+        this.home = c;
+        return "Casa aggiornata con successo!";
     }
 }
