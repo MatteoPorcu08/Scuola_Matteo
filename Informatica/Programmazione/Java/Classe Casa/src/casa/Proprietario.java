@@ -55,11 +55,7 @@ public class Proprietario {
         return "Proprietario Nome: " + this.nome + ", Cognome: " + this.cognome + ", Codice Fiscale: " + this.codiceFiscale + ", Casa: " + this.home.toString();
     }
 
-    //Metodo stampaDettagli()
-    public String stampaDettagli() {
-        return toString();
-    }
-
     //haCasaConGiardino()
+    public boolean haCasaConGiardino() {}
 
 }
