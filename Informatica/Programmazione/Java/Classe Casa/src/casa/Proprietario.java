@@ -51,10 +51,8 @@ public class Proprietario {
 
     //Metodo toString
     @Override
-    public String toString() {
-        return "Proprietario:\n nome='" + nome + '\'' +", cognome='" + cognome + '\'' +", codiceFiscale='" + codiceFiscale + '\'' +", home=" + home +
-                '}';
-
-
+    public String Casa.toString() {
+        return "Proprietario Nome: " + this.nome + ", Cognome: " + this.cognome + ", Codice Fiscale: " + this.codiceFiscale;
+    }
 
 }
