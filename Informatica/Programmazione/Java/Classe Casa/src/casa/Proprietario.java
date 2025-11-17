@@ -56,6 +56,7 @@ public class Proprietario {
     }
 
     //haCasaConGiardino()
-    public boolean haCasaConGiardino() {}
-
+    public boolean haCasaConGiardino() {
+        if()
+    }
 }
