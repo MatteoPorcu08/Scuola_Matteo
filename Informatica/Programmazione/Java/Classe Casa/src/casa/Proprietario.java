@@ -31,6 +31,29 @@ public class Proprietario {
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
+    public Casa getHome() {
+        return home;
+    }
+
+    //Metodo Setter
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
+    }
+    public void setHome(Casa home) {
+        this.home = home;
+    }
+
+    //Metodo toString
+    @Override
+    public String toString() {
+        return "Proprietario:\n nome='" + nome + '\'' +", cognome='" + cognome + '\'' +", codiceFiscale='" + codiceFiscale + '\'' +", home=" + home +
+                '}';
 
 
 
