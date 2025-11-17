@@ -66,7 +66,12 @@ public class Proprietario {
 
     //aggiornaCasa(Casa c)
     public String aggiornaCasa(Casa c) {
-        this.home = c;
-        return "Casa aggiornata con successo!";
+        if(this.home==c) {
+            return "Nessuna modifica apportata alla casa.";
+        } else {
+            this.home = c;
+            return "Casa aggiornata con successo.";
+        }
+        
     }
 }

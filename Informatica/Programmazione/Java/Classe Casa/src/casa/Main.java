@@ -1,6 +1,7 @@
 package casa;
 public class Main {
     public static void main(String[] args) {
+        //creazione di due oggetti Casa
         Casa casa1 = new Casa("Via Musei 31", 10, 200, 450000.0, true, 2000);
         Casa casa2 = new Casa ("Via roma 2", 5, 90, 150000.0, false, 1990);
 
@@ -45,5 +46,9 @@ public class Main {
         System.out.println(casa1.haPrezzoMinoreDi(casa2));
         System.out.println("--------------------------------");
         System.out.println("\n");
+
+        //creazione di due oggetti Proprietario
+        Proprietario proprietario1 = new Proprietario("Mario", "Rossi", "MRARSS80A01H501U", casa1);
+        
     }
 }
