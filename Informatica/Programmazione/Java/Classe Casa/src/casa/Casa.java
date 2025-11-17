@@ -67,7 +67,7 @@ public class Casa {
         this.annoCostruzione = annoCostruzione;
     }
 
-    //metodi di confrontoù
+    //metodi di confronto
     //confornto della superficie
     public String haSuperficieMaggioreDi(Casa altraCasa) {
         if (this.superficie > altraCasa.superficie) {
