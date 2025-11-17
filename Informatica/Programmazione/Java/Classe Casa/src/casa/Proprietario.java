@@ -51,8 +51,15 @@ public class Proprietario {
 
     //Metodo toString
     @Override
-    public String Casa.toString() {
-        return "Proprietario Nome: " + this.nome + ", Cognome: " + this.cognome + ", Codice Fiscale: " + this.codiceFiscale;
+    public String toString() {
+        return "Proprietario Nome: " + this.nome + ", Cognome: " + this.cognome + ", Codice Fiscale: " + this.codiceFiscale + ", Casa: " + this.home.toString();
     }
+
+    //Metodo stampaDettagli()
+    public String stampaDettagli() {
+        return toString();
+    }
+
+    //haCasaConGiardino()
 
 }
