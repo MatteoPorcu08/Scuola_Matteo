@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizio</title>
-    <script src="../javascript/script.js"></script>
+    <script src="../javascript/script.js" defer></script>
 </head>
 <body>
     <h1>Esercizio</h1>
-    <p>Clicca il bottone per aggiungere un prodotto al carello:</p>
-    <input type="button" value="Aggingi prodotto" onclick="aggiungiProdotto()">
+    <p>Clicca il bottone per aggiungere un prodotto al carrello:</p>
+    <input type="button" value="Aggiungi prodotto" onclick="aggiungiProdotto()">
     <h4>Carrello</h4>
-    <div id="carrello">
-        <!-- I prodotti aggiunti appariranno qui -->
-    </div>
+    <div id="carrello">Il carrello è vuoto</div>
+    <p id="contatoreProdotti">Prodotti nel carrello: 0</p>
     <br>
     <br>
     <input type="button" value="Svuota carrello" onclick="svuotaCarrello()">
