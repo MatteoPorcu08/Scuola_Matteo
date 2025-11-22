@@ -33,10 +33,15 @@ public class Main {
         Persona persona2 = new Persona (nome2, cognome2, eta2, altezza2);
         System.out.println("Seconda persona creata: " + persona2);
         input.close();
+        System.out.println("\n");
 
         //creazione terza persona tramite costruttore di copia
         Persona persona3 = new Persona (persona1);
-        System.out.println("Terza persona creata tramite costruttore di copia della prima: " + persona3);
-        
+        System.out.println("Terza persona creata tramite costruttore di copia della prima:\n " + persona3);
+        System.out.println("\n");
+
+        //confronto tra la prima e la seconda persona
+        System.out.println("\nConfronto età tra la prima e la seconda persona:");
+        System.out.println(persona1.confrontaEta(persona2));
     }
 }
