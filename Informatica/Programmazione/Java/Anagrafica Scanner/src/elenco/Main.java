@@ -1,9 +1,10 @@
 package elenco;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         try (Scanner s = new Scanner (System.in)) { //importa la classe Scanner per input da tastiera
+
+            System.out.println("----Benvenuto! Questo programma serve per inserire il nome di due persone\n----");
 
             //creazione prima persona tramite input da tastiera
             System.out.println("Inserisci il nome della prima persona:");
@@ -31,18 +32,19 @@ public class Main {
             float altezza2 = s.nextFloat();
             s.nextLine(); // Consuma il newline rimasto
             Persona persona2 = new Persona (nome2, cognome2, eta2, altezza2);
-            System.out.println("---Seconda persona creata---" + persona2);
+            System.out.println("---Seconda persona creata---\n" + persona2);
             System.out.println("\n");
 
             //creazione terza persona tramite costruttore di copia
             Persona persona3 = new Persona (persona1);
             System.out.println("---Terza persona creata tramite costruttore di copia della prima---\n " + persona3);
+            System.out.println("----------------------------------");
             System.out.println("\n");
 
             //confronto tra la prima e la seconda persona
             System.out.println("\n---Confronto età tra la prima e la seconda persona---");
             System.out.println(persona1.confrontaEta(persona2));
-            System.out.println("\n");
+            System.out.println("----------------------------------");
         }
     }
 }
