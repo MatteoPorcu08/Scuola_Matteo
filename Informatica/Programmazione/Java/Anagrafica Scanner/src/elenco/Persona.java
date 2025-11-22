@@ -9,9 +9,6 @@ public class Persona {
     private float  altezza;
 
     // METODI
-
-
-
     // COSTRUTTORE
     public Persona (String nome, String cognome, int eta, float altezza) {
         this.nome = nome;
@@ -20,6 +17,15 @@ public class Persona {
         this.altezza = altezza;
 
     }
+
+    //COSTRUTTORE DI COPIA
+    public Persona (Persona persona) {
+        this.nome = persona.nome;
+        this.cognome = persona.cognome;
+        this.eta = persona.eta;
+        this.altezza = persona.altezza;
+    }
+
     /* SETTER:Metodi che assegnano i valori ai singoli parametri
         Possono essere pubblici (attributi dinamici) o privato (attributi statici)*/
 
@@ -57,5 +63,14 @@ public class Persona {
             return "Nome=" + this.nome + "\nCognome=" +this.cognome + "\nEtà=" + this.eta + "\nAltezza=" + this.altezza;
         }
 
-    
+        //confronto eta di due persone
+        public String confrontaEta (Persona persona) {
+            if (this.eta > persona.eta) {
+                return this.nome + " è più grande di " + persona.nome;
+            } else if (this.eta < persona.eta) {
+                return this.nome + " è più piccolo di " + persona.nome;
+            } else {
+                return this.nome + " e " + persona.nome + " hanno la stessa età";
+            }
+        }
 }
