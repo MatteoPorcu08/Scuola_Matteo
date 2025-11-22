@@ -1,5 +1,4 @@
 package elenco;
-
 public class Persona {
 
     // ATTRIBUTI: nome, cognome, età, altezza
@@ -15,7 +14,6 @@ public class Persona {
         this.cognome = cognome;
         this.eta = eta;
         this.altezza = altezza;
-
     }
 
     //COSTRUTTORE DI COPIA
@@ -28,11 +26,10 @@ public class Persona {
 
     /* SETTER:Metodi che assegnano i valori ai singoli parametri
         Possono essere pubblici (attributi dinamici) o privato (attributi statici)*/
-
-        private void setNome (String nome) {
+        public void setNome (String nome) {
             this.nome = nome;
         }
-        private void setCognome (String cognome) {
+        public void setCognome (String cognome) {
             this.cognome = cognome;
         }
         public void setEta (int eta) {
@@ -44,7 +41,6 @@ public class Persona {
     
     /* GETTER: Metodi che restituiscono i valori dei singoli parametri
         Sono sempre pubblici perchè devono essere utilizati anche all'esterno della classe */
-
         public String getNome () {
             return this.nome;
         }
@@ -59,6 +55,7 @@ public class Persona {
         }
 
         //metodo toString:serve per restituire i valori degli attributi
+        @Override
         public String toString () {
             return "Nome=" + this.nome + "\nCognome=" +this.cognome + "\nEtà=" + this.eta + "\nAltezza=" + this.altezza;
         }
