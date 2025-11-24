@@ -71,5 +71,23 @@ public class Ingrediente {
     @Override
     public String toString() {
         return "Ingrediente{" +
-                "nome='" + nome + '\'' +"\n quantita=" + quantita +", unita='" + unita + '\'' +", caloriePerUnita=" + caloriePerUnita +", costoPerUnita=" + costoPerUnita +", vegetariano=" + vegetariano +'}';
+                "nome='" + nome + '\'' +"\nquantita=" + quantita +"\nunita='" + unita + '\'' +"\ncaloriePerUnita=" + caloriePerUnita +"\ncostoPerUnita=" + costoPerUnita +"\nvegetariano=" + vegetariano;
+    }
+
+    //Metodo scalaQuantita(double fattore)
+    public void scalaQuantita(double fattore) {
+        if (fattore > 0) {
+            this.quantita *= fattore;
+        }
+    }
+
+    //Metodo calorieTotali()
+    public double calorieTotali() {
+        return (this.caloriePerUnita * this.quantita) / 100.0;
+    }
+
+    //Metodo costoTotale()
+    public double costoTotale() {
+        return (this.costoPerUnita * this.quantita) / 100.0;
+    }
 }
