@@ -98,4 +98,7 @@ public class Ricetta {
         return calorieTotali;
     }
 
+    //Mettodo stimaCostoTotale()
+    
+
 }
