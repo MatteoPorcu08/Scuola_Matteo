@@ -112,5 +112,9 @@ public class Ricetta {
         return ingredienti1.isVegetariano() && ingredienti2.isVegetariano() && ingredienti3.isVegetariano();
     }
 
+    //Metodo  sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente)
 
+    //Metodo confrontaDifficolta(Ricetta altra)
+
+    //Metodo adattaRicettaPerOspiti(int numOspiti)
 }
