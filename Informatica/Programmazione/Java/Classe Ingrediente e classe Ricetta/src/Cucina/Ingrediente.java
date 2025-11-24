@@ -95,11 +95,11 @@ public class Ingrediente {
 
     // Metodo calorieTotali()
     public double calorieTotali() {
-        return (this.caloriePerUnita * this.quantita) / 100.0;
+        return (this.quantita * this.caloriePerUnita) / 100.0;
     }
 
     // Metodo costoTotale()
     public double costoTotale() {
-        return (this.costoPerUnita * this.quantita) / 100.0;
+        return (this.quantita * this.costoPerUnita) / 100.0;
     }
 }
