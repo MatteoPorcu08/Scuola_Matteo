@@ -76,6 +76,26 @@ public class Ricetta {
 
     //Metodo toString
     @Override
+    public String toString() {
+        return "Ricetta: " + nome + "\n" +"Tempo di preparazione: " + tempoPreparazione + " minuti\n" +"Difficoltà: " + difficolta + "\n" +"Porzioni: " + porzioni + "\n" +"Ingredienti:\n" +"1. " + ingredienti1.toString() + "\n" +"2. " + ingredienti2.toString() + "\n" +"3. " + ingredienti3.toString();
+    }
 
+    //Metodo  scalaDosi(int nuovePorzioni)
+    public void scalaDosi(int nuovePorzioni) {
+        double fattoreScala = (double) nuovePorzioni / porzioni;
+        ingredienti1.setQuantita(ingredienti1.getQuantita() * fattoreScala);
+        ingredienti2.setQuantita(ingredienti2.getQuantita() * fattoreScala);
+        ingredienti3.setQuantita(ingredienti3.getQuantita() * fattoreScala);
+        porzioni = nuovePorzioni;
+    }
+
+    //Metodo calcolaCalorieTotali()
+    public double calcolaCalorieTotali() {
+        double calorieTotali = 0;
+        calorieTotali += ingredienti1.calorieTotali();
+        calorieTotali += ingredienti2.calorieTotali();
+        calorieTotali += ingredienti3.calorieTotali();
+        return calorieTotali;
+    }
 
 }
