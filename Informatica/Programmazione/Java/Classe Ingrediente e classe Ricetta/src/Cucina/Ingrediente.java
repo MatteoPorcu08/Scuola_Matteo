@@ -1,4 +1,5 @@
 package Cucina;
+
 public class Ingrediente {
     private String nome;
     private double quantita; // in grammi
@@ -7,8 +8,9 @@ public class Ingrediente {
     private double costoPerUnita;
     private boolean vegetariano;
 
-    //Costruttore principale
-    public Ingrediente(String nome, double quantita, String unita, double caloriePerUnita, double costoPerUnita, boolean vegetariano) {
+    // Costruttore principale
+    public Ingrediente(String nome, double quantita, String unita, double caloriePerUnita, double costoPerUnita,
+            boolean vegetariano) {
         this.nome = nome;
         this.quantita = quantita;
         this.unita = unita;
@@ -16,8 +18,8 @@ public class Ingrediente {
         this.costoPerUnita = costoPerUnita;
         this.vegetariano = vegetariano;
     }
-    
-    //Costruttore di copia
+
+    // Costruttore di copia
     public Ingrediente(Ingrediente altro) {
         this.nome = altro.nome;
         this.quantita = altro.quantita;
@@ -27,65 +29,76 @@ public class Ingrediente {
         this.vegetariano = altro.vegetariano;
     }
 
-    //Metodi getter
+    // Metodi getter
     public String getNome() {
         return nome;
     }
+
     public double getQuantita() {
         return quantita;
     }
+
     public String getUnita() {
         return unita;
     }
+
     public double getCaloriePerUnita() {
         return caloriePerUnita;
     }
+
     public double getCostoPerUnita() {
         return costoPerUnita;
     }
+
     public boolean isVegetariano() {
         return vegetariano;
     }
 
-    //Metodi setter
+    // Metodi setter
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public void setQuantita(double quantita) {
         this.quantita = quantita;
     }
+
     public void setUnita(String unita) {
         this.unita = unita;
     }
+
     public void setCaloriePerUnita(double caloriePerUnita) {
         this.caloriePerUnita = caloriePerUnita;
     }
+
     public void setCostoPerUnita(double costoPerUnita) {
         this.costoPerUnita = costoPerUnita;
     }
+
     public void setVegetariano(boolean vegetariano) {
         this.vegetariano = vegetariano;
     }
 
-    //Metodo toString
+    // Metodo toString
     @Override
     public String toString() {
-        return "Ingrediente:" +"\nnome=" + nome +"\nquantita=" + quantita +"\nunita='" + unita + "\ncaloriePerUnita=" + caloriePerUnita +"\ncostoPerUnita=" + costoPerUnita +"\nvegetariano=" + vegetariano;
+        return "Ingrediente:" + "\nnome=" + nome + "\nquantita=" + quantita + "\nunita='" + unita + "\ncaloriePerUnita="
+                + caloriePerUnita + "\ncostoPerUnita=" + costoPerUnita + "\nvegetariano=" + vegetariano;
     }
 
-    //Metodo scalaQuantita(double fattore)
+    // Metodo scalaQuantita(double fattore)
     public void scalaQuantita(double fattore) {
         if (fattore > 0) {
             this.quantita *= fattore;
         }
     }
 
-    //Metodo calorieTotali()
+    // Metodo calorieTotali()
     public double calorieTotali() {
         return (this.caloriePerUnita * this.quantita) / 100.0;
     }
 
-    //Metodo costoTotale()
+    // Metodo costoTotale()
     public double costoTotale() {
         return (this.costoPerUnita * this.quantita) / 100.0;
     }
