@@ -113,40 +113,10 @@ public class Ricetta {
     }
 
     //Metodo  sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente)
-    public void sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente) {
-        switch (numeroIngrediente) {
-            case 1:
-                ingredienti1 = new Ingrediente(nuovoIngrediente);
-                break;
-            case 2:
-                ingredienti2 = new Ingrediente(nuovoIngrediente);
-                break;
-            case 3:
-                ingredienti3 = new Ingrediente(nuovoIngrediente);
-                break;
-            default:
-                System.out.println("Numero ingrediente non valido. Usa 1, 2 o 3.");
-        }
-    }
+
 
     //Metodo confrontaDifficolta(Ricetta altra)
-    public int confrontaDifficolta(Ricetta altra) {
-        String[] livelliDifficolta = {"Facile", "Media", "Difficile"};
-        int thisLivello = -1;
-        int altraLivello = -1;
 
-        for (int i = 0; i < livelliDifficolta.length; i++) {
-            if (this.difficolta.equals(livelliDifficolta[i])) {
-                thisLivello = i;
-            }
-            if (altra.difficolta.equals(livelliDifficolta[i])) {
-                altraLivello = i;
-            }
-        }
-
-        return (thisLivello - altraLivello);
-    }
-    
 
     //Metodo adattaRicettaPerOspiti(int numOspiti)
     public void adattaRicettaPerOspiti(int numOspiti) {
