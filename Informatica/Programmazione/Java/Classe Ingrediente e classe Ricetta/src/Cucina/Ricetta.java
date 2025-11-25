@@ -113,7 +113,7 @@ public class Ricetta {
     }
 
     //Metodo  sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente)
-
+    
 
     //Metodo confrontaDifficolta(Ricetta altra)
 
