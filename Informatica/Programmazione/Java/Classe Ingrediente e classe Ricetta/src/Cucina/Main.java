@@ -2,7 +2,7 @@ package Cucina;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Ingrediente 
+        Ingrediente ingredienti1 = new Ingrediente("Uova", 3);
         Scanner s = new Scanner(System.in);
         System.out.println("Inserisci il nome della ricetta:");
         String nome = s.nextLine();
