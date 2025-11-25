@@ -11,7 +11,7 @@ public class Main {
         int difficolta = s.nextInt();
         System.out.println("Inserisci le porzioni desiderate:");
         int porzioni = s.nextInt();
-
+        
 
         s.close();
     }
