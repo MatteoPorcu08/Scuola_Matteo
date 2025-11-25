@@ -113,10 +113,46 @@ public class Ricetta {
     }
 
     //Metodo  sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente)
-    
+    public boolean sostituisciIngrediente(int numeroIngrediente, Ingrediente nuovoIngrediente) {
+    if (numeroIngrediente == 1) {
+        ingredienti1 = new Ingrediente(nuovoIngrediente);
+        return true;
+    } else if (numeroIngrediente == 2) {
+        ingredienti2 = new Ingrediente(nuovoIngrediente);
+        return true;
+    } else if (numeroIngrediente == 3) {
+        ingredienti3 = new Ingrediente(nuovoIngrediente);
+        return true;
+    }
+    return false; // numero non valido
+    }
 
     //Metodo confrontaDifficolta(Ricetta altra)
+    public String confrontaDifficolta(Ricetta altra) {
 
+    // Se sono uguali
+    if (this.difficolta == altra.difficolta) {
+        return "Stessa difficoltà";
+    }
+
+    // this più difficile
+    if (this.difficolta == "Difficile") {
+        return "Più difficile";
+    }
+    if (this.difficolta == "Media" && altra.difficolta == "Facile") {
+        return "Più difficile";
+    }
+
+    // this meno difficile
+    if (this.difficolta == "Facile") {
+        return "Meno difficile";
+    }
+    if (this.difficolta == "Media" && altra.difficolta == "Difficile") {
+        return "Meno difficile";
+    }
+
+    return "Stessa difficoltà"; // caso generico
+    }
 
     //Metodo adattaRicettaPerOspiti(int numOspiti)
     public void adattaRicettaPerOspiti(int numOspiti) {
