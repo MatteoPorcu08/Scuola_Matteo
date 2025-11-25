@@ -82,8 +82,14 @@ public class Ingrediente {
     // Metodo toString
     @Override
     public String toString() {
-        return "Ingrediente:" + "\nnome=" + nome + "\nquantita=" + quantita + "\nunita='" + unita + "\ncaloriePerUnita="
-                + caloriePerUnita + "\ncostoPerUnita=" + costoPerUnita + "\nvegetariano=" + vegetariano;
+        return """
+                Ingrediente:
+                nome=%s
+                quantita=%s
+                unita='%s
+                caloriePerUnita=%s
+                costoPerUnita=%s
+                vegetariano=%s""".formatted(nome, quantita, unita, caloriePerUnita, costoPerUnita, vegetariano);
     }
 
     // Metodo scalaQuantita(double fattore)

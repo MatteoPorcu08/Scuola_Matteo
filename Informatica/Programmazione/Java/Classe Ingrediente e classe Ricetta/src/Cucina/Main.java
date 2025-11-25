@@ -1,14 +1,15 @@
 package Cucina;
-
 import java.util.Scanner;
-
 public class Main {
-    Scanner s = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Inserisci il nome della ricetta:");
+        String nome = s.nextLine();
+        System.out.println("Inserisci il tempo di preparazione:");
+        int tempoPreparazione = s.nextLine();
+        System.out.println("Inserisci la difficolta:");
 
-    System.out.println("Ciao! Benvenuto nella cucina");
-    System.out.println("\nInserisci il nome della ricetta:");
-    String nomeRicetta = s.nextLine();
-    Ricetta ricetta = new Ricetta(nomeRicetta);
-    boolean continua = true;
 
+        s.close();
+    }
 }
