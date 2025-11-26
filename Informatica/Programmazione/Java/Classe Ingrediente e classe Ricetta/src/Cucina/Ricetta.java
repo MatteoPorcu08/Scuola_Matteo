@@ -129,28 +129,21 @@ public class Ricetta {
 
     //Metodo confrontaDifficolta(Ricetta altra)
     public String confrontaDifficolta(Ricetta altra) {
-
-    // Se sono uguali
     if (this.difficolta == altra.difficolta) {
         return "Stessa difficoltà";
     }
-
-    // this più difficile
     if (this.difficolta == "Difficile") {
         return "Più difficile";
     }
     if (this.difficolta == "Media" && altra.difficolta == "Facile") {
         return "Più difficile";
     }
-
-    // this meno difficile
     if (this.difficolta == "Facile") {
         return "Meno difficile";
     }
     if (this.difficolta == "Media" && altra.difficolta == "Difficile") {
         return "Meno difficile";
     }
-
     return "Stessa difficoltà"; // caso generico
     }
 

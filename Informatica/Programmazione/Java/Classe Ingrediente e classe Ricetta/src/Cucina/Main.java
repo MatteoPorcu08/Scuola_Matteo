@@ -21,7 +21,7 @@ public class Main {
         Ingrediente ingr3 = new Ingrediente("Olio", 20, "g", 900, 1.00, true);
 
         //Creazione ricetta
-        Ricetta ricetta = new Ricetta(nome, tempoPreparazione, difficolta, porzioni, ingr1, ingr2, ingr3);
+        Ricetta ricetta = new Ricetta(nome, tempoPreparazione, porzioni, ingr1, ingr2, ingr3);
 
         //Stampo la ricetta
         System.out.println("\n--- RICETTA COMPLETA ---");

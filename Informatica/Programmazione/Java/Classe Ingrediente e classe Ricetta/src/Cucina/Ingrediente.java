@@ -79,17 +79,9 @@ public class Ingrediente {
         this.vegetariano = vegetariano;
     }
 
-    // Metodo toString
     @Override
     public String toString() {
-        return """
-                Ingrediente:
-                nome=%s
-                quantita=%s
-                unita='%s
-                caloriePerUnita=%s
-                costoPerUnita=%s
-                vegetariano=%s""".formatted(nome, quantita, unita, caloriePerUnita, costoPerUnita, vegetariano);
+        return "Nome=" + this.nome +"\n" + "Quantita=" + this.quantita +"\n" + "Unita=" + this.unita +"\n" + "Calorieperunita=" + this.caloriePerUnita +"\n" + "Costoperunita=" + this.costoPerUnita +"\n" + "Vegetariano=" + this.vegetariano;
     }
 
     // Metodo scalaQuantita(double fattore)
