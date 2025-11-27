@@ -1,13 +1,12 @@
 function verificaCampi() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const messaggio = document.getElementById('messaggio');
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+    let messaggio = document.getElementById('messaggio');
     
     if (username === '' || password === '') {
-        messaggio.textContent = 'Errore: Tutti i campi devono essere compilati.';
-        //messaggio.style.color = 'red';
+        document.getElementById("messaggio").innerText = "Errore: Tutti i campi devono essere compilati.";
+
     } else {
-        messaggio.textContent = 'Successo: Tutti i campi sono compilati correttamente.';
-        //messaggio.style.color = 'green';
+        document.getElementById("messaggio").innerText = "Successo: Tutti i campi sono compilati correttamente.";
     }
 }

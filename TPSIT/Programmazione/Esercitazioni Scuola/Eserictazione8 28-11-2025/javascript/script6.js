@@ -1,6 +1,6 @@
 function aggiungi() {
-    input = prompt("Inserisci un elemento da aggiungere alla lista:") || "";
-    const lista = document.getElementById("lista");
-    lista.innerHTML += "<br>-" + input.trim();
+    let input = prompt("Inserisci un elemento da aggiungere alla lista:");
+    let lista = document.getElementById("lista");
+    lista.innerHTML = lista.innerHTML + "<br>-" + input;
     document.getElementById("input").value = "";
 }
