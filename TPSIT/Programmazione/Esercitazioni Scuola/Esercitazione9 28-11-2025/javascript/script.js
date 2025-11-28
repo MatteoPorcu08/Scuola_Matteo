@@ -16,8 +16,6 @@ function aggiungi() {
     } else {
         alert("Errore! Inserire un numero positivo.");
     }
-
-
 }
 
 function conferma(){
