@@ -19,5 +19,10 @@ function aggiungi(){
 }
 
 function conferma(){
-    
+    let conferma=prompt("Vuoi confermare l’ordine? (s/n)");
+    if (conferma== s){
+        alert("Il numero dei prodotto selezionati e:"+quantita+
+            "Il prezzo totale e:"+totale
+        )
+    }
 }
