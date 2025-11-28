@@ -11,8 +11,13 @@ function aggiungi(){
     }
 
     const prezzo =1.20
-    let totale= quantita*1.20;
+    let prezzoBevanda= quantita*prezzo;
+    let totale= totale + prezzoBevanda;
         document.getElementById("prezzo").innerHTML =
-        document.getElementById("prezzo").innerHTML = "Totale:" + totale;
+        document.getElementById("prezzo").innerHTML = "Totale:" + totale+ "Eur";
         document.getElementById("totale").value = "";
+}
+
+function conferma(){
+    
 }
