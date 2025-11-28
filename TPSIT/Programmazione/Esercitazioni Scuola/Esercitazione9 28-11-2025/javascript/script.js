@@ -1,21 +1,20 @@
-function aggiungi(){
+let totale = 0;
+function aggiungi() {
     let bevanda = document.getElementById("inputbevanda").value;
-    let quantita = document.getElementById("inputquantita").value*1;
+    let quantita = document.getElementById("inputquantita").value * 1;
 
-    if(quantita > 0){
-        document.getElementById("lista").innerHTML =
-        document.getElementById("lista").innerHTML + "<br>-" + bevanda+ " x " +quantita;
+    if (quantita > 0) {
+        document.getElementById("lista").innerHTML += "<br>-" + bevanda + " x " + quantita;
         document.getElementById("inputbevanda").value = "";
-    } else{
+    } else {
         alert("Errore! Inserire un numero positivo.");
+        return;
     }
 
-    const prezzo =1.20
-    let prezzoBevanda= quantita*prezzo;
-    let totale= totale + prezzoBevanda;
-        document.getElementById("prezzo").innerHTML =
-        document.getElementById("prezzo").innerHTML = "Totale:" + totale+ "Eur";
-        document.getElementById("totale").value = "";
+    const prezzo = 1.20;
+    let prezzoBevanda = quantita * prezzo;
+    totale += prezzoBevanda;
+    document.getElementById("prezzo").innerHTML = "Totale: " + totale + " Eur";
 }
 
 function conferma(){
@@ -27,4 +26,7 @@ function conferma(){
     } else if(conferma == "n"){
         alert("Ordine Anullato!");
     }
+
+    //reset
+    document.getElementById("lista").innerHTML
 }
