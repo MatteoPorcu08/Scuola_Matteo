@@ -19,14 +19,15 @@ function aggiungi() {
 
 function conferma(){
     let conferma=prompt("Vuoi confermare l’ordine? (s/n)");
-    if (conferma== "s" ){
+    if (conferma == "s" || conferma == "S" ){
         alert("Il numero dei prodotto selezionati e:"+quantita+
             "Il prezzo totale e:"+totale
         )
-    } else if(conferma == "n"){
+    } else if(conferma == "n"|| conferma == "N"){
         alert("Ordine Anullato!");
     }
 
-    //reset
-    document.getElementById("lista").innerHTML
+    document.getElementById("lista").innerHTML = "";
+    document.getElementById("totale").innerHTML = "Totale:";
+    totale= 0 ;
 }
