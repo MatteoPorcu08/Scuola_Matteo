@@ -9,4 +9,10 @@ function aggiungi(){
     } else{
         alert("Errore! Inserire un numero positivo.");
     }
+
+    const prezzo =1.20
+    let totale= quantita*1.20;
+        document.getElementById("prezzo").innerHTML =
+        document.getElementById("prezzo").innerHTML = "Totale:" + totale;
+        document.getElementById("totale").value = "";
 }
