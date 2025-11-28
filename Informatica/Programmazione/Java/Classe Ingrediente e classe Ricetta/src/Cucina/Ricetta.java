@@ -100,11 +100,9 @@ public class Ricetta {
 
     //Mettodo stimaCostoTotale()
     public double stimaCostoTotale() {
-        double costoTotale = 0;
-        costoTotale += ingredienti1.costoTotale();
-        costoTotale += ingredienti2.costoTotale();
-        costoTotale += ingredienti3.costoTotale();
-        return costoTotale;
+        return ingredienti1.costoTotale()
+            + ingredienti2.costoTotale()
+            + ingredienti3.costoTotale();
     }
 
     //Metodo  isVegetariana()

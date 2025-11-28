@@ -84,20 +84,20 @@ public class Ingrediente {
         return "Nome=" + this.nome +"\n" + "Quantita=" + this.quantita +"\n" + "Unita=" + this.unita +"\n" + "Calorieperunita=" + this.caloriePerUnita +"\n" + "Costoperunita=" + this.costoPerUnita +"\n" + "Vegetariano=" + this.vegetariano;
     }
 
-    // Metodo scalaQuantita(double fattore)
+     // Scala quantità
     public void scalaQuantita(double fattore) {
         if (fattore > 0) {
             this.quantita *= fattore;
         }
     }
 
-    // Metodo calorieTotali()
+    // Calorie totali
     public double calorieTotali() {
-        return (this.quantita * this.caloriePerUnita) / 100.0;
+        return quantita * caloriePerUnita;
     }
 
-    // Metodo costoTotale()
+    // Costo totale
     public double costoTotale() {
-        return (this.quantita * this.costoPerUnita) / 100.0;
+        return quantita * costoPerUnita;
     }
 }
