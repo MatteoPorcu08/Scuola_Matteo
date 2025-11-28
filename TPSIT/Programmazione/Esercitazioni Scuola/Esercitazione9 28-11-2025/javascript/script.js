@@ -21,7 +21,7 @@ function conferma(){
     let conferma=prompt("Vuoi confermare l’ordine? (s/n)");
     let quantita = document.getElementById("inputquantita").value * 1;
     if (conferma == "s" || conferma == "S" ){
-        alert("Il numero dei prodotto selezionati e:" +quantita+
+        alert("Il numero dei prodotto selezionati e:" +quantita+ "\n" +
             "Il prezzo totale e:" +totale)
     } else if(conferma == "n"|| conferma == "N"){
         alert("Ordine Anullato!");
