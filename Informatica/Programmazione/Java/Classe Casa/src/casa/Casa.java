@@ -68,7 +68,7 @@ public class Casa {
     }
 
     //metodi di confronto
-    //confornto della superficie
+    //confroto della superficie
     public String haSuperficieMaggioreDi(Casa altraCasa) {
         if (this.superficie > altraCasa.superficie) {
             return "La casa in " + this.indirizzo + " ha una superficie maggiore rispetto alla casa in " + altraCasa.indirizzo;
