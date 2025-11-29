@@ -5,8 +5,8 @@ public class Main {
         Scanner s =new Scanner (System.in);
 
         Casa C1;
-        String indirizzo;
 
+        String indirizzo;
         System.out.println("Inserici l'indirizzo della casa:");
         indirizzo=s.nextLine();
         s.nextLine();
@@ -18,9 +18,18 @@ public class Main {
         System.out.println("Inseerisci la superficie della casa: ");
         a=s.nextDouble();
         s.nextLine();
-
         double p;
         System.out.println("Quanto costa la casa?");
+        p=s.nextDouble();
+        s.nextLine();
+        boolean g;
+        System.out.println("Ha il giardino? (true/false");
+        g=s.nextBoolean();
+        s.nextLine();
+        int anno;
+        System.out.println("In che hanno e stata costruita?");
+        anno=s.nextInt();
+        s.nextLine();
 
 }
 }
