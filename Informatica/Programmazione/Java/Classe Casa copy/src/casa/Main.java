@@ -6,6 +6,7 @@ public class Main {
 
         Casa C1;
 
+        //CREAZIONE OGGETTO CASA
         String indirizzo;
         System.out.println("Inserici l'indirizzo della casa:");
         indirizzo=s.nextLine();
@@ -33,9 +34,7 @@ public class Main {
 
         C1=new Casa(indirizzo,numeroStanze,a,p,g,anno);
 
-        System.out.println(C1.toString());
-
-        //creazione proprietario
+        //CREAZIONE OGGETTO PROPRIETARIO
         Proprietario p1;
 
         System.out.println("---Inserisic i dati del proprietario---");
@@ -45,7 +44,7 @@ public class Main {
         String cognome= s.nextLine();
         System.out.println("Inserisci il codice Fiscale:");
         String codFiscale= s.nextLine();
-        
-
+        p1=new Proprietario(nome,cognome,codFiscale,C1);
+        System.out.println(p1.toString());
     }
 }
