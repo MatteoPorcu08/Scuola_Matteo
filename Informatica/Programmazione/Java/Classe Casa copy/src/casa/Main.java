@@ -34,5 +34,18 @@ public class Main {
         C1=new Casa(indirizzo,numeroStanze,a,p,g,anno);
 
         System.out.println(C1.toString());
-}
+
+        //creazione proprietario
+        Proprietario p1;
+
+        System.out.println("---Inserisic i dati del proprietario---");
+        System.out.println("Inserisci il nome:");
+        String nome= s.nextLine();
+        System.out.println("Inserisci il cognome:");
+        String cognome= s.nextLine();
+        System.out.println("Inserisci il codice Fiscale:");
+        String codFiscale= s.nextLine();
+        
+
+    }
 }
