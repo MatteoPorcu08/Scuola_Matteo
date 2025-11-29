@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner s =new Scanner (System.in);
 
-        Casa C1;
-
         //CREAZIONE OGGETTO CASA
+        Casa C1;
+        System.out.println("---Inserisci i dati della casa---");
         String indirizzo;
         System.out.println("Inserici l'indirizzo della casa:");
         indirizzo=s.nextLine();
@@ -37,7 +37,7 @@ public class Main {
         //CREAZIONE OGGETTO PROPRIETARIO
         Proprietario p1;
 
-        System.out.println("---Inserisic i dati del proprietario---");
+        System.out.println("---Inserisici dati del proprietario---");
         System.out.println("Inserisci il nome:");
         String nome= s.nextLine();
         System.out.println("Inserisci il cognome:");

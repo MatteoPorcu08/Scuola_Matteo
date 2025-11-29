@@ -93,6 +93,6 @@ public class Casa {
     //metodo toString
     @Override //serve per indicare che stiamo sovrascrivendo un metodo della superclasse
     public String toString() {
-        return "Casa: \nIndirizzo=" + indirizzo + "\nNumeroStanze=" + numeroStanze + "\nSuperficie=" + superficie+ "\nPrezzo=" + prezzo + "\nConGiardino=" + conGiardino + "\nAnnoCostruzione=" + annoCostruzione;
+        return "\nIndirizzo=" + indirizzo + "\nNumeroStanze=" + numeroStanze + "\nSuperficie=" + superficie+ "\nPrezzo=" + prezzo + "\nConGiardino=" + conGiardino + "\nAnnoCostruzione=" + annoCostruzione;
     }
 }
