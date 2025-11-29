@@ -15,7 +15,7 @@ public class Main {
         numeroStanze=s.nextInt();
         s.nextLine();
         double a;
-        System.out.println("Inseerisci la superficie della casa: ");
+        System.out.println("Inserisci la superficie della casa: ");
         a=s.nextDouble();
         s.nextLine();
         double p;
@@ -23,7 +23,7 @@ public class Main {
         p=s.nextDouble();
         s.nextLine();
         boolean g;
-        System.out.println("Ha il giardino? (true/false");
+        System.out.println("Ha il giardino? (true/false)");
         g=s.nextBoolean();
         s.nextLine();
         int anno;
@@ -31,5 +31,8 @@ public class Main {
         anno=s.nextInt();
         s.nextLine();
 
+        C1=new Casa(indirizzo,numeroStanze,a,p,g,anno);
+
+        System.out.println(C1.toString());
 }
 }
