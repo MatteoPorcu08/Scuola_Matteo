@@ -4,7 +4,7 @@ public class Main {
         int n;
         int numero = 10;
         n=100;
-        n=n*numero;
+        n=n*numero.intValue();
         System.out.println("Il valore di n e': " + n);
     }
 }
