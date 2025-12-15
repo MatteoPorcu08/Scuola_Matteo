@@ -22,7 +22,7 @@ background.fill ((20,20,80)) # riempie la superficie con un colore
 ship_surf=pygame.image.load("C:\Scuola_Matteo\PCTO\Corso Python\sprites\ship.png").convert_alpha() # carica l'immagine del quadrato
 ship_rect= ship_surf.get_rect(center=(W/2,H/2)) # ottiene il rettangolo del quadrato
 
-laser_surf = pygame.image.load("../sprites/laser.png").convert_alpha() # carica l'immagine del laser
+laser_surf = pygame.image.load("C:\Scuola_Matteo\PCTO\Corso Python\sprites\laser.png").convert_alpha() # carica l'immagine del laser
 laser_rects = [] # lista per memorizzare i laser
 laser_speed= 500 # velocità del laser
 
