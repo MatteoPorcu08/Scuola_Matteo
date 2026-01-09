@@ -1,40 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Carriera</title>
+    <script src="../javascript/script.js"></script>
 </head>
 <body>
-    <h1>Gestione Carriera</h1>
+<h1>Gestione Carriera</h1>
 
-    <input type="button" value="+ Aggiungi esame da svolgere" onclick="AggiungiEsameSvolgere()">
-    <input type="button" value="+ Aggiungi esame svolto" onclick="AggiungiEsameSvolto()">
-    <input type="button" value="Verifica Carriera" onclick="VerificaCarriera()">
+<h2>Esami da svolgere: <span id="numeroesamisvolgere">0</span></h2>
+<table border="1" id="tabellaSvolgere"></table>
+<p id="esameaggiuntosvolgere"></p>
+<button onclick="AggiungiEsameSvolgere()">+ Aggiungi esame da svolgere</button>
 
+<hr>
 
+<h2>Esami svolti: <span id="numeroesamisvolti">0</span></h2>
+<table border="1" id="tabellaSvolti"></table>
+<p id="esameaggiuntosvolto"></p>
+<button onclick="AggiungiEsameSvolto()">+ Aggiungi esame svolto</button>
 
-    <p>Rata totale da pagare:<span id="sommapagare">2300</span>EUR</p>
+<hr>
 
-    <input type="button" value="Paga" onclick="Paga()">
+<h2>Rata da pagare: <span id="sommapagare">3200</span> EUR</h2>
+<button onclick="Paga()">Paga</button>
 
+<hr>
 
-    <p>Esami da svolgere: <span id="numeroesamisvolgere">0</span></p>
+<button onclick="VerificaCarriera()">Verifica carriera</button>
 
-    <p id="nomeesami"></p>
-
-    <p id="esameaggiuntosvolgere"></p>
-
-
-
-    <p>Esami svolti:<span id="numeroesamisvolti">0</span></p>
-
-    <p id="esamisvolti"></p>
-
-    <p id="esameaggiuntosvolto"></p>
-
-
-
-    <script src="./script.js"></script>
 </body>
 </html>
