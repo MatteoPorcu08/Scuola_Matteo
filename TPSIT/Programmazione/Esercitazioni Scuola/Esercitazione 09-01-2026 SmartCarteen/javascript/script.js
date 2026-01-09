@@ -1,57 +1,75 @@
+let totale = 0;
+let totaleOriginale = 0;
+let menuVuoto = true;
+
+// Aggiunge un piatto al menu del giorno
 function aggiungiPiatto() {
-    const nome = document.getElementById("nomePiatto").value;
-    const categoria = document.getElementById("categoria").value;
-    const prezzo = parseFloat(document.getElementById("prezzoPiatto").value);
+    let nome = document.getElementById("nomePiatto").value;
+    let categoria = document.getElementById("categoria").value;
+    let prezzo = document.getElementById("prezzoPiatto").value * 1;
 
-    if (nome && categoria && !isNaN(prezzo)) {
-        // Aggiungi il piatto al menu del giorno
-        const menuElement = document.getElementById("menuDelGiorno");
-        menuElement.innerHTML += `<p>${nome} - ${categoria} - €${prezzo.toFixed(2)}</p>`;
+    if (nome == "" || categoria == "" || prezzo <= 0) {
+        alert("Inserisci tutti i dati correttamente.");
+    } else {
+        document.getElementById("menuDelGiorno").innerHTML +=
+            "<br>" + prezzo + "EUR " + nome + " - " + categoria;
 
-        // Aggiorna il totale
-        aggiornaTotale(prezzo);
+        totale += prezzo;
+        totaleOriginale = totale;
 
-        // Pulisci i campi
+        document.getElementById("totale").innerHTML = totale.toFixed(2);
+        document.getElementById("scontoProposto").innerHTML = "0.00%";
+
+        alert("Piatto aggiunto al menu!");
+
         document.getElementById("nomePiatto").value = "";
         document.getElementById("categoria").value = "";
         document.getElementById("prezzoPiatto").value = "";
-    } else {
-        alert("Inserisci tutti i dati correttamente.");
+
+        menuVuoto = false;
     }
 }
 
+// Svuota il menu del giorno
 function svuotaMenu() {
-    const menuElement = document.getElementById("menuDelGiorno");
-    menuElement.innerHTML = "";
-    document.getElementById("totale").textContent = "0.00";
+    document.getElementById("menuDelGiorno").innerHTML = "";
+    totale = 0;
+    totaleOriginale = 0;
+    menuVuoto = true;
+
+    document.getElementById("totale").innerHTML = "0.00";
+    document.getElementById("scontoProposto").innerHTML = "0.00%";
+
+    alert("Menu svuotato correttamente!");
 }
 
+// Propone uno sconto sul totale del menu
 function proponiSconto() {
-    const totale = parseFloat(document.getElementById("totale").textContent);
-    if (totale > 0) {
-        const scontoProposto = totale * 0.1; // 10% di sconto
-        document.getElementById("scontoProposto").textContent = "10%";
-        document.getElementById("totale").textContent = (totale - scontoProposto).toFixed(2);
+    if (menuVuoto) {
+        alert("Impossibile applicare sconto");
+    } else {
+        let sconto;
+        do {
+            sconto = prompt("Inserisci lo sconto (max 100):") * 1;
+            if (sconto > 100) {
+                alert("Lo sconto non può essere maggiore di 100%");
+            }
+        } while (sconto > 100);
+
+        totale = totaleOriginale - (totaleOriginale * sconto / 100);
+        document.getElementById("totale").innerHTML = totale.toFixed(2);
+        document.getElementById("scontoProposto").innerHTML = sconto + "%";
     }
 }
 
+// Annulla lo sconto applicato
 function annullaSconto() {
-    const scontoProposto = parseFloat(document.getElementById("scontoProposto").textContent);
-    if (scontoProposto > 0) {
-        const totaleConSconto = parseFloat(document.getElementById("totale").textContent);
-        const totaleOriginale = totaleConSconto + (totaleConSconto * 0.1); // Riporta al totale originale
-        document.getElementById("scontoProposto").textContent = "0.00%";
-        document.getElementById("totale").textContent = totaleOriginale.toFixed(2);
+    if (menuVuoto) {
+        alert("Il menu è già vuoto!");
+    } else {
+        totale = totaleOriginale;
+        document.getElementById("totale").innerHTML = totale.toFixed(2);
+        document.getElementById("scontoProposto").innerHTML = "0.00%";
+        alert("Sconto annullato");
     }
-}
-
-function aggiornaTotale(prezzo) {
-    const totaleElemento = document.getElementById("totale");
-    let totaleCorrente = parseFloat(totaleElemento.textContent);
-
-    if (isNaN(totaleCorrente)) {
-        totaleCorrente = 0;
-    }
-
-    totaleElemento.textContent = (totaleCorrente + prezzo).toFixed(2);
 }
