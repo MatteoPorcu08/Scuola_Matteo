@@ -8,8 +8,7 @@ function aggiungiPiatto() {
     if (nome == "" || categoria == "" || prezzo <= 0) {
         alert("I dati non sono inseriti correttamente!");
     } else {
-        document.getElementById("menuDelGiorno").innerHTML +=
-            "<tr><td>" + prezzo + "EUR " + nome + " - " + categoria + "</td></tr>";
+        document.getElementById("menuDelGiorno").innerHTML += "<tr><td>" + prezzo + "EUR " + nome + " - " + categoria + "</td></tr>";
 
         totale += prezzo;
         totaleOriginale = totale;
