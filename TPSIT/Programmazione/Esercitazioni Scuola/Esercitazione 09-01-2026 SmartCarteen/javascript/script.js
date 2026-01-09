@@ -44,7 +44,7 @@ function svuotaMenu() {
 
 function proponiSconto() {
     if (document.getElementById("menuDelGiorno").innerHTML == "") {
-        alert("Impossibile applicare sconto");
+        alert("Impossibile applicare sconto!");
     } else {
         let sconto;
         do {
@@ -62,7 +62,7 @@ function proponiSconto() {
 
 function annullaSconto() {
     if (document.getElementById("menuDelGiorno").innerHTML == "") {
-        alert("Il menu è vuoto, impossibile annullare lo sconto");
+        alert("Il menu è vuoto, impossibile annullare lo sconto!");
     } else {
         totale = totaleOriginale;
         document.getElementById("totale").innerHTML = totale.toFixed(2);
