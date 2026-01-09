@@ -8,22 +8,26 @@
 </head>
 <body>
     <h1>SmartCarteen</h1>
-    <br>
-    <h3>Aggiungi piatto</h3>
-    <br>
+    <h2>Aggiungi piatto</h2>
     <input type="text" id="nomePiatto" placeholder="Nome Piatto">
     <input type="text" id="categoria" placeholder="Categoria">
     <input type="number" id="prezzoPiatto" placeholder="Prezzo">
     <input type="button" value="Aggiungi piatto" onclick="aggiungiPiatto()">
     <br>
-    <h3>Menu del giorno</h3>
-    <p id="menuDelGiorno"></p>
+    <h2>Menu del giorno</h2>
+    <table border="1">
+        <tr>
+            <th></th>
+        </tr>
+        <tbody id="menuDelGiorno"></tbody>
+    </table>
+    <br>
     <input type="button" value="Svuota Menu" onclick="svuotaMenu()">
     <hr>
-    <h3>Prezzi</h3>
+    <h2>Prezzi</h2>
     <input type="button" value="Proponi Sconto" onclick="proponiSconto()">
     <input type="button" value="Anulla Sconto" onclick="annullaSconto()">
-    <h4>Totale: <span id="totale">0.00</span></h4>
+    <h3>Totale: <span id="totale">0.00</span></h3>
     <p>Sconto Proposto <span id="scontoProposto">0.00%</span></p>
 </body>
 </html>
