@@ -1,6 +1,5 @@
 let totale = 0;
 let totaleOriginale = 0;
-let menuVuoto = true;
 function aggiungiPiatto() {
     let nome = document.getElementById("nomePiatto").value;
     let categoria = document.getElementById("categoria").value;
@@ -24,7 +23,6 @@ function aggiungiPiatto() {
         document.getElementById("categoria").value = "";
         document.getElementById("prezzoPiatto").value = "";
 
-        menuVuoto = false;
     }
 }
 
@@ -36,7 +34,6 @@ function svuotaMenu() {
         document.getElementById("menuDelGiorno").innerHTML = "";
         totale = 0;
         totaleOriginale = 0;
-        menuVuoto = true;
 
         document.getElementById("totale").innerHTML = "0.00";
         document.getElementById("scontoProposto").innerHTML = "0.00%";
@@ -46,7 +43,7 @@ function svuotaMenu() {
 }
 
 function proponiSconto() {
-    if (menuVuoto) {
+    if (document.getElementById("menuDelGiorno").innerHTML == "") {
         alert("Impossibile applicare sconto");
     } else {
         let sconto;
