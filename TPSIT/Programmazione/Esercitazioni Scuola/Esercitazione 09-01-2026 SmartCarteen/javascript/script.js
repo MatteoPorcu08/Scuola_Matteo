@@ -7,7 +7,7 @@ function aggiungiPiatto() {
     let prezzo = document.getElementById("prezzoPiatto").value * 1;
 
     if (nome == "" || categoria == "" || prezzo <= 0) {
-        alert("Inserisci tutti i dati correttamente.");
+        alert("I dati non sono inseriti correttamente!");
     } else {
         document.getElementById("menuDelGiorno").innerHTML +=
             "<tr><td>" + prezzo + "EUR " + nome + " - " + categoria + "</td></tr>";
@@ -29,15 +29,20 @@ function aggiungiPiatto() {
 }
 
 function svuotaMenu() {
-    document.getElementById("menuDelGiorno").innerHTML = "";
-    totale = 0;
-    totaleOriginale = 0;
-    menuVuoto = true;
+    if (document.getElementById("menuDelGiorno").innerHTML == "") {
+        alert("Il menu è già vuoto!");
+    }
+    else {
+        document.getElementById("menuDelGiorno").innerHTML = "";
+        totale = 0;
+        totaleOriginale = 0;
+        menuVuoto = true;
 
-    document.getElementById("totale").innerHTML = "0.00";
-    document.getElementById("scontoProposto").innerHTML = "0.00%";
+        document.getElementById("totale").innerHTML = "0.00";
+        document.getElementById("scontoProposto").innerHTML = "0.00%";
 
-    alert("Menu svuotato correttamente!");
+        alert("Menu svuotato correttamente!");
+    }
 }
 
 function proponiSconto() {
@@ -59,8 +64,8 @@ function proponiSconto() {
 }
 
 function annullaSconto() {
-    if (menuVuoto) {
-        alert("Il menu è già vuoto!");
+    if (document.getElementById("menuDelGiorno").innerHTML == "") {
+        alert("Il menu è vuoto, impossibile annullare lo sconto");
     } else {
         totale = totaleOriginale;
         document.getElementById("totale").innerHTML = totale.toFixed(2);
