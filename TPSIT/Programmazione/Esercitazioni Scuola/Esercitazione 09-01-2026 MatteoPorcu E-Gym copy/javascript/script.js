@@ -4,6 +4,10 @@ function aggiungiCorso() {
     let corso = document.getElementById("nomecorso").value;
     let istruttore = document.getElementById("nomeistruttore").value;
 
+    document.getElementById("messaggio").innerHTML = "";
+
+    if (corso === "" || istruttore === "") return;
+
     document.getElementById("tabella").innerHTML +=
         "<tr><td>" + corso + "</td><td>" + istruttore + "</td></tr>";
 
@@ -15,6 +19,8 @@ function aggiungiCorso() {
 }
 
 function elimina() {
+    document.getElementById("messaggio").innerHTML = "";
+
     if (document.getElementById("tabella").innerHTML == "") {
         alert("Non ci sono corsi da eliminare!");
     } else {
@@ -29,24 +35,30 @@ function aggiungiCosti() {
 
     if (totale > 700) {
         alert("Errore: il totale ha già superato 700 EUR");
-    } else {
-        corso = prompt("Inserisci il nome del corso:");
-
-        do {
-            prezzo = prompt("Inserisci il prezzo del corso:") * 1;
-            if (prezzo <= 0) {
-                alert("Errore! Il prezzo deve essere maggiore di 0");
-            }
-        } while (prezzo <= 0);
-
-        if (totale + prezzo > 700) {
-            alert("Attenzione: il totale supererà 700 EUR");
-        }
-
-        document.getElementById("prezzo").innerHTML +=
-            "<br>" + corso + ": " + prezzo + " EUR";
-
-        totale += prezzo;
-        document.getElementById("totaleinclusiva").innerHTML = totale;
+        return;
     }
+
+    corso = prompt("Inserisci il nome del corso:");
+    if (corso === null) return;
+
+    do {
+        prezzo = prompt("Inserisci il prezzo del corso:");
+        if (prezzo === null) return;
+
+        prezzo = prezzo * 1;
+
+        if (prezzo <= 0) {
+            alert("Errore! Il prezzo deve essere maggiore di 0");
+        }
+    } while (prezzo <= 0);
+
+    if (totale + prezzo > 700) {
+        alert("Attenzione: il totale supererà 700 EUR");
+    }
+
+    document.getElementById("prezzo").innerHTML +=
+        "<br>" + corso + ": " + prezzo + " EUR";
+
+    totale += prezzo;
+    document.getElementById("totaleinclusiva").innerHTML = totale;
 }
