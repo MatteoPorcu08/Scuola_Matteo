@@ -6,16 +6,18 @@ function aggiungiCorso() {
 
     document.getElementById("messaggio").innerHTML = "";
 
-    if (corso === "" || istruttore === "") return;
+    if (corso != "" && istruttore != "") {
+        document.getElementById("tabella").innerHTML +=
+            "<tr><td>" + corso + "</td><td>" + istruttore + "</td></tr>";
 
-    document.getElementById("tabella").innerHTML +=
-        "<tr><td>" + corso + "</td><td>" + istruttore + "</td></tr>";
+        document.getElementById("messaggio").innerHTML =
+            "Corso aggiunto correttamente!";
 
-    document.getElementById("messaggio").innerHTML =
-        "Corso aggiunto correttamente!";
-
-    document.getElementById("nomecorso").value = "";
-    document.getElementById("nomeistruttore").value = "";
+        document.getElementById("nomecorso").value = "";
+        document.getElementById("nomeistruttore").value = "";
+    } else {
+        document.getElementById("messaggio").innerHTML = "";
+    }
 }
 
 function elimina() {
@@ -35,30 +37,32 @@ function aggiungiCosti() {
 
     if (totale > 700) {
         alert("Errore: il totale ha già superato 700 EUR");
-        return;
-    }
+    } else {
+        corso = prompt("Inserisci il nome del corso:");
 
-    corso = prompt("Inserisci il nome del corso:");
-    if (corso === null) return;
+        if (corso != null) {
+            prezzo = prompt("Inserisci il prezzo del corso:");
 
-    do {
-        prezzo = prompt("Inserisci il prezzo del corso:");
-        if (prezzo === null) return;
+            while (prezzo <= 0 || prezzo == null) {
+                if (prezzo == null) {
+                    prezzo = 0;
+                } else {
+                    alert("Errore! Il prezzo deve essere maggiore di 0");
+                    prezzo = prompt("Inserisci il prezzo del corso:");
+                }
+            }
 
-        prezzo = prezzo * 1;
+            prezzo = prezzo * 1;
 
-        if (prezzo <= 0) {
-            alert("Errore! Il prezzo deve essere maggiore di 0");
+            if (totale + prezzo > 700) {
+                alert("Attenzione: il totale supererà 700 EUR");
+            }
+
+            document.getElementById("prezzo").innerHTML +=
+                "<br>" + corso + ": " + prezzo + " EUR";
+
+            totale += prezzo;
+            document.getElementById("totaleinclusiva").innerHTML = totale;
         }
-    } while (prezzo <= 0);
-
-    if (totale + prezzo > 700) {
-        alert("Attenzione: il totale supererà 700 EUR");
     }
-
-    document.getElementById("prezzo").innerHTML +=
-        "<br>" + corso + ": " + prezzo + " EUR";
-
-    totale += prezzo;
-    document.getElementById("totaleinclusiva").innerHTML = totale;
 }
