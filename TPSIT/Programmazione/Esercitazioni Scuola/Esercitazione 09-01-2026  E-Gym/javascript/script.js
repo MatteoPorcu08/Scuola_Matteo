@@ -15,8 +15,6 @@ function aggiungiCorso() {
 
         document.getElementById("nomecorso").value = "";
         document.getElementById("nomeistruttore").value = "";
-    } else {
-        document.getElementById("messaggio").innerHTML = "";
     }
 }
 
@@ -38,12 +36,14 @@ function aggiungiCosti() {
     if (totale > 700) {
         alert("Errore: il totale ha già superato 700 EUR");
     } else {
+
         corso = prompt("Inserisci il nome del corso:");
 
         if (corso != null) {
+
             prezzo = prompt("Inserisci il prezzo del corso:");
 
-            while (prezzo <= 0 || prezzo == null) {
+            while (prezzo == null || prezzo <= 0) {
                 if (prezzo == null) {
                     prezzo = 0;
                 } else {
