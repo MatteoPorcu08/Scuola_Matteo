@@ -2,30 +2,28 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Gym</title>
     <script src="../javascript/script.js"></script>
-    <link rel="icon" type="image/jpg" href="../26726080-fitness-e-palestra-logo-design-vettore-vettoriale.jpg">
 </head>
 <body>
-    <h1>E-Gym</h1>
-    <input type="text" id="nomecorso" placeholder="Nome del corso...">
-    <input type="text" id="nomeistruttore" placeholder="Nome istruttore...">
-    <input type="button" onclick="aggiungiCorso()" value="Aggiungi Corso">
-    <input type="button" onclick="elimina()" value="Elimina tutti i corsi">
-    <input type="button" onclick="aggiungiCosti()" value="Aggiungi costi">
-    <br>
-    <br>
-    <h2>Lista Corsi</h2>
-    
-    <table border="1" id="tabella">
-    </table>
-    <br>
-    <br>
-    <br>
-    <h2>Costi</h2>
-    <h4>Totale all inclusive:<span id="totaleinclusiva">0</span>EUR</h4>
-    <p id="prezzo"></p>
-    
+
+<h1>E-Gym</h1>
+
+<input type="text" id="nomecorso" placeholder="Nome del corso">
+<input type="text" id="nomeistruttore" placeholder="Nome istruttore">
+
+<input type="button" value="Aggiungi Corso" onclick="aggiungiCorso()">
+<input type="button" value="Elimina tutti i corsi" onclick="elimina()">
+<input type="button" value="Aggiungi costi" onclick="aggiungiCosti()">
+
+<p id="messaggio"></p>
+
+<h2>Lista Corsi</h2>
+<table border="1" id="tabella"></table>
+
+<h2>Costi</h2>
+<p id="prezzo"></p>
+<h4>Totale all inclusive: <span id="totaleinclusiva">0</span> EUR</h4>
+
 </body>
 </html>
