@@ -33,13 +33,15 @@ public class Evento {
 
     public void setData(LocalDate d) {
         if (d != null) {
-            data = d;
+            this.data = d;
+        }else {
+            this.data = LocalDate.now();
         }
     }
 
     public void setDescrizione(String s) {
         if (s != null) {
-            descrizione = s;
+            this.descrizione = s;
         }
     }
 
