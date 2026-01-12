@@ -42,6 +42,8 @@ public class Evento {
     public void setDescrizione(String s) {
         if (s != null) {
             this.descrizione = s;
+        } else {
+            this.descrizione = "";
         }
     }
 
