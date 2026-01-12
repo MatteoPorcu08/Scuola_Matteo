@@ -17,14 +17,18 @@ public class Evento {
     }
 
     // Costruttore di copia
-    public Evento(Evento e) {
-        this.data = e.data;
-        this.descrizione = e.descrizione;
+    public Evento(Evento altro) {
+        this.data = altro.data;
+        this.descrizione = altro.descrizione;
     }
 
     // Getter e Setter
     public LocalDate getData() {
         return data;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
     }
 
     public void setData(LocalDate d) {
@@ -33,17 +37,15 @@ public class Evento {
         }
     }
 
-    public String getDescrizione() {
-        return descrizione;
-    }
-
     public void setDescrizione(String s) {
         if (s != null) {
             descrizione = s;
         }
     }
 
+
     // toString
+    @Override
     public String toString() {
         return "Evento: [" + data + "] - Descrizione: " + descrizione;
     }
