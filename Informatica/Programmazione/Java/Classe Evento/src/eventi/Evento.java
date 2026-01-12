@@ -51,7 +51,7 @@ public class Evento {
     // toString
     @Override
     public String toString() {
-        return "Evento: [" + data + "] - Descrizione: " + descrizione;
+        return "Evento: [" + this.data + "] - Descrizione: " + this.descrizione;
     }
 
     // Metodi su LocalDate
