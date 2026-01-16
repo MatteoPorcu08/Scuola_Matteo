@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Array in JavaScript</title>
-    <script src="../javascript/arrayconform.js"></script>
+    <script language="javascript">
+        var nome = new Array();
+        var i = 0;
+        //caricamento nomi
+        function invio() {
+        nome[i] = f1.N.value;
+        i++;
+        f1.N.value = "";
+        }
+        //visualizzazione nomi
+        function stampa() {
+            document.write("<table border='1'>");
+        for (var j = 0; j < i; j++) {
+                document.write("<tr><td>" + nome[j] + "</td></tr>");
+            }
+            document.write("</table>");
+        }
+    </script>
 </head>
 <body>
     <h1>Array Con Form</h1>
-    <form name="f1">
+    <form id="f1">
+        Dati Personali:<br>
         <input type="text" id="elemento" name="elemento" placeholder="Inserisci un elemento">
-        <input type="button" value="Aggiungi" onclick="aggiungiElemento()">
+        <input type="button" value="Aggiungi" onclick="invio()">
+        <input type="button" value="Stampa" onclick="stamp()">
     </form>
 </body>
 </html>
