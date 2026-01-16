@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array in JavaScript</title>
+    <title>Array in JavaScript Tabella</title>
     <script language="javascript">
         var nome = new Array();
         var i = 0;
@@ -15,21 +15,22 @@
         }
         //visualizzazione nomi
         function stampa() {
-            document.getElementById("output").innerHTML = "<table border='1'>";
         for (var j = 0; j < i; j++) {
                 document.getElementById("output").innerHTML += "<tr><td>" + nome[j] + "</td></tr>";
             }
-            document.getElementById("output").innerHTML += "</table>";
         }
     </script>
 </head>
 <body>
-    <h1>Array Con Form</h1>
+    <h1>Array Con Form Stampa</h1>
     <form id="f1">
         Dati Personali:<br>
         &nbsp;<input type="text" name="N" placeholder="Nome" >&nbsp;
         <input type="button" value="Aggiungi" onclick="invio()">
         <input type="button" value="Stampa" onclick="stampa()">
     </form>
+    <br>
+    <br>
+    <table border='1' id="output"></table>
 </body>
 </html>
