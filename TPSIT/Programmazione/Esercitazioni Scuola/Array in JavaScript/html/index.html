@@ -15,11 +15,9 @@
         }
         //visualizzazione nomi
         function stampa() {
-            document.write("<table border='1'>");
         for (var j = 0; j < i; j++) {
-                document.write("<tr><td>" + nome[j] + "</td></tr>");
+                document.getElementById("output").innerHTML += "<tr><td>" + nome[j] + "</td></tr>";
             }
-            document.write("</table>");
         }
     </script>
 </head>
@@ -31,5 +29,8 @@
         <input type="button" value="Aggiungi" onclick="invio()">
         <input type="button" value="Stampa" onclick="stampa()">
     </form>
+    <br>
+    <br>
+    <table border='1' id="output"></table>
 </body>
 </html>
