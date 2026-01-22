@@ -1,5 +1,8 @@
 package wrapper;
 public class Wrapper {
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
 
         int num1 = 10;
