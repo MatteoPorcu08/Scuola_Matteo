@@ -1,22 +1,16 @@
 package array;
-
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        // Creazione di un array di interi
-        int[] numeri = { 10, 20, 30, 40, 50 };
-
-        // Accesso agli elementi dell'array
-        System.out.println("Primo elemento: " + numeri[0]);
-        System.out.println("Secondo elemento: " + numeri[1]);
-
-        // Modifica di un elemento dell'array
-        numeri[2] = 35;
-        System.out.println("Terzo elemento modificato: " + numeri[2]);
-
-        // Iterazione attraverso l'array
-        System.out.println("Tutti gli elementi dell'array:");
-        for (int i = 0; i < numeri.length; i++) {
-            System.out.println(numeri[i]);
+        Scanner s = new Scanner(System.in);
+        int v[];
+        v = new int[5];
+        for (int i = 0; i < v.length; i++) {
+            System.out.println("Inserisci il valore per l'elemento " + i);
+            v[i] = s.nextInt();
+        }
+        System.out.println("Elementi dell'array:");
+        for (int i = 0; i < v.length; i++) {
+            System.out.println(v[i]);
         }
     }
-}
