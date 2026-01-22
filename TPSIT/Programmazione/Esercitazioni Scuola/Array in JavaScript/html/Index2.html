@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array in JavaScript Tabella</title>
+    <script language="javascript">
+        var nome = new Array();
+        var i = 0;
+        //caricamento nomi
+        function invio() {
+        nome[i] = f1.N.value;
+        i++;
+        f1.N.value = "";
+        }
+        //visualizzazione nomi
+        function stampa() {
+        for (var j = 0; j < i; j++) {
+                document.getElementById("output").innerHTML += "<tr><td>" + nome[j] + "</td></tr>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Array Con Form Stampac:\Users\4B INF\Desktop\Verifiche Informatica - Copia c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (2) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (3) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (4) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (5) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (6) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (7) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (8) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (9) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (10) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (11) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (12) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (13) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (14) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (15) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (16) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (17) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (18)c:\Users\4B INF\Desktop\Verifiche Informatica - Copia c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (2) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (3) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (4) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (5) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (6) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (7) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (8) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (9) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (10) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (11) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (12) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (13) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (14) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (15) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (16) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (17) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (18)c:\Users\4B INF\Desktop\Verifiche Informatica - Copia c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (2) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (3) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (4) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (5) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (6) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (7) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (8) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (9) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (10) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (11) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (12) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (13) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (14) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (15) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (16) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (17) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (18)c:\Users\4B INF\Desktop\Verifiche Informatica - Copia c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (2) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (3) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (4) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (5) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (6) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (7) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (8) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (9) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (10) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (11) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (12) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (13) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (14) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (15) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (16) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (17) c:\Users\4B INF\Desktop\Verifiche Informatica - Copia (18)</h1>
+    <form id="f1">
+        Dati Personali:<br>
+        &nbsp;<input type="text" name="N" placeholder="Nome" >&nbsp;
+        <input type="button" value="Aggiungi" onclick="invio()">
+        <input type="button" value="Stampa" onclick="stampa()">
+    </form>
+    <br>
+    <br>
+    <table border='1' id="output"></table>
+</body>
+</html>

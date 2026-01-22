@@ -1,0 +1,17 @@
+Esecitazione 2 14/01/2026
+
+md Matteo_porcu
+cd Matteo_porcu
+md Programs
+md My_prog
+md Programs\Pascal
+md Programs\C
+type nul > Programs\Pascal\P1.pas
+type nul > Programs\C\P1.c
+type nul > Programs\C\P2.c
+md My_prog\Pascal
+md My_prog\C
+type nul > My_prog\Pascal\MP1.pas
+type nul > My_prog\Pascal\MP1.tpu
+type nul > My_prog\C\MP1.c
+type nul > My_prog\C\MP1.h

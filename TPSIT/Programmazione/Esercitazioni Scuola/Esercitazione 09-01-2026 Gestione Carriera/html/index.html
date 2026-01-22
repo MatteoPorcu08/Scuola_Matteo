@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Carriera</title>
+    <script src="../javascript/script.js"></script>
+    <link rel="icon" type="image/jpg" href="../test.jpg">
+</head>
+<body>
+<h1>Gestione Carriera</h1>
+<input type="button" onclick="AggiungiEsameSvolgere()" value="+ Aggiungi esame da svolgere">
+<input type="button" onclick="AggiungiEsameSvolto()" value="+ Aggiungi esame svolto">
+<input type="button" onclick="VerificaCarriera()" value="Verifica carriera">
+<br><br>
+<h3>Rata totale da pagare: <span id="sommapagare">3200</span> EUR</h3>
+<button onclick="Paga()">Paga</button>
+<br><br><br>
+<h3>Esami da svolgere: <span id="numeroesamisvolgere">0</span></h3>
+<table border="1" id="tabellaSvolgere"></table>
+<p id="esameaggiuntosvolgere"></p>
+<br>
+<h3>Esami svolti: <span id="numeroesamisvolti">0</span></h3>
+<table border="1" id="tabellaSvolti"></table>
+<p id="esameaggiuntosvolto"></p>
+</body>
+</html>

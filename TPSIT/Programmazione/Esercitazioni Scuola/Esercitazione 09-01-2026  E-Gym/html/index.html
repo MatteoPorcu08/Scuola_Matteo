@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Gym</title>
+    <script src="../javascript/script.js" defer></script>
+</head>
+<body>
+
+<h1>E-Gym</h1>
+
+<input type="text" id="nomecorso" placeholder="Nome del corso">
+<input type="text" id="nomeistruttore" placeholder="Nome istruttore">
+<input type="button" value="Aggiungi Corso" onclick="aggiungiCorso()">
+<input type="button" value="Elimina tutti i corsi" onclick="elimina()">
+<input type="button" value="Aggiungi costi" onclick="aggiungiCosti()">
+
+<p id="messaggio"></p>
+
+<h2>Lista Corsi</h2>
+<table border="1" id="tabella"></table>
+
+<h2>Costi</h2>
+<h4>Totale all inclusive: <span id="totaleinclusiva">0</span> EUR</h4>
+<p id="prezzo"></p>
+</body>
+</html>
