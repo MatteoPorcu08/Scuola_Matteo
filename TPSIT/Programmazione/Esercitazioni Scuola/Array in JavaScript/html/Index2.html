@@ -20,43 +20,47 @@
     }
 
     function Stampa() {
-        document.write("<h2>Elenco persone</h2>");
-        document.write("<table border='1'>");
-        document.write("<tr><th>Nome</th><th>Cognome</th></tr>");
+        var output = "<h2>Elenco persone</h2>";
+        output += "<table border='1'>";
+        output += "<tr><th>Nome</th><th>Cognome</th></tr>";
 
         for (var j = 0; j < i; j++) {
-            document.write("<tr>");
-            document.write("<td>" + nome[j] + "</td>");
-            document.write("<td>" + cognome[j] + "</td>");
-            document.write("</tr>");
+            output += "<tr>";
+            output += "<td>" + nome[j] + "</td>";
+            output += "<td>" + cognome[j] + "</td>";
+            output += "</tr>";
         }
 
-        document.write("</table>");
+        output += "</table>";
+
+        document.getElementById("risultato").innerHTML = output;
     }
 
     function Cerca() {
         var cerca = f1.CERCA.value;
         var trovato = false;
 
-        document.write("<h2>Risultato ricerca</h2>");
-        document.write("<table border='1'>");
-        document.write("<tr><th>Nome</th><th>Cognome</th></tr>");
+        var output = "<h2>Risultato ricerca</h2>";
+        output += "<table border='1'>";
+        output += "<tr><th>Nome</th><th>Cognome</th></tr>";
 
         for (var j = 0; j < i; j++) {
             if (cognome[j] == cerca) {
-                document.write("<tr>");
-                document.write("<td>" + nome[j] + "</td>");
-                document.write("<td>" + cognome[j] + "</td>");
-                document.write("</tr>");
+                output += "<tr>";
+                output += "<td>" + nome[j] + "</td>";
+                output += "<td>" + cognome[j] + "</td>";
+                output += "</tr>";
                 trovato = true;
             }
         }
 
-        document.write("</table>");
+        output += "</table>";
 
-        if (!trovato) {
-            document.write("<p>Cognome non trovato</p>");
+        if (trovato == false) {
+            output += "<p>Cognome non trovato</p>";
         }
+
+        document.getElementById("risultato").innerHTML = output;
     }
 </script>
 
@@ -77,11 +81,18 @@
         <input type="button" value="Aggiungi" onclick="Invio()">
         <input type="button" value="Stampa" onclick="Stampa()">
 
-        <br><br><br>
+        <br><br>
 
         Cerca Cognome:
         <input type="text" name="CERCA">
         <input type="button" value="Cerca" onclick="Cerca()">
     </form>
+
+    <br><br>
+
+    <!-- QUI SCRIVE SOTTO -->
+    <div id="risultato"></div>
+
 </body>
 </html>
+    
