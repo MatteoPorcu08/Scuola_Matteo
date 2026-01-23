@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array in JavaScript Tabella</title>
-    <script language="javascript">
-        var nome = new Array();
-        var i = 0;
-        //caricamento nomi
-        function invio() {
-        nome[i] = f1.N.value;
-        i++;
-        f1.N.value = "";
-        }
-        //visualizzazione nomi
-        function stampa() {
-                for (var j = 0; j < i; j++) {
-                    document.getElementById("output").innerHTML += "<tr><td>" + nome[j] + "</td></tr>";
-                }
-        }
-    </script>
+    <title>Arrey con form</title>
 </head>
+<script>
+    var nome=new Array();
+    var cognome=new Array();
+    var i=0;
+    function Invio() {
+        nome[i]=f1.N.value;
+        cognome[i]=f1.C.value;
+        i++;
+        f1.N.value="";
+        f1.C.value="";
+    }
+    function Stampa() {
+        document.write("<table border=1>");
+            for(j=0; j<i; j++) {
+                document.write("<tr><td>"+nome[j]+"</td><td>"+cognome[j]+"</td></tr>");
+            }
+        document.write("/table");
+    }
+</script>
 <body>
-    <h1>Array Con Form</h1>
-    <form id="f1">
-        Dati Personali:<br>
-        &nbsp;<input type="text" name="N" placeholder="Nome" >&nbsp;
-        <input type="button" value="Aggiungi" onclick="invio()">
-        <input type="button" value="Stampa" onclick="stampa()">
+    <h1>Array con Form</h1>
+    <form name="f1">
+        Dati personali <br>
+        Nome:&nbsp;<input type="text" name="N">&nbsp;
+        Cognome:&nbsp;<input type="text" name="C">&nbsp;
+        <input type="button" value="Aggiungi" onclick="Invio()">
+        <input type="button" value="Stampa" onclick="Stampa()">
     </form>
-    <br>
-    <br>
-    <table border='1' id="output"></table>
 </body>
 </html>
