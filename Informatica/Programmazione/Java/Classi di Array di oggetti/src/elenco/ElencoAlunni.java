@@ -7,6 +7,8 @@ package elenco;
  */
 public class ElencoAlunni {
     //ATTRIBUTI
+    private static final int NUM_MAX=20;
+    private Persona elencoClasse[];
     
 
 }
