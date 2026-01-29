@@ -1,14 +1,23 @@
 package elenco;
 
 /**
- * Classe di array: Serve per gestire un elenco di alunni.
+ * Classe di array: Serve per gestire un elenco di alunni
  * @author 4B INF
  * @version 2.0
  */
 public class ElencoAlunni {
     //ATTRIBUTI
     private static final int NUM_MAX=20;
-    private Persona elencoClasse[];
-    
+    private Persona elencoClasse[]; //elenco classe e il riferimento all'array
 
+    /**COSTRUTTORE: Crea l'array di NUM_MAX elementi vuoti
+     * @param nessuno
+     */
+    public ElencoAlunni() {
+        elencoClasse=new Persona[NUM_MAX];//Crea l'array di NUM_MAX elementi vuoti
+    }
+
+    /**
+     * 
+     */
 }
