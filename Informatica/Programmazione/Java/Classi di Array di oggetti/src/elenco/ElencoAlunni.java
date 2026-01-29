@@ -23,7 +23,9 @@ public class ElencoAlunni {
     public ElencoAlunni(ElencoAlunni altroElenco) {
         elencoClasse=new Persona[NUM_MAX];
         for(int i=0;i<NUM_MAX;i++) {
-            elencoClasse[i]=altroElenco.elencoClasse[i];
+            if(altroElenco.elencoClasse[i]!=null) {
+                elencoClasse[i]= new Persona(altroElenco.elencoClasse[i]);
+            }
         }
     }
 }
