@@ -17,7 +17,13 @@ public class ElencoAlunni {
         elencoClasse=new Persona[NUM_MAX];//Crea l'array di NUM_MAX elementi vuoti
     }
 
-    /**
-     * 
+    /** COSTRUTTORE DI COPIA
+     * @param altroElenco è l'altro array da copiare
      */
+    public ElencoAlunni(ElencoAlunni altroElenco) {
+        elencoClasse=new Persona[NUM_MAX];
+        for(int i=0;i<NUM_MAX;i++) {
+            elencoClasse[i]=altroElenco.elencoClasse[i];
+        }
+    }
 }
