@@ -8,8 +8,8 @@ function salvaPrezzo() {
 }
 
 function mostraPrezzo() {
-    document.getElementById("elencoPrezzi").innerHTML = ""; // Pulisce il contenuto precedente
+    document.getElementById("prezzoVisualizzato").innerHTML = ""; // Pulisce il contenuto precedente
     for (let j = 0; j < elencoPrezzi.length; j++) { // Cicla attraverso l'array
-        document.getElementById("elencoPrezzi").innerHTML += "€" + elencoPrezzi[j] + "<br>"; // Aggiunge ogni prezzo all'elemento HTML
+        document.getElementById("prezzoVisualizzato").innerHTML += "€" + elencoPrezzi[j] + "<br>"; // Aggiunge ogni prezzo all'elemento HTML
     }
 }
