@@ -1,16 +1,15 @@
-let nomi = []; // Array vuoto per i nomi
+let elencoNomi = []; // Array vuoto
+let i = 0; // Indice per l'inserimento degli alimenti inizializato a 0
 function aggiungiNome() {
-    let nomeInput = document.getElementById("nome");
+    let nome = document.getElementById("nome").value;
     document.getElementById("nome").value = "";
-    let nome = nomeInput.value;
-    nome[i] = nome; // Aggiunge il nome all'array
+    elencoNomi[i] = nome; // Aggiunge il nome all'array
     i++; // Incrementa l'indice per il prossimo inserimento
 }
 
-function mostraNomi() {
-    let elencoNomi = document.getElementById("elencoNomi");
-    elencoNomi.innerHTML = ""; // Pulisce il contenuto precedente
-    for (let j = 0; j < nomi.length; j++) { // Cicla attraverso l'array
-        elencoNomi.innerHTML += nomi[j] + "<br>"; // Aggiunge ogni nome all'elemento HTML
+function aggiornaElencoNomi() {
+    document.getElementById("elencoNomi").innerHTML = ""; // Pulisce il contenuto precedente
+    for (let j = 0; j < elencoNomi.length; j++) { // Cicla attraverso l'array
+        document.getElementById("elencoNomi").innerHTML += elencoNomi[j] + "<br>"; // Aggiunge ogni nome all'elemento HTML
     }
 }
