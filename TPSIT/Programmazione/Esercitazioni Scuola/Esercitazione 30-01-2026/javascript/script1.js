@@ -1,4 +1,13 @@
-let i = 5; // Indice per l'inserimento del numero inizializato a 0
+let numeri = [];
 function calcola() {
-    let numero = prompt("Inserisci un numero da salvare:");
+    let somma = 0;
+    for (let i = 0; i < 5; i++) {
+        let numero = prompt("Inserisci un numero da sommare:") * 1;
+        numeri[i] = numero;
+
+    }
+    for (let i = 0; i < 5; i++) {
+        somma += numeri[i];
+    }
+    document.getElementById("somma").innerHTML = "La somma è: " + somma;
 }
