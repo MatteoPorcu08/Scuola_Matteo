@@ -7,7 +7,7 @@ function aggiungiNome() {
     i++; // Incrementa l'indice per il prossimo inserimento
 }
 
-function aggiornaElencoNomi() {
+function mostraNomi() {
     document.getElementById("elencoNomi").innerHTML = ""; // Pulisce il contenuto precedente
     for (let j = 0; j < elencoNomi.length; j++) { // Cicla attraverso l'array
         document.getElementById("elencoNomi").innerHTML += elencoNomi[j] + "<br>"; // Aggiunge ogni nome all'elemento HTML
