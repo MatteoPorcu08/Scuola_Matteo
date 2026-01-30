@@ -6,8 +6,12 @@ function calcola() {
         numeri[i] = numero;
 
     }
-    for (let i = 0; i < 5; i++) {
+}
+
+function mostraSomma() {
+    let somma = 0;
+    for (let i = 0; i < numeri.length; i++) {
         somma += numeri[i];
     }
-    document.getElementById("somma").innerHTML = "La somma è: " + somma;
+    document.getElementById("somma").innerHTML = "La somma dei numeri inseriti è: " + somma;
 }
