@@ -1,4 +1,33 @@
-Esercitazione 3 DOS 28/01/2026
+Matteo Porcu Esercitazione 3 DOS 28/01/2026
 
 md Esercitazione_3
 cd Esercitazione_3
+md documenti
+md progetti
+md backup
+type nul> documenti\appunti.doc
+type nul> documenti\immagine.jpg
+type nul> documenti\note.txt
+type nul> documenti\relazioni.doc
+md progetti\progetto1
+md progetti\progetto2
+type nul> progetti\progetto1\file1.txt
+type nul> progetti\progetto2\file2.txt
+cd documenti
+dir
+md archivio
+copy *.doc archivio
+cd ..\
+cd backup
+ren ..\documenti\note.txt note_oggi.txt
+del ..\documenti\immagine.jpg
+move ..\documenti\relazioni.doc ..\progetti\progetto1
+type nul> ..\progetti\progetto2\todo.txt
+type documenti\appunti.doc
+cd documenti
+copy a* archivio
+cd ..\progetti
+del ??*.txt
+copy ..\documenti\*.* ..\backup
+del ..\backup\*.* /s /q
+ren C:\Esercitazione_3\progetti\progetto2 progetto2_finito
