@@ -1,6 +1,8 @@
 package pacchetto;
 
 public class CD {
+
+    // ATTRIBUTI
     private static final int NUM_BRANI=50;
     private Brano brani[];
     private String titolo;
