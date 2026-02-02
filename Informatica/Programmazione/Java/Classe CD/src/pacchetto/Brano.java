@@ -55,6 +55,6 @@ public class Brano {
     // METODO TO STRING
     @Override
     public String toString() {
-        return "Brano [titolo=" + titolo + ", autore=" + autore + ", durata=" + durata + ", numero_traccia=" + NumeroTraccia + "]";
+        return "Brano titolo=" + titolo + ", autore=" + autore + ", durata=" + durata + ", numero_traccia=" + NumeroTraccia + "\n";
     }
 }
