@@ -1,0 +1,4 @@
+DEFINIZIONE DI FUNZIONE CONTINUA
+sia f(x) una finzione definita in un intervallo [a, b] e sia x0 in un punto interno dell'intervallo [a, b] 
+x0 € [a,b]
+si dice che la funzione è continua in x0 se entra i limite
