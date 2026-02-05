@@ -10,8 +10,9 @@ md LaboratorioF2\AulaMagna
 md MR\M1
 md LaboratorioF2\AulaMagna\AulaSorriso
 md LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza
-type null>LaboratorioF2\AulaMagna\AulaSorriso\PC.cpp
-type null>LaboratorioF2\AulaMagna\AulaSorriso\Stampanti.txt
-type null>LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza\Credenziali.txt
-type null>MR\M1\Lab.txt
-type null>MR\M1\Sicurezza.doc
+type nul> LaboratorioF2\AulaMagna\AulaSorriso\PC.cpp
+type nul> LaboratorioF2\AulaMagna\AulaSorriso\Stampanti.txt
+type nul> LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza\Credenziali.txt
+type nul> MR\M1\Lab.txt
+type nul> MR\M1\Sicurezza.doc
+cd LaboratorioF2\AulaMagna
