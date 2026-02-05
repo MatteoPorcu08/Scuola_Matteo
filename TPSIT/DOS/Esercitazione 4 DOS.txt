@@ -1,2 +1,9 @@
 Matteo Porcu Esercitazione 4 DOS 04/02/2026
 
+md Esercitazione_4
+cd Esercitazione_4
+md LaboratorioF1
+cd LaboratorioF1
+md LaboratorioF2
+md MR
+md LaboratorioF2\Aula
