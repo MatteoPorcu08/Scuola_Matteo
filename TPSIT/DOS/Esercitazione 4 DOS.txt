@@ -16,3 +16,4 @@ type nul> LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza\Credenziali.txt
 type nul> MR\M1\Lab.txt
 type nul> MR\M1\Sicurezza.doc
 cd LaboratorioF2\AulaMagna
+move S
