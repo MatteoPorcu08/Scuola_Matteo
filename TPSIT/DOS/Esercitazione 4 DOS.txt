@@ -4,15 +4,21 @@ md Esercitazione_4
 cd Esercitazione_4
 md LaboratorioF1
 cd LaboratorioF1
-md LaboratorioF2
-md MR
-md LaboratorioF2\AulaMagna
-md MR\M1
-md LaboratorioF2\AulaMagna\AulaSorriso
 md LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza
+md MR\M1
 type nul> LaboratorioF2\AulaMagna\AulaSorriso\PC.cpp
 type nul> LaboratorioF2\AulaMagna\AulaSorriso\Stampanti.txt
 type nul> LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza\Credenziali.txt
 type nul> MR\M1\Lab.txt
 type nul> MR\M1\Sicurezza.doc
 cd LaboratorioF2\AulaMagna
+move AulaSorriso\Stampanti.txt ..\..\MR
+copy ..\..\MR\M1\Lab.txt AulaSorriso\Vicepresidenza
+type nul> ..\Verifica.xls
+cd ..\..\MR\M1
+del Sicurezza.doc
+ren Lab.txt LabM1.txt
+move "C:\Users\4B INF\Desktop\Esercitazione_4\LaboratorioF1\LaboratorioF2\AulaMagna\AulaSorriso\PC.cpp" ..\..\LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza
+cd ..\
+rd /s/q M1
+del ..\LaboratorioF2\AulaMagna\AulaSorriso\Vicepresidenza\*.txt
