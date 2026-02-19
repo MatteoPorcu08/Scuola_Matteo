@@ -1,36 +1,53 @@
 package chiavi;
 public class Chiave {
-
+    // Attributi
     private int numeroCamera;
     private String tipo; // singola, doppia, tripla
-    private String nominativo;
-
-    public Chiave(int numeroCamera, String tipo, String nominativo) {
+    private String cliente;
+    
+    /**
+     * Costruttore
+     * @param numeroCamera il numero della camera
+     * @param tipo il tipo di camera
+     * @param cliente il nome del cliente
+     */
+    public Chiave(int numeroCamera, String tipo, String cliente) {
         this.numeroCamera = numeroCamera;
         this.tipo = tipo;
-        this.nominativo = nominativo;
+        this.cliente = cliente;
     }
-
+    
+    // Metodi getter
     public int getNumeroCamera() {
         return numeroCamera;
     }
-
+    
     public String getTipo() {
         return tipo;
     }
-
-    public String getNominativo() {
-        return nominativo;
+    
+    public String getCliente() {
+        return cliente;
     }
-
-    public void setNominativo(String nominativo) {
-        this.nominativo = nominativo;
+    
+    // Metodi setter
+    public void setNumeroCamera(int numeroCamera) {
+        this.numeroCamera = numeroCamera;
     }
-
+    
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+    
+    /**
+     * Metodo toString per rappresentare la chiave come stringa
+     */
     @Override
     public String toString() {
-        return "Chiave [Camera=" + numeroCamera +
-                ", Tipo=" + tipo +
-                ", Cliente=" + nominativo + "]";
+        return "Chiave camera=" + numeroCamera + ", tipo=" + tipo + ", cliente=" + cliente + "\n";
     }
 }
