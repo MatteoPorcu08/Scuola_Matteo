@@ -2,6 +2,7 @@
 let nomi = [];
 let prezzi = [];
 let quantita = [];
+let i = 0;  // Contatore per la posizione negli array
 
 // Funzione 1: Aggiungi prodotto
 function aggiungiProdotto() {
@@ -9,12 +10,16 @@ function aggiungiProdotto() {
     let prezzo = prompt("Inserisci il prezzo del prodotto:");
     let qta = prompt("Inserisci la quantità disponibile:");
 
-    // Inseriamo nei tre array
-    nomi[nomi.length] = nome;
-    prezzi[prezzi.length] = prezzo;
-    quantita[quantita.length] = qta;
+    if (nome != "" && prezzo != "" && qta != "") {
+        nomi[i] = nome;
+        prezzi[i] = prezzo;
+        quantita[i] = qta;
+        i++;
 
-    alert("Prodotto inserito con successo!");
+        alert("Prodotto inserito con successo!");
+    } else {
+        alert("Inserisci tutti i dati del prodotto!");
+    }
 }
 
 // Funzione 2: Visualizza prodotti
@@ -28,9 +33,9 @@ function visualizzaProdotti() {
 
     let testo = "<h3>Elenco Prodotti:</h3>";
 
-    for (let i = 0; i < nomi.length; i++) {
-        let valoreTotale = prezzi[i] * quantita[i];
-        testo += (i + 1) + ". " + nomi[i] + " - Prezzo: €" + prezzi[i] + " - Quantità: " + quantita[i] + " - Valore totale: €" + valoreTotale + "<br>";
+    for (let j = 0; j < nomi.length; j++) {
+        let valoreTotale = prezzi[j] * quantita[j];
+        testo = testo + (j + 1) + ". " + nomi[j] + " - Prezzo: €" + prezzi[j] + " - Quantità: " + quantita[j] + " - Valore totale: €" + valoreTotale + "<br>";
     }
 
     output.innerHTML = testo;
@@ -40,22 +45,24 @@ function visualizzaProdotti() {
 function cercaProdotto() {
     let ricerca = prompt("Inserisci il nome del prodotto da cercare:");
     let trovato = false;
+    let posizione = -1;
 
-    for (let i = 0; i < nomi.length; i++) {
-        if (nomi[i] === ricerca) {
-            let valoreTotale = prezzi[i] * quantita[i];
-            let output = document.getElementById("output");
-            output.innerHTML = "<h3>Prodotto trovato:</h3>" +
-                "Nome: " + nomi[i] + "<br>" +
-                "Prezzo: €" + prezzi[i] + "<br>" +
-                "Quantità: " + quantita[i] + "<br>" +
-                "Valore totale: €" + valoreTotale;
+    for (let j = 0; j < nomi.length; j++) {
+        if (nomi[j] == ricerca) {
             trovato = true;
-            break;
+            posizione = j;
         }
     }
 
-    if (!trovato) {
+    if (trovato == true) {
+        let valoreTotale = prezzi[posizione] * quantita[posizione];
+        let output = document.getElementById("output");
+        output.innerHTML = "<h3>Prodotto trovato:</h3>" +
+            "Nome: " + nomi[posizione] + "<br>" +
+            "Prezzo: €" + prezzi[posizione] + "<br>" +
+            "Quantità: " + quantita[posizione] + "<br>" +
+            "Valore totale: €" + valoreTotale;
+    } else {
         alert("Prodotto non trovato!");
     }
 }
@@ -64,8 +71,8 @@ function cercaProdotto() {
 function calcolaValoreTotale() {
     let totale = 0;
 
-    for (let i = 0; i < nomi.length; i++) {
-        totale = totale + (prezzi[i] * quantita[i]);
+    for (let j = 0; j < nomi.length; j++) {
+        totale = totale + (prezzi[j] * quantita[j]);
     }
 
     alert("Valore totale magazzino: €" + totale);

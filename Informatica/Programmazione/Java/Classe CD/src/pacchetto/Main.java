@@ -16,10 +16,10 @@ public class Main {
         System.out.println(cd);
         System.out.println("Durata totale: " + cd.durataTotale());
 
-        System.out.println("Ricerca per titolo:");
-        System.out.println(cd.cercaBrano("Canzone 2"));
+        //System.out.println("Ricerca per titolo:");
+        //System.out.println(cd.cercaBrano("Canzone 2"));
 
-        cd.rimuoviBrano("Canzone 1");
+        //cd.rimuoviBrano("Canzone 1");
 
         System.out.println("Brani sotto 4 minuti: " + cd.braniSotto4Minuti());
     }
