@@ -78,5 +78,5 @@ function calcolaValoreTotale() {
     alert("Valore totale magazzino: €" + totale);
 
     let output = document.getElementById("output");
-    output.innerHTML = "<h3>Valore totale magazzino: €" + totale + "</h3>";
+    innerHTML = "<h3>Valore totale magazzino: €" + totale + "</h3>";
 }
