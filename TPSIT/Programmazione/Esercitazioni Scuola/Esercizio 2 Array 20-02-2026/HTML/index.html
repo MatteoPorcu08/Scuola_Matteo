@@ -2,10 +2,18 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestione Magazzino</title>
 </head>
 <body>
+    <h1>Gestione Magazzino</h1>
+
+    <input type="button" value="Aggiungi prodotto" onclick="aggiungiProdotto()">
+    <input type="button" value="Visualizza prodotti" onclick="visualizzaProdotti()">
+    <input type="button" value="Cerca prodotto" onclick="cercaProdotto()">
+    <input type="button" value="Calcola valore totale magazzino" onclick="calcolaValoreTotale()">
     
+    <div id="output"></div>
+
+    <script src="magazzino.js"></script>
 </body>
 </html>
