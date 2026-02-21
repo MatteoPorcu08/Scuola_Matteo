@@ -1,4 +1,10 @@
 package chiavi;
+
+/**
+ * Classe Chiave
+ * @author 4B Inf
+ * @version 1.0
+ */
 public class Chiave {
     // Attributi
     private int numeroCamera;
