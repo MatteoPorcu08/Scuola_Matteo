@@ -65,18 +65,18 @@ public class Main {
                     System.out.print("Inserisci posizione da cercare: ");
                     int pos = input.nextInt();
                     input.nextLine();
-                    
+
                     if (pos >= 0 && pos < mioPortaChiavi.elencoChiavi.length && mioPortaChiavi.elencoChiavi[pos] != null) {
                         System.out.println("Chiave trovata: " + mioPortaChiavi.elencoChiavi[pos].toString());
                     } else {
                         System.out.println("Posizione non valida o vuota");
                     }
                     break;
-                    
+
                 case 2:
                     System.out.print("Inserisci nominativo da cercare: ");
                     String nominativoRicerca = input.nextLine();
-                    
+
                     boolean trovata = false;
                     for (int i = 0; i < mioPortaChiavi.elencoChiavi.length; i++) {
                         if (mioPortaChiavi.elencoChiavi[i] != null && mioPortaChiavi.elencoChiavi[i].getCliente().equalsIgnoreCase(nominativoRicerca)) {
@@ -88,7 +88,7 @@ public class Main {
                         System.out.println("Nessuna chiave trovata con questo nominativo");
                     }
                     break;
-                    
+
                 case 3:
                     System.out.print("Inserisci posizione da rimuovere: ");
                     int posRimozione = input.nextInt();
