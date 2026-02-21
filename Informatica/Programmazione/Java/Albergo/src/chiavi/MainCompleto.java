@@ -1,5 +1,4 @@
-/*
-package chiavi;
+/*package chiavi;
 import java.util.Scanner;
 public class MainCompleto {
     public static void main(String[] args) {
@@ -110,7 +109,7 @@ public class MainCompleto {
                     break;
                     
                 case 5:
-                      Visualizza chiavi singole
+                    // Visualizza chiavi singole
                     Chiave[] singole = portachiavi.getChiaviSingole();
                     if (singole.length > 0) {
                         System.out.println("\nCAMERE SINGOLE PRESENTI:");
