@@ -10,10 +10,12 @@ public class PortaChiavi {
     
     private static final int NUM_MAX = 30;
     
-    private Chiave elencoChiavi[];
+    Chiave elencoChiavi[];
     
     /**
      * Costruttore
+     * Inizializza l'array di chiavi con una dimensione fissa e imposta tutte le posizioni a null
+     * @return un nuovo oggetto PortaChiavi con un array di chiavi vuoto
      */
     public PortaChiavi() {
         elencoChiavi = new Chiave[NUM_MAX];
@@ -22,7 +24,7 @@ public class PortaChiavi {
     /**
      * Costruttore di copia
 	 * @param altroPortaChiavi l'oggetto da cui copiare i dati
-	 * 
+	 * @return un nuovo oggetto PortaChiavi con i dati copiati da altroPortaChiavi
      */
     public PortaChiavi(PortaChiavi altroPortaChiavi) {
         elencoChiavi = new Chiave[NUM_MAX];
@@ -51,7 +53,11 @@ public class PortaChiavi {
         }
     }
     
-    // Ricerca per numero
+    /**
+     * Ricerca una chiave per numero di camera
+     * @param nCamera il numero della camera per cui cercare la chiave
+     * @return la chiave trovata o null se non trovata
+     */
     public Chiave richiediChiaveNum(int nCamera) {
         if(nCamera >= 0) {
             for(int i = 0; i < NUM_MAX; i++) {
@@ -63,7 +69,11 @@ public class PortaChiavi {
         return null;
     }
     
-    // Ricerca per nominativo
+    /**
+     * Ricerca una chiave per nominativo
+     * @param nome il nome del cliente per cui cercare la chiave
+     * @return la chiave trovata o null se non trovata
+     */
     public Chiave richiediChiaveNome(String nome) {
         if(nome != null && !nome.isEmpty()) {
             for(int i = 0; i < NUM_MAX; i++) {
@@ -103,6 +113,11 @@ public class PortaChiavi {
         }
     }
     
+    /**
+     * Rimuove una chiave dal portachiavi in base al numero della camera
+     * @param numeroCamera
+     * @return un messaggio che indica se la chiave è stata rimossa o se non è stata trovata
+     */
     public String rimuoviChiave(int numeroCamera) {
         for(int i = 0; i < NUM_MAX; i++) {
             if(elencoChiavi[i] != null && elencoChiavi[i].getNumeroCamera() == numeroCamera) {
@@ -131,7 +146,10 @@ public class PortaChiavi {
         return stringa;
     }
     
-    // Metodo per ottenere il numero di chiavi presenti
+    /**
+     * Metodo per contare il numero di chiavi presenti nel portachiavi
+     * @return il numero di chiavi attualmente presenti
+     */
     public int getNumeroChiavi() {
         int count = 0;
         for(int i = 0; i < NUM_MAX; i++) {
@@ -142,7 +160,11 @@ public class PortaChiavi {
         return count;
     }
     
-    // Metodo per verificare se una posizione è libera
+    /**
+     * Metodo per verificare se una posizione specifica è libera
+     * @param posizione l'indice della posizione da verificare
+     * @return true se la posizione è libera, false altrimenti
+     */
     public boolean isPosizioneLibera(int posizione) {
         if(posizione >= 0 && posizione < NUM_MAX) {
             return elencoChiavi[posizione] == null;
