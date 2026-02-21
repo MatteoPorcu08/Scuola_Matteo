@@ -3,43 +3,46 @@ package chiavi;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
-        // Creazione del portachiavi
-        System.out.print("Capienza portachiavi: ");
-        int capienza = input.nextInt();
-        input.nextLine();
+	public static void main(String[] args) {
 
-        PortaChiavi portachiavi = new PortaChiavi(capienza);
-
-        // Inserimento delle chiavi
-        System.out.print("\nQuante chiavi vuoi inserire? ");
-        int numeroChiavi = input.nextInt();
-        input.nextLine();
-
-        for (int i = 0; i < numeroChiavi; i++) {
-            System.out.println("\n--- Chiave " + (i + 1) + " ---");
-
-            System.out.print("Numero camera: ");
-            int numero = input.nextInt();
-            input.nextLine();
-
-            // Mostra i tipi disponibili
-            System.out.println("Tipi disponibili: singola, doppia, tripla");
-            System.out.print("Tipo camera: ");
-            String tipo = input.nextLine();
-
-            System.out.print("Nome cliente: ");
-            String cliente = input.nextLine();
-
-            Chiave c = new Chiave(numero, tipo, cliente);
-            portachiavi.aggiungiChiave(c);
-        }
-
-        // Stampa portachiavi
-        System.out.println("\n" + portachiavi.toString());
-
-        input.close();
-    }
+		PortaChiavi P1= new PortaChiavi(10);
+		
+		Chiave C = new Chiave(12, "Singola", "Matteo");
+		
+		Scanner Accesso = new Scanner(System.in);
+		
+		System.out.println("Scrivi il numero della chiave della stanza");
+		int numero;
+		numero = Accesso.nextInt();
+		Accesso.nextLine();
+		
+		System.out.println("Scrivi il tipo della chiave della stanza - Singola - Doppia - Tripla");
+		String tipo;
+		tipo = Accesso.nextLine();
+		
+		System.out.println("Scrivi il nominativo dela prenotazione:");
+		String nominativo;
+		nominativo = Accesso.nextLine();
+		
+		Chiave C2 = new Chiave(numero, tipo, nominativo);
+		
+		System.out.println("Scrivi il numero della chiave della stanza");
+		numero = Accesso.nextInt();
+		Accesso.nextLine();
+		
+		System.out.println("Scrivi il tipo della chiave della stanza - Singola - Doppia - Tripla");
+		tipo = Accesso.nextLine();
+		
+		System.out.println("Scrivi il nominativo dela prenotazione:");
+		nominativo = Accesso.nextLine();
+		
+		Chiave C3 = new Chiave(numero, tipo, nominativo);
+		
+		P1.aggiungiChiave(C3);
+        P1.aggiungiChiave(C2);
+        P1.aggiungiChiave(C);
+		System.out.println(P1.toString());
+		
+	}
 }
