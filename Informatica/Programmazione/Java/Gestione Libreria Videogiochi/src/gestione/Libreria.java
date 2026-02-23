@@ -110,5 +110,85 @@ public class Libreria {
         return calcolaValoreTotale() / numVideogiochi;
     }
 
+    //Metodo Videogioco trovaPiuCostoso()
+    public Videogioco trovaPiuCostoso() {
+        if (numVideogiochi == 0) {
+            return null;
+        }
+        Videogioco piuCostoso = giochi[0];
+        for (int i = 1; i < numVideogiochi; i++) {
+            if (giochi[i].getPrezzo() > piuCostoso.getPrezzo()) {
+                piuCostoso = giochi[i];
+            }
+        }
+        return piuCostoso;
+    }
+
+    //Metodo Videogioco[] filtraPerGenere(String genere)
+    public Videogioco[] filtraPerGenere(String genere) {
+        Videogioco[] filtrati = new Videogioco[numVideogiochi];
+        int count = 0;
+        for (int i = 0; i < numVideogiochi; i++) {
+            if (giochi[i].getGenere().equalsIgnoreCase(genere)) {
+                filtrati[count] = giochi[i];
+                count++;
+            }
+        }
+        // Ridimensiona l'array per contenere solo i videogiochi filtrati
+        Videogioco[] risultato = new Videogioco[count];
+        System.arraycopy(filtrati, 0, risultato, 0, count);
+        return risultato;
+    }
+
+    //Metodo applicaScontoATutti(double percentuale)
+    public void applicaScontoATutti(double percentuale) {
+        for (int i = 0; i < numVideogiochi; i++) {
+            double prezzoScontato = giochi[i].getPrezzo() * (1 - percentuale / 100);
+            giochi[i].setPrezzo(prezzoScontato);
+        }
+    }
+
+    //Metodo compattaLibreria()
+    public void compattaLibreria() {
+        int j = 0;
+        for (int i = 0; i < numVideogiochi; i++) {
+            if (giochi[i] != null) {
+                giochi[j] = giochi[i];
+                j++;
+            }
+        }
+        for (int i = j; i < numVideogiochi; i++) {
+            giochi[i] = null;
+        }
+        numVideogiochi = j;
+    }
+
+    //Metodo ordinaPerPrezzoCrescente()
+    public void ordinaPerPrezzoCrescente() {
+        for (int i = 0; i < numVideogiochi - 1; i++) {
+            for (int j = 0; j < numVideogiochi - i - 1; j++) {
+                if (giochi[j].getPrezzo() > giochi[j + 1].getPrezzo()) {
+                    // Scambia
+                    Videogioco temp = giochi[j];
+                    giochi[j] = giochi[j + 1];
+                    giochi[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    //Metodo  ordinaPerAnnoDecrescente()
+    public void ordinaPerAnnoDecrescente() {
+        for (int i = 0; i < numVideogiochi - 1; i++) {
+            for (int j = 0; j < numVideogiochi - i - 1; j++) {
+                if (giochi[j].getAnno() < giochi[j + 1].getAnno()) {
+                    // Scambia
+                    Videogioco temp = giochi[j];
+                    giochi[j] = giochi[j + 1];
+                    giochi[j + 1] = temp;
+                }
+            }
+        }
+    }
 
 }
