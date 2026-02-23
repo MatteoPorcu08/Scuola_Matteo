@@ -1,4 +1,11 @@
 package gestione;
+
+/**
+ * Gestione di una libreria di videogiochi
+ * @author Matteo
+ * @version 3.1
+ * Data 23/02/2026
+ */
 public class Videogioco {
 
     private String titolo;
@@ -77,5 +84,11 @@ public class Videogioco {
     }
 
     //Metodo isRecente
-
+    public boolean isRecente() {
+        if(this.annoUscita >= 2020) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
