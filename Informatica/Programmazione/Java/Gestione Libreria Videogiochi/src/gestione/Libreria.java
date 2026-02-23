@@ -1,5 +1,12 @@
 package gestione;
 
+/**
+ * Gestione di una libreria di videogiochi
+ * @author Matteo
+ * @version 3.1
+ * Data 23/02/2026
+ */
+
 public class Libreria {
     
     private Videogioco[] giochi;
@@ -181,7 +188,7 @@ public class Libreria {
     public void ordinaPerAnnoDecrescente() {
         for (int i = 0; i < numVideogiochi - 1; i++) {
             for (int j = 0; j < numVideogiochi - i - 1; j++) {
-                if (giochi[j].getAnno() < giochi[j + 1].getAnno()) {
+                if (giochi[j].getAnnoUscita() < giochi[j + 1].getAnnoUscita()) {
                     // Scambia
                     Videogioco temp = giochi[j];
                     giochi[j] = giochi[j + 1];
