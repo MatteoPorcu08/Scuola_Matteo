@@ -33,7 +33,7 @@ public class Main {
         libreria.aggiungiVideogioco(gioco5);
         libreria.aggiungiVideogioco(gioco6);
 
-        System.out.println(visualizzaLibreria(libreria));
+        System.out.println(libreria.visualizzaLibreria(Li));
         
         
     }
