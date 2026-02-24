@@ -40,16 +40,16 @@ public class Main {
         libreria.visualizzaLibreria();
 
         System.out.println("\n5.Rimuovere un videogioco per titolo (scegliere uno dei titoli inseriti) e stampare la libreria.");
-        libreria.rimuoviVideogiocoPerTitolo("Minecraft");
+        libreria.rimuoviTitolo("Minecraft");
         libreria.visualizzaLibreria();
 
         System.out.println("\n6. Applicare uno sconto del 20% a tutti i giochi e stampare la libreria.");
-        libreria.applicaSconto(20);
+        Videogioco.applicaSconto(20);
 
         System.out.println("\n7. Stampare il videogioco più costoso.");
-        Videogioco giocoPiuCostoso = libreria.getVideogiocoPiuCostoso();
-        if (giocoPiuCostoso != null) {
-            System.out.println("Videogioco più costoso: " + giocoPiuCostoso);
+        Videogioco trovaPiuCostoso = libreria.trovaPiuCostoso();
+        if (trovaPiuCostoso != null) {
+            System.out.println("Videogioco più costoso: " + trovaPiuCostoso);
         }
 
         System.out.println("\n8. Ordinare per prezzo crescente e stampare la libreria.");
