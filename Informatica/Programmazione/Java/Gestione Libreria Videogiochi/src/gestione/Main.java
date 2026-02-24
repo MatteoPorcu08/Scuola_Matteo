@@ -32,6 +32,8 @@ public class Main {
         libreria.aggiungiVideogioco(gioco4);
         libreria.aggiungiVideogioco(gioco5);
         libreria.aggiungiVideogioco(gioco6);
+
+        System.out.println(visualizzaLibreria(libreria));
         
         
     }

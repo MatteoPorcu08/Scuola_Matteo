@@ -94,7 +94,11 @@ public class Videogioco {
 
     }
 
-    //Metodo applicaSconto
+    /**
+     * Applica uno sconto al prezzo del videogioco
+     * @param percentuale percentuale di sconto da applicare (0-100)
+     * @return restituisce il nuovo prezzo dopo l'applicazione dello sconto
+     */
     public void applicaSconto(double percentuale) {
         if (percentuale < 0 || percentuale > 100) {
             System.out.println("Percentuale non valida. Deve essere compresa tra 0 e 100.");
@@ -104,7 +108,10 @@ public class Videogioco {
         prezzo -= sconto;
     }
 
-    //Metodo isRecente
+    /**
+     * Determina se il videogioco è recente (uscito negli ultimi 4 anni)
+     * @return restituisce true se il videogioco è recente, false altrimenti
+     */
     public boolean isRecente() {
         if(this.annoUscita >= 2020) {
             return true;
