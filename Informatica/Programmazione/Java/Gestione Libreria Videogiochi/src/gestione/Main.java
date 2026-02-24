@@ -3,21 +3,17 @@ package gestione;
 /**
  * Classe di test per il sistema di gestione libreria videogiochi
  * @author Matteo
- * @version 3.2
- * @return restituisce un messaggio di benvenuto e dimostra le funzionalità della libreria
- * Data 23/02/2026
+ * @version 3.4
+ * Data 24/02/2026
  */
 public class Main {
+
     public static void main(String[] args) {
 
-        System.out.println("---Gestione Libreria Videogiochi---\n");
-
-
+        // Creo una nuova Libreria
         Libreria libreria = new Libreria(10);
-        System.out.println("Libreria creata con successo (dimensione 10)");
 
-        System.out.println("\n2. Creazione e inserimento di 6 videogiochi:");
-        
+        // Creo 6 oggetti Videogioco e inserirli
         Videogioco gioco1 = new Videogioco("The Last of Us", "Azione", 2013, 59.99, false);
         Videogioco gioco2 = new Videogioco("FIFA 24", "Sport", 2023, 69.99, true);
         Videogioco gioco3 = new Videogioco("Minecraft", "Sandbox", 2011, 29.99, true);
@@ -32,29 +28,35 @@ public class Main {
         libreria.aggiungiVideogioco(gioco5);
         libreria.aggiungiVideogioco(gioco6);
 
-        System.out.println("3. Visualizzazione dei videogiochi presenti in libreria:");
+        // Stampo la libreria
+        System.out.println("Libreria attuale:");
         libreria.visualizzaLibreria();
 
-        System.out.println("\n4.Rimuovere il gioco in posizione 2 (indice 2) e stampare la libreria.");
+        // Rimuovo il gioco in posizione 2 (indice 2)
+        System.out.println("\nRimozione gioco in posizione 2:");
         libreria.rimuoviVideogioco(2);
         libreria.visualizzaLibreria();
 
-        System.out.println("\n5.Rimuovere un videogioco per titolo (scegliere uno dei titoli inseriti) e stampare la libreria.");
-        libreria.rimuoviTitolo("Minecraft");
+        // Rimuovo un videogioco per titolo
+        System.out.println("\nRimozione gioco con titolo 'FIFA 24':");
+        libreria.rimuoviTitolo("FIFA 24");
         libreria.visualizzaLibreria();
 
-        System.out.println("\n6. Applicare uno sconto del 20% a tutti i giochi e stampare la libreria.");
-        Videogioco.applicaSconto(20);
+        // Applico uno sconto del 20% a tutti i giochi
+        System.out.println("\nApplicazione sconto 20% a tutti i giochi:");
+        libreria.applicaScontoATutti(20);
+        libreria.visualizzaLibreria();
 
-        System.out.println("\n7. Stampare il videogioco più costoso.");
-        Videogioco trovaPiuCostoso = libreria.trovaPiuCostoso();
-        if (trovaPiuCostoso != null) {
-            System.out.println("Videogioco più costoso: " + trovaPiuCostoso);
+        // Stampo il videogioco più costoso
+        System.out.println("\nVideogioco più costoso:");
+        Videogioco piuCostoso = libreria.trovaPiuCostoso();
+        if (piuCostoso != null) {
+            System.out.println(piuCostoso);
         }
 
-        System.out.println("\n8. Ordinare per prezzo crescente e stampare la libreria.");
+        // Ordino per prezzo crescente
+        System.out.println("\nOrdinamento per prezzo crescente:");
         libreria.ordinaPerPrezzoCrescente();
         libreria.visualizzaLibreria();
-
     }
 }
