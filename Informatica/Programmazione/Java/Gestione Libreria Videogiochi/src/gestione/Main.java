@@ -16,7 +16,6 @@ public class Main {
         Libreria libreria = new Libreria(10);
         System.out.println("Libreria creata con successo (dimensione 10)");
 
-
         System.out.println("\n2. Creazione e inserimento di 6 videogiochi:");
         
         Videogioco gioco1 = new Videogioco("The Last of Us", "Azione", 2013, 59.99, false);
@@ -44,6 +43,18 @@ public class Main {
         libreria.rimuoviVideogiocoPerTitolo("Minecraft");
         libreria.visualizzaLibreria();
 
-        
+        System.out.println("\n6. Applicare uno sconto del 20% a tutti i giochi e stampare la libreria.");
+        libreria.applicaSconto(20);
+
+        System.out.println("\n7. Stampare il videogioco più costoso.");
+        Videogioco giocoPiuCostoso = libreria.getVideogiocoPiuCostoso();
+        if (giocoPiuCostoso != null) {
+            System.out.println("Videogioco più costoso: " + giocoPiuCostoso);
+        }
+
+        System.out.println("\n8. Ordinare per prezzo crescente e stampare la libreria.");
+        libreria.ordinaPerPrezzoCrescente();
+        libreria.visualizzaLibreria();
+
     }
 }
