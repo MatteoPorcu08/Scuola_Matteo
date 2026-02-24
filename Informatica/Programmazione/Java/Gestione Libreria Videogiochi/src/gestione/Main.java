@@ -33,8 +33,17 @@ public class Main {
         libreria.aggiungiVideogioco(gioco5);
         libreria.aggiungiVideogioco(gioco6);
 
-        System.out.println(libreria.visualizzaLibreria(Li));
-        
+        System.out.println("3. Visualizzazione dei videogiochi presenti in libreria:");
+        libreria.visualizzaLibreria();
+
+        System.out.println("\n4.Rimuovere il gioco in posizione 2 (indice 2) e stampare la libreria.");
+        libreria.rimuoviVideogioco(2);
+        libreria.visualizzaLibreria();
+
+        System.out.println("\n5.Rimuovere un videogioco per titolo (scegliere uno dei titoli inseriti) e stampare la libreria.");
+        libreria.rimuoviVideogiocoPerTitolo("Minecraft");
+        libreria.visualizzaLibreria();
+
         
     }
 }
