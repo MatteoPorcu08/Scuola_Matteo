@@ -51,19 +51,40 @@ public class Videogioco {
 
     //Metodo setter
     public void setTitolo(String titolo) {
-        this.titolo = titolo;
+        if (this.titolo !=null){
+            this.titolo = titolo;
+        }else {
+            System.out.println("Il titolo non può essere null");
+        }
+        
     }
     public void setGenere(String genere) {
-        this.genere = genere;
+        if (this.genere != null) {
+            this.genere = genere;
+        } else {
+            System.out.println("Il genere non può essere null");
+        }
     }
     public void setAnnoUscita(int annoUscita) {
-        this.annoUscita = annoUscita;
+        if (annoUscita > 0) {
+            this.annoUscita = annoUscita;
+        } else {
+            System.out.println("L'anno di uscita non può essere 0 o negativo");
+        }
     }
     public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
+        if (prezzo >= 0) {
+            this.prezzo = prezzo;
+        } else {
+            System.out.println("Il prezzo non può essere negativo");
+        }
     }
     public void setMultiplayer(boolean multiplayer) {
-        this.multiplayer = multiplayer;
+        if (this.multiplayer != multiplayer) {
+            this.multiplayer = multiplayer;
+        } else {
+            System.out.println("Il valore di multiplayer è già impostato su " + multiplayer);
+        }
     }
 
     //Metodo toString

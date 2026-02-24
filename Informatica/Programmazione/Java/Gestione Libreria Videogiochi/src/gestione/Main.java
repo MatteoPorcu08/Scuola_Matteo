@@ -4,6 +4,7 @@ package gestione;
  * Classe di test per il sistema di gestione libreria videogiochi
  * @author Matteo
  * @version 3.2
+ * @return restituisce un messaggio di benvenuto e dimostra le funzionalità della libreria
  * Data 23/02/2026
  */
 public class Main {
