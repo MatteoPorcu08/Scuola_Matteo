@@ -9,12 +9,11 @@ package gestione;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("=== TEST GESTIONE LIBRERIA VIDEOGIOCHI ===\n");
+        System.out.println("---Gestione Libreria Videogiochi---\n");
 
 
-        System.out.println("1. Creazione nuova libreria:");
         Libreria libreria = new Libreria(10);
-        System.out.println("1. Libreria creata con successo (dimensione 10)");
+        System.out.println("Libreria creata con successo (dimensione 10)");
 
 
         System.out.println("\n2. Creazione e inserimento di 6 videogiochi:");
