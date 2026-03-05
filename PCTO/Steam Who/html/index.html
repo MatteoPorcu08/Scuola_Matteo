@@ -4,26 +4,65 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>STEAM Who?</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="background"></div>
+<canvas id="particles"></canvas>
 
-<div class="game">
+<div class="app">
+
+<!-- SCHERMATA START -->
+
+<div id="startScreen">
 
 <h1>STEAM WHO?</h1>
 
 <p class="subtitle">
-Pensa ad uno scienziato STEAM.
-Io proverò ad indovinarlo.
+Pensa ad uno di questi personaggi.
+L'intelligenza artificiale proverà ad indovinarlo.
 </p>
+
+<div class="characters">
+
+<div class="character">Rita Levi-Montalcini</div>
+<div class="character">Galileo Galilei</div>
+<div class="character">Leonardo da Vinci</div>
+<div class="character">Enrico Fermi</div>
+<div class="character">Margherita Hack</div>
+<div class="character">Fabiola Gianotti</div>
+<div class="character">Guglielmo Marconi</div>
+<div class="character">Evangelista Torricelli</div>
+<div class="character">Luigi Galvani</div>
+<div class="character">Giuseppe Lagrange</div>
+<div class="character">Sofia Kovalevskaya</div>
+<div class="character">Ada Lovelace</div>
+<div class="character">Alan Turing</div>
+<div class="character">Marie Curie</div>
+<div class="character">Albert Einstein</div>
+<div class="character">Isaac Newton</div>
+<div class="character">Lucia Votano</div>
+<div class="character">Anna Grassellino</div>
+<div class="character">Alfio Quarteroni</div>
+<div class="character">Giuseppina Carniel</div>
+
+</div>
+
+<button id="startBtn">Inizia il gioco</button>
+
+</div>
+
+<!-- SCHERMATA GIOCO -->
+
+<div id="gameScreen">
 
 <div class="progress">
 <div id="progressBar"></div>
@@ -31,20 +70,24 @@ Io proverò ad indovinarlo.
 
 <div class="card">
 
-<div id="thinking" class="thinking">🤖 Sto pensando...</div>
+<div class="avatar">🤖</div>
+
+<div id="thinking">Sto pensando...</div>
 
 <p id="question"></p>
 
 <div class="buttons">
 
-<button id="yesBtn">✔ Sì</button>
-<button id="noBtn">✖ No</button>
+<button id="yesBtn">SI</button>
+<button id="noBtn">NO</button>
 
 </div>
 
 <p id="result"></p>
 
-<button id="restartBtn">Gioca di nuovo</button>
+<button id="restartBtn">Ricomincia</button>
+
+</div>
 
 </div>
 

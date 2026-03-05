@@ -1,11 +1,22 @@
-const totalSteps = 7
-let step = 0
+/* START / GAME SCREEN */
 
-function updateProgress(){
-step++
-document.getElementById("progressBar").style.width =
-(step/totalSteps)*100 + "%"
+const startBtn = document.getElementById("startBtn")
+const startScreen = document.getElementById("startScreen")
+const gameScreen = document.getElementById("gameScreen")
+
+startBtn.onclick = () => {
+
+startScreen.style.display="none"
+gameScreen.style.display="block"
+
+startGame()
+
 }
+
+/* GAME ENGINE */
+
+let step=0
+const totalSteps=7
 
 const tree={
 
@@ -34,11 +45,12 @@ no:{
 question:"È matematica?",
 yes:{result:"Sofia Kovalevskaya"},
 no:{
-question:"È legata all'informatica?",
+question:"È informatica?",
 yes:{result:"Ada Lovelace"},
 no:{result:"Marie Curie"}
 }
 }
+
 },
 
 no:{
@@ -46,7 +58,7 @@ no:{
 question:"È italiano?",
 
 yes:{
-question:"È famoso per la radio?",
+question:"Ha inventato la radio?",
 yes:{result:"Guglielmo Marconi"},
 no:{
 question:"È matematico?",
@@ -77,40 +89,49 @@ no:{result:"Leonardo da Vinci"}
 
 }
 
-let current=tree
+let current = tree
 
 const question=document.getElementById("question")
 const result=document.getElementById("result")
 
-const yes=document.getElementById("yesBtn")
-const no=document.getElementById("noBtn")
-const restart=document.getElementById("restartBtn")
+const yesBtn=document.getElementById("yesBtn")
+const noBtn=document.getElementById("noBtn")
+
+const restartBtn=document.getElementById("restartBtn")
 
 const thinking=document.getElementById("thinking")
+
+function startGame(){
+
+current=tree
+step=0
+
+show()
+
+}
 
 function show(){
 
 if(current.result){
 
-thinking.style.opacity=0
-
 question.innerText=""
 
 result.innerText="Il personaggio è: "+current.result
 
-yes.style.display="none"
-no.style.display="none"
+yesBtn.style.display="none"
+noBtn.style.display="none"
 
-restart.style.display="inline-block"
+restartBtn.style.display="inline-block"
 
 return
+
 }
 
 question.innerText=current.question
 
 }
 
-function move(direction){
+function move(dir){
 
 thinking.style.opacity=1
 
@@ -118,7 +139,9 @@ setTimeout(()=>{
 
 thinking.style.opacity=0
 
-current=current[direction]
+current=current[dir]
+
+step++
 
 updateProgress()
 
@@ -128,25 +151,68 @@ show()
 
 }
 
-yes.onclick=()=>move("yes")
-no.onclick=()=>move("no")
+yesBtn.onclick=()=>move("yes")
+noBtn.onclick=()=>move("no")
 
-restart.onclick=()=>{
+function updateProgress(){
 
-current=tree
-step=0
-
-document.getElementById("progressBar").style.width="0%"
-
-result.innerText=""
-
-yes.style.display="inline-block"
-no.style.display="inline-block"
-
-restart.style.display="none"
-
-show()
+document.getElementById("progressBar").style.width=
+(step/totalSteps)*100+"%"
 
 }
 
-show()
+restartBtn.onclick=()=>{
+
+location.reload()
+
+}
+
+/* PARTICLES */
+
+const canvas=document.getElementById("particles")
+const ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let particles=[]
+
+for(let i=0;i<80;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5)*0.6,
+dy:(Math.random()-0.5)*0.6
+
+})
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+ctx.fillStyle="white"
+
+particles.forEach(p=>{
+
+ctx.beginPath()
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
+ctx.fill()
+
+p.x+=p.dx
+p.y+=p.dy
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1
+if(p.y<0||p.y>canvas.height)p.dy*=-1
+
+})
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
