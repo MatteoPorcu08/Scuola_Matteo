@@ -147,5 +147,14 @@ public class CentroSportivo {
         return corsiFiltrati;
     }
 
+    //Metodo public void applicaScontoAiCorsiMenoFrequentati(double percentuale)
+    public void applicaScontoAiCorsiMenoFrequentati(double percentuale){
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null && corsi[i].getNumeroIscritti() < 5) {
+                double nuovoCosto = corsi[i].getCostoMensile() * (1 - percentuale / 100);
+                corsi[i].setCostoMensile(nuovoCosto);
+            }
+        }
+    }
 
 }
