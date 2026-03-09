@@ -76,10 +76,17 @@ public class Corso {
     //Metodo ToString
     @Override
     public String toString() {
-        return "Corso:"+ nome+ "\nIstruttore: "+ istruttore+
-                "\nDurata: "+ durata+ " minuti"+
-                "\nCosto Mensile: "+ costoMensile+ " euro"+
-                "\nNumero Iscritti: "+ numeroIscritti+
-                "\nCapacità Massima Iscritti: "+ capMaxIscritti;
+        return "Corso:"+ nome+ "\nIstruttore: "+ istruttore+"\nDurata: "+ durata+ " minuti"+"\nCosto Mensile: "+ costoMensile+ " euro"+"\nNumero Iscritti: "+ numeroIscritti+"\nCapacità Massima Iscritti: "+ capMaxIscritti;
     }
+
+    //Metodo public void aggiungiIscritti(int numero)
+    public void aggiungiIscritti(int numero){
+        if (this.numeroIscritti + numero <= this.capMaxIscritti) {
+            this.numeroIscritti += numero;
+        } else {
+            System.out.println("Non è possibile aggiungere " + numero + " iscritti. Capacità massima raggiunta.");
+        }
+    }
+
+    //Metodo 
 }
