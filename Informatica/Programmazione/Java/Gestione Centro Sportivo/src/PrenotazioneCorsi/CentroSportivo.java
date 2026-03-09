@@ -84,7 +84,15 @@ public class CentroSportivo {
         return "";
     }
 
-    
+    //Metodo public int contaCorsiAffollati()  restituisce il numero di corsi con più di 20 iscritti.
+    public int contaCorsiAffollati(){
+        int contatore = 0;
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null && corsi[i].corsoAffollato()) {
+                contatore++;
+            }
+        }
+        return contatore;
 
 
 }
