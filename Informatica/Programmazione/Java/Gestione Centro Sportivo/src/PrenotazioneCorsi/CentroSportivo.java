@@ -157,4 +157,6 @@ public class CentroSportivo {
         }
     }
 
+    //Metodo public CentroSportivo mergeCentro(CentroSportivo altro)
+
 }
