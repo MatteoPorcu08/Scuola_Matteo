@@ -24,7 +24,7 @@ public class CentroSportivo {
         }
         this.numeroCorsi = centro.numeroCorsi;
     }
-    
+
     //Metodo public boolean aggiungiCorso(Corso c)
     public boolean aggiungiCorso(Corso c) {
         if (numeroCorsi < corsi.length) {
@@ -158,5 +158,47 @@ public class CentroSportivo {
     }
 
     //Metodo public CentroSportivo mergeCentro(CentroSportivo altro)
+    public CentroSportivo mergeCentro(CentroSportivo altro) {
+        CentroSportivo centroUnito = new CentroSportivo();
+        for (int i = 0; i < this.numeroCorsi; i++) {
+            if (this.corsi[i] != null) {
+                centroUnito.aggiungiCorso(new Corso(this.corsi[i]));
+            }
+        }
+        for (int i = 0; i < altro.numeroCorsi; i++) {
+            if (altro.corsi[i] != null) {
+                centroUnito.aggiungiCorso(new Corso(altro.corsi[i]));
+            }
+        }
+        return centroUnito;
+    }
+
+    //Metodo public boolean spostaCorso(int from, int to)
+    public boolean spostaCorso(int from, int to) {
+        if (from >= 0 && from < numeroCorsi && to >= 0 && to < numeroCorsi) {
+            Corso temp = corsi[from];
+            corsi[from] = corsi[to];
+            corsi[to] = temp;
+            return true;
+        } else {
+            System.out.println("Posizioni non valide. Impossibile spostare il corso.");
+            return false;
+        }
+    }
+
+    //Metodo public String esportaCSV()
+
+    //Metodo public String[] elencoNomiCorsiAttivi()
+    public String[] elencoNomiCorsiAttivi() {
+        String[] nomiCorsi = new String[numeroCorsi];
+        int contatore = 0;
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null) {
+                nomiCorsi[contatore] = corsi[i].getNome();
+                contatore++;
+            }
+        }
+        return nomiCorsi;
+    }
 
 }
