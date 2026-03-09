@@ -95,5 +95,57 @@ public class CentroSportivo {
         return contatore;
     }
 
+    //Metodo public double incassoTotaleMensile()
+    public double incassoTotaleMensile(){
+        double incassoTotale = 0;
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null) {
+                incassoTotale += corsi[i].getCostoMensile() * corsi[i].getNumeroIscritti();
+            }
+        }
+        return incassoTotale;
+    }
+
+    //Metodo public double durataMedia()
+    public double durataMedia() {
+        if (numeroCorsi == 0) {
+            return 0;
+        }
+        int durataTotale = 0;
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null) {
+                durataTotale += corsi[i].getDurata();
+            }
+        }
+        return (double) durataTotale / numeroCorsi;
+    }
+
+    //Metodo public Corso corsoConPiuIscritti()
+    public Corso corsoConPiuIscritti(){
+        if (numeroCorsi == 0) {
+            return null;
+        }
+        Corso corsoPiuIscritti = corsi[0];
+        for (int i = 1; i < numeroCorsi; i++) {
+            if (corsi[i] != null && corsi[i].getNumeroIscritti() > corsoPiuIscritti.getNumeroIscritti()) {
+                corsoPiuIscritti = corsi[i];
+            }
+        }
+        return corsoPiuIscritti;
+    }
+
+    //Metodo public Corso[] filtraPerIstruttore(String istruttore)
+    public Corso[] filtraPerIstruttore(String istruttore){
+        Corso[] corsiFiltrati = new Corso[numeroCorsi];
+        int contatore = 0;
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null && corsi[i].getIstruttore().equals(istruttore)) {
+                corsiFiltrati[contatore] = corsi[i];
+                contatore++;
+            }
+        }
+        return corsiFiltrati;
+    }
+
 
 }
