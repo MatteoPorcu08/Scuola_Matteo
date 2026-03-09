@@ -88,5 +88,31 @@ public class Corso {
         }
     }
 
-    //Metodo 
+    //Metodo public void applicaScontoSePocoFrequentato(double percentuale)
+    public void applicaScontoSePocoFrequentato(double percentuale) {
+        if (this.numeroIscritti < 10) {
+            this.costoMensile -= this.costoMensile * (percentuale / 100);
+        }
+    }
+
+    //Metodo public boolean isCompleto()
+    public boolean isCompleto() {
+        if(numeroIscritti >= capMaxIscritti){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*Metodo public boolean aggiungiIscritti(int numero)
+    public boolean aggiungiIscritti(int numero){
+        if (this.numeroIscritti + numero <= this.capMaxIscritti) {
+            this.numeroIscritti += numero;
+            return true;
+        } else {
+            System.out.println("Non è possibile aggiungere " + numero + " iscritti. Capacità massima raggiunta.");
+            return false;
+        }
+    }*/
+
 }
