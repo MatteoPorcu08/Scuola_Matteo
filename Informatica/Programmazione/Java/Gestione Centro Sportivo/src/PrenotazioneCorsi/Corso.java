@@ -104,8 +104,8 @@ public class Corso {
         }
     }
 
-    /*Metodo public boolean aggiungiIscritti(int numero)
-    public boolean aggiungiIscritti(int numero){
+    //Metodo public boolean aggiungiIscritti(int numero)
+    public boolean aggiungiIscrittiBoolean(int numero){
         if (this.numeroIscritti + numero <= this.capMaxIscritti) {
             this.numeroIscritti += numero;
             return true;
@@ -113,6 +113,14 @@ public class Corso {
             System.out.println("Non è possibile aggiungere " + numero + " iscritti. Capacità massima raggiunta.");
             return false;
         }
-    }*/
+    }
 
+    //Metodo public boolean corsoAffollato()
+    public boolean corsoAffollato() {
+        if(this.numeroIscritti > 20){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
