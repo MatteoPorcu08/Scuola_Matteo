@@ -25,14 +25,14 @@ public class CentroSportivo {
         this.numeroCorsi = centro.numeroCorsi;
     }
     
-    //Metodo public boolean aggiungiCorso(Corso c) Inserisce il corso nella prima posizione libera. Ritorna true se inserito, false se l'array è pieno.
+    //Metodo public boolean aggiungiCorso(Corso c)
     public boolean aggiungiCorso(Corso c) {
         if (numeroCorsi < corsi.length) {
-            corsi[numeroCorsi] = new Corso(c);
+            corsi[numeroCorsi] = c;
             numeroCorsi++;
             return true;
         } else {
-            System.out.println("Non è possibile aggiungere il corso " + c.getNome() + ". Numero massimo di corsi raggiunto.");
+            System.out.println("Impossibile aggiungere il corso " + c.getNome() + ". Il centro sportivo è pieno.");
             return false;
         }
     }
@@ -63,6 +63,28 @@ public class CentroSportivo {
         return false;
     }
 
+    //Metodo public Corso cercaCorso(String nome)
+    public Corso cercaCorso(String nome){
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i].getNome().equals(nome)) {
+                return corsi[i];
+            }
+        }
+        System.out.println("Corso con nome " + nome + " non trovato.");
+        return null;
+    }
+
+    //Metodo public String visualizzaCorsi()
+    public String visualizzaCorsi(){
+        for (int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null) {
+                System.out.println(corsi[i].toString());
+            }
+        }
+        return "";
+    }
+
+    
 
 
 }
