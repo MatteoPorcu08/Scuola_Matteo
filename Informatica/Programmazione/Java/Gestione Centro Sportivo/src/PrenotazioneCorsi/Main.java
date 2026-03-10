@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         CentroSportivo centro = new CentroSportivo();
 
-        Corso corso1 = new Corso("Yoga", "Lunedì", 10, 25.50, 1);
-        Corso corso2 = new Corso("Pilates", "Martedì", 15, 30.00, 1);
-        Corso corso3 = new Corso("Zumba", "Mercoledì", 20, 35.75, 1);
+        Corso corso1 = new Corso("Yoga", "Mirko", 10, 25.50, 1);
+        Corso corso2 = new Corso("Pilates", "Sedda", 15, 30.00, 1);
+        Corso corso3 = new Corso("Zumba", "Daniela", 20, 35.75, 1);
 
         centro.aggiungiCorso(corso1);
         centro.aggiungiCorso(corso2);

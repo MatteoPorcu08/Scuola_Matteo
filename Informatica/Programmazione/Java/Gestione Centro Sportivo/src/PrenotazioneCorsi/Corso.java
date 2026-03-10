@@ -1,5 +1,4 @@
 package PrenotazioneCorsi;
-
 public class Corso {
     String nome;
     String istruttore;
