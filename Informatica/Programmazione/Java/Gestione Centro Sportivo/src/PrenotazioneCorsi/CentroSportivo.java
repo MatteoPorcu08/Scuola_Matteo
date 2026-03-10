@@ -187,6 +187,7 @@ public class CentroSportivo {
     }
 
     //Metodo public String esportaCSV()
+    public
 
     //Metodo public String[] elencoNomiCorsiAttivi()
     public String[] elencoNomiCorsiAttivi() {
