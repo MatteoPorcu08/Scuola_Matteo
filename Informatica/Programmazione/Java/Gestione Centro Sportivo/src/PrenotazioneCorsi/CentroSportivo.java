@@ -187,7 +187,19 @@ public class CentroSportivo {
     }
 
     //Metodo public String esportaCSV()
-    public
+    public String esportaCSV() {
+        StringBuilder csv =new StringBuilder();
+        for(int i = 0; i < numeroCorsi; i++) {
+            if (corsi[i] != null) {
+                csv.append(corsi[i].getNome()).append(",")
+                   .append(corsi[i].getIstruttore()).append(",")
+                   .append(corsi[i].getDurata()).append(",")
+                   .append(corsi[i].getCostoMensile()).append(",")
+                   .append(corsi[i].getNumeroIscritti()).append(",")
+                   .append(corsi[i].getCapMaxIscritti()).append("\n");
+            }
+        }
+    }
 
     //Metodo public String[] elencoNomiCorsiAttivi()
     public String[] elencoNomiCorsiAttivi() {
