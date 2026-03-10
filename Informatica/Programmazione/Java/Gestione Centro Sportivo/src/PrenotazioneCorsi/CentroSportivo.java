@@ -188,17 +188,19 @@ public class CentroSportivo {
 
     //Metodo public String esportaCSV()
     public String esportaCSV() {
-        StringBuilder csv =new StringBuilder();
+        StringBuilder csv =new StringBuilder(); //StringBuilder è una classe che permette di creare stringhe concatenandole evitando di creare nuovi oggetti stringa
+        csv.append("Istruttore;Nome;Durata;CostoMensile;NumeroIscritti;CapMaxIscritti\n");
         for(int i = 0; i < numeroCorsi; i++) {
             if (corsi[i] != null) {
-                csv.append(corsi[i].getNome()).append(",")
-                   .append(corsi[i].getIstruttore()).append(",")
-                   .append(corsi[i].getDurata()).append(",")
-                   .append(corsi[i].getCostoMensile()).append(",")
-                   .append(corsi[i].getNumeroIscritti()).append(",")
-                   .append(corsi[i].getCapMaxIscritti()).append("\n");
+                csv.append(corsi[i].getNome()).append(";") //append è un metodo della classe SringBuilder che permette di concatenare stringhe in modo efficiente
+                .append(corsi[i].getIstruttore()).append(";")
+                .append(corsi[i].getDurata()).append(";")
+                .append(corsi[i].getCostoMensile()).append(";")
+                .append(corsi[i].getNumeroIscritti()).append(";")
+                .append(corsi[i].getCapMaxIscritti()).append("\n");
             }
         }
+        return csv.toString();
     }
 
     //Metodo public String[] elencoNomiCorsiAttivi()
