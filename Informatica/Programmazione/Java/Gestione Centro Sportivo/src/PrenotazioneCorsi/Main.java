@@ -16,5 +16,11 @@ public class Main {
         for (int i = 0; i < centro.numeroCorsi; i++) {
             System.out.println(centro.corsi[i].getNome());
         }
+
+        centro.rimuoviPerNome("Pilates");
+        System.out.println("\nCorsi disponibili dopo la rimozione:");
+        for (int i = 0; i < centro.numeroCorsi; i++) {
+            System.out.println(centro.corsi[i].getNome());
+        }
     }
 }
