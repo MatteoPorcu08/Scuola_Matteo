@@ -1,148 +1,256 @@
 import numpy as np
 import plotly.graph_objects as go
-from dash import Dash, dcc, html, Output, Input
+import dash
+from dash import Dash, dcc, html, Input, Output, State
 
-# --- Parametri ---
-omega = 2 * np.pi * 50
-t = np.linspace(0, 0.04, 1000)
-colori = ['blue','green','orange','purple','brown','cyan','magenta','yellow','pink','grey']
+# ----------------------
+# PARAMETRI
+# ----------------------
 
-# --- Funzioni matematiche ---
-def crea_fasore(amp, fase_deg):
-    fase_rad = np.deg2rad(fase_deg)
-    return amp * np.exp(1j * fase_rad)
+omega = 2*np.pi*50
+t = np.linspace(0,0.04,1000)
 
-def corrente_da_fasore(fasore):
-    A = abs(fasore)
-    phi = np.angle(fasore)
-    return A * np.sin(omega * t + phi)
+colori = [
+"blue","green","orange",
+"purple","brown","cyan",
+"magenta","yellow"
+]
 
-def genera_figure(amps, fasi):
-    fasori = [crea_fasore(a,f) for a,f in zip(amps,fasi)]
-    somma = sum(fasori)
+# ----------------------
+# FUNZIONI MATEMATICHE
+# ----------------------
 
-    # ----- Grafico fasori -----
+def crea_fasore(A,fase):
+
+    return A*np.exp(1j*np.deg2rad(fase))
+
+
+def calcola_operazione(fasori,op):
+
+    if len(fasori)==0:
+        return 0
+
+    res = fasori[0]
+
+    for f in fasori[1:]:
+
+        if op=="add":
+            res = res + f
+
+        elif op=="sub":
+            res = res - f
+
+        elif op=="mul":
+            res = res * f
+
+        elif op=="div":
+            res = res / f
+
+    return res
+
+
+def corrente(f):
+
+    A = abs(f)
+    phi = np.angle(f)
+
+    return A*np.sin(omega*t + phi)
+
+
+# ----------------------
+# GRAFICI
+# ----------------------
+
+def genera_grafici(amps,fasi,op):
+
+    fasori = [crea_fasore(a,p) for a,p in zip(amps,fasi)]
+
+    risultato = calcola_operazione(fasori,op)
+
     fig_fasori = go.Figure()
 
     for i,f in enumerate(fasori):
+
         fig_fasori.add_trace(go.Scatter(
             x=[0,f.real],
             y=[0,f.imag],
-            mode='lines+markers+text',
-            line=dict(color=colori[i % len(colori)], width=4),
-            marker=dict(size=8),
+            mode="lines+markers+text",
+            line=dict(width=4,color=colori[i%len(colori)]),
             text=[None,f"F{i+1}"],
             textposition="top right",
-            name=f'F{i+1} ({abs(f):.2f}∠{np.angle(f,deg=True):.1f}°)'
+            name=f"F{i+1} | {abs(f):.2f} ∠ {np.angle(f,deg=True):.1f}°"
         ))
 
     fig_fasori.add_trace(go.Scatter(
-        x=[0,somma.real],
-        y=[0,somma.imag],
-        mode='lines+markers+text',
-        line=dict(color='red', width=5),
-        marker=dict(size=8),
-        text=[None,"Somma"],
+        x=[0,risultato.real],
+        y=[0,risultato.imag],
+        mode="lines+markers+text",
+        line=dict(width=5,color="red"),
+        text=[None,"Risultato"],
         textposition="top right",
-        name=f'Somma ({abs(somma):.2f}∠{np.angle(somma,deg=True):.1f}°)'
+        name=f"Risultato | {abs(risultato):.2f} ∠ {np.angle(risultato,deg=True):.1f}°"
     ))
 
     fig_fasori.update_layout(
-        title="Fasori (Piano Complesso)",
-        xaxis=dict(scaleanchor="y", scaleratio=1, title="Parte reale"),
-        yaxis=dict(title="Parte immaginaria"),
+        title="Diagramma Fasoriale",
+        xaxis=dict(scaleanchor="y",scaleratio=1,title="Parte Reale"),
+        yaxis=dict(title="Parte Immaginaria"),
         height=500
     )
 
-    # ----- Corrente alternata -----
     fig_corrente = go.Figure()
 
-    i_totale = sum(corrente_da_fasore(f) for f in fasori)
-
     for i,f in enumerate(fasori):
+
         fig_corrente.add_trace(go.Scatter(
             x=t,
-            y=corrente_da_fasore(f),
-            mode='lines',
-            line=dict(dash='dash', color=colori[i % len(colori)]),
-            name=f'F{i+1}'
+            y=corrente(f),
+            mode="lines",
+            line=dict(dash="dash"),
+            name=f"F{i+1}"
         ))
 
     fig_corrente.add_trace(go.Scatter(
         x=t,
-        y=i_totale,
-        mode='lines',
-        line=dict(color='red', width=3),
-        name='Somma'
+        y=corrente(risultato),
+        mode="lines",
+        line=dict(width=3,color="red"),
+        name="Risultato"
     ))
 
     fig_corrente.update_layout(
-        title="Corrente Alternata nel Tempo",
-        xaxis_title="Tempo [s]",
+        title="Segnale AC nel Tempo",
+        xaxis_title="Tempo",
         yaxis_title="Ampiezza",
         height=400
     )
 
-    return fig_fasori, fig_corrente
+    return fig_fasori,fig_corrente
 
 
-# -------- Numero fasori --------
-n_fasori = int(input("Quanti fasori vuoi simulare? "))
+# ----------------------
+# APP DASH
+# ----------------------
 
-# -------- App Dash --------
-app = Dash(__name__)
+app = Dash(__name__, suppress_callback_exceptions=True)
 
-# Slider dinamici
-sliders = []
-for i in range(n_fasori):
-
-    sliders.append(html.Label(f"Ampiezza Fasore {i+1}"))
-    sliders.append(
-        dcc.Slider(
-            0, 10, 0.1,
-            value=1,
-            id=f"amp_{i}",
-            tooltip={"placement":"bottom","always_visible":True}
-        )
-    )
-
-    sliders.append(html.Label(f"Fase Fasore {i+1}"))
-    sliders.append(
-        dcc.Slider(
-            -180,180,1,
-            value=0,
-            id=f"fase_{i}",
-            tooltip={"placement":"bottom","always_visible":True}
-        )
-    )
-
-# Layout
 app.layout = html.Div([
 
-    html.H1("Simulatore Fasori e Corrente AC"),
+html.H1("Simulatore Fasori AC"),
 
-    html.Div(sliders),
+html.Label("Numero Fasori"),
 
-    dcc.Graph(id="grafico_fasori"),
-    dcc.Graph(id="grafico_corrente")
+dcc.Input(
+id="n_fasori",
+type="number",
+value=3,
+min=1,
+max=8
+),
+
+html.Button("Genera Fasori",id="genera"),
+
+html.Br(),
+html.Br(),
+
+html.Label("Operazione"),
+
+dcc.Dropdown(
+id="operazione",
+options=[
+{"label":"Somma","value":"add"},
+{"label":"Sottrazione","value":"sub"},
+{"label":"Moltiplicazione","value":"mul"},
+{"label":"Divisione","value":"div"}
+],
+value="add"
+),
+
+html.Br(),
+
+html.Button("Genera Sistema Trifase",id="trifase"),
+
+html.Hr(),
+
+html.Div(id="sliders"),
+
+dcc.Graph(id="grafico_fasori"),
+
+dcc.Graph(id="grafico_corrente")
 
 ])
 
-# Callback aggiornamento grafici
+# ----------------------
+# CREAZIONE SLIDER
+# ----------------------
+
 @app.callback(
-    Output("grafico_fasori","figure"),
-    Output("grafico_corrente","figure"),
-    [Input(f"amp_{i}","value") for i in range(n_fasori)] +
-    [Input(f"fase_{i}","value") for i in range(n_fasori)]
+
+Output("sliders","children"),
+
+Input("genera","n_clicks"),
+
+State("n_fasori","value")
+
 )
 
-def aggiorna(*vals):
+def genera_slider(_,n):
 
-    amps = vals[:n_fasori]
-    fasi = vals[n_fasori:]
+    if n is None:
+        return []
 
-    return genera_figure(amps,fasi)
+    sliders=[]
 
+    for i in range(n):
+
+        sliders.append(html.Label(f"Ampiezza Fasore {i+1}"))
+
+        sliders.append(
+            dcc.Slider(
+            0,10,0.1,
+            value=1,
+            id={"type":"amp","index":i}
+            )
+        )
+
+        sliders.append(html.Label(f"Fase Fasore {i+1}"))
+
+        sliders.append(
+            dcc.Slider(
+            -180,180,1,
+            value=0,
+            id={"type":"fase","index":i}
+            )
+        )
+
+    return sliders
+
+
+# ----------------------
+# AGGIORNAMENTO GRAFICI
+# ----------------------
+
+@app.callback(
+
+Output("grafico_fasori","figure"),
+Output("grafico_corrente","figure"),
+
+Input({"type":"amp","index":dash.ALL},"value"),
+Input({"type":"fase","index":dash.ALL},"value"),
+Input("operazione","value")
+
+)
+
+def aggiorna(amps,fasi,op):
+
+    if len(amps)==0:
+        return go.Figure(),go.Figure()
+
+    return genera_grafici(amps,fasi,op)
+
+
+# ----------------------
 
 if __name__ == "__main__":
+
     app.run(debug=True)
