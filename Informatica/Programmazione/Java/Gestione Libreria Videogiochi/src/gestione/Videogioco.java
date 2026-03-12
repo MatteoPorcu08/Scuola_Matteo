@@ -119,4 +119,77 @@ public class Videogioco {
             return false;
         }
     }
+
+    //Metodo public int contaPerAnno(int anno)
+    public int contaPerAnno(int anno) {
+        if (this.annoUscita == anno) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    //Metodo public boolean aggiornaPrezzoTitolo(String titolo, double nuovoPrezzo)
+    public boolean aggiornaPrezzoTitolo(String titolo, double nuovoPrezzo) {
+        if (this.titolo.equals(titolo)) {
+            setPrezzo(nuovoPrezzo);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //Metodo public Videogioco[] filtraPerPrezzoRange(double min, double max)
+    public Videogioco[] filtraPerPrezzoRange(double min, double max) {
+        if (min < 0 || max < 0 || min > max) {
+            System.out.println("Intervallo di prezzo non valido. Assicurati che min e max siano non negativi e che min sia minore o uguale a max.");
+            return new Videogioco[0];
+        }
+        Videogioco[] risultati = new Videogioco[1];
+        int count = 0;
+        if (prezzo >= min && prezzo <= max) {
+            risultati[count] = this;
+            count++;
+        }
+        return risultati;
+    }
+
+    //Metodo public Videogioco[] topNRecenti(int n)
+    public Videogioco[] topNRecenti(int n) {
+        if (n <= 0) {
+            System.out.println("Il numero di videogiochi da restituire deve essere maggiore di 0.");
+            return new Videogioco[0];
+        }
+        Videogioco[] risultati = new Videogioco[n];
+        if (isRecente()) {
+            risultati[0] = this;
+        }
+        return risultati;
+    }
+
+    //Metodo public String[] generiPresenti()
+    public String[] generiPresenti() {
+        String[] generi = new String[1];
+        generi[0] = this.genere;
+        return generi;
+    }
+
+    //Metodo public String[] elencoTitoli()
+    public String[] elencoTitoli() {
+        String[] titoli = new String[1];
+        titoli[0] = this.titolo;
+        return titoli;
+    }
+
+    //Metodo public Libreria merge(Libreria altra)
+    //public Libreria merge(Libreria altra) {
+        //Libreria nuovaLibreria = new Libreria();
+        //nuovaLibreria.aggiungiVideogioco(this);
+        //for (Videogioco v : altra.getVideogiochi()) {
+        //    nuovaLibreria.aggiungiVideogioco(v);
+        //}
+        //return nuovaLibreria;
+    //}
+
+    //Metodo public boolean importaDaCSV(String csv)
 }

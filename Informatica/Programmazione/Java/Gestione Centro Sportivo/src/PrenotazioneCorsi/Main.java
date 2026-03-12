@@ -22,5 +22,12 @@ public class Main {
         for (int i = 0; i < centro.numeroCorsi; i++) {
             System.out.println(centro.corsi[i].getNome());
         }
+
+            Corso corso4 = new Corso("Boxe", "Luca", 12, 28.00, 1);
+            centro.aggiungiCorso(corso4);
+            System.out.println("\nCorsi disponibili dopo l'aggiunta di Boxe:");
+            for (int i = 0; i < centro.numeroCorsi; i++) {
+                System.out.println(centro.corsi[i].getNome());
+            }
     }
 }
