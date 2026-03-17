@@ -8,7 +8,7 @@ public class ParcoAuto {
     //Costruttore
     public ParcoAuto() {
         auto = new Auto[NUM_MAX];
-        numeroAuto = 0;
+        this.numeroAuto = 0;
     }
 
     //Costruttore di copia
