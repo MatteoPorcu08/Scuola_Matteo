@@ -124,15 +124,12 @@ def genera_codice():
         if size:
             base = typ.replace("[]", "")
 
-            if base[0].isupper():
-                array_object = (name, base, size)
+            # 🔥 ORA SEMPRE considerato array con contatore
+            array_object = (name, base, size)
 
-                code += f"    private static final int NUM_MAX = {size};\n"
-                code += f"    private {base}[] {name};\n"
-                code += f"    private int numero{cap(name)};\n"
-
-            else:
-                code += f"    private {base}[] {name} = new {base}[{size}];\n"
+            code += f"    private static final int NUM_MAX = {size};\n"
+            code += f"    private {base}[] {name};\n"
+            code += f"    private int numero{cap(name)};\n"
 
         else:
             code += f"    private {typ} {name};\n"
@@ -151,11 +148,6 @@ def genera_codice():
             name, base, size = array_object
             code += f"        {name} = new {base}[NUM_MAX];\n"
             code += f"        this.numero{cap(name)} = 0;\n"
-
-        for name, typ, size in variables:
-            if size and not array_object:
-                base = typ.replace("[]", "")
-                code += f"        {name} = new {base}[{size}];\n"
 
         code += "    }\n\n"
 
