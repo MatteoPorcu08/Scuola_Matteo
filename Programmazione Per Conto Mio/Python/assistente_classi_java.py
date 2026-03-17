@@ -49,45 +49,33 @@ def highlight_java():
     types = ["String", "int", "double", "boolean"]
 
     for word in keywords:
-
         start = "1.0"
-
         while True:
             start = text_output.search(word, start, stopindex=tk.END)
             if not start:
                 break
-
             end = f"{start}+{len(word)}c"
             text_output.tag_add("keyword", start, end)
             start = end
 
     for word in types:
-
         start = "1.0"
-
         while True:
             start = text_output.search(word, start, stopindex=tk.END)
             if not start:
                 break
-
             end = f"{start}+{len(word)}c"
             text_output.tag_add("type", start, end)
             start = end
 
     start = "1.0"
-
     while True:
-
         start = text_output.search("//", start, stopindex=tk.END)
-
         if not start:
             break
-
         end = text_output.search("\n", start, stopindex=tk.END)
-
         if not end:
             end = tk.END
-
         text_output.tag_add("comment", start, end)
         start = end
 
@@ -109,7 +97,7 @@ def genera_codice():
         return
 
     variables = []
-    array_object = None  # 🔥 NUOVO
+    array_object = None
 
     for line in raw_vars:
 
@@ -121,7 +109,6 @@ def genera_codice():
         size = None
 
         if "[" in typ and "]" in typ:
-
             base = typ[:typ.index("[")]
             size = typ[typ.index("[") + 1:typ.index("]")]
             typ = base + "[]"
@@ -137,7 +124,6 @@ def genera_codice():
         if size:
             base = typ.replace("[]", "")
 
-            # 🔥 SOLO per oggetti
             if base[0].isupper():
                 array_object = (name, base, size)
 
@@ -164,7 +150,12 @@ def genera_codice():
         if array_object:
             name, base, size = array_object
             code += f"        {name} = new {base}[NUM_MAX];\n"
-            code += f"        numero{cap(name)} = 0;\n"
+            code += f"        this.numero{cap(name)} = 0;\n"
+
+        for name, typ, size in variables:
+            if size and not array_object:
+                base = typ.replace("[]", "")
+                code += f"        {name} = new {base}[{size}];\n"
 
         code += "    }\n\n"
 
@@ -250,9 +241,7 @@ def genera_codice():
     code += "}\n"
 
     text_output.delete("1.0", tk.END)
-
     animate_code(code)
-
     show_message("✔ Codice generato")
 
 
@@ -280,7 +269,6 @@ def salva_file():
     )
 
     if file:
-
         with open(file, "w") as f:
             f.write(code)
 
