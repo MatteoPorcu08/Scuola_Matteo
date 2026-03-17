@@ -254,7 +254,7 @@ main = ttk.Frame(root, padding=20)
 main.pack(fill="both", expand=True)
 
 ttk.Label(main, text="Java Class Generator",
-          font=("Segoe UI", 20)).pack(pady=(0, 10))
+            font=("Segoe UI", 20)).pack(pady=(0, 10))
 
 ttk.Label(main, text="Nome Classe").pack(anchor="w")
 entry_class = ttk.Entry(main)
@@ -288,7 +288,7 @@ buttons = ttk.Frame(main)
 buttons.pack(pady=10)
 
 ttk.Button(buttons, text="Genera codice",
-           command=genera_codice).pack(side="left", padx=5)
+            command=genera_codice).pack(side="left", padx=5)
 
 editor_frame = tk.Frame(main)
 editor_frame.pack(fill="both", expand=True)
