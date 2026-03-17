@@ -109,6 +109,7 @@ def genera_codice():
         return
 
     variables = []
+    array_object = None  # 🔥 NUOVO
 
     for line in raw_vars:
 
@@ -129,31 +130,49 @@ def genera_codice():
 
     code = f"public class {class_name} {{\n\n"
 
+    # ---------------- VARIABILI ----------------
+
     for name, typ, size in variables:
 
         if size:
             base = typ.replace("[]", "")
-            code += f"    private {base}[] {name} = new {base}[{size}];\n"
+
+            # 🔥 SOLO per oggetti
+            if base[0].isupper():
+                array_object = (name, base, size)
+
+                code += f"    private static final int NUM_MAX = {size};\n"
+                code += f"    private {base}[] {name};\n"
+                code += f"    private int numero{cap(name)};\n"
+
+            else:
+                code += f"    private {base}[] {name} = new {base}[{size}];\n"
 
         else:
             code += f"    private {typ} {name};\n"
 
     code += "\n"
 
+    # ---------------- COSTRUTTORE ----------------
+
     if var_costruttore_vuoto.get():
 
         code += f"""    //Costruttore
     public {class_name}() {{
-    }}
-
 """
+
+        if array_object:
+            name, base, size = array_object
+            code += f"        {name} = new {base}[NUM_MAX];\n"
+            code += f"        numero{cap(name)} = 0;\n"
+
+        code += "    }\n\n"
 
     else:
 
         params = []
 
         for name, typ, size in variables:
-
             if not size:
                 params.append(f"{typ} {name}")
 
@@ -164,11 +183,12 @@ def genera_codice():
 """
 
         for name, typ, size in variables:
-
             if not size:
                 code += f"        this.{name} = {name};\n"
 
         code += "    }\n\n"
+
+    # ---------------- COSTRUTTORE DI COPIA ----------------
 
     if var_copy.get():
 
@@ -176,11 +196,22 @@ def genera_codice():
     public {class_name}({class_name} altro) {{
 """
 
-        for name, typ, size in variables:
+        if array_object:
+            name, base, size = array_object
 
-            code += f"        this.{name} = altro.{name};\n"
+            code += f"        {name} = new {base}[NUM_MAX];\n"
+            code += f"        numero{cap(name)} = altro.numero{cap(name)};\n"
+            code += f"        for (int i = 0; i < numero{cap(name)}; i++) {{\n"
+            code += f"            {name}[i] = new {base}(altro.{name}[i]);\n"
+            code += f"        }}\n"
+
+        else:
+            for name, typ, size in variables:
+                code += f"        this.{name} = altro.{name};\n"
 
         code += "    }\n\n"
+
+    # ---------------- GETTER / SETTER ----------------
 
     if var_getset.get():
 
@@ -199,6 +230,8 @@ def genera_codice():
     }}
 
 """
+
+    # ---------------- TOSTRING ----------------
 
     code += """    //Metodo ToString
     @Override
