@@ -196,7 +196,8 @@ def genera_codice():
 
     if var_getset.get():
 
-        code += "    //Getter e Setter\n\n"
+        # Getter
+        code += "    //Getter\n\n"
 
         for name, typ, size in variables:
 
@@ -205,6 +206,11 @@ def genera_codice():
     }}
 
 """
+
+        # Setter
+        code += "    //Setter\n\n"
+
+        for name, typ, size in variables:
 
             code += f"""    public void set{cap(name)}({typ} {name}) {{
         this.{name} = {name};
@@ -237,51 +243,6 @@ def genera_codice():
     show_message("✔ Codice generato")
 
 
-# ---------------- COPIA ----------------
-
-def copia_codice():
-
-    code = text_output.get("1.0", tk.END)
-
-    root.clipboard_clear()
-    root.clipboard_append(code)
-
-    show_message("📋 Codice copiato")
-
-
-# ---------------- SALVA ----------------
-
-def salva_file():
-
-    code = text_output.get("1.0", tk.END)
-
-    file = filedialog.asksaveasfilename(
-        defaultextension=".java",
-        filetypes=[("Java file", "*.java")]
-    )
-
-    if file:
-        with open(file, "w") as f:
-            f.write(code)
-
-        show_message("💾 File salvato")
-
-
-# ---------------- NUMERI DI RIGA ----------------
-
-def update_lines(event=None):
-
-    lines = text_output.index("end-1c").split(".")[0]
-
-    line_numbers.config(state="normal")
-    line_numbers.delete("1.0", tk.END)
-
-    for i in range(1, int(lines) + 1):
-        line_numbers.insert(tk.END, str(i) + "\n")
-
-    line_numbers.config(state="disabled")
-
-
 # ---------------- GUI ----------------
 
 root = tk.Tk()
@@ -296,12 +257,10 @@ ttk.Label(main, text="Java Class Generator",
           font=("Segoe UI", 20)).pack(pady=(0, 10))
 
 ttk.Label(main, text="Nome Classe").pack(anchor="w")
-
 entry_class = ttk.Entry(main)
 entry_class.pack(fill="x")
 
 ttk.Label(main, text="Variabili (nome:tipo)").pack(anchor="w")
-
 text_vars = tk.Text(main, height=6)
 text_vars.pack(fill="x")
 
@@ -331,43 +290,10 @@ buttons.pack(pady=10)
 ttk.Button(buttons, text="Genera codice",
            command=genera_codice).pack(side="left", padx=5)
 
-ttk.Button(buttons, text="Copia codice",
-           command=copia_codice).pack(side="left", padx=5)
-
-ttk.Button(buttons, text="Salva file .java",
-           command=salva_file).pack(side="left", padx=5)
-
 editor_frame = tk.Frame(main)
 editor_frame.pack(fill="both", expand=True)
 
-line_numbers = tk.Text(
-    editor_frame,
-    width=4,
-    bg="#252526",
-    fg="#858585",
-    state="disabled",
-    font=("Consolas", 11)
-)
-
-line_numbers.pack(side="left", fill="y")
-
-text_output = tk.Text(
-    editor_frame,
-    bg="#1e1e1e",
-    fg="#d4d4d4",
-    insertbackground="white",
-    font=("Consolas", 11)
-)
-
+text_output = tk.Text(editor_frame, bg="#1e1e1e", fg="#d4d4d4")
 text_output.pack(fill="both", expand=True)
-
-text_output.bind("<KeyRelease>", update_lines)
-text_output.bind("<MouseWheel>", update_lines)
-
-text_output.tag_config("keyword", foreground="#569CD6")
-text_output.tag_config("type", foreground="#4EC9B0")
-text_output.tag_config("comment", foreground="#6A9955")
-
-update_lines()
 
 root.mainloop()
