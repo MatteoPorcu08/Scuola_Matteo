@@ -123,8 +123,6 @@ def genera_codice():
 
         if size:
             base = typ.replace("[]", "")
-
-            # 🔥 ORA SEMPRE considerato array con contatore
             array_object = (name, base, size)
 
             code += f"    private static final int NUM_MAX = {size};\n"
@@ -216,16 +214,18 @@ def genera_codice():
 
     # ---------------- TOSTRING ----------------
 
-    code += """    //Metodo ToString
+    if var_tostring.get():
+
+        code += """    //Metodo ToString
     @Override
     public String toString() {
         return \"
 """
 
-    for name, _, _ in variables:
-        code += f"{name}=\" + {name} + \" "
+        for name, _, _ in variables:
+            code += f"{name}=\" + {name} + \" "
 
-    code += """\";
+        code += """\";
     }
 
 """
@@ -311,6 +311,7 @@ options.pack(pady=10)
 var_getset = tk.BooleanVar(value=True)
 var_costruttore_vuoto = tk.BooleanVar()
 var_copy = tk.BooleanVar()
+var_tostring = tk.BooleanVar(value=True)
 
 ttk.Checkbutton(options, text="Getter + Setter",
                 variable=var_getset).grid(row=0, column=0, padx=10)
@@ -320,6 +321,9 @@ ttk.Checkbutton(options, text="Costruttore vuoto",
 
 ttk.Checkbutton(options, text="Costruttore di copia",
                 variable=var_copy).grid(row=0, column=2, padx=10)
+
+ttk.Checkbutton(options, text="ToString",
+                variable=var_tostring).grid(row=0, column=3, padx=10)
 
 buttons = ttk.Frame(main)
 buttons.pack(pady=10)
