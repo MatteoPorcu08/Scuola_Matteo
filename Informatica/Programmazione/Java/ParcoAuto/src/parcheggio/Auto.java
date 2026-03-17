@@ -73,5 +73,19 @@ public class Auto {
         return "Auto:\n Targa: " + targa + "\n Modello: " + modello + "\n Anno: " + anno + "\n Km: " + km + "\n Disponibile: " + disponibile + "\n Prezzo Giornaliero: " + prezzoGiornaliero;
     }
 
-    //Metodo pubblic void restituisci(int kmaggiunti)
+    //Metodo public void restituisci(int kmAggiunti)
+    public void restituisci(int kmAggiunti){
+        if (kmAggiunti >= 0 ){
+            this.km += kmAggiunti;
+        }
+    }
+
+    //Metodo public double calcolaCosto(int giorni)
+    public double calcolaCosto(int giorni) {
+        if (giorni > 0) {
+            return giorni * prezzoGiornaliero;
+        } else {
+            return 0;
+        }
+    }
 }
