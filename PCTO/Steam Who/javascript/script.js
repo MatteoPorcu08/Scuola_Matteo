@@ -3,15 +3,11 @@ window.onload = function(){
     /* ===== AVATAR ===== */
     
     document.querySelectorAll(".character").forEach(el=>{
-    
     let name = el.innerText.trim()
     let parts = name.split(" ")
-    
     let initials = parts[0][0]
     if(parts.length > 1) initials += parts[1][0]
-    
     el.setAttribute("data-initials", initials.toUpperCase())
-    
     })
     
     /* ===== START ===== */
@@ -44,60 +40,66 @@ window.onload = function(){
     
     }
     
-    /* ===== DATABASE CON IMMAGINI ===== */
+    /* ===== DATABASE COMPLETO ===== */
     
     const characters = [
-
-        {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false},
-        
-        {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Leonardo da Vinci", img:"../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false},
-        
-        {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Evangelista Torricelli", img:"../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Luigi Galvani", img:"../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Giuseppe Lagrange", img:"../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Sofia Kovalevskaya", img:"../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false},
-        
-        {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false},
-        
-        {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false},
-        
-        {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true},
-        
-        {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true},
-        
-        {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true},
-        
-        {nome:"Lucia Votano", img:"../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Anna Grassellino", img:"../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-        
-        {nome:"Alfio Quarteroni", img:"../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false},
-        
-        {nome:"Giuseppina Carniel", img:"../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:false, fisico:false}
-        
-        ]
     
-    /* ===== DOMANDE ===== */
+    {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:true, matematica:false, elettricita:false, astronomia:false},
+    
+    {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true},
+    
+    {nome:"Leonardo da Vinci", img:"../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true},
+    
+    {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
+    
+    {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false},
+    
+    {nome:"Evangelista Torricelli", img:"../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Luigi Galvani", img:"../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:false, elettricita:true, astronomia:false},
+    
+    {nome:"Giuseppe Lagrange", img:"../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Sofia Kovalevskaya", img:"../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false},
+    
+    {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true},
+    
+    {nome:"Lucia Votano", img:"../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
+    
+    {nome:"Anna Grassellino", img:"../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
+    
+    {nome:"Alfio Quarteroni", img:"../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false},
+    
+    {nome:"Giuseppina Carniel", img:"../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false}
+    
+    ]
+    
+    /* ===== DOMANDE SUPER AMPLIATE ===== */
     
     const questions = [
     
     {testo:"È una donna?", key:"donna"},
     {testo:"È italiano?", key:"italiano"},
     {testo:"È legato all'informatica?", key:"informatico"},
-    {testo:"È famoso per la fisica?", key:"fisico"}
+    {testo:"È famoso per la fisica?", key:"fisico"},
+    
+    {testo:"È nato prima del 1800?", key:"antico"},
+    {testo:"Ha vinto il premio Nobel?", key:"nobel"},
+    {testo:"È un matematico?", key:"matematica"},
+    {testo:"Ha lavorato con l'elettricità?", key:"elettricita"},
+    {testo:"È legato all'astronomia?", key:"astronomia"}
     
     ]
     
@@ -128,7 +130,7 @@ window.onload = function(){
     
     }
     
-    /* ===== AI DINAMICA ===== */
+    /* ===== AI DINAMICA POTENZIATA ===== */
     
     function nextQuestion(){
     
@@ -137,6 +139,15 @@ window.onload = function(){
     
     setTimeout(()=>{
     
+    /* 🔥 ERRORE */
+    if(remaining.length === 0){
+    
+    result.innerText="😵 Non sono riuscito a indovinare"
+    restartBtn.style.display="inline-block"
+    return
+    }
+    
+    /* 🔥 RISULTATO */
     if(remaining.length === 1){
     
     const p = remaining[0]
@@ -144,21 +155,9 @@ window.onload = function(){
     question.innerText=""
     
     result.innerHTML = `
-    <div style="animation:fadeIn 0.5s; text-align:center;">
-    
-    <img src="${p.img}" style="
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:15px;
-    margin-bottom:10px;
-    box-shadow:0 0 25px #00f2ff;
-    ">
-    
-    <div style="font-size:26px; font-weight:bold;">
-    🎯 È: ${p.nome}
-    </div>
-    
+    <div style="text-align:center;">
+    <img src="${p.img}" style="width:180px;height:180px;border-radius:15px;margin-bottom:10px;">
+    <div style="font-size:24px;">🎯 È: ${p.nome}</div>
     </div>
     `
     
@@ -169,43 +168,51 @@ window.onload = function(){
     return
     }
     
-    /* trova domanda migliore */
+    /* 🔥 SE FINISCONO DOMANDE */
+    if(usedQuestions.length === questions.length){
     
-    let bestQuestion = null
+    let random = remaining[Math.floor(Math.random()*remaining.length)]
+    
+    result.innerHTML="🤔 Potrebbe essere: " + random.nome
+    restartBtn.style.display="inline-block"
+    return
+    }
+    
+    /* 🔥 ALGORITMO INTELLIGENTE */
+    
+    let bestQuestions = []
     let bestScore = 999
     
     questions.forEach(q=>{
     
     if(usedQuestions.includes(q)) return
     
-    let yes = 0
-    let no = 0
+    let yes=0
+    let no=0
     
     remaining.forEach(p=>{
     if(p[q.key]) yes++
     else no++
     })
     
-    let diff = Math.abs(yes - no)
+    let diff = Math.abs(yes-no)
     
     if(diff < bestScore){
     bestScore = diff
-    bestQuestion = q
+    bestQuestions = [q]
+    }else if(diff === bestScore){
+    bestQuestions.push(q)
     }
     
     })
     
-    if(!bestQuestion){
+    /* scelta casuale tra le migliori */
     
-    result.innerText="🤔 Potrebbe essere: " + remaining.map(p=>p.nome).join(", ")
-    restartBtn.style.display="inline-block"
-    return
-    }
+    currentQuestion = bestQuestions[Math.floor(Math.random()*bestQuestions.length)]
     
-    currentQuestion = bestQuestion
-    usedQuestions.push(bestQuestion)
+    usedQuestions.push(currentQuestion)
     
-    question.innerText = bestQuestion.testo
+    question.innerText = currentQuestion.testo
     
     question.style.opacity = 1
     question.style.transform = "translateY(0)"
@@ -219,18 +226,10 @@ window.onload = function(){
     function move(answer){
     
     thinking.style.opacity=1
-    thinking.innerText = "Sto pensando..."
+    thinking.innerText="Sto pensando..."
     
-    yesBtn.disabled = true
-    noBtn.disabled = true
-    
-    setTimeout(()=>{
-    thinking.innerText = "Analizzo..."
-    },300)
-    
-    setTimeout(()=>{
-    thinking.innerText = "Quasi trovato..."
-    },700)
+    yesBtn.disabled=true
+    noBtn.disabled=true
     
     setTimeout(()=>{
     
@@ -238,28 +237,17 @@ window.onload = function(){
     
     remaining = remaining.filter(p => p[currentQuestion.key] === answer)
     
-    updateProgress()
-    
-    yesBtn.disabled = false
-    noBtn.disabled = false
+    yesBtn.disabled=false
+    noBtn.disabled=false
     
     nextQuestion()
     
-    },1100)
+    },900)
     
     }
     
     yesBtn.onclick=()=>move(true)
     noBtn.onclick=()=>move(false)
-    
-    /* ===== PROGRESS ===== */
-    
-    function updateProgress(){
-    
-    let progress = (usedQuestions.length / questions.length) * 100
-    document.getElementById("progressBar").style.width = progress + "%"
-    
-    }
     
     restartBtn.onclick=()=>location.reload()
     
