@@ -44,23 +44,35 @@ window.onload = function(){
     
     }
     
-    /* ===== DATABASE ===== */
+    /* ===== DATABASE CON IMMAGINI ===== */
     
     const characters = [
     
-    {nome:"Albert Einstein", donna:false, italiano:false, informatico:false, fisico:true},
-    {nome:"Marie Curie", donna:true, italiano:false, informatico:false, fisico:true},
-    {nome:"Alan Turing", donna:false, italiano:false, informatico:true, fisico:false},
-    {nome:"Ada Lovelace", donna:true, italiano:false, informatico:true, fisico:false},
-    {nome:"Galileo Galilei", donna:false, italiano:true, informatico:false, fisico:true},
-    {nome:"Isaac Newton", donna:false, italiano:false, informatico:false, fisico:true},
-    {nome:"Enrico Fermi", donna:false, italiano:true, informatico:false, fisico:true},
-    {nome:"Margherita Hack", donna:true, italiano:true, informatico:false, fisico:true},
-    {nome:"Fabiola Gianotti", donna:true, italiano:true, informatico:false, fisico:true},
-    {nome:"Guglielmo Marconi", donna:false, italiano:true, informatico:false, fisico:true},
-    {nome:"Rita Levi-Montalcini", donna:true, italiano:true, informatico:false, fisico:false}
+    {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true},
+    
+    {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true},
+    
+    {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false},
+    
+    {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false},
+    
+    {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+    
+    {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true},
+    
+    {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+    
+    {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+    
+    {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+    
+    {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+    
+    {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false}
     
     ]
+    
+    /* ===== DOMANDE ===== */
     
     const questions = [
     
@@ -88,7 +100,7 @@ window.onload = function(){
     
     remaining = [...characters]
     usedQuestions = []
-    result.innerText=""
+    result.innerHTML=""
     
     yesBtn.style.display="inline-block"
     noBtn.style.display="inline-block"
@@ -109,17 +121,28 @@ window.onload = function(){
     
     if(remaining.length === 1){
     
+    const p = remaining[0]
+    
     question.innerText=""
     
-    result.innerText="🎯 È: " + remaining[0].nome
+    result.innerHTML = `
+    <div style="animation:fadeIn 0.5s; text-align:center;">
     
-    result.style.opacity = 0
-    result.style.transform = "scale(0.8)"
+    <img src="${p.img}" style="
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:10px;
+    box-shadow:0 0 25px #00f2ff;
+    ">
     
-    setTimeout(()=>{
-    result.style.opacity = 1
-    result.style.transform = "scale(1)"
-    },100)
+    <div style="font-size:26px; font-weight:bold;">
+    🎯 È: ${p.nome}
+    </div>
+    
+    </div>
+    `
     
     yesBtn.style.display="none"
     noBtn.style.display="none"
