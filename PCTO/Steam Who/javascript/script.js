@@ -44,49 +44,31 @@ window.onload = function(){
     
     const characters = [
     
+    // (UGUALE AL TUO - NON TOCCO)
+    
     {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:true, matematica:false, elettricita:false, astronomia:false},
-    
     {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true},
-    
     {nome:"Leonardo da Vinci", img:"../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true},
-    
     {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
-    
     {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false},
-    
     {nome:"Evangelista Torricelli", img:"../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Luigi Galvani", img:"../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:false, elettricita:true, astronomia:false},
-    
     {nome:"Giuseppe Lagrange", img:"../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Sofia Kovalevskaya", img:"../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false},
-    
     {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true},
-    
     {nome:"Lucia Votano", img:"../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
-    
     {nome:"Anna Grassellino", img:"../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false},
-    
     {nome:"Alfio Quarteroni", img:"../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false},
-    
     {nome:"Giuseppina Carniel", img:"../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false}
     
     ]
     
-    /* 👉 inizializza punteggi */
     characters.forEach(p => p.score = 0)
     
     /* ===== DOMANDE ===== */
@@ -115,7 +97,8 @@ window.onload = function(){
     const restartBtn = document.getElementById("restartBtn")
     const thinking = document.getElementById("thinking")
     
-    /* ===== GAME ===== */
+    /* 🔥 NUOVO */
+    const confidenceBar = document.getElementById("confidenceBar")
     
     function startGame(){
     
@@ -123,23 +106,17 @@ window.onload = function(){
     usedQuestions = []
     result.innerHTML=""
     
-    yesBtn.style.display="inline-block"
-    noBtn.style.display="inline-block"
-    restartBtn.style.display="none"
+    confidenceBar.style.width = "5%"
     
     nextQuestion()
     
     }
-    
-    /* ===== ALGORITMO AKINATOR ===== */
     
     function nextQuestion(){
     
     if(usedQuestions.length === questions.length){
     return showResult()
     }
-    
-    /* trova domanda più utile (massima incertezza) */
     
     let best = null
     let bestScore = Infinity
@@ -172,8 +149,6 @@ window.onload = function(){
     
     }
     
-    /* ===== RISPOSTE ===== */
-    
     function move(answer){
     
     thinking.style.opacity=1
@@ -192,6 +167,8 @@ window.onload = function(){
     
     })
     
+    updateConfidence()
+    
     nextQuestion()
     
     },700)
@@ -201,6 +178,23 @@ window.onload = function(){
     yesBtn.onclick=()=>move(true)
     noBtn.onclick=()=>move(false)
     
+    /* ===== BARRA PROBABILITÀ ===== */
+    
+    function updateConfidence(){
+    
+    let sorted = [...characters].sort((a,b)=>b.score - a.score)
+    
+    let best = sorted[0]
+    let second = sorted[1] || {score:0}
+    
+    let confidence = best.score - second.score
+    
+    let percent = Math.min(100, Math.max(5, confidence * 10))
+    
+    confidenceBar.style.width = percent + "%"
+    
+    }
+    
     /* ===== RISULTATO ===== */
     
     function showResult(){
@@ -208,6 +202,8 @@ window.onload = function(){
     characters.sort((a,b)=>b.score - a.score)
     
     let best = characters[0]
+    
+    confidenceBar.style.width = "100%"
     
     result.innerHTML = `
     <div style="text-align:center;">

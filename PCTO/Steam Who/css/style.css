@@ -4,59 +4,58 @@
     box-sizing:border-box;
     }
     
-    /* ===== SFONDO ANIMATO ===== */
+    /* ===== SFONDO ===== */
     
     body{
     font-family:'Poppins',sans-serif;
     
-    background: linear-gradient(
-    135deg,
-    #020617,
-    #0f172a,
-    #1e293b,
-    #020617
-    );
-    
-    background-size:400% 400%;
-    animation:gradientMove 12s ease infinite;
+    background: radial-gradient(circle at top, #0f172a, #020617);
     
     color:white;
-    
     min-height:100vh;
-    
     padding:20px;
+    overflow-x:hidden;
     }
     
-    @keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-    }
+    /* PARTICLES */
     
-    /* 🔥 FIX IMPORTANTISSIMO */
     #particles{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    z-index:-1; /* QUESTO RISOLVE IL TUO PROBLEMA */
+    z-index:-1;
+    opacity:0.6;
     }
     
     /* ===== CONTAINER ===== */
     
     .app{
     width:900px;
-    margin:20px auto;
+    margin:0 auto;
     text-align:center;
+    animation:fadeIn 1s ease;
     }
     
     /* ===== TITOLO ===== */
     
     h1{
-    margin-top:0;
-    font-size:50px;
-    text-shadow:0 0 15px #00f2ff;
+    font-size:55px;
+    font-weight:700;
+    
+    background:linear-gradient(90deg,#00f2ff,#22c55e);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    
+    margin-bottom:10px;
+    }
+    
+    /* ===== SUBTITLE ===== */
+    
+    .subtitle{
+    opacity:0.7;
+    font-size:16px;
     }
     
     /* ===== GRID ===== */
@@ -64,33 +63,33 @@
     .characters{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:16px;
+    gap:18px;
     margin:30px 0;
     }
     
     /* ===== CARD ===== */
     
     .character{
-    background:rgba(30,41,59,0.7);
+    background:rgba(30,41,59,0.6);
+    border-radius:14px;
+    
     padding:10px;
-    border-radius:12px;
     
     display:flex;
     flex-direction:column;
     align-items:center;
     
     transition:0.3s;
-    overflow:hidden;
     
-    backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
     }
     
     /* ===== IMMAGINI ===== */
     
     .character img{
     width:100%;
-    height:140px;
+    height:150px;
     
     object-fit:cover;
     object-position:top;
@@ -101,68 +100,69 @@
     transition:0.4s;
     }
     
-    /* ===== HOVER ===== */
+    /* HOVER */
     
     .character:hover{
-    transform:translateY(-6px) scale(1.05);
+    transform:translateY(-8px) scale(1.05);
+    
     box-shadow:
-    0 10px 30px rgba(0,255,255,0.2),
-    0 0 10px rgba(0,255,255,0.3);
+    0 20px 40px rgba(0,255,255,0.15),
+    0 0 20px rgba(0,255,255,0.3);
     }
     
     .character:hover img{
-    transform:scale(1.08);
-    filter:brightness(1.1);
+    transform:scale(1.1);
     }
     
-    /* ===== TESTO ===== */
+    /* TESTO */
     
     .character span{
     font-size:13px;
-    text-align:center;
-    margin-top:4px;
-    opacity:0.9;
+    opacity:0.85;
     }
     
-    /* ===== BOTTONE START ===== */
+    /* ===== START BUTTON ===== */
     
     #startBtn{
-    margin-top:20px;
+    margin-top:25px;
     
-    padding:15px 40px;
+    padding:16px 45px;
     
     font-size:20px;
     font-weight:bold;
     
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     
     background:linear-gradient(135deg,#00f2ff,#22c55e);
     
     color:white;
-    
     cursor:pointer;
     
     transition:0.3s;
     }
     
     #startBtn:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 25px #00f2ff;
+    transform:scale(1.12);
+    
+    box-shadow:
+    0 0 20px #00f2ff,
+    0 0 40px rgba(0,255,255,0.5);
     }
     
     /* ===== GAME ===== */
     
     #gameScreen{
     display:none;
-    transition:0.4s;
+    animation:fadeIn 0.6s;
     }
     
     /* ===== PROGRESS ===== */
     
     .progress{
     width:100%;
-    height:10px;
+    height:12px;
+    
     background:#111827;
     border-radius:20px;
     margin-bottom:25px;
@@ -171,41 +171,56 @@
     #progressBar{
     height:100%;
     width:0%;
-    background:#22c55e;
+    
+    background:linear-gradient(90deg,#22c55e,#00f2ff);
+    
     border-radius:20px;
-    transition:0.3s;
+    transition:0.4s;
+    
+    box-shadow:0 0 10px #22c55e;
     }
     
     /* ===== CARD GIOCO ===== */
     
     .card{
-    background:rgba(30,41,59,0.85);
-    padding:40px;
-    border-radius:15px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    background:rgba(30,41,59,0.8);
+    
+    padding:45px;
+    border-radius:20px;
+    
+    backdrop-filter:blur(12px);
+    
+    box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 30px rgba(0,255,255,0.1);
     }
     
-    /* ===== AVATAR AI ===== */
+    /* ===== AVATAR ===== */
     
     .avatar{
-    font-size:60px;
+    font-size:70px;
     margin-bottom:10px;
+    
     animation:float 3s infinite;
     }
     
+    /* FLOAT */
+    
     @keyframes float{
     0%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
+    50%{transform:translateY(-10px)}
     100%{transform:translateY(0)}
     }
     
     /* ===== DOMANDA ===== */
     
     #question{
-    font-size:24px;
+    font-size:26px;
+    font-weight:600;
+    
     margin:25px 0;
-    transition:0.3s;
+    
+    animation:fadeInUp 0.5s ease;
     }
     
     /* ===== BOTTONI ===== */
@@ -213,25 +228,48 @@
     .buttons{
     display:flex;
     justify-content:center;
-    gap:30px;
+    gap:25px;
     }
     
     button{
     padding:15px 35px;
+    
     font-size:18px;
+    
     border:none;
-    border-radius:8px;
+    border-radius:10px;
+    
     cursor:pointer;
+    
     transition:0.2s;
     }
     
-    button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 15px rgba(255,255,255,0.4);
+    /* BOTTONI COLORI */
+    
+    #yesBtn{
+    background:#22c55e;
     }
     
-    #yesBtn{background:#22c55e;}
-    #noBtn{background:#ef4444;}
+    #noBtn{
+    background:#ef4444;
+    }
+    
+    button:hover{
+    transform:scale(1.12);
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+    }
+    
+    /* ===== RESULT ===== */
+    
+    #result{
+    margin-top:25px;
+    font-size:28px;
+    font-weight:bold;
+    
+    animation:fadeIn 0.5s ease;
+    }
+    
+    /* ===== RESTART ===== */
     
     #restartBtn{
     margin-top:25px;
@@ -245,9 +283,13 @@
     opacity:0;
     color:#38bdf8;
     font-weight:bold;
-    text-shadow:0 0 10px #38bdf8;
+    
+    text-shadow:0 0 15px #38bdf8;
+    
     animation:thinking 1.5s infinite;
     }
+    
+    /* ===== ANIMAZIONI ===== */
     
     @keyframes thinking{
     0%{opacity:0.2}
@@ -255,18 +297,46 @@
     100%{opacity:0.2}
     }
     
-    /* ===== RESULT ===== */
-    
-    #result{
-    margin-top:20px;
-    font-size:26px;
-    font-weight:600;
-    transition:0.3s;
+    @keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
     }
     
-    /* ===== BOTTONI DISABLED ===== */
+    @keyframes fadeInUp{
+    from{
+    opacity:0;
+    transform:translateY(20px);
+    }
+    to{
+    opacity:1;
+    transform:translateY(0);
+    }
+    }
+    
+    /* ===== DISABLED ===== */
     
     button:disabled{
     opacity:0.5;
     cursor:not-allowed;
     }
+
+    /* ===== BARRA PROBABILITÀ ===== */
+
+.confidence{
+width:100%;
+height:12px;
+background:#111827;
+border-radius:20px;
+margin:15px 0;
+overflow:hidden;
+}
+
+#confidenceBar{
+height:100%;
+width:5%;
+
+background:linear-gradient(90deg,#ef4444,#facc15,#22c55e);
+
+transition:0.4s;
+border-radius:20px;
+}
