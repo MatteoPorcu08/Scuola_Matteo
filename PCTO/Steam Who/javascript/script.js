@@ -40,7 +40,7 @@ window.onload = function(){
     
     }
     
-    /* ===== DATABASE COMPLETO ===== */
+    /* ===== DATABASE ===== */
     
     const characters = [
     
@@ -86,7 +86,10 @@ window.onload = function(){
     
     ]
     
-    /* ===== DOMANDE SUPER AMPLIATE ===== */
+    /* 👉 inizializza punteggi */
+    characters.forEach(p => p.score = 0)
+    
+    /* ===== DOMANDE ===== */
     
     const questions = [
     
@@ -94,16 +97,14 @@ window.onload = function(){
     {testo:"È italiano?", key:"italiano"},
     {testo:"È legato all'informatica?", key:"informatico"},
     {testo:"È famoso per la fisica?", key:"fisico"},
-    
     {testo:"È nato prima del 1800?", key:"antico"},
-    {testo:"Ha vinto il premio Nobel?", key:"nobel"},
-    {testo:"È un matematico?", key:"matematica"},
-    {testo:"Ha lavorato con l'elettricità?", key:"elettricita"},
-    {testo:"È legato all'astronomia?", key:"astronomia"}
+    {testo:"Ha vinto il Nobel?", key:"nobel"},
+    {testo:"È matematico?", key:"matematica"},
+    {testo:"Lavora con elettricità?", key:"elettricita"},
+    {testo:"È legato all’astronomia?", key:"astronomia"}
     
     ]
     
-    let remaining = []
     let usedQuestions = []
     let currentQuestion = null
     
@@ -118,7 +119,7 @@ window.onload = function(){
     
     function startGame(){
     
-    remaining = [...characters]
+    characters.forEach(p => p.score = 0)
     usedQuestions = []
     result.innerHTML=""
     
@@ -130,94 +131,44 @@ window.onload = function(){
     
     }
     
-    /* ===== AI DINAMICA POTENZIATA ===== */
+    /* ===== ALGORITMO AKINATOR ===== */
     
     function nextQuestion(){
     
-    question.style.opacity = 0
-    question.style.transform = "translateY(20px)"
-    
-    setTimeout(()=>{
-    
-    /* 🔥 ERRORE */
-    if(remaining.length === 0){
-    
-    result.innerText="😵 Non sono riuscito a indovinare"
-    restartBtn.style.display="inline-block"
-    return
-    }
-    
-    /* 🔥 RISULTATO */
-    if(remaining.length === 1){
-    
-    const p = remaining[0]
-    
-    question.innerText=""
-    
-    result.innerHTML = `
-    <div style="text-align:center;">
-    <img src="${p.img}" style="width:180px;height:180px;border-radius:15px;margin-bottom:10px;">
-    <div style="font-size:24px;">🎯 È: ${p.nome}</div>
-    </div>
-    `
-    
-    yesBtn.style.display="none"
-    noBtn.style.display="none"
-    restartBtn.style.display="inline-block"
-    
-    return
-    }
-    
-    /* 🔥 SE FINISCONO DOMANDE */
     if(usedQuestions.length === questions.length){
-    
-    let random = remaining[Math.floor(Math.random()*remaining.length)]
-    
-    result.innerHTML="🤔 Potrebbe essere: " + random.nome
-    restartBtn.style.display="inline-block"
-    return
+    return showResult()
     }
     
-    /* 🔥 ALGORITMO INTELLIGENTE */
+    /* trova domanda più utile (massima incertezza) */
     
-    let bestQuestions = []
-    let bestScore = 999
+    let best = null
+    let bestScore = Infinity
     
     questions.forEach(q=>{
     
     if(usedQuestions.includes(q)) return
     
-    let yes=0
-    let no=0
+    let yesWeight = 0
+    let noWeight = 0
     
-    remaining.forEach(p=>{
-    if(p[q.key]) yes++
-    else no++
+    characters.forEach(p=>{
+    if(p[q.key]) yesWeight += (p.score + 1)
+    else noWeight += (p.score + 1)
     })
     
-    let diff = Math.abs(yes-no)
+    let diff = Math.abs(yesWeight - noWeight)
     
     if(diff < bestScore){
     bestScore = diff
-    bestQuestions = [q]
-    }else if(diff === bestScore){
-    bestQuestions.push(q)
+    best = q
     }
     
     })
     
-    /* scelta casuale tra le migliori */
+    currentQuestion = best
+    usedQuestions.push(best)
     
-    currentQuestion = bestQuestions[Math.floor(Math.random()*bestQuestions.length)]
-    
-    usedQuestions.push(currentQuestion)
-    
-    question.innerText = currentQuestion.testo
-    
-    question.style.opacity = 1
-    question.style.transform = "translateY(0)"
-    
-    },200)
+    question.innerText = best.testo
     
     }
     
@@ -226,72 +177,51 @@ window.onload = function(){
     function move(answer){
     
     thinking.style.opacity=1
-    thinking.innerText="Sto pensando..."
-    
-    yesBtn.disabled=true
-    noBtn.disabled=true
     
     setTimeout(()=>{
     
     thinking.style.opacity=0
     
-    remaining = remaining.filter(p => p[currentQuestion.key] === answer)
+    characters.forEach(p=>{
     
-    yesBtn.disabled=false
-    noBtn.disabled=false
+    if(p[currentQuestion.key] === answer){
+    p.score += 3
+    }else{
+    p.score -= 1
+    }
+    
+    })
     
     nextQuestion()
     
-    },900)
+    },700)
     
     }
     
     yesBtn.onclick=()=>move(true)
     noBtn.onclick=()=>move(false)
     
+    /* ===== RISULTATO ===== */
+    
+    function showResult(){
+    
+    characters.sort((a,b)=>b.score - a.score)
+    
+    let best = characters[0]
+    
+    result.innerHTML = `
+    <div style="text-align:center;">
+    <img src="${best.img}" style="width:180px;height:180px;border-radius:15px;margin-bottom:10px;">
+    <div style="font-size:24px;">🎯 È: ${best.nome}</div>
+    </div>
+    `
+    
+    yesBtn.style.display="none"
+    noBtn.style.display="none"
+    restartBtn.style.display="inline-block"
+    
+    }
+    
     restartBtn.onclick=()=>location.reload()
-    
-    /* ===== PARTICLES ===== */
-    
-    const canvas=document.getElementById("particles")
-    const ctx=canvas.getContext("2d")
-    
-    canvas.width=window.innerWidth
-    canvas.height=window.innerHeight
-    
-    let particles=[]
-    
-    for(let i=0;i<80;i++){
-    particles.push({
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*2,
-    dx:(Math.random()-0.5)*0.6,
-    dy:(Math.random()-0.5)*0.6
-    })
-    }
-    
-    function animate(){
-    
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    
-    ctx.fillStyle="white"
-    
-    particles.forEach(p=>{
-    ctx.beginPath()
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2)
-    ctx.fill()
-    
-    p.x+=p.dx
-    p.y+=p.dy
-    
-    if(p.x<0||p.x>canvas.width)p.dx*=-1
-    if(p.y<0||p.y>canvas.height)p.dy*=-1
-    })
-    
-    requestAnimationFrame(animate)
-    }
-    
-    animate()
     
     }
