@@ -47,30 +47,48 @@ window.onload = function(){
     /* ===== DATABASE CON IMMAGINI ===== */
     
     const characters = [
-    
-    {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true},
-    
-    {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true},
-    
-    {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false},
-    
-    {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false},
-    
-    {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-    
-    {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true},
-    
-    {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-    
-    {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-    
-    {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true},
-    
-    {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
-    
-    {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false}
-    
-    ]
+
+        {nome:"Rita Levi-Montalcini", img:"../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false},
+        
+        {nome:"Galileo Galilei", img:"../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Leonardo da Vinci", img:"../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false},
+        
+        {nome:"Enrico Fermi", img:"../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Margherita Hack", img:"../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Fabiola Gianotti", img:"../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Guglielmo Marconi", img:"../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Evangelista Torricelli", img:"../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Luigi Galvani", img:"../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Giuseppe Lagrange", img:"../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Sofia Kovalevskaya", img:"../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false},
+        
+        {nome:"Ada Lovelace", img:"../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false},
+        
+        {nome:"Alan Turing", img:"../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false},
+        
+        {nome:"Marie Curie", img:"../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true},
+        
+        {nome:"Albert Einstein", img:"../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true},
+        
+        {nome:"Isaac Newton", img:"../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true},
+        
+        {nome:"Lucia Votano", img:"../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Anna Grassellino", img:"../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:false, fisico:true},
+        
+        {nome:"Alfio Quarteroni", img:"../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false},
+        
+        {nome:"Giuseppina Carniel", img:"../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:false, fisico:false}
+        
+        ]
     
     /* ===== DOMANDE ===== */
     
