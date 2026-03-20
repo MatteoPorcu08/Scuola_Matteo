@@ -1,74 +1,52 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>STEAM Who? - Gioca</title>
+<title>Gioco</title>
 
 <link rel="stylesheet" href="../css/style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <canvas id="particles"></canvas>
 
-<!-- NAVBAR -->
 <div class="navbar">
+    <a href="index.html">⬅ Torna alla home</a>
+</div>
 
-    <div class="logo">STEAM WHO?</div>
+<div class="app">
 
-    <div class="menu">
-        <button class="menu-btn">☰ Menu</button>
+<div id="gameScreen">
 
-        <div class="dropdown">
-            <a href="index.html">🏠 Home</a>
-            <a href="listapersonaggi.html">👨‍🔬 Personaggi</a>
-            <a href="../manuale/manuale.pdf" target="_blank">📘 Manuale</a>
-        </div>
-    </div>
+<div class="progress">
+<div id="progressBar"></div>
+</div>
+
+<div class="card">
+
+<div class="avatar">🤖</div>
+
+<div class="confidence">
+<div id="confidenceBar"></div>
+</div>
+
+<div id="thinking">Sto pensando...</div>
+
+<p id="question"></p>
+
+<div class="buttons">
+<button id="yesBtn">SI</button>
+<button id="noBtn">NO</button>
+</div>
+
+<p id="result"></p>
+
+<button id="restartBtn">Ricomincia</button>
 
 </div>
 
-<!-- GAME -->
-<div class="app">
-
-    <div id="gameScreen">
-
-        <!-- PROGRESS -->
-        <div class="progress">
-            <div id="progressBar"></div>
-        </div>
-
-        <!-- CARD -->
-        <div class="card">
-
-            <div class="avatar">🤖</div>
-
-            <!-- 🔥 BARRA PROBABILITÀ -->
-            <div class="confidence">
-                <div id="confidenceBar"></div>
-            </div>
-
-            <div id="thinking">Sto pensando...</div>
-
-            <p id="question"></p>
-
-            <div class="buttons">
-                <button id="yesBtn">SI</button>
-                <button id="noBtn">NO</button>
-            </div>
-
-            <p id="result"></p>
-
-            <button id="restartBtn">Ricomincia</button>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 

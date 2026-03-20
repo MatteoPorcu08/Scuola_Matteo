@@ -1,4 +1,4 @@
-window.onload = function(){
+document.addEventListener("DOMContentLoaded", () => {
 
     /* ===== AVATAR ===== */
     
@@ -220,4 +220,8 @@ window.onload = function(){
     
     restartBtn.onclick=()=>location.reload()
     
+    // 👉 avvia il gioco SOLO se siamo nella pagina game
+    if(document.getElementById("gameScreen")){
+        startGame()
     }
+}
