@@ -340,3 +340,62 @@ background:linear-gradient(90deg,#ef4444,#facc15,#22c55e);
 transition:0.4s;
 border-radius:20px;
 }
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 30px;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(10px);
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.logo{
+font-weight:bold;
+font-size:20px;
+}
+
+.menu{
+position:relative;
+}
+
+.menu-btn{
+padding:10px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+background:#22c55e;
+color:white;
+}
+
+.dropdown{
+display:none;
+position:absolute;
+right:0;
+top:45px;
+
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+}
+
+.dropdown a{
+display:block;
+padding:12px 20px;
+color:white;
+text-decoration:none;
+}
+
+.dropdown a:hover{
+background:#334155;
+}
+
+/* HOVER MENU */
+.menu:hover .dropdown{
+display:block;
+}
