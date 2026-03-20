@@ -69,8 +69,17 @@ window.onload = function() {
 
     let usedQuestions = [];
     let currentQuestion = null;
-    let guessedCharacters = []; 
+    let guessedCharacters = [];
     let questionsSinceLastGuess = 0;
+
+    function shannonEntropy(yesCount, noCount) {
+        let total = yesCount + noCount;
+        if (total === 0) return 0;
+        let pYes = yesCount / total;
+        let pNo = noCount / total;
+        if (pYes === 0 || pNo === 0) return 0;
+        return -(pYes * Math.log2(pYes) + pNo * Math.log2(pNo));
+    }
 
     /* ===== LOGICA DI START ===== */
     startBtn.onclick = () => {
@@ -100,24 +109,39 @@ window.onload = function() {
     }
 
     function nextQuestion() {
+        let available = characters.filter(p => !guessedCharacters.includes(p.nome));
+
+        if (available.length === 0) {
+            gameGenio.src = "../img/genioTriste.png";
+            question.innerText = "";
+            result.innerHTML = "Mi arrendo! Non ho altri personaggi da proporre.";
+            yesBtn.style.display = "none";
+            noBtn.style.display = "none";
+            restartBtn.style.display = "inline-block";
+            return;
+        }
+
+        if (available.length === 1) {
+            return showGuess(available[0]);
+        }
+
         if (usedQuestions.length === questions.length) {
             return showGuess();
         }
 
         let best = null;
-        let bestScore = Infinity;
+        let bestEntropy = -1;
 
         questions.forEach(q => {
             if (usedQuestions.includes(q)) return;
-            let yesWeight = 0, noWeight = 0;
-            characters.forEach(p => {
-                if (guessedCharacters.includes(p.nome)) return;
-                if (p[q.key]) yesWeight += (p.score + 10);
-                else noWeight += (p.score + 10);
+            let yesCount = 0, noCount = 0;
+            available.forEach(p => {
+                if (p[q.key]) yesCount++;
+                else noCount++;
             });
-            let diff = Math.abs(yesWeight - noWeight);
-            if (diff < bestScore) {
-                bestScore = diff;
+            let entropy = shannonEntropy(yesCount, noCount);
+            if (entropy > bestEntropy) {
+                bestEntropy = entropy;
                 best = q;
             }
         });
@@ -127,32 +151,24 @@ window.onload = function() {
         currentQuestion = best;
         usedQuestions.push(best);
         question.innerText = best.testo;
-        // Quando fa una nuova domanda, torna il genio normale
         gameGenio.src = "../img/genio.png";
     }
 
     function move(answer) {
         thinking.style.opacity = 1;
-        // Mentre pensa rimane normale o neutro
         gameGenio.src = "../img/genio.png";
 
         setTimeout(() => {
             thinking.style.opacity = 0;
             characters.forEach(p => {
+                if (guessedCharacters.includes(p.nome)) return;
                 if (p[currentQuestion.key] === answer) p.score += 5;
                 else p.score -= 2;
             });
 
             updateConfidence();
             questionsSinceLastGuess++;
-
-            let sorted = [...characters].filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
-            
-            if (sorted.length > 0 && (sorted[0].score - (sorted[1]?.score || 0) > 20) && questionsSinceLastGuess >= 3) {
-                showGuess();
-            } else {
-                nextQuestion();
-            }
+            nextQuestion();
         }, 500);
     }
 
@@ -168,22 +184,21 @@ window.onload = function() {
     }
 
     /* ===== IL GENIO INDOVINA ===== */
-    function showGuess() {
+    function showGuess(bestGuess = null) {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
 
         if (available.length === 0) {
             gameGenio.src = "../img/genioTriste.png";
             question.innerText = "";
-            result.innerHTML = "❌ Mi arrendo! Mi hai battuto.";
+            result.innerHTML = "Mi arrendo! Non ho altri personaggi da proporre. Mi hai battuto!";
             yesBtn.style.display = "none";
             noBtn.style.display = "none";
             restartBtn.style.display = "inline-block";
             return;
         }
 
-        let best = available[0];
-        
-        // GENIO CONFUSO: Sta per fare il tentativo
+        let best = bestGuess || available[0];
+
         gameGenio.src = "../img/genioConfuso.png";
 
         yesBtn.style.display = "none";
@@ -195,39 +210,29 @@ window.onload = function() {
                 <img src="${best.img}" style="width:160px;height:160px;border-radius:15px;margin-bottom:10px; border:3px solid #00f2ff;">
                 <div style="font-size:22px; margin-bottom:15px;">Stai pensando a <strong>${best.nome}</strong>?</div>
                 <div class="buttons">
-                    <button id="correctBtn" style="background:#22c55e; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; border:none;">SÌ, ESATTO!</button>
-                    <button id="wrongBtn" style="background:#ef4444; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; border:none;">NO, SBAGLIATO</button>
+                    <button id="correctBtn" style="background:#22c55e; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; border:none; font-size:16px;">SÌ, ESATTO!</button>
+                    <button id="wrongBtn" style="background:#ef4444; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; border:none; font-size:16px;">NO, SBAGLIATO</button>
                 </div>
             </div>
         `;
 
-        // SE INDOVINA: GENIO FELICE
         document.getElementById("correctBtn").onclick = () => {
             gameGenio.src = "../img/genioFelice.png";
-            result.innerHTML = `<h2>🎯 VITTORIA! <br> Sapevo che era ${best.nome}!</h2>`;
+            result.innerHTML = `<h2 style="color:#22c55e;">HAI VINTO!<br> Sapevo che era ${best.nome}!</h2>`;
             confidenceBar.style.width = "100%";
+            question.innerText = "Che bello, ho indovinato! Vuoi giocare ancora?";
             restartBtn.style.display = "inline-block";
         };
 
-        // SE SBAGLIA: GENIO TRISTE
         document.getElementById("wrongBtn").onclick = () => {
-            gameGenio.src = "../img/genioTriste.png";
             guessedCharacters.push(best.nome);
-            result.innerHTML = "";
-            yesBtn.style.display = "inline-block";
-            noBtn.style.display = "inline-block";
-            questionsSinceLastGuess = 0; 
-            
-            if (usedQuestions.length < questions.length) {
-                question.innerText = "Mmm... fammi pensare meglio...";
-                // Pausa per mostrare la faccia triste prima della prossima domanda
-                setTimeout(nextQuestion, 1500);
-            } else {
-                gameGenio.src = "../img/genioTriste.png";
-                question.innerText = "";
-                result.innerHTML = "❌ Ho finito le domande... Mi hai battuto!";
-                restartBtn.style.display = "inline-block";
-            }
+            gameGenio.src = "../img/genioTriste.png";
+            question.innerText = "";
+            result.innerHTML = `<div style="text-align:center;">
+                <p style="color:#f59e0b; font-size:22px;">Oh no! Non era ${best.nome}...</p>
+                <p style="margin-top:15px;">Mi arrendo! Hai vinto questa volta!</p>
+            </div>`;
+            restartBtn.style.display = "inline-block";
         };
     }
 
