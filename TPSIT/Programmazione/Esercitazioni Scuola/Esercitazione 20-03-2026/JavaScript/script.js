@@ -1,82 +1,85 @@
-// Array per nomi e voti
+// Array
 let studenti = [];
 let voti = [];
 let i = 0;
 
-// Inserimento studente
+// Inserisci studente
 function inserisciStudente() {
-    let nome = prompt("Inserisci il nome dello studente:");
-    let voto = prompt("Inserisci il voto:") * 1;
+    let nome = prompt("Inserisci nome studente:");
+    let voto = prompt("Inserisci voto:") * 1;
 
-    if (nome && !isNaN(voto)) {
+    if (nome && voto == voto) {
         studenti[i] = nome;
         voti[i] = voto;
         i++;
-        alert("Studente inserito con successo!");
+        alert("Studente inserito!");
     } else {
-        alert("Dati non validi.");
+        alert("Dati non validi");
     }
 }
 
-// Visualizzazione registro
+// Visualizza registro (in pagina)
 function visualizzaRegistro() {
-    document.getElementById("dati").innerHTML = "";
+    let output = "";
 
     for (let j = 0; j < studenti.length; j++) {
-        alert("Studente: " + studenti[j] + " - Voto: " + voti[j]);
+        output += studenti[j] + " : " + voti[j] + "<br>";
     }
+
+    document.getElementById("registro").innerHTML = output;
 }
 
-// Calcolo media
+// Calcola media (alert)
 function calcolaMedia() {
     if (voti.length === 0) {
-        alert("Nessun voto inserito.");
+        alert("Nessun voto");
         return;
     }
 
     let somma = 0;
+
     for (let j = 0; j < voti.length; j++) {
         somma += voti[j];
     }
 
     let media = somma / voti.length;
 
-    alert("Media della classe: " + media.toFixed(2));
+    alert("Media: " + media.toFixed(2));
 }
 
 // Voto più alto
 function trovaVotoPiuAlto() {
     if (voti.length === 0) {
-        alert("Nessun voto inserito.");
+        alert("Nessun voto");
         return;
     }
 
     let max = voti[0];
-    let posizione = 0;
+    let pos = 0;
 
     for (let j = 1; j < voti.length; j++) {
         if (voti[j] > max) {
             max = voti[j];
-            posizione = j;
+            pos = j;
         }
     }
 
-    alert("Voto più alto: " + max + " (Studente: " + studenti[posizione] + ")");
+    alert("Voto più alto: " + max + " - " + studenti[pos]);
 }
 
-// Insufficienze
+// Insufficienze (in pagina)
 function trovaInsufficienze() {
-    let risultato = "";
+    let output = "";
 
     for (let j = 0; j < voti.length; j++) {
         if (voti[j] < 6) {
-            risultato += studenti[j] + " : " + voti[j] + "<br/>";
+            output += studenti[j] + " : " + voti[j] + "<br>";
         }
     }
 
-    if (risultato === "") {
+    if (output === "") {
         alert("Nessuna insufficienza");
     } else {
-        document.getElementById("dati").innerHTML = risultato;
+        document.getElementById("insufficienze").innerHTML = output;
     }
 }
