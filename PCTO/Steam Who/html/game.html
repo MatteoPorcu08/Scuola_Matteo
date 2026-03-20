@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 <meta charset="UTF-8">
-<title>STEAM Who?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STEAM Who? - Gioca</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
 <div class="navbar">
 
     <div class="logo">STEAM WHO?</div>
@@ -18,18 +25,25 @@
         <button class="menu-btn">☰ Menu</button>
 
         <div class="dropdown">
-            <a href="../html/game.html">🎮 Gioca ora</a>
-            <a href="../html/listapersonaggi.html">👨‍🔬 Personaggi</a>
-            <a href="../html/manuale.html">📘 Manuale</a>
+            <a href="index.html">🏠 Home</a>
+            <a href="listapersonaggi.html">👨‍🔬 Personaggi</a>
+            <a href="../manuale/manuale.pdf" target="_blank">📘 Manuale</a>
         </div>
     </div>
 
+</div>
+
+<!-- GAME -->
+<div class="app">
+
     <div id="gameScreen">
 
+        <!-- PROGRESS -->
         <div class="progress">
             <div id="progressBar"></div>
         </div>
 
+        <!-- CARD -->
         <div class="card">
 
             <div class="avatar">🤖</div>
@@ -58,15 +72,7 @@
 
 </div>
 
-</div>
-
-<div class="home">
-
-    <h1>Benvenuto</h1>
-
-    <p>Scegli dal menu cosa vuoi fare</p>
-
-</div>
+<script src="../javascript/script.js"></script>
 
 </body>
 </html>
