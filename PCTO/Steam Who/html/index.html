@@ -1,38 +1,176 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-<meta charset="UTF-8">
-<title>STEAM Who?</title>
 
-<link rel="stylesheet" href="../css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM Who?</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="navbar">
+<canvas id="particles"></canvas>
 
-    <div class="logo">STEAM WHO?</div>
+<div class="app">
 
-    <div class="menu">
-        <button class="menu-btn">☰ Menu</button>
+    <!-- SCHERMATA START -->
+    <div id="startScreen">
 
-        <div class="dropdown">
-            <a href="../html/game.html">🎮 Gioca ora</a>
-            <a href="../html/listapersonaggi.html">👨‍🔬 Personaggi</a>
-            <a href="../html/manuale.html">📘 Manuale</a>
+        <h1>STEAM WHO?</h1>
+
+        <p class="subtitle">
+            Pensa ad uno di questi personaggi.
+            L'intelligenza artificiale proverà ad indovinarlo.
+        </p>
+
+        <div class="characters">
+
+            <div class="character">
+                <img src="../img/RitaLeviMontalcini.png">
+                <span>Rita Levi-Montalcini</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/GalileoGalilei.jpg">
+                <span>Galileo Galilei</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/LeonardoDaVinci.jpg">
+                <span>Leonardo da Vinci</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/EnricoFermi.jpg">
+                <span>Enrico Fermi</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/MargheritaHack.jpg">
+                <span>Margherita Hack</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/FabiolaGianotti.jpg">
+                <span>Fabiola Gianotti</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/GuglielmoMarconi.jpg">
+                <span>Guglielmo Marconi</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/EvangelistaTorricelli.jpg">
+                <span>Evangelista Torricelli</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/LuigiGalvani.jpg">
+                <span>Luigi Galvani</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/GiuseppeLagrange.jpg">
+                <span>Giuseppe Lagrange</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/SofiaKovalevskaya.jpg">
+                <span>Sofia Kovalevskaya</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/AdaLovelace.jpg">
+                <span>Ada Lovelace</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/AlanTuring.jpg">
+                <span>Alan Turing</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/MarieCurie.jpg">
+                <span>Marie Curie</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/AlbertEinstein.jpg">
+                <span>Albert Einstein</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/IsaacNewton.jpg">
+                <span>Isaac Newton</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/LuciaVotano.jpg">
+                <span>Lucia Votano</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/AnnaGrassellino.jpg">
+                <span>Anna Grassellino</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/AlfioQuarteroni.jpg">
+                <span>Alfio Quarteroni</span>
+            </div>
+
+            <div class="character">
+                <img src="../img/GiuseppinaCarniel.jpg">
+                <span>Giuseppina Carniel</span>
+            </div>
+
         </div>
+
+        <button id="startBtn">Inizia il gioco</button>
+
+    </div>
+
+    <!-- SCHERMATA GIOCO -->
+    <div id="gameScreen">
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <div class="card">
+
+            <div class="avatar">🤖</div>
+
+            <!-- 🔥 BARRA PROBABILITÀ -->
+            <div class="confidence">
+                <div id="confidenceBar"></div>
+            </div>
+
+            <div id="thinking">Sto pensando...</div>
+
+            <p id="question"></p>
+
+            <div class="buttons">
+                <button id="yesBtn">SI</button>
+                <button id="noBtn">NO</button>
+            </div>
+
+            <p id="result"></p>
+
+            <button id="restartBtn">Ricomincia</button>
+
+        </div>
+
     </div>
 
 </div>
 
-<div class="home">
-
-    <h1>Benvenuto</h1>
-
-    <p>Scegli dal menu cosa vuoi fare</p>
-
-</div>
+<script src="../javascript/script.js"></script>
 
 </body>
 </html>
