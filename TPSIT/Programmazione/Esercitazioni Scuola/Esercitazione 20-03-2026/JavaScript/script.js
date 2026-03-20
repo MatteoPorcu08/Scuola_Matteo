@@ -1,3 +1,4 @@
+// Array per nomi e voti
 let studenti = [];
 let voti = [];
 let i = 0;
@@ -5,15 +6,15 @@ let i = 0;
 // Inserimento studente
 function inserisciStudente() {
     let nome = prompt("Inserisci il nome dello studente:");
-    let voto = prompt("Inserisci il voto") * 1;
+    let voto = prompt("Inserisci il voto:") * 1;
 
     if (nome && !isNaN(voto)) {
         studenti[i] = nome;
         voti[i] = voto;
         i++;
-        alert("Studente inserito correttamente");
+        alert("Studente inserito con successo!");
     } else {
-        alert("Dati non validi");
+        alert("Dati non validi.");
     }
 }
 
@@ -22,15 +23,14 @@ function visualizzaRegistro() {
     document.getElementById("dati").innerHTML = "";
 
     for (let j = 0; j < studenti.length; j++) {
-        document.getElementById("dati").innerHTML +=
-            j + " - " + studenti[j] + " : " + voti[j] + "<br/>";
+        alert("Studente: " + studenti[j] + " - Voto: " + voti[j]);
     }
 }
 
 // Calcolo media
 function calcolaMedia() {
     if (voti.length === 0) {
-        document.getElementById("messaggio").innerHTML = "Nessun voto";
+        alert("Nessun voto inserito.");
         return;
     }
 
@@ -41,14 +41,13 @@ function calcolaMedia() {
 
     let media = somma / voti.length;
 
-    document.getElementById("messaggio").innerHTML =
-        "Media: " + media.toFixed(2);
+    alert("Media della classe: " + media.toFixed(2));
 }
 
 // Voto più alto
 function trovaVotoPiuAlto() {
     if (voti.length === 0) {
-        document.getElementById("messaggio").innerHTML = "Nessun voto";
+        alert("Nessun voto inserito.");
         return;
     }
 
@@ -62,8 +61,7 @@ function trovaVotoPiuAlto() {
         }
     }
 
-    document.getElementById("messaggio").innerHTML =
-        "Voto massimo: " + max + " (" + studenti[posizione] + ")";
+    alert("Voto più alto: " + max + " (Studente: " + studenti[posizione] + ")");
 }
 
 // Insufficienze
@@ -77,33 +75,8 @@ function trovaInsufficienze() {
     }
 
     if (risultato === "") {
-        document.getElementById("messaggio").innerHTML =
-            "Nessuna insufficienza";
+        alert("Nessuna insufficienza");
     } else {
-        document.getElementById("messaggio").innerHTML =
-            "Insufficienze:<br/>" + risultato;
+        document.getElementById("dati").innerHTML = risultato;
     }
-}
-
-// Ricerca studente (come nell’esempio)
-function cercaStudente() {
-    let nome = prompt("Chi stai cercando?");
-    let posizione = ricerca(nome);
-
-    if (posizione == -1) {
-        document.getElementById("messaggio").innerHTML =
-            "Studente non trovato";
-    } else {
-        document.getElementById("messaggio").innerHTML =
-            studenti[posizione] + " : " + voti[posizione];
-    }
-}
-
-function ricerca(nome) {
-    for (let j = 0; j < studenti.length; j++) {
-        if (studenti[j] == nome) {
-            return j;
-        }
-    }
-    return -1;
 }
