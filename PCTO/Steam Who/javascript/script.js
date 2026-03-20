@@ -217,24 +217,6 @@ window.onload = function(){
     restartBtn.style.display="inline-block"
     
     }
-    const menuBtn = document.getElementById("menuBtn")
-const dropdown = document.getElementById("dropdownMenu")
-
-if(menuBtn && dropdown){
-
-    menuBtn.onclick = (e) => {
-        e.stopPropagation()
-        dropdown.classList.toggle("active")
-    }
-
-    document.addEventListener("click", () => {
-        dropdown.classList.remove("active")
-    })
-
-    dropdown.addEventListener("click", (e) => {
-        e.stopPropagation()
-    })
-}
     
     restartBtn.onclick=()=>location.reload()
     
