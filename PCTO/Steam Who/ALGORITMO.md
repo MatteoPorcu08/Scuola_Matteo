@@ -1,10 +1,13 @@
 # Algoritmo di Steam Who?
 
 ## Panoramica
+
 Steam Who? è un gioco ispirato ad Akinator che cerca di indovinare un personaggio storico scientifico ponendo domande a cui l'utente risponde con Sì o No.
 
 ## Database dei Personaggi
+
 Il gioco contiene **20 personaggi** della storia della scienza, della tecnologia e della matematica. Ogni personaggio ha attributi booleani (vero/falso) come:
+
 - `donna`: true/false
 - `italiano`: true/false
 - `fisico`: true/false
@@ -18,14 +21,17 @@ Il gioco contiene **20 personaggi** della storia della scienza, della tecnologia
 ## Algoritmo di Selezione delle Domande: Entropia di Shannon
 
 ### Cos'è l'Entropia di Shannon?
+
 L'entropia di Shannon misura l'**incertezza** associata a una variabile casuale. In questo contesto, misura quanto una domanda è efficace nel dividere i personaggi rimanenti.
 
 ### Formula
+
 ```
 H(X) = -[p_yes * log2(p_yes) + p_no * log2(p_no)]
 ```
 
 Dove:
+
 - `p_yes` = percentuale di personaggi che risponderebbero "Sì"
 - `p_no` = percentuale di personaggi che risponderebbero "No"
 
@@ -41,6 +47,7 @@ Dove:
    - L'entropia MASSIMA (1) si ha quando esattamente metà dice Sì e metà dice No
 
 ### Esempio pratico
+
 ```
 Personaggi rimanenti: 10
 
@@ -58,15 +65,20 @@ Verrà scelta la prima domanda perché ha entropia più alta.
 ## Sistema di Punteggio
 
 ### Assegnazione punteggi
+
 Dopo ogni risposta:
+
 - **Risposta CORRETTA** (corrisponde all'attributo): +5 punti
 - **Risposta ERRATA** (non corrisponde): -2 punti
 
 ### Come si indovina
+
 Quando rimangono pochi personaggi o sono finite le domande, il gioco mostra il personaggio con il punteggio più alto come tentativo.
 
 ### Perché punteggio invece di semplice esclusione?
+
 Il punteggio permette di:
+
 - Tenere traccia di risposte potenzialmente errate
 - Gestire personaggi con attributi simili
 - Avere una "graduatoria" di probabilità
@@ -108,9 +120,9 @@ Il punteggio permette di:
 
 ## Confronto con Akinator originale
 
-| Aspetto | Steam Who? | Akinator |
-|---------|------------|----------|
-| Domande | 15 fisse | Centinaia dinamiche |
-| Personaggi | 20 | Milioni |
-| Algoritmo | Entropia semplice | Albero decisionale complesso + machine learning |
-| Feedback utente | Sì/No | Sì/No/Non so/Probabilmente |
+| Aspetto         | Steam Who?        | Akinator                                        |
+| --------------- | ----------------- | ----------------------------------------------- |
+| Domande         | 15 fisse          | Centinaia dinamiche                             |
+| Personaggi      | 20                | Milioni                                         |
+| Algoritmo       | Entropia semplice | Albero decisionale complesso + machine learning |
+| Feedback utente | Sì/No             | Sì/No/Non so/Probabilmente                      |
