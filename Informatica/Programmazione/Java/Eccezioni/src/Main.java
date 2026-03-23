@@ -10,12 +10,5 @@ public class Main {
             System.out.println("Errore: divisione per zero");
         }
 
-        // Array Index Out Of Bounds
-        int[] arr = { 1, 2, 3 };
-        try {
-            System.out.println(arr[5]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Errore: indice fuori dai limiti dell'array");
-        }
     }
 }
