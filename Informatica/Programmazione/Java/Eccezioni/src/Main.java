@@ -7,8 +7,11 @@ public class Main {
             int c = a / b;
             System.out.println(c);
         } catch (ArithmeticException e) {
-            System.out.println("Errore: divisione per zero");
+            System.out.println{{{"Errore: divisione per zero");
         }
+
+        
+
 
     }
 }
