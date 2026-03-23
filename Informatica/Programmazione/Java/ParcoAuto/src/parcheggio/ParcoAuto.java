@@ -29,6 +29,7 @@ public class ParcoAuto {
             auto[i] = auto[i + 1];
         }
         numeroAuto--;
+        compattaParcoAuto();
         return true;
     }
 
@@ -40,6 +41,7 @@ public class ParcoAuto {
                     auto[j] = auto[j + 1];
                 }
                 numeroAuto--;
+                compattaParcoAuto();
                 return true;
             }
         }
@@ -71,8 +73,10 @@ public class ParcoAuto {
     public void compattaParcoAuto() {
         int j = 0;
         for(int i=0; i<NUM_MAX; i++) {
-            if
-
+            if(auto[i]!=null) {
+                auto[j] = auto[i];
+                auto[i] = null;
+            }
         }
     }
 }
