@@ -56,4 +56,9 @@ public class ParcoAuto {
         }
         return null;
     }
+
+    //Metodo public String visualizzaParco()
+    public String visualizzaParco() {
+        
+    }
 }
