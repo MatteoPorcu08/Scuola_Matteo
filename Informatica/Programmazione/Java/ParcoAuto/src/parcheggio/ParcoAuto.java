@@ -72,13 +72,33 @@ public class ParcoAuto {
     // Metodo public void compattaParcoAuto()
     public void compattaParcoAuto() {
         int j = 0;
-        for(int i=0; i<NUM_MAX; i++) {
-            if(auto[i]!=null) {
+        for (int i = 0; i < NUM_MAX; i++) {
+            if (auto[i] != null) {
                 auto[j] = auto[i];
                 auto[i] = null;
             }
         }
     }
 
-    //Metodo public int contaDisponibili()
+    // Metodo public int contaDisponibili()
+    public int contaDisponibili() {
+        int n = 0;
+        for (int i = 0; i < NUM_MAX; i++) {
+            if (auto[i] != null && auto[i].isDisponibile()) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    // Metodo public int contaMarca(String marca)
+    public int contaMarca(String marca) {
+        int n = 0;
+        for (int i = 0; i < NUM_MAX; i++) {
+            if (auto[i] != null && auto[i].getMarca().equals(marca)) {
+                n++;
+            }
+        }
+        return n;
+    }
 }
