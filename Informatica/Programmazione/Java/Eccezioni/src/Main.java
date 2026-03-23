@@ -26,5 +26,13 @@ public class Main {
             System.out.println("Errore: riferimento null");
         }
 
+        // Number Format Exception
+        String numStr = "abc";
+        try {
+            int num = Integer.parseInt(numStr);
+            System.out.println(num);
+        } catch (NumberFormatException e) {
+            System.out.println("Errore: formato del numero non valido");
+        }
     }
 }
