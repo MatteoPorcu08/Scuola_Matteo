@@ -32,5 +32,28 @@ public class ParcoAuto {
         return true;
     }
 
-    
+    // Metodo public boolean rimuoviAuto(String targa)
+    public boolean rimuoviAuto(String targa) {
+        for (int i = 0; i < numeroAuto; i++) {
+            if (auto[i].getTarga().equals(targa)) {
+                for (int j = i; j < numeroAuto - 1; j++) {
+                    auto[j] = auto[j + 1];
+                }
+                numeroAuto--;
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    // Metodo Auto cercaAuto(String targa)
+    public Auto cercaAuto(String targa) {
+        for (int i = 0; i < numeroAuto; i++) {
+            if (auto[i].getTarga().equals(targa)) {
+                return new Auto(auto[i]);
+            }
+        }
+        return null;
+    }
 }
