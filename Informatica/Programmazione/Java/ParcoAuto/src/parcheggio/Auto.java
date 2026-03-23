@@ -70,6 +70,10 @@ public class Auto {
         this.modello = modello;
     }
 
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     public void setAnno(int anno) {
         this.anno = anno;
     }
@@ -89,7 +93,8 @@ public class Auto {
     // Metodo toString
     @Override
     public String toString() {
-        return "Auto:\n Targa: " + targa + "\n Modello: " + modello + "\n Anno: " + anno + "\n Km: " + km
+        return "Auto:\n Targa: " + targa + "\n Modello: " + modello + "\n Marca: " + marca + "\n Anno: " + anno
+                + "\n Km: " + km
                 + "\n Disponibile: " + disponibile + "\n Prezzo Giornaliero: " + prezzoGiornaliero;
     }
 
