@@ -44,7 +44,6 @@ public class ParcoAuto {
             }
         }
         return false;
-
     }
 
     // Metodo Auto cercaAuto(String targa)
@@ -57,8 +56,23 @@ public class ParcoAuto {
         return null;
     }
 
-    //Metodo public String visualizzaParco()
+    // Metodo public String visualizzaParco()
     public String visualizzaParco() {
-        
+        String visualizza = "";
+        for (int i = 0; i < numeroAuto; i++) {
+            if (auto[i] != null) {
+                visualizza += auto[i].toString() + "\n";
+            }
+        }
+        return visualizza;
+    }
+
+    // Metodo public void compattaParcoAuto()
+    public void compattaParcoAuto() {
+        int j = 0;
+        for(int i=0; i<NUM_MAX; i++) {
+            if
+
+        }
     }
 }
