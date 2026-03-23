@@ -79,4 +79,6 @@ public class ParcoAuto {
             }
         }
     }
+
+    //Metodo public int contaDisponibili()
 }
