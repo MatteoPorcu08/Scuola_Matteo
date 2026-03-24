@@ -1,6 +1,6 @@
 window.onload = function() {
 
-    /* ===== AVATAR INITIALS (Per la lista personaggi se presente) ===== */
+    /* ===== AVATAR INITIALS ===== */
     document.querySelectorAll(".character").forEach(el => {
         let name = el.innerText.trim();
         let parts = name.split(" ");
@@ -21,7 +21,6 @@ window.onload = function() {
     const thinking = document.getElementById("thinking");
     const confidenceBar = document.getElementById("confidenceBar");
     
-    // Riferimento all'immagine del genio nel gioco
     const gameGenio = document.getElementById("gameGenio");
 
     /* ===== DATABASE PERSONAGGI ===== */
@@ -71,6 +70,9 @@ window.onload = function() {
     let currentQuestion = null;
     let guessedCharacters = [];
     let questionsSinceLastGuess = 0;
+    
+    // NUOVO: Soglia di scarto punti tra il primo e il secondo per tentare una risposta
+    const CONFIDENCE_THRESHOLD = 10; 
 
     function shannonEntropy(yesCount, noCount) {
         let total = yesCount + noCount;
@@ -104,12 +106,13 @@ window.onload = function() {
         noBtn.style.display = "inline-block";
         restartBtn.style.display = "none";
         confidenceBar.style.width = "5%";
-        gameGenio.src = "../img/genio.png"; // Reset immagine genio
+        gameGenio.src = "../img/genio.png"; 
         nextQuestion();
     }
 
     function nextQuestion() {
-        let available = characters.filter(p => !guessedCharacters.includes(p.nome));
+        // NUOVO: Ordiniamo i personaggi disponibili per punteggio
+        let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
 
         if (available.length === 0) {
             gameGenio.src = "../img/genioTriste.png";
@@ -121,12 +124,19 @@ window.onload = function() {
             return;
         }
 
+        // Se ne resta solo uno, indovina forzatamente
         if (available.length === 1) {
             return showGuess(available[0]);
         }
 
+        // NUOVO: Se il primo ha un grande vantaggio sul secondo E abbiamo fatto almeno 2 domande dall'ultimo tentativo
+        let scoreDiff = available[0].score - available[1].score;
+        if (scoreDiff >= CONFIDENCE_THRESHOLD && questionsSinceLastGuess >= 2) {
+            return showGuess(available[0]);
+        }
+
         if (usedQuestions.length === questions.length) {
-            return showGuess();
+            return showGuess(available[0]);
         }
 
         let best = null;
@@ -146,7 +156,8 @@ window.onload = function() {
             }
         });
 
-        if (!best) return showGuess();
+        // Se nessuna domanda divide più il gruppo, prova a indovinare il migliore
+        if (!best) return showGuess(available[0]);
 
         currentQuestion = best;
         usedQuestions.push(best);
@@ -162,8 +173,8 @@ window.onload = function() {
             thinking.style.opacity = 0;
             characters.forEach(p => {
                 if (guessedCharacters.includes(p.nome)) return;
-                if (p[currentQuestion.key] === answer) p.score += 5;
-                else p.score -= 2;
+                if (p[currentQuestion.key] === answer) p.score += 5; // Aumenta di 5 se corrisponde
+                else p.score -= 2; // Toglie 2 se non corrisponde
             });
 
             updateConfidence();
@@ -179,7 +190,8 @@ window.onload = function() {
         let sorted = [...characters].filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
         if (sorted.length < 2) return;
         let confidence = sorted[0].score - sorted[1].score;
-        let percent = Math.min(95, Math.max(5, confidence * 4));
+        // La barra si riempie in base alla differenza di punteggio
+        let percent = Math.min(95, Math.max(5, (confidence / CONFIDENCE_THRESHOLD) * 100));
         confidenceBar.style.width = percent + "%";
     }
 
@@ -188,12 +200,7 @@ window.onload = function() {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
 
         if (available.length === 0) {
-            gameGenio.src = "../img/genioTriste.png";
-            question.innerText = "";
-            result.innerHTML = "Mi arrendo! Non ho altri personaggi da proporre. Mi hai battuto!";
-            yesBtn.style.display = "none";
-            noBtn.style.display = "none";
-            restartBtn.style.display = "inline-block";
+            // (Il fallback è già gestito in nextQuestion, ma per sicurezza lo teniamo)
             return;
         }
 
@@ -216,6 +223,7 @@ window.onload = function() {
             </div>
         `;
 
+        // Vittoria del Genio
         document.getElementById("correctBtn").onclick = () => {
             gameGenio.src = "../img/genioFelice.png";
             result.innerHTML = `<h2 style="color:#22c55e;">HAI VINTO!<br> Sapevo che era ${best.nome}!</h2>`;
@@ -224,15 +232,18 @@ window.onload = function() {
             restartBtn.style.display = "inline-block";
         };
 
+        // NUOVO: L'utente dice "Sbagliato". Il gioco riprende.
         document.getElementById("wrongBtn").onclick = () => {
-            guessedCharacters.push(best.nome);
-            gameGenio.src = "../img/genioTriste.png";
-            question.innerText = "";
-            result.innerHTML = `<div style="text-align:center;">
-                <p style="color:#f59e0b; font-size:22px;">Oh no! Non era ${best.nome}...</p>
-                <p style="margin-top:15px;">Mi arrendo! Hai vinto questa volta!</p>
-            </div>`;
-            restartBtn.style.display = "inline-block";
+            guessedCharacters.push(best.nome); // Scarta questo personaggio
+            questionsSinceLastGuess = 0; // Azzera il cooldown per il prossimo tentativo
+            confidenceBar.style.width = "5%"; // Azzera la barra di confidenza
+            
+            result.innerHTML = ""; // Pulisce la schermata di tentativo
+            yesBtn.style.display = "inline-block"; // Riattiva i tasti Sì/No
+            noBtn.style.display = "inline-block";
+            
+            // Passa alla prossima domanda o tenta il prossimo personaggio
+            nextQuestion(); 
         };
     }
 
