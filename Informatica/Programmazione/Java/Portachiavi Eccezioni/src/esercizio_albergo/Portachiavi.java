@@ -36,15 +36,16 @@ public class Portachiavi {
 
     public String setElencoChiavi(Chiave C1, int posizione) {
         try {
-                elencoChiavi[posizione] = new Chiave(C1);
-                return "Chiave registrata con successo";
-        } catch (Exception e) {
+            elencoChiavi[posizione] = new Chiave(C1);
+            return "Chiave registrata con successo";
+        } catch (NullPointerException e) {
+            return "Errore nella registrazione";
+        } catch (ArrayIndexOutOfBoundsException e) {
             return "Errore nella registrazione";
         }
     }
 
     // per numero
-
     public Chiave richiediChiaveNum(int nCamera) {
         if (nCamera >= 0 && nCamera < NUM_MAX) {
             for (int i = 0; i < NUM_MAX; i++) {
@@ -57,7 +58,6 @@ public class Portachiavi {
     }
 
     // per nominativo
-
     public Chiave richiediChiaveNome(String nome) {
         for (int i = 0; i < NUM_MAX; i++) {
             if (elencoChiavi[i].getNominativo().equalsIgnoreCase(nome)) {
