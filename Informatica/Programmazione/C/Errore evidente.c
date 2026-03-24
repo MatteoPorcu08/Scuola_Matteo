@@ -1,34 +1,61 @@
 #include <stdio.h>
 
-int somma(int a, int b)
+float media(int numeri[], int size)
 {
-    int risultato;
-    risultato = a + b;
-    return risultato;
+    int somma = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        somma += numeri[i];
+    }
+
+    return somma / size;
+}
+
+int filtraPositivi(int input[], int output[], int size)
+{
+    int j = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (input[i] > 0)
+        {
+            output[j] = input[i];
+            j++;
+        }
+    }
+
+    return j;
+}
+
+int massimo(int numeri[], int size)
+{
+    int max = numeri[0];
+
+    for (int i = 1; i < size; i++)
+    {
+        if (numeri[i] > max)
+        {
+            max = numeri[i];
+        }
+    }
+
+    return max;
 }
 
 int main()
 {
-    int x = 0;
-    int y = 0;
-    int risultato;
+    int numeri[6] = {4, -2, 7, 0, -5, 3};
+    int positivi[6];
+    int size = 6;
 
-    printf("Questo programma calcola la somma di due numeri. La somma deve dare 8\n");
-    printf("Inserisci il primo numero: ");
-    scanf("%d", &x);
-    printf("Inserisci il secondo numero: ");
-    scanf("%d", &y);
+    int count = filtraPositivi(numeri, positivi, size);
 
-    risultato = somma(x, y);
+    float m = media(positivi, size);
+    int max = massimo(positivi, count);
 
-    if (risultato == 8)
-    {
-        printf("La somma è corretta\n");
-    }
-    else
-    {
-        printf("Errore\n");
-    }
+    printf("Media positivi: %.2f\n", m);
+    printf("Massimo positivi: %d\n", max);
 
     return 0;
 }
