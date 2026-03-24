@@ -1,23 +1,28 @@
 #include <stdio.h>
 
-int sommaPari(int numeri[], int size) {
-    int somma = 0;
-
-    for (int i = 0; i <= size; i++) {
-        if (numeri[i] % 2 == 0) {
-            somma = numeri[i];
-        }
-    }
-
-    return somma;
+int somma(int a, int b)
+{
+    int risultato;
+    risultato = a + b;
+    return risultato;
 }
 
-int main() {
-    int numeri[5] = {1, 2, 3, 4, 5};
+int main()
+{
+    int x = 5;
+    int y = 3;
+    int risultato;
 
-    int risultato = sommaPari(numeri, 5);
+    risultato = somma(x, y);
 
-    printf("Somma numeri pari: %d\n", risultato);
+    if (risultato == 8)
+    {
+        printf("La somma è corretta\n");
+    }
+    else
+    {
+        printf("Errore\n");
+    }
 
     return 0;
 }
