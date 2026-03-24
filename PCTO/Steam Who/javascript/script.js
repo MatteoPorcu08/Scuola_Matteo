@@ -153,27 +153,34 @@ window.onload = function() {
         nextQuestion();
     }
 
+    /* ===== FUNZIONE ARRESA (NUOVA) ===== */
+    function surrender() {
+        gameGenio.src = "../img/genioTriste.png";
+        question.innerText = "Mi arrendo...";
+        result.innerHTML = "<h3 style='color:#ef4444;'>Sei riuscito a confondermi!</h3> Non ho abbastanza indizi per capire a chi stai pensando.";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+        restartBtn.style.display = "inline-block";
+        confidenceBar.style.width = "0%";
+    }
+
     function nextQuestion() {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
 
+        // 1. Non è rimasto nessuno
         if (available.length === 0) {
-            gameGenio.src = "../img/genioTriste.png";
-            question.innerText = "";
-            result.innerHTML = "Mi arrendo! Non ho più nessuno in mente.";
-            yesBtn.style.display = "none";
-            noBtn.style.display = "none";
-            restartBtn.style.display = "inline-block";
-            return;
+            return surrender();
         }
 
-        if (available.length === 1 || usedQuestions.length === questions.length) {
+        // 2. È rimasto solo un personaggio possibile
+        if (available.length === 1) {
             return showGuess(available[0]);
         }
 
         let scoreDiff = available[0].score - available[1].score;
         let topChar = available[0];
 
-        // LOGICA DELLA DOMANDA BONUS (Killer Question)
+        // 3. LOGICA DELLA DOMANDA BONUS (Killer Question)
         if (scoreDiff >= 8 && Math.random() > 0.5 && !topChar.bonusAsked && usedQuestions.length >= 3) {
             topChar.bonusAsked = true; 
             currentQuestion = { testo: topChar.domanda_bonus, isBonusFor: topChar.nome };
@@ -182,14 +189,14 @@ window.onload = function() {
             return; 
         }
 
-        // Se arriva al Threshold massimo, indovina diretto senza altre domande
+        // 4. Soglia di sicurezza massima: azzarda senza altre domande
         if (usedQuestions.length >= MIN_QUESTIONS_BEFORE_GUESS && 
             scoreDiff >= CONFIDENCE_THRESHOLD && 
             questionsSinceLastGuess >= 3) {
             return showGuess(available[0]);
         }
 
-        // Domande normali (algoritmo entropia)
+        // 5. Ricerca della domanda migliore
         let best = null;
         let bestEntropy = -1;
 
@@ -208,7 +215,17 @@ window.onload = function() {
             }
         });
 
-        if (!best || bestEntropy === 0) return showGuess(available[0]);
+        // 6. FINE DELLE DOMANDE UTILI
+        // Se non ci sono più domande o se non riescono più a dividere i candidati
+        if (!best || bestEntropy === 0) {
+            if (scoreDiff >= 4) { 
+                // C'è un piccolo distacco: azzardiamo un tentativo!
+                return showGuess(available[0]);
+            } else {
+                // Parità totale o troppa confusione: il genio alza le mani.
+                return surrender(); 
+            }
+        }
 
         currentQuestion = best;
         usedQuestions.push(best);
@@ -272,7 +289,7 @@ window.onload = function() {
     /* ===== IL GENIO TENTA LA RISPOSTA ===== */
     function showGuess(bestGuess = null) {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
-        if (available.length === 0) return;
+        if (available.length === 0) return surrender(); // Controllo di sicurezza
 
         let best = bestGuess || available[0];
 
