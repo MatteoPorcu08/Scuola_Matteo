@@ -174,13 +174,15 @@ window.onload = function() {
         let topChar = available[0];
 
         // LOGICA DELLA DOMANDA BONUS (Killer Question)
-        // Se c'è un distacco di almeno 8 punti, il genio ha il 50% di probabilità di provare un "colpo basso"
         if (scoreDiff >= 8 && Math.random() > 0.5 && !topChar.bonusAsked && usedQuestions.length >= 3) {
-            topChar.bonusAsked = true; // Segna che gli abbiamo già fatto la domanda bonus
+            topChar.bonusAsked = true; 
             currentQuestion = { testo: topChar.domanda_bonus, isBonusFor: topChar.nome };
             question.innerText = currentQuestion.testo;
-            gameGenio.src = "../img/genioConfuso.png"; // Faccia sospettosa
-            return; // Interrompiamo qui, facciamo la domanda speciale!
+            
+            // Rimettiamo il genio normale per la domanda bonus!
+            gameGenio.src = "../img/genio.png"; 
+            
+            return; 
         }
 
         // Se arriva al Threshold massimo, indovina diretto senza altre domande
@@ -279,6 +281,7 @@ window.onload = function() {
 
         let best = bestGuess || available[0];
 
+        // Solo qui appare il genio confuso con i punti interrogativi!
         gameGenio.src = "../img/genioConfuso.png";
         yesBtn.style.display = "none";
         noBtn.style.display = "none";
