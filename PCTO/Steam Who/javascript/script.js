@@ -321,15 +321,15 @@ window.onload = function() {
             guessedCharacters.push(best.nome); 
             questionsSinceLastGuess = 0; 
             
-            result.innerHTML = ""; 
-            yesBtn.style.display = "inline-block"; 
+            result.innerHTML = "";
+            yesBtn.style.display = "inline-block";
             noBtn.style.display = "inline-block";
             gameGenio.src = "../img/genio.png";
             
-            characters.forEach(p => p.score -= 2); 
+            characters.forEach(p => p.score -= 2);
             
             updateConfidence();
-            nextQuestion(); 
+            nextQuestion();
         };
     }
 

@@ -13,7 +13,7 @@ int main()
     int y = 0;
     int risultato;
 
-    printf("Questo programma calcola la somma di due numeri.La somma deve dare 8\n");
+    printf("Questo programma calcola la somma di due numeri. La somma deve dare 8\n");
     printf("Inserisci il primo numero: ");
     scanf("%d", &x);
     printf("Inserisci il secondo numero: ");
