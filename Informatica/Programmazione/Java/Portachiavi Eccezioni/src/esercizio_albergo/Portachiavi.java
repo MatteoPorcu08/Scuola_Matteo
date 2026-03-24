@@ -36,12 +36,8 @@ public class Portachiavi {
 
     public String setElencoChiavi(Chiave C1, int posizione) {
         try {
-            if (posizione >= 0 && posizione < 30 && C1 != null && elencoChiavi[posizione] == null) {
                 elencoChiavi[posizione] = new Chiave(C1);
                 return "Chiave registrata con successo";
-            } else {
-                return "Errore nella registrazione";
-            }
         } catch (Exception e) {
             return "Errore nella registrazione";
         }
