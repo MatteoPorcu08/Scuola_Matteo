@@ -22,28 +22,48 @@ window.onload = function() {
     const confidenceBar = document.getElementById("confidenceBar");
     const gameGenio = document.getElementById("gameGenio");
 
-    /* ===== DATABASE PERSONAGGI POTENZIATO (40 Tratti) ===== */
+    /* ===== DATABASE PERSONAGGI CON DOMANDA BONUS ===== */
     const characters = [
-        { nome: "Rita Levi-Montalcini", img: "../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:true, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:true, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:true, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:true, macchine_calcolo:false, neutrini:false },
-        { nome: "Galileo Galilei", img: "../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Leonardo da Vinci", img: "../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:true, invenzione:true, chimica:false, ingegnere:true, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:false, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:true, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Enrico Fermi", img: "../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Margherita Hack", img: "../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Fabiola Gianotti", img: "../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:true, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Guglielmo Marconi", img: "../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:true, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:false, scrittore:false, politica:true, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:true, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Evangelista Torricelli", img: "../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:true, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Luigi Galvani", img: "../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:false, elettricita:true, astronomia:false, novecento:false, medicina:true, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:true, macchine_calcolo:false, neutrini:false },
-        { nome: "Giuseppe Lagrange", img: "../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Sofia Kovalevskaya", img: "../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:true, russia:true, onde_radio:false, fluidi:false, germania:true, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Ada Lovelace", img: "../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:false, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:true, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:true, neutrini:false },
-        { nome: "Alan Turing", img: "../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:true, computer_moderni:true, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:true, teoremi:true, giovane_morte:true, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:true, neutrini:false },
-        { nome: "Marie Curie", img: "../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:true, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Albert Einstein", img: "../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:true, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Isaac Newton", img: "../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Lucia Votano", img: "../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:true, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:true },
-        { nome: "Anna Grassellino", img: "../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:true, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Alfio Quarteroni", img: "../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false },
-        { nome: "Giuseppina Carniel", img: "../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:true, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false }
+        { nome: "Rita Levi-Montalcini", img: "../img/RitaLeviMontalcini.png", donna:true, italiano:true, informatico:false, fisico:false, antico:false, nobel:true, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:true, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:true, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:true, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai scoperto il fattore di crescita nervoso (NGF)?" },
+        { nome: "Galileo Galilei", img: "../img/GalileoGalilei.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei famoso per aver puntato il cannocchiale verso le stelle e per aver detto 'Eppur si muove'?" },
+        { nome: "Leonardo da Vinci", img: "../img/LeonardoDaVinci.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:true, invenzione:true, chimica:false, ingegnere:true, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:false, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:true, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai dipinto la Gioconda e riempito codici di invenzioni incredibili?" },
+        { nome: "Enrico Fermi", img: "../img/EnricoFermi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai creato la prima reazione nucleare a catena controllata (la pila atomica) a Chicago?" },
+        { nome: "Margherita Hack", img: "../img/MargheritaHack.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:true, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei conosciuta come la 'signora delle stelle' e hai diretto l'Osservatorio Astronomico di Trieste?" },
+        { nome: "Fabiola Gianotti", img: "../img/FabiolaGianotti.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:true, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai annunciato al mondo la scoperta del Bosone di Higgs al CERN?" },
+        { nome: "Guglielmo Marconi", img: "../img/GuglielmoMarconi.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:true, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:false, scrittore:false, politica:true, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:true, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei considerato l'inventore del telegrafo senza fili e della radio?" },
+        { nome: "Evangelista Torricelli", img: "../img/EvangelistaTorricelli.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:true, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai inventato il barometro a mercurio per misurare la pressione atmosferica?" },
+        { nome: "Luigi Galvani", img: "../img/LuigiGalvani.jpg", donna:false, italiano:true, informatico:false, fisico:true, antico:true, nobel:false, matematica:false, elettricita:true, astronomia:false, novecento:false, medicina:true, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:true, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai fatto famosi esperimenti con le rane per scoprire 'l'elettricità animale'?" },
+        { nome: "Giuseppe Lagrange", img: "../img/GiuseppeLagrange.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei uno dei più grandi matematici del '700 e hai formulato la meccanica analitica?" },
+        { nome: "Sofia Kovalevskaya", img: "../img/SofiaKovalevskaya.jpg", donna:true, italiano:false, informatico:false, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:true, russia:true, onde_radio:false, fluidi:false, germania:true, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei stata la prima donna in Nord Europa a ottenere una cattedra universitaria in matematica?" },
+        { nome: "Ada Lovelace", img: "../img/AdaLovelace.jpg", donna:true, italiano:false, informatico:true, fisico:false, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:false, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:false, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:true, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:true, neutrini:false,
+          domanda_bonus: "Sei considerata la primissima programmatrice di computer della storia grazie al lavoro con Babbage?" },
+        { nome: "Alan Turing", img: "../img/AlanTuring.jpg", donna:false, italiano:false, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:true, computer_moderni:true, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:true, teoremi:true, giovane_morte:true, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:true, neutrini:false,
+          domanda_bonus: "Hai decifrato i codici della macchina Enigma durante la Seconda Guerra Mondiale?" },
+        { nome: "Marie Curie", img: "../img/MarieCurie.jpg", donna:true, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:false, elettricita:true, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:true, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:true, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei la scienziata che ha scoperto il Radio e il Polonio, vincendo due premi Nobel?" },
+        { nome: "Albert Einstein", img: "../img/AlbertEinstein.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:false, nobel:true, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:true, capelli_bianchi:true, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:true, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:true, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai formulato la famosa teoria della relatività e l'equazione E=mc²?" },
+        { nome: "Isaac Newton", img: "../img/IsaacNewton.jpg", donna:false, italiano:false, informatico:false, fisico:true, antico:true, nobel:false, matematica:true, elettricita:false, astronomia:true, novecento:false, medicina:false, invenzione:true, chimica:false, ingegnere:false, vivo:false, occhiali:false, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:true, computer_moderni:false, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:true, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai formulato la legge di gravitazione universale dopo che (forse) ti è caduta in testa una mela?" },
+        { nome: "Lucia Votano", img: "../img/LuciaVotano.jpg", donna:true, italiano:true, informatico:false, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:true, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:false, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:true, politica:false, radioattivita:true, ottica:false, cern:true, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:true,
+          domanda_bonus: "Sei stata la prima donna a dirigere i Laboratori Nazionali del Gran Sasso per studiare i neutrini?" },
+        { nome: "Anna Grassellino", img: "../img/AnnaGrassellino.jpg", donna:true, italiano:true, informatico:true, fisico:true, antico:false, nobel:false, matematica:false, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:true, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:false, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Dirigi il centro SQMS al Fermilab negli USA per costruire potentissimi computer quantistici?" },
+        { nome: "Alfio Quarteroni", img: "../img/AlfioQuarteroni.jpg", donna:false, italiano:true, informatico:false, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:true, barba_baffi:false, capelli_bianchi:true, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:true, scrittore:true, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:true, giovane_morte:false, russia:false, onde_radio:false, fluidi:true, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Hai usato la matematica per simulare il cuore umano e l'aerodinamica della barca Alinghi?" },
+        { nome: "Giuseppina Carniel", img: "../img/GiuseppinaCarniel.jpg", donna:true, italiano:true, informatico:true, fisico:false, antico:false, nobel:false, matematica:true, elettricita:false, astronomia:false, novecento:true, medicina:false, invenzione:false, chimica:false, ingegnere:true, vivo:true, occhiali:false, barba_baffi:false, capelli_bianchi:false, stati_uniti:false, francia:false, gran_bretagna:false, computer_moderni:true, insegnante:true, scrittore:false, politica:false, radioattivita:false, ottica:false, cern:false, arte:false, codici_segreti:false, teoremi:false, giovane_morte:false, russia:false, onde_radio:false, fluidi:false, germania:false, toscana:false, biologia_cellulare:false, macchine_calcolo:false, neutrini:false,
+          domanda_bonus: "Sei un'ingegnera matematica italiana che unisce lo studio delle equazioni al mondo informatico?" }
     ];
 
     /* ===== LE 40 DOMANDE ===== */
@@ -90,15 +110,13 @@ window.onload = function() {
         { testo: "Ha lavorato nei laboratori del Gran Sasso o ha studiato i neutrini?", key: "neutrini" }
     ];
 
-    /* ===== VARIABILI DI GIOCO ===== */
     let usedQuestions = [];
     let currentQuestion = null;
     let guessedCharacters = [];
     let questionsSinceLastGuess = 0;
     
-    // Parametri per indovinare
     const MIN_QUESTIONS_BEFORE_GUESS = 5; 
-    const CONFIDENCE_THRESHOLD = 15; // Distacco di punti necessario
+    const CONFIDENCE_THRESHOLD = 15; 
 
     function shannonEntropy(yesCount, noCount) {
         let total = yesCount + noCount;
@@ -122,7 +140,7 @@ window.onload = function() {
     };
 
     function startGame() {
-        characters.forEach(p => p.score = 0);
+        characters.forEach(p => { p.score = 0; p.bonusAsked = false; });
         usedQuestions = [];
         guessedCharacters = [];
         questionsSinceLastGuess = 0;
@@ -136,7 +154,6 @@ window.onload = function() {
     }
 
     function nextQuestion() {
-        // Ordiniamo chi non è stato ancora scartato per punteggio
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
 
         if (available.length === 0) {
@@ -149,27 +166,37 @@ window.onload = function() {
             return;
         }
 
-        // Se ne resta solo uno, o se abbiamo esaurito le domande
         if (available.length === 1 || usedQuestions.length === questions.length) {
             return showGuess(available[0]);
         }
 
-        // CONTROLLO DI CONFIDENZA
         let scoreDiff = available[0].score - available[1].score;
+        let topChar = available[0];
+
+        // LOGICA DELLA DOMANDA BONUS (Killer Question)
+        // Se c'è un distacco di almeno 8 punti, il genio ha il 50% di probabilità di provare un "colpo basso"
+        if (scoreDiff >= 8 && Math.random() > 0.5 && !topChar.bonusAsked && usedQuestions.length >= 3) {
+            topChar.bonusAsked = true; // Segna che gli abbiamo già fatto la domanda bonus
+            currentQuestion = { testo: topChar.domanda_bonus, isBonusFor: topChar.nome };
+            question.innerText = currentQuestion.testo;
+            gameGenio.src = "../img/genioConfuso.png"; // Faccia sospettosa
+            return; // Interrompiamo qui, facciamo la domanda speciale!
+        }
+
+        // Se arriva al Threshold massimo, indovina diretto senza altre domande
         if (usedQuestions.length >= MIN_QUESTIONS_BEFORE_GUESS && 
             scoreDiff >= CONFIDENCE_THRESHOLD && 
             questionsSinceLastGuess >= 3) {
             return showGuess(available[0]);
         }
 
-        // Cerca la domanda migliore (algoritmo entropia)
+        // Domande normali (algoritmo entropia)
         let best = null;
         let bestEntropy = -1;
 
         questions.forEach(q => {
             if (usedQuestions.includes(q)) return;
             let yesCount = 0, noCount = 0;
-            // Calcoliamo l'entropia solo sui migliori candidati (es. quelli con punteggio positivo o i top 5)
             let topCandidates = available.slice(0, 8); 
             topCandidates.forEach(p => {
                 if (p[q.key]) yesCount++;
@@ -182,7 +209,6 @@ window.onload = function() {
             }
         });
 
-        // Se nessuna domanda divide bene i candidati, andiamo avanti col primo
         if (!best || bestEntropy === 0) return showGuess(available[0]);
 
         currentQuestion = best;
@@ -193,19 +219,35 @@ window.onload = function() {
 
     function move(answer) {
         thinking.style.opacity = 1;
-        gameGenio.src = "../img/genio.png";
 
         setTimeout(() => {
             thinking.style.opacity = 0;
             
-            // Assegnazione Punti Severa
+            // CONTROLLO SE È LA DOMANDA BONUS
+            if (currentQuestion.isBonusFor) {
+                if (answer === true) {
+                    // SE RISPONDE SÌ, IL GENIO VINCE SUBITO!
+                    let winner = characters.find(c => c.nome === currentQuestion.isBonusFor);
+                    showGuess(winner);
+                } else {
+                    // SE RISPONDE NO, SCARTA IL PERSONAGGIO IMMEDIATAMENTE
+                    guessedCharacters.push(currentQuestion.isBonusFor);
+                    updateConfidence();
+                    questionsSinceLastGuess = 0;
+                    gameGenio.src = "../img/genio.png";
+                    nextQuestion();
+                }
+                return; // Fermiamo qui l'assegnazione punti normale
+            }
+
+            // Assegnazione Punti Normale
             characters.forEach(p => {
                 if (guessedCharacters.includes(p.nome)) return;
                 
                 if (p[currentQuestion.key] === answer) {
-                    p.score += 6; // Se indovina il tratto dà molti punti
+                    p.score += 6;
                 } else {
-                    p.score -= 4; // Se sbaglia il tratto, scende velocemente
+                    p.score -= 4;
                 }
             });
 
@@ -223,8 +265,8 @@ window.onload = function() {
         if (sorted.length < 2) return;
         
         let confidence = sorted[0].score - sorted[1].score;
-        let basePercent = (usedQuestions.length / MIN_QUESTIONS_BEFORE_GUESS) * 20; // Sale man mano che fai le prime domande
-        let scorePercent = (confidence / CONFIDENCE_THRESHOLD) * 80; // Sale man mano che il distacco aumenta
+        let basePercent = (usedQuestions.length / MIN_QUESTIONS_BEFORE_GUESS) * 20;
+        let scorePercent = (confidence / CONFIDENCE_THRESHOLD) * 80; 
         
         let percent = Math.min(98, Math.max(2, basePercent + scorePercent));
         confidenceBar.style.width = percent + "%";
@@ -233,7 +275,6 @@ window.onload = function() {
     /* ===== IL GENIO TENTA LA RISPOSTA ===== */
     function showGuess(bestGuess = null) {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
-
         if (available.length === 0) return;
 
         let best = bestGuess || available[0];
@@ -241,7 +282,7 @@ window.onload = function() {
         gameGenio.src = "../img/genioConfuso.png";
         yesBtn.style.display = "none";
         noBtn.style.display = "none";
-        question.innerText = "Mmh, aspetta... Forse ci sono!";
+        question.innerText = "Non ho dubbi... sono sicuro di saperlo!";
 
         result.innerHTML = `
             <div class="guess-box">
@@ -254,7 +295,6 @@ window.onload = function() {
             </div>
         `;
 
-        // L'UTENTE DICE SÌ
         document.getElementById("correctBtn").onclick = () => {
             gameGenio.src = "../img/genioFelice.png";
             result.innerHTML = `<h2 style="color:#22c55e;">HAI VINTO!<br> Sapevo che era ${best.nome}!</h2>`;
@@ -263,17 +303,15 @@ window.onload = function() {
             restartBtn.style.display = "inline-block";
         };
 
-        // L'UTENTE DICE NO
         document.getElementById("wrongBtn").onclick = () => {
-            guessedCharacters.push(best.nome); // Rimuove questo personaggio dalla corsa
-            questionsSinceLastGuess = 0; // Azzera il timer dei tentativi
+            guessedCharacters.push(best.nome); 
+            questionsSinceLastGuess = 0; 
             
             result.innerHTML = ""; 
             yesBtn.style.display = "inline-block"; 
             noBtn.style.display = "inline-block";
             gameGenio.src = "../img/genio.png";
             
-            // Togliamo un po' di punti a tutti per "resettare" le certezze del genio
             characters.forEach(p => p.score -= 2); 
             
             updateConfidence();
