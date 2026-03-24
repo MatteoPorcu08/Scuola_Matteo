@@ -59,6 +59,15 @@ public class Portachiavi {
 
     // per nominativo
     public Chiave richiediChiaveNome(String nome) {
+        try {
+            for (int i = 0; i < NUM_MAX; i++) {
+                if (elencoChiavi[i].getNominativo().equalsIgnoreCase(nome)) {
+                    return elencoChiavi[i];
+                }
+            }
+        } catch (NullPointerException e) {
+            return null;
+        }
         for (int i = 0; i < NUM_MAX; i++) {
             if (elencoChiavi[i].getNominativo().equalsIgnoreCase(nome)) {
                 return elencoChiavi[i];
