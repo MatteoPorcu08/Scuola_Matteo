@@ -1,128 +1,275 @@
-# Algoritmo di Steam Who?
+# Documentazione Algoritmo - Steam Who?
+
+## Indice
+1. [Panoramica](#panoramica)
+2. [Struttura Dati](#struttura-dati)
+3. [Entropia di Shannon](#entropia-di-shannon)
+4. [Sistema di Punteggio](#sistema-di-punteggio)
+5. [Flusso di Gioco](#flusso-di-gioco)
+6. [Domande Bonus (Killer Questions)](#domande-bonus-killer-questions)
+7. [Gestione Vittoria/Sconfitta](#gestione-vittoriasconfitta)
+
+---
 
 ## Panoramica
 
-Steam Who? è un gioco ispirato ad Akinator che cerca di indovinare un personaggio storico scientifico ponendo domande a cui l'utente risponde con Sì o No.
+Steam Who? è un gioco ispirato ad Akinator che cerca di indovinare un personaggio storico scientifico basandosi su 40 domande a cui l'utente risponde con Sì o No. Il gioco utilizza l'**entropia di Shannon** per selezionare la domanda ottimale in ogni momento.
 
-## Database dei Personaggi
+---
 
-Il gioco contiene **20 personaggi** della storia della scienza, della tecnologia e della matematica. Ogni personaggio ha attributi booleani (vero/falso) come:
+## Struttura Dati
 
-- `donna`: true/false
-- `italiano`: true/false
-- `fisico`: true/false
-- `nobel`: true/false
-- `matematica`: true/false
-- `astronomia`: true/false
-- `invenzione`: true/false
-- `vivo`: true/false
-- ecc.
+### Database Personaggi (`characters`)
+```javascript
+{
+    nome: "Nome Completo",
+    img: "percorso/immagine.png",
+    donna: true/false,
+    italiano: true/false,
+    informatico: true/false,
+    fisico: true/false,
+    antico: true/false,
+    nobel: true/false,
+    matematica: true/false,
+    // ... 40+ attributi totali
+    domanda_bonus: "Testo della domanda unica per questo personaggio"
+}
+```
 
-## Algoritmo di Selezione delle Domande: Entropia di Shannon
+Il database contiene **20 personaggi** della storia della scienza, tecnologia e matematica.
 
-### Cos'è l'Entropia di Shannon?
+### Database Domande (`questions`)
+```javascript
+{
+    testo: "Testo della domanda",
+    key: "nome_attributo"  // riferimento all'attributo nel personaggio
+}
+```
 
-L'entropia di Shannon misura l'**incertezza** associata a una variabile casuale. In questo contesto, misura quanto una domanda è efficace nel dividere i personaggi rimanenti.
+Sono presenti **40 domande** che coprono vari aspetti: genere, nazionalità, campo scientifico, epoca, vita personale, contributi specifici.
+
+---
+
+## Entropia di Shannon
+
+### Concetto Matematico
+L'entropia di Shannon misura l'incertezza informativa. Più alta è l'entropia, più "equilibrata" è la divisione tra Sì e No.
 
 ### Formula
-
 ```
-H(X) = -[p_yes * log2(p_yes) + p_no * log2(p_no)]
+H = -[p_yes × log2(p_yes) + p_no × log2(p_no)]
 ```
 
 Dove:
-
 - `p_yes` = percentuale di personaggi che risponderebbero "Sì"
 - `p_no` = percentuale di personaggi che risponderebbero "No"
 
-### Come funziona nel gioco
-
-1. **Calcolo per ogni domanda**: Per ogni domanda non ancora posta, contiamo quanti personaggi risponderebbero Sì e quanti No.
-
-2. **Selezione della domanda migliore**: Si sceglie la domanda con l'**entropia più alta**, ovvero quella che produce la divisione più "equilibrata" (circa 50% Sì, 50% No).
-
-3. **Perché questo funziona?**
-   - Un'entropia ALTA significa che la domanda separa bene i personaggi
-   - Un'entropia BASSA significa che quasi tutti rispondono uguale (domanda poco utile)
-   - L'entropia MASSIMA (1) si ha quando esattamente metà dice Sì e metà dice No
-
-### Esempio pratico
-
-```
-Personaggi rimanenti: 10
-
-Domanda: "È una donna?"
-- 4 donne (Sì), 6 uomini (No)
-- Entropia = 0.97 (ALTA - ottima domanda)
-
-Domanda: "Ha vinto il Nobel?"
-- 1 Nobel (Sì), 9 non Nobel (No)
-- Entropia = 0.47 (BASSA - domanda poco utile)
+### Implementazione JavaScript
+```javascript
+function shannonEntropy(yesCount, noCount) {
+    let total = yesCount + noCount;
+    if (total === 0) return 0;
+    let pYes = yesCount / total;
+    let pNo = noCount / total;
+    if (pYes === 0 || pNo === 0) return 0;
+    return -(pYes * Math.log2(pYes) + pNo * Math.log2(pNo));
+}
 ```
 
-Verrà scelta la prima domanda perché ha entropia più alta.
+### Selezione Domanda Migliore
+```javascript
+questions.forEach(q => {
+    if (usedQuestions.includes(q)) return;
+    let yesCount = 0, noCount = 0;
+    let topCandidates = available.slice(0, 8); // Considera solo i top 8
+    topCandidates.forEach(p => {
+        if (p[q.key]) yesCount++;
+        else noCount++;
+    });
+    let entropy = shannonEntropy(yesCount, noCount);
+    if (entropy > bestEntropy) {
+        bestEntropy = entropy;
+        best = q;
+    }
+});
+```
+
+**Nota**: Si considerano solo gli 8 personaggi con punteggio più alto per calcolare l'entropia, rendendo le domande più mirate.
+
+---
 
 ## Sistema di Punteggio
 
-### Assegnazione punteggi
+### Assegnazione Punteggi
+```javascript
+if (p[currentQuestion.key] === answer) {
+    p.score += 6;  // Risposta corretta: +6 punti
+} else {
+    p.score -= 4;  // Risposta errata: -4 punti
+}
+```
 
-Dopo ogni risposta:
+### Calcolo Confidenza
+```javascript
+let confidence = sorted[0].score - sorted[1].score;
+let basePercent = (usedQuestions.length / MIN_QUESTIONS_BEFORE_GUESS) * 20;
+let scorePercent = (confidence / CONFIDENCE_THRESHOLD) * 80;
+let percent = Math.min(98, Math.max(2, basePercent + scorePercent));
+```
 
-- **Risposta CORRETTA** (corrisponde all'attributo): +5 punti
-- **Risposta ERRATA** (non corrisponde): -2 punti
+La barra di confidenza combina:
+- Numero di domande fatte (20% del peso)
+- Differenza punteggio tra primo e secondo classificato (80% del peso)
 
-### Come si indovina
+### Costanti Configurabili
+```javascript
+const MIN_QUESTIONS_BEFORE_GUESS = 5;  // Minimo domande prima di tentare
+const CONFIDENCE_THRESHOLD = 15;       // Soglia punteggio per azzardare
+```
 
-Quando rimangono pochi personaggi o sono finite le domande, il gioco mostra il personaggio con il punteggio più alto come tentativo.
-
-### Perché punteggio invece di semplice esclusione?
-
-Il punteggio permette di:
-
-- Tenere traccia di risposte potenzialmente errate
-- Gestire personaggi con attributi simili
-- Avere una "graduatoria" di probabilità
+---
 
 ## Flusso di Gioco
 
 ```
-1. Inizio gioco
-   └─> Tutti i 20 personaggi con score = 0
-
-2. Selezione domanda (entropia più alta)
-   └─> Mostra domanda all'utente
-
-3. Utente risponde Sì/No
-   └─> Aggiorna punteggi di tutti i personaggi
-
-4. Controllo fine gioco
-   ├─> Se rimane 1 personaggio → indovina
-   ├─> Se finite le domande → indovina il migliore
-   └─> Altrimenti → torna al passo 2
-
-5. Tentativo di indovinare
-   ├─> Se l'utente dice SÌ → VITTORIA!
-   └─> Se l'utente dice NO → Sconfitta, ricomincia
+┌─────────────────────────────────────────────────────────┐
+│                    START GAME                           │
+│  - Reset punteggi a 0                                   │
+│  - Reset domande usate                                  │
+│  - Reset personaggi indovinati                          │
+└─────────────────────┬───────────────────────────────────┘
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│                  NEXT QUESTION                          │
+│                                                         │
+│  1. Calcola personaggi disponibili                      │
+│  2. Se 0 personaggi → surrender()                      │
+│  3. Se 1 personaggio → showGuess()                     │
+│  4. Calcola differenza punteggio top 2                 │
+│  5. Controlla domanda bonus (killer question)           │
+│  6. Controlla soglia confidenza                        │
+│  7. Cerca domanda con entropia massima                 │
+│  8. Se no domande utili → showGuess() o surrender()    │
+└─────────────────────┬───────────────────────────────────┘
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│                    MOVE(answer)                         │
+│                                                         │
+│  - Se domanda bonus: controlla se risposta = Sì         │
+│    → Sì: mostra personaggio                             │
+│    → No: escludi personaggio, continua                  │
+│                                                         │
+│  - Se domanda normale:                                   │
+│    → Aggiorna punteggi (+6/-4)                         │
+│    → Controlla confidenza                               │
+│    → Vai a nextQuestion()                               │
+└─────────────────────┬───────────────────────────────────┘
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│                   SHOW GUESS                            │
+│                                                         │
+│  - Mostra personaggio con punteggio più alto            │
+│  - Utente sceglie SÌ o NO                              │
+│                                                         │
+│  Se SÌ: → Vittoria! (genio felice)                     │
+│  Se NO:  → Escludi personaggio                          │
+│           → Riduci punteggio di tutti (-2)              │
+│           → Torna a nextQuestion()                      │
+└─────────────────────────────────────────────────────────┘
 ```
 
-## Vantaggi dell'Algoritmo
+---
 
-1. **Efficienza**: Le domande con entropia alta riducono rapidamente il numero di candidati
-2. **Universalità**: Funziona con qualsiasi set di personaggi e domande
-3. **Adattabilità**: Si adatta alle risposte dell'utente in tempo reale
-4. **Minimizzazione domande**: In media indovina con meno domande rispetto a domande casuali
+## Domande Bonus (Killer Questions)
 
-## Limitazioni
+### Concetto
+Ogni personaggio ha una domanda unica che solo lui può soddisfare (es. "Hai scoperto il Radio?" per Marie Curie).
 
-1. **Dipendenza dagli attributi**: La qualità dipende da quanto bene gli attributi descrivono i personaggi
-2. **Risposte oneste necessarie**: Se l'utente mente, l'algoritmo non può funzionare
-3. **Attributi booleani**: Non gestisce risposte parziali o sfumate (es. "forse")
+### Attivazione
+```javascript
+let scoreDiff = available[0].score - available[1].score;
 
-## Confronto con Akinator originale
+if (scoreDiff >= 8 && Math.random() > 0.5 && !topChar.bonusAsked && usedQuestions.length >= 3) {
+    topChar.bonusAsked = true;
+    currentQuestion = { 
+        testo: topChar.domanda_bonus, 
+        isBonusFor: topChar.nome 
+    };
+}
+```
 
-| Aspetto         | Steam Who?        | Akinator                                        |
-| --------------- | ----------------- | ----------------------------------------------- |
-| Domande         | 15 fisse          | Centinaia dinamiche                             |
-| Personaggi      | 20                | Milioni                                         |
-| Algoritmo       | Entropia semplice | Albero decisionale complesso + machine learning |
-| Feedback utente | Sì/No             | Sì/No/Non so/Probabilmente                      |
+**Condizioni per attivare**:
+1. Differenza punteggio ≥ 8
+2. Casualità (> 50% di possibilità)
+3. Domanda bonus non ancora chiesta
+4. Almeno 3 domande già fatte
+
+### Gestione Risposta
+```javascript
+if (currentQuestion.isBonusFor) {
+    if (answer === true) {
+        showGuess(winner);  // Ha risposto Sì → probabilmente è lui!
+    } else {
+        guessedCharacters.push(currentQuestion.isBonusFor);  // Escludi
+        nextQuestion();  // Continua con altri
+    }
+}
+```
+
+---
+
+## Gestione Vittoria/Sconfitta
+
+### Vittoria
+```javascript
+document.getElementById("correctBtn").onclick = () => {
+    gameGenio.src = "../img/genioFelice.png";
+    result.innerHTML = `<h2>HAI VINTO! Sapevo che era ${best.nome}!</h2>`;
+    confidenceBar.style.width = "100%";
+    restartBtn.style.display = "inline-block";
+};
+```
+
+### Sconfitta (Non era il personaggio)
+```javascript
+document.getElementById("wrongBtn").onclick = () => {
+    guessedCharacters.push(best.nome);  // Escludi il personaggio
+    characters.forEach(p => p.score -= 2);  // Penalizza tutti
+    nextQuestion();  // Prova con un altro
+};
+```
+
+### Resa (Non ci sono più opzioni)
+```javascript
+function surrender() {
+    gameGenio.src = "../img/genioTriste.png";
+    question.innerText = "Mi arrendo...";
+    result.innerHTML = "<h3>Sei riuscito a confondermi!</h3>";
+    restartBtn.style.display = "inline-block";
+}
+```
+
+---
+
+## Riepilogo Costanti
+
+| Costante | Valore | Descrizione |
+|----------|--------|------------|
+| `MIN_QUESTIONS_BEFORE_GUESS` | 5 | Domande minime prima di tentare |
+| `CONFIDENCE_THRESHOLD` | 15 | Differenza punteggio per azzardare |
+| Bonus Score | +6 | Punti per risposta corretta |
+| Penalty Score | -4 | Punti per risposta errata |
+| Guess Penalty | -2 | Penalità dopo guess sbagliato |
+| Bonus Threshold | 8 | Differenza per attivare domanda bonus |
+
+---
+
+## Ottimizzazioni Algoritmo
+
+1. **Top 8 Candidates**: Calcola l'entropia solo sui primi 8 personaggi per domande più mirate
+
+2. **Entropy Zero Guard**: Se tutte le domande hanno entropia 0, il gioco tenta comunque se c'è un minimo di differenza punteggio
+
+3. **Bonus Question Randomization**: La casualità nella domanda bonus evita prevedibilità
+
+4. **Score Normalization**: Penalità progressive (-2 a tutti dopo guess sbagliato) per "resettare" la graduatoria
