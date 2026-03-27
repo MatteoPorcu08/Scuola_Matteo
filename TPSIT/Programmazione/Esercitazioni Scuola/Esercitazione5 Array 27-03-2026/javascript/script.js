@@ -7,21 +7,20 @@ function aggiungiPrenotazione() {
     if (nomeCliente === "" || nomeCorso === "") {
         alert("Errore: Il nome del cliente e del corso non possono essere vuoti.");
         return;
+    }else{
+        let risultato = ricercaPrenotazione(nomeCliente);
+        if (risultato == -1) {
+            clienti[i]= nomeCliente;
+            corsi[i]= nomeCorso;
+            i++;
+            alert("Prenotazione aggiunta: " + nomeCliente + " - " + nomeCorso);
+        } else {
+            alert("Cliente già prenotato.");
+        }
     }
-    if (clienti[](nomeCliente)) {
-        alert("Cliente già prenotato.");
-        return;
-    }
-    
-    clienti[i]= nomeCliente;
-    corsi[i]= nomeCorso;
-    
-    alert("Prenotazione aggiunta correttamente.");
-    
-    document.getElementById("nomeCliente").value = "";
-    document.getElementById("nomeCorso").value = "";
 }
 
+// Funzione per cercare l'indice di una prenotazione
 function ricercaPrenotazione(chiave) {
     for (let i = 0; i < clienti.length; i++) {
         if (clienti[i] === chiave) {
@@ -31,38 +30,37 @@ function ricercaPrenotazione(chiave) {
     return -1;
 }
 
+// Funzione per cercare una prenotazione
 function cercaPrenotazione() {
     let nomeCliente = prompt("Inserisci il nome del cliente da cercare:");
     let risultato = ricercaPrenotazione(nomeCliente);
-
-
-function eliminaPrenotazione() {
-    let nomeCliente = prompt("Inserisci il nome del cliente da eliminare:");
-    
-    let index = clienti.indexOf(nomeCliente);
-    
-    if (index !== -1) {
-        let conferma = prompt("Sei sicuro di voler eliminare la prenotazione di " + nomeCliente + "? (S/N)");
-        
-        if (conferma.toUpperCase() === "S") {
-            clienti.splice(index, 1);
-            corsi.splice(index, 1);
-            alert("Prenotazione eliminata.");
-        }
-    } else {
+    if (risultato == -1) {
         alert("Cliente non trovato.");
+    } else {
+        alert("Cliente trovato: " + clienti[risultato] + " - " + corsi[risultato]);
     }
 }
 
+// Funzione per eliminare una prenotazione
+function eliminaPrenotazione() {
+    let nomeCliente = prompt("Inserisci il nome del cliente da eliminare:");
+    let risultato = ricercaPrenotazione(nomeCliente);
+    if (risultato == -1) {
+        alert("Cliente non trovato.");
+    } else {
+        clienti.splice(risultato, 1);
+        corsi.splice(risultato, 1);
+        alert("Prenotazione eliminata: " + nomeCliente);
+    }
+}
+
+// Funzione per visualizzare tutte le prenotazioni
 function visualizzaPrenotazioni() {
     let prenotazioni = document.getElementById("prenotazioni");
     
-    if (clienti.length === 0) {
-        prenotazioni.innerHTML = "Nessuna prenotazione presente.";
-    } else {
-        prenotazioni.innerHTML = "";
-        for (let i = 0; i < clienti.length; i++) {
-            prenotazioni.innerHTML += clienti[i] + " - " + corsi[i] + "<br>";
-        }
+    for (let i = 0; i < clienti.length; i++) {
+        let prenotazione = document.createElement("li");
+        prenotazione.textContent = clienti[i] + " - " + corsi[i];
+        prenotazioni.appendChild(prenotazione);
     }
 }
