@@ -1,3 +1,5 @@
+let clienti = [];
+let corsi = [];
 function aggiungiPrenotazione() {
     let nomeCliente = document.getElementById("nomeCliente").value;
     let nomeCorso = document.getElementById("nomeCorso").value;
@@ -6,13 +8,13 @@ function aggiungiPrenotazione() {
         alert("Errore: Il nome del cliente e del corso non possono essere vuoti.");
         return;
     }
-    if (clienti.includes(nomeCliente)) {
+    if (clienti[](nomeCliente)) {
         alert("Cliente già prenotato.");
         return;
     }
     
-    clienti.push(nomeCliente);
-    corsi.push(nomeCorso);
+    clienti[i]= nomeCliente;
+    corsi[i]= nomeCorso;
     
     alert("Prenotazione aggiunta correttamente.");
     
@@ -20,17 +22,19 @@ function aggiungiPrenotazione() {
     document.getElementById("nomeCorso").value = "";
 }
 
-function ricercaPrenotazione() {
-    let nomeCliente = prompt("Inserisci il nome del cliente da cercare:");
-    
-    let index = clienti.indexOf(nomeCliente);
-    
-    if (index !== -1) {
-        alert("Il cliente " + nomeCliente + " ha prenotato il corso: " + corsi[index]);
-    } else {
-        alert("Cliente non presente.");
+function ricercaPrenotazione(chiave) {
+    for (let i = 0; i < clienti.length; i++) {
+        if (clienti[i] === chiave) {
+            return i;
+        }
     }
+    return -1;
 }
+
+function cercaPrenotazione() {
+    let nomeCliente = prompt("Inserisci il nome del cliente da cercare:");
+    let risultato = ricercaPrenotazione(nomeCliente);
+
 
 function eliminaPrenotazione() {
     let nomeCliente = prompt("Inserisci il nome del cliente da eliminare:");
@@ -40,7 +44,7 @@ function eliminaPrenotazione() {
     if (index !== -1) {
         let conferma = prompt("Sei sicuro di voler eliminare la prenotazione di " + nomeCliente + "? (S/N)");
         
-        if (conferma === "S") {
+        if (conferma.toUpperCase() === "S") {
             clienti.splice(index, 1);
             corsi.splice(index, 1);
             alert("Prenotazione eliminata.");
@@ -62,5 +66,3 @@ function visualizzaPrenotazioni() {
         }
     }
 }
-let clienti = [];
-let corsi = [];
