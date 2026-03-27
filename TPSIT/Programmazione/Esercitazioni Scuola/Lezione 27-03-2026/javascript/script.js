@@ -24,6 +24,7 @@ function aggiungiProdotto() {
 
 // Funzione 2: Visualizza prodotti
 function visualizzaProdotti() {
+    document.getElementById("dati").innerHTML = "";
     let output = document.getElementById("output");
 
     if (nomi.length == 0) {
