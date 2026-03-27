@@ -68,7 +68,7 @@ function trovaVotoPiuAlto() {
     alert("Voto più alto: " + max + " - " + studenti[pos]);
 }
 
-// Insufficienze (in pagina)
+// Insufficienze
 function trovaInsufficienze() {
     let output = "";
 
@@ -87,18 +87,15 @@ function trovaInsufficienze() {
 
 // Cerca studente
 function cercaStudente() {
-    let nome = prompt("Inserisci nome studente da cercare:");
-    let trovato = false;
-    
-    for (let j = 0; j < studenti.length; j++) {
-        if (studenti[j].toLowerCase() === nome.toLowerCase()) {
-            alert("Voto di " + studenti[j] + ": " + voti[j]);
-            trovato = true;
-            break;
-        }
-    }
-    if (!trovato) {
-        alert("Alunno non presente");
+    let elementoDaRicercare =
+    prompt("Inserisci nome studente da cercare:");
+
+    let risultato = ricercaElemento(elementoDaRicercare);
+
+    if (risultato == -1) {
+    alert("Elemento non trovato");
+    }else {
+        alert("Studente trovato: " + studenti[risultato] + " - Voto: " + voti[risultato]);
     }
 }
 
