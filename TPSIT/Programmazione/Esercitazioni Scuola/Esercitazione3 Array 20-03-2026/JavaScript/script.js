@@ -18,8 +18,9 @@ function inserisciStudente() {
     }
 }
 
-// Visualizza registro (in pagina)
+// Visualizza registro
 function visualizzaRegistro() {
+    document.getElementById("registro").innerHTML = "";
     let output = "";
 
     for (let j = 0; j < studenti.length; j++) {
@@ -29,22 +30,22 @@ function visualizzaRegistro() {
     document.getElementById("registro").innerHTML = output;
 }
 
-// Calcola media (alert)
+// Calcola media
 function calcolaMedia() {
     if (voti.length === 0) {
         alert("Nessun voto");
         return;
     }
-
     let somma = 0;
-
     for (let j = 0; j < voti.length; j++) {
         somma += voti[j];
     }
-
+    
     let media = somma / voti.length;
 
-    alert("Media: " + media.toFixed(2));
+    alert("Media classe: " + media.toFixed(2));
+
+    document.getElementById("mediaClasse").innerHTML = "Media classe: " + media.toFixed(2);
 }
 
 // Voto più alto
@@ -67,7 +68,7 @@ function trovaVotoPiuAlto() {
     alert("Voto più alto: " + max + " - " + studenti[pos]);
 }
 
-// Insufficienze (in pagina)
+// Insufficienze
 function trovaInsufficienze() {
     let output = "";
 

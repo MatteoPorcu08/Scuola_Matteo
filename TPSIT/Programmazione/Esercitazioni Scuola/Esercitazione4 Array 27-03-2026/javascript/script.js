@@ -87,11 +87,15 @@ function trovaInsufficienze() {
 
 // Cerca studente
 function cercaStudente() {
-    let elementoDaRicercare =
-    prompt("Inserisci nome studente da cercare:");
+    let elementoDaRicercare = prompt("Inserisci nome studente da cercare:");
 
-    let risultato = ricercaElemento(elementoDaRicercare);
-
+    let risultato = -1;
+    for (let j = 0; j < studenti.length; j++) {
+        if (studenti[j] === elementoDaRicercare) {
+            risultato = j;
+            break;
+        }
+    }
     if (risultato == -1) {
     alert("Elemento non trovato");
     }else {
