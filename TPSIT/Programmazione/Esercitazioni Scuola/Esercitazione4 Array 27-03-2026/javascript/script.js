@@ -104,19 +104,18 @@ function cercaStudente() {
 
 // Elimina studente
 function eliminaStudente() {
-    let nome = prompt("Inserisci nome studente da eliminare:");
-    let trovato = false;
+    let elementoDaEliminare = prompt("Che studente vuoi eliminare?");
     
-    for (let j = 0; j < studenti.length; j++) {
-        if (studenti[j].toLowerCase() === nome.toLowerCase()) {
-            studenti.splice(j, 1);
-            voti.splice(j, 1);
-            alert("Alunno correttamente eliminato");
-            trovato = true;
-            break;
-        }
-    }
-    if (!trovato) {
-        alert("Alunno non presente");
+    let risultato = ricercaElemento(elementoDaEliminare);
+
+    if (risultato == -1) {
+        alert("Alunno non esiste");
+    } else {
+        // Elimino elemento
+        alert("Alunno eliminato correttamente.")
+        studenti.splice(risultato, 1);
+        voti.splice(risultato, 1);
+
+        visualizza();
     }
 }
