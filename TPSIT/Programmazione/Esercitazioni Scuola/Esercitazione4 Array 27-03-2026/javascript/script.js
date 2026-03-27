@@ -20,7 +20,7 @@ function inserisciStudente() {
 
 // Visualizza registro (in pagina)
 function visualizzaRegistro() {
-    document.getElementById("registro").innerHTML = ""; // Pulisce il registro prima di visualizzare
+    document.getElementById("registro").innerHTML = "";
     let output = "";
 
     for (let j = 0; j < studenti.length; j++) {
@@ -116,6 +116,6 @@ function eliminaStudente() {
         studenti.splice(risultato, 1);
         voti.splice(risultato, 1);
 
-        visualizza();
+        visualizzaRegistro();
     }
 }
