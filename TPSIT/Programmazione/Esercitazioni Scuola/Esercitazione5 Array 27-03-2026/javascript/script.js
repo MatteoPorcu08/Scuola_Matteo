@@ -1,9 +1,9 @@
 let clienti = [];
 let corsi = [];
 function aggiungiPrenotazione() {
-    let nomeCliente = document.getElementById("nomeCliente").value;
-    let nomeCorso = document.getElementById("nomeCorso").value;
-    
+    let nomeCliente = prompt("Inserisci il nome del cliente:");
+    let nomeCorso = prompt("Inserisci il nome del corso:");
+
     if (nomeCliente === "" || nomeCorso === "") {
         alert("Errore: Il nome del cliente e del corso non possono essere vuoti.");
         return;
@@ -20,18 +20,8 @@ function aggiungiPrenotazione() {
     }
 }
 
-// Funzione per cercare l'indice di una prenotazione
-function ricercaPrenotazione(chiave) {
-    for (let i = 0; i < clienti.length; i++) {
-        if (clienti[i] === chiave) {
-            return i;
-        }
-    }
-    return -1;
-}
-
 // Funzione per cercare una prenotazione
-function cercaPrenotazione() {
+function ricercaPrenotazione() {
     let nomeCliente = prompt("Inserisci il nome del cliente da cercare:");
     let risultato = ricercaPrenotazione(nomeCliente);
     if (risultato == -1) {
@@ -57,10 +47,8 @@ function eliminaPrenotazione() {
 // Funzione per visualizzare tutte le prenotazioni
 function visualizzaPrenotazioni() {
     let prenotazioni = document.getElementById("prenotazioni");
-    
+    prenotazioni.innerHTML = "";
     for (let i = 0; i < clienti.length; i++) {
-        let prenotazione = document.createElement("li");
-        prenotazione.textContent = clienti[i] + " - " + corsi[i];
-        prenotazioni.appendChild(prenotazione);
+        prenotazioni.innerHTML += "<li>" + clienti[i] + " - " + corsi[i] + "</li>";
     }
 }
