@@ -20,6 +20,7 @@ function inserisciStudente() {
 
 // Visualizza registro (in pagina)
 function visualizzaRegistro() {
+    document.getElementById("registro").innerHTML = ""; // Pulisce il registro prima di visualizzare
     let output = "";
 
     for (let j = 0; j < studenti.length; j++) {
@@ -84,8 +85,38 @@ function trovaInsufficienze() {
     }
 }
 
-// Cerca studente al click verrà richiesto tramite prompt il nome dello studente e, se presente, visualizzato in un alert il voto ottenuto; se non presente verrà visualizzato (sempre in un alert) "Alunno non presente".
+// Cerca studente
 function cercaStudente() {
     let nome = prompt("Inserisci nome studente da cercare:");
     let trovato = false;
     
+    for (let j = 0; j < studenti.length; j++) {
+        if (studenti[j].toLowerCase() === nome.toLowerCase()) {
+            alert("Voto di " + studenti[j] + ": " + voti[j]);
+            trovato = true;
+            break;
+        }
+    }
+    if (!trovato) {
+        alert("Alunno non presente");
+    }
+}
+
+// Elimina studente
+function eliminaStudente() {
+    let nome = prompt("Inserisci nome studente da eliminare:");
+    let trovato = false;
+    
+    for (let j = 0; j < studenti.length; j++) {
+        if (studenti[j].toLowerCase() === nome.toLowerCase()) {
+            studenti.splice(j, 1);
+            voti.splice(j, 1);
+            alert("Alunno correttamente eliminato");
+            trovato = true;
+            break;
+        }
+    }
+    if (!trovato) {
+        alert("Alunno non presente");
+    }
+}
