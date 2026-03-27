@@ -82,23 +82,23 @@ function calcolaValoreTotale() {
 }
 
 // Funzione 5: Rimuovi prodotto
-function rimuoviProdotto() {
-    let ricerca = prompt("Inserisci il nome del prodotto da rimuovere:");
-    let trovato = false;
-    let posizione = -1;
-    for (let j = 0; j < nomi.length; j++) {
-        if (nomi[j] == ricerca) {
-            trovato = true;
-            posizione = j;
+function rimuoviElemento() {
+    let ricerca = prompt("Inserisci il nome del prodotto da rimuovere:"); // Chiedi all'utente il nome del prodotto da rimuovere
+    let trovato = false; // Variabile per tenere traccia se il prodotto è stato trovato
+    let posizione = -1; // Variabile per memorizzare la posizione del prodotto negli array
+    for (let j = 0; j < nomi.length; j++) { // Ciclo per cercare il prodotto negli array
+        if (nomi[j] == ricerca) { // Se il nome del prodotto corrisponde a quello cercato
+            trovato = true; // Imposta trovato a true
+            posizione = j; // Memorizza la posizione del prodotto negli array
         }
     }
 
-    if (trovato == true) {
-        nomi.splice(posizione, 1);
-        prezzi.splice(posizione, 1);
-        quantita.splice(posizione, 1);
-        alert("Prodotto rimosso con successo!");
-    } else {
-        alert("Prodotto non trovato!");
+    if (trovato == true) { // Se il prodotto è stato trovato, rimuovilo dagli array
+        nomi.splice(posizione, 1); // Rimuove il prodotto dall'array nomi alla posizione trovata
+        prezzi.splice(posizione, 1); // Rimuove il prodotto dall'array prezzi alla posizione trovata
+        quantita.splice(posizione, 1); // Rimuove il prodotto dall'array quantita alla posizione trovata
+        alert("Prodotto rimosso con successo!"); // Mostra un messaggio di conferma
+    } else { // Se il prodotto non è stato trovato, mostra un messaggio di errore
+        alert("Prodotto non trovato!"); // Mostra un messaggio di errore se il prodotto non è stato trovato
     }
 }
