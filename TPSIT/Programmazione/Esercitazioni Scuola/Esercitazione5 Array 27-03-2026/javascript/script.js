@@ -1,7 +1,6 @@
 let clienti = [];
 let corsi = [];
 
-// funzione di ricerca vera
 function trovaCliente(nome) {
     for (let i = 0; i < clienti.length; i++) {
         if (clienti[i] === nome) {
@@ -59,15 +58,15 @@ function eliminaPrenotazione() {
 }
 
 function visualizzaPrenotazioni() {
-    let p = document.getElementById("prenotazioni");
+    let prenotazioni = document.getElementById("prenotazioni");
 
     if (clienti.length === 0) {
-        p.innerHTML = "Nessuna prenotazione presente";
+        prenotazioni.innerHTML = "Nessuna prenotazione presente";
         return;
     }
 
-    p.innerHTML = "";
+    prenotazioni.innerHTML = "";
     for (let i = 0; i < clienti.length; i++) {
-        p.innerHTML += "<li>" + clienti[i] + " - " + corsi[i] + "</li>";
+        prenotazioni.innerHTML += "<li>" + clienti[i] + " - " + corsi[i] + "</li>";
     }
 }
