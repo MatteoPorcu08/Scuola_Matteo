@@ -153,7 +153,7 @@ window.onload = function() {
         nextQuestion();
     }
 
-    /* ===== FUNZIONE ARRESA (NUOVA) ===== */
+    /* ===== FUNZIONE ARRESA ===== */
     function surrender() {
         gameGenio.src = "../img/genioTriste.png";
         question.innerText = "Mi arrendo...";
@@ -216,13 +216,10 @@ window.onload = function() {
         });
 
         // 6. FINE DELLE DOMANDE UTILI
-        // Se non ci sono più domande o se non riescono più a dividere i candidati
         if (!best || bestEntropy === 0) {
             if (scoreDiff >= 4) { 
-                // C'è un piccolo distacco: azzardiamo un tentativo!
                 return showGuess(available[0]);
             } else {
-                // Parità totale o troppa confusione: il genio alza le mani.
                 return surrender(); 
             }
         }
@@ -286,10 +283,10 @@ window.onload = function() {
         confidenceBar.style.width = percent + "%";
     }
 
-    /* ===== IL GENIO TENTA LA RISPOSTA ===== */
+    /* ===== IL GENIO TENTA LA RISPOSTA (Con Immagine Sistemata) ===== */
     function showGuess(bestGuess = null) {
         let available = characters.filter(p => !guessedCharacters.includes(p.nome)).sort((a, b) => b.score - a.score);
-        if (available.length === 0) return surrender(); // Controllo di sicurezza
+        if (available.length === 0) return surrender(); 
 
         let best = bestGuess || available[0];
 
@@ -298,9 +295,10 @@ window.onload = function() {
         noBtn.style.display = "none";
         question.innerText = "Non ho dubbi... sono sicuro di saperlo!";
 
+        // QUI HO AGGIUNTO object-fit: cover; NEL TAG IMG
         result.innerHTML = `
             <div class="guess-box">
-                <img src="${best.img}" style="width:160px;height:160px;border-radius:15px;margin-bottom:10px; border:3px solid #00f2ff;">
+                <img src="${best.img}" style="width:160px; height:160px; object-fit:cover; border-radius:15px; margin-bottom:10px; border:3px solid #00f2ff;">
                 <div style="font-size:22px; margin-bottom:15px;">Stai pensando a <strong>${best.nome}</strong>?</div>
                 <div class="buttons">
                     <button id="correctBtn" style="background:#22c55e; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; border:none; font-size:16px;">SÌ, ESATTO!</button>
