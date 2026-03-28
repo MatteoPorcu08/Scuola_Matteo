@@ -1,40 +1,46 @@
-const chatBody = document.getElementById('chat-body');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const darkModeToggle = document.getElementById('dark-mode-toggle');
+// server.js
+import express from 'express';
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
-function addMessage(message,sender){
-  const div = document.createElement('div');
-  div.classList.add('message',sender==='user'?'user-message':'bot-message');
-  const p = document.createElement('p');
-  p.textContent = message;
-  div.appendChild(p);
-  chatBody.appendChild(div);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
+dotenv.config();
 
-async function sendMessage(){
-  const msg = userInput.value.trim();
-  if(!msg) return;
-  addMessage(msg,'user');
-  userInput.value='';
-  addMessage('⌛ Sto pensando...','bot');
+const app = express();
+app.use(express.json());
+app.use(express.static('public')); // Assicurati che HTML/CSS/JS siano nella cartella 'public'
 
-  try{
-    const res = await fetch('/chat',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({message: msg})
-    });
-    const data = await res.json();
-    chatBody.lastChild.remove();
-    addMessage(data.reply,'bot');
-  }catch(err){
-    chatBody.lastChild.remove();
-    addMessage('Errore server. Riprova.','bot');
+// Inizializza l'SDK di Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// Variabile per memorizzare la sessione di chat (la "memoria")
+let chatSession = null;
+
+app.post('/chat', async (req, res) => {
+  const { message } = req.body;
+  if (!message) return res.status(400).json({ error: 'Messaggio mancante' });
+
+  try {
+    // Se la chat non esiste, inizializzala usando il modello più veloce e intelligente
+    if (!chatSession) {
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      chatSession = model.startChat({
+        history: [], // Qui puoi inserire messaggi di sistema se vuoi dargli un "ruolo"
+        generationConfig: {
+          temperature: 0.7,
+        },
+      });
+    }
+
+    // Invia il messaggio alla sessione che ha memoria
+    const result = await chatSession.sendMessage(message);
+    const botMessage = result.response.text();
+    
+    res.json({ reply: botMessage });
+
+  } catch (err) {
+    console.error("Errore server:", err);
+    res.status(500).json({ error: 'Errore server', details: err.message });
   }
-}
+});
 
-sendBtn.addEventListener('click',sendMessage);
-userInput.addEventListener('keypress',e=>{if(e.key==='Enter')sendMessage();});
-darkModeToggle.addEventListener('click',()=>document.body.classList.toggle('dark-mode'));
+app.listen(3000, () => console.log('🚀 Server avviato su http://localhost:3000'));
