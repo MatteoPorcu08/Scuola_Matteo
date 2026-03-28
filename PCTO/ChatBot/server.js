@@ -1,78 +1,71 @@
-// script.js
-const chatBody = document.getElementById('chat-body');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const darkModeToggle = document.getElementById('dark-mode-toggle');
+import express from 'express';
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import sqlite3 from 'sqlite3';
 
-// Autoresize della textarea
-userInput.addEventListener('input', function() {
-  this.style.height = 'auto';
-  this.style.height = (this.scrollHeight) + 'px';
-  if(this.value === '') this.style.height = 'auto';
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+app.use(express.static('public'));
+
+// 1. Inizializza il Database SQLite
+const sql = sqlite3.verbose();
+const db = new sql.Database('./chat.db', (err) => {
+  if (err) console.error("Errore DB:", err.message);
+  else console.log("💾 Connesso al database SQLite (chat.db)");
 });
 
-function addMessage(message, sender, isMarkdown = false) {
-  const div = document.createElement('div');
-  div.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
-  
-  const contentDiv = document.createElement('div');
-  contentDiv.classList.add('message-content');
-  
-  // Se è il bot, converto il markdown in HTML. Se è l'utente o il loading, uso testo normale.
-  if (isMarkdown && sender === 'bot') {
-    contentDiv.innerHTML = marked.parse(message);
-  } else {
-    const p = document.createElement('p');
-    p.textContent = message;
-    contentDiv.appendChild(p);
-  }
-  
-  div.appendChild(contentDiv);
-  chatBody.appendChild(div);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
+// Crea la tabella per salvare i messaggi (se non esiste già)
+db.run(`CREATE TABLE IF NOT EXISTS messages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  sender TEXT,
+  text TEXT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)`);
 
-async function sendMessage() {
-  const msg = userInput.value.trim();
-  if (!msg) return;
-  
-  addMessage(msg, 'user');
-  userInput.value = '';
-  userInput.style.height = 'auto'; // reset textarea
-  
-  addMessage('⌛ Sto elaborando...', 'bot');
+// 2. Inizializza Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+let chatSession = null;
+
+// 3. Nuova Rotta: Recupera la cronologia quando apri il sito
+app.get('/history', (req, res) => {
+  db.all("SELECT * FROM messages ORDER BY id ASC", [], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
+});
+
+// 4. Rotta Chat: Parla con Gemini e salva nel DB
+app.post('/chat', async (req, res) => {
+  const { message } = req.body;
+  if (!message) return res.status(400).json({ error: 'Messaggio mancante' });
+
+  // Salva il messaggio dell'utente nel database
+  db.run("INSERT INTO messages (sender, text) VALUES (?, ?)", ['user', message]);
 
   try {
-    const res = await fetch('/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg })
-    });
+    if (!chatSession) {
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      chatSession = model.startChat({
+        history: [], 
+        generationConfig: { temperature: 0.7 },
+      });
+    }
+
+    // Chiedi a Gemini
+    const result = await chatSession.sendMessage(message);
+    const botMessage = result.response.text();
     
-    const data = await res.json();
-    
-    // Rimuovi il messaggio di caricamento
-    chatBody.lastChild.remove();
-    
-    // Mostra la risposta reale renderizzando il Markdown
-    addMessage(data.reply, 'bot', true);
+    // Salva la risposta del bot nel database
+    db.run("INSERT INTO messages (sender, text) VALUES (?, ?)", ['bot', botMessage]);
+
+    res.json({ reply: botMessage });
+
   } catch (err) {
-    chatBody.lastChild.remove();
-    addMessage('Errore di connessione al server.', 'bot');
-  }
-}
-
-sendBtn.addEventListener('click', sendMessage);
-
-userInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault(); // Evita l'accapo se premi solo Invio
-    sendMessage();
+    console.error("Errore server:", err);
+    res.status(500).json({ error: 'Errore server', details: err.message });
   }
 });
 
-darkModeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  const isDark = document.body.classList.contains('dark-mode');
-  darkModeToggle.textContent = isDark ? '☀️' : '🌙';
-});
+app.listen(3000, () => console.log('🚀 Server avviato su http://localhost:3000'));
