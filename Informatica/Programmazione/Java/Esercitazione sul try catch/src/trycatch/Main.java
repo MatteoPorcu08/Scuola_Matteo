@@ -10,11 +10,9 @@ public class Main {
             System.out.print("Inserisci l'età: ");
             int num = console.readInt();
             System.out.println("Hai inserito: " + num);
-        } catch (IOException e) {
-            System.out.println("Errore di input/output: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("Errore di formato: non hai inserito un numero intero valido.");
-        }
+            System.out.println("Errore di input/output: " + e.getMessage());
+        } catch ()
 
         // Esercizio 6
     }
