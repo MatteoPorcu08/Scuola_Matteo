@@ -11,8 +11,8 @@ public class Main {
             int num = console.readInt();
             System.out.println("Hai inserito: " + num);
         } catch (NumberFormatException e) {
-            System.out.println("Errore di input/output: " + e.getMessage());
-        
+            System.out.println("Errore di formato: non hai inserito un numero intero valido.");
+        }
 
         // Esercizio 6
     }
