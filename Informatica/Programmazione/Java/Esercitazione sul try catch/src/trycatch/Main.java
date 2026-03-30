@@ -12,7 +12,7 @@ public class Main {
             System.out.println("Hai inserito: " + num);
         } catch (NumberFormatException e) {
             System.out.println("Errore di input/output: " + e.getMessage());
-        } catch ()
+        
 
         // Esercizio 6
     }
