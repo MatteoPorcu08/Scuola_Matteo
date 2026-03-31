@@ -3,7 +3,7 @@ package soldi;
 public class SaldoInsufficienteException extends Exception {
     // Costruttore vuoto
     public SaldoInsufficienteException() {
-        super();
+
     }
 
     // Metodo ToString
