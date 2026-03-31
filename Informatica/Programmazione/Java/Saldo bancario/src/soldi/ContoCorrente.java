@@ -8,6 +8,16 @@ public class ContoCorrente {
         this.saldo = saldoIniziale;
     }
 
+    // Getter
+    public double getSaldo() {
+        return saldo;
+    }
+
+    // Setter
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
     // Metodo verificaSaldo(double importo)
     public void verificaSaldo(double importo) throws SaldoInsufficienteException {
         if (importo > saldo) {
