@@ -11,5 +11,4 @@ public class SaldoInsufficienteException extends Exception {
     public String toString() {
         return "Il saldo è insufficiente per completare l'operazione.";
     }
-
 }
