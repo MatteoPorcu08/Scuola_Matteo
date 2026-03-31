@@ -16,15 +16,8 @@ public class ContoCorrente {
     }
 
     // Metodo effettuaOperazione(double importo)
-    public boolean effettuaOperazione(double importo) {
-        try {
-            verificaSaldo(importo);
-            saldo -= importo;
-            return true;
-        } catch (SaldoInsufficienteException e) {
-            System.out.println(e.toString());
-            return false;
-        }
+    public void effettuaOperazione(double importo) throws SaldoInsufficienteException {
+        verificaSaldo(importo);
+        saldo -= importo;
     }
-
 }
