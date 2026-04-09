@@ -8,7 +8,7 @@
 
 <h1>Gestione Dati</h1>
 
-<p id="output"></p>
+<p id="dati"></p>
 <p id="messaggio"></p>
 
 <button onclick="aggiungi()">Aggiungi</button>
@@ -17,24 +17,17 @@
 <button onclick="visualizza()">Visualizza</button>
 
 <script>
-
 // ===== ARRAY =====
 let array1 = [];
 let array2 = [];
 let array3 = [];
-
 let i = 0;
 
 // ===== AGGIUNTA =====
 function aggiungi() {
-    let valore1 = prompt("Inserisci nome");
-    let valore2 = prompt("Inserisci numero") * 1;
-    let valore3 = prompt("Inserisci quantità") * 1;
-
-    if (valore1 === "" || isNaN(valore2) || isNaN(valore3)) {
-        alert("Errore nei dati");
-        return;
-    }
+    let valore1 = prompt("Inserisci Nome");
+    let valore2 = prompt("Inserisci Quantita") * 1;
+    let valore3 = prompt("Inserisci Prezzo") * 1;
 
     array1[i] = valore1;
     array2[i] = valore2;
@@ -45,8 +38,27 @@ function aggiungi() {
     alert("Elemento inserito correttamente");
 }
 
+// ===== VISUALIZZA =====
+function visualizza() {
+    document.getElementById("dati").innerHTML = "";
+
+    let risultato;
+
+    for (let j = 0; j < array1.length; j++) {
+
+        risultato = array2[j] * array3[j];
+
+        document.getElementById("dati").innerHTML +=
+            j + " - " +
+            array1[j] + " " +
+            array2[j] + " x " +
+            array3[j] + " = " +
+            risultato + "<br/>";
+    }
+}
+
 // ===== RICERCA =====
-function ricerca(valore) {
+function ricercaElemento(valore) {
     for (let j = 0; j < array1.length; j++) {
         if (array1[j] == valore) {
             return j;
@@ -58,13 +70,13 @@ function ricerca(valore) {
 // ===== CERCA =====
 function cerca() {
     let valore = prompt("Cosa cerchi?");
-    let risultato = ricerca(valore);
+    let risultato = ricercaElemento(valore);
 
     if (risultato == -1) {
         document.getElementById("messaggio").innerHTML = "Elemento non trovato";
     } else {
         document.getElementById("messaggio").innerHTML =
-            array1[risultato] + " - " +
+            array1[risultato] + " " +
             array2[risultato] + " x " +
             array3[risultato];
     }
@@ -73,7 +85,7 @@ function cerca() {
 // ===== ELIMINA =====
 function elimina() {
     let valore = prompt("Cosa vuoi eliminare?");
-    let risultato = ricerca(valore);
+    let risultato = ricercaElemento(valore);
 
     if (risultato == -1) {
         alert("Elemento non trovato");
@@ -82,35 +94,12 @@ function elimina() {
         array2.splice(risultato, 1);
         array3.splice(risultato, 1);
 
+        i--;
+
         alert("Elemento eliminato");
         visualizza();
     }
 }
-
-// ===== VISUALIZZA =====
-function visualizza() {
-    let output = document.getElementById("output");
-
-    if (array1.length === 0) {
-        output.innerHTML = "Nessun elemento presente";
-        return;
-    }
-
-    output.innerHTML = "";
-
-    for (let j = 0; j < array1.length; j++) {
-        let totale = array2[j] * array3[j];
-
-        output.innerHTML +=
-            j + " - " +
-            array1[j] + " " +
-            array2[j] + " x " +
-            array3[j] + " = " +
-            totale + "<br>";
-    }
-}
-
 </script>
-
 </body>
 </html>
