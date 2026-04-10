@@ -6,16 +6,33 @@ let i = 0;
 
 function registraPrestito() {
     let libro = document.getElementById("libro").value;
-    let nome = document.getElementById("nome").value;
+    let nome = document.getElementById("utente").value;
     let giorni = document.getElementById("giorni").value;
+    let risultatoControllo = ricercaElemento(libro);
 
+    if (risultatoControllo != -1) {
+        alert("Il libro è già stato prestato a " + nomeUtente[risultatoControllo] + " per " + giorniPrestito[risultatoControllo] + " giorni.");
+    } else {
     titoloLibro[i] = libro;
     nomeUtente[i] = nome;
     giorniPrestito[i] = giorni;
+
+    document.getElementById("libro").value = "";
+    document.getElementById("utente").value = "";
+    document.getElementById("giorni").value = "";
 
     i++;
 
     alert("Elemento inserito correttamente");
 
-    //Controllo se 
+    }
+}
+
+function ricercaElemento(valore) {
+    for (let j = 0; j < titoloLibro.length; j++) {
+        if (titoloLibro[j] == valore) {
+            return j;
+        }
+    }
+    return -1;
 }
