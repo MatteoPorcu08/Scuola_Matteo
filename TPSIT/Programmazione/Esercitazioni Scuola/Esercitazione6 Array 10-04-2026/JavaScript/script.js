@@ -5,9 +5,9 @@ let giorniPrestito = [];
 let i = 0;
 
 function registraPrestito() {
-    let libro = document.getElementById("libro").value;
-    let nome = document.getElementById("utente").value;
-    let giorni = document.getElementById("giorni").value;
+    let libro = document.getElementById("libro");
+    let nome = document.getElementById("utente");
+    let giorni = document.getElementById("giorni")*1;
     let risultatoControllo = ricercaElemento(libro);
 
     if (risultatoControllo != -1) {
@@ -17,9 +17,6 @@ function registraPrestito() {
     nomeUtente[i] = nome;
     giorniPrestito[i] = giorni;
 
-    document.getElementById("libro").value = "";
-    document.getElementById("utente").value = "";
-    document.getElementById("giorni").value = "";
 
     i++;
 
