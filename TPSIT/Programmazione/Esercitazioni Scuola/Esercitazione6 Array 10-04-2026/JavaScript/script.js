@@ -72,9 +72,9 @@ function restituisciLibro() {
 }
 
 function elencoPrestiti() {
-    let elenco = "Elenco prestiti:\n";
+    let elenco = "";
     for (let j = 0; j < titoloLibro.length; j++) {
-        elenco += "Libro: " + titoloLibro[j] + " - Utente: " + nomeUtente[j] + " - Giorni: " + giorniPrestito[j] + "\n";
+        elenco += "Elenco Libri:\n  Libro: " + titoloLibro[j] + " - Utente: " + nomeUtente[j] + " - Giorni: " + giorniPrestito[j] + "\n";
     }
     document.getElementById("output").innerText = elenco;
 }
