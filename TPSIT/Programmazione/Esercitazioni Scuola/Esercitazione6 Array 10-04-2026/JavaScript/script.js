@@ -41,13 +41,40 @@ function ricercaElemento(valore) {
 }
 
 function controllaPrestito() {
-    let libro = document.getElementById("titolo").value;
+    let libro = prompt("Inserisci il titolo del libro da controllare");
     let risultatoControllo = ricercaElemento(libro);
-    
+
     if (risultatoControllo != -1) {
-        alert("Il libro " + titoloLibro[risultatoControllo] + " è in prestito a " + nomeUtente[risultatoControllo] + " per " + giorniPrestito[risultatoControllo] + " giorni");
+        alert("Il libro è in prestito a " + nomeUtente[risultatoControllo] + " per " + giorniPrestito[risultatoControllo] + " giorni");
     } else {
-        alert("Il libro non è in prestito");
+        alert("Libro non presente");
     }
-    document.getElementById("titoloControllo").value = "";
+}
+
+function restituisciLibro() {
+    let libro = prompt("Inserisci il titolo del libro da restituire");
+    let risultatoControllo = ricercaElemento(libro);
+
+    if (risultatoControllo != -1) {
+        for (let j = risultatoControllo; j < titoloLibro.length - 1; j++) {
+            titoloLibro[j] = titoloLibro[j + 1];
+            nomeUtente[j] = nomeUtente[j + 1];
+            giorniPrestito[j] = giorniPrestito[j + 1];
+        }
+        titoloLibro.pop();
+        nomeUtente.pop();
+        giorniPrestito.pop();
+
+        alert("Libro restituito correttamente");
+    } else {
+        alert("Libro non presente");
+    }
+}
+
+function elencoPrestiti() {
+    let elenco = "Elenco prestiti:\n";
+    for (let j = 0; j < titoloLibro.length; j++) {
+        elenco += "Libro: " + titoloLibro[j] + " - Utente: " + nomeUtente[j] + " - Giorni: " + giorniPrestito[j] + "\n";
+    }
+    document.getElementById("output").innerText = elenco;
 }
