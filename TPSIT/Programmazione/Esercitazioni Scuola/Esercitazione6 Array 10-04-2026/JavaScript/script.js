@@ -1,7 +1,6 @@
 let titoloLibro = [];
 let nomeUtente = [];
 let giorniPrestito = [];
-
 let i = 0;
 
 function registraPrestito() {
@@ -61,20 +60,21 @@ function restituisciLibro() {
             nomeUtente[j] = nomeUtente[j + 1];
             giorniPrestito[j] = giorniPrestito[j + 1];
         }
-        titoloLibro.pop();
-        nomeUtente.pop();
-        giorniPrestito.pop();
+        titoloLibro.splice(risultatoControllo, 1);
+        nomeUtente.splice(risultatoControllo, 1);
+        giorniPrestito.splice(risultatoControllo, 1);
 
         alert("Libro restituito correttamente");
     } else {
         alert("Libro non presente");
     }
+    elencoPrestiti();
 }
 
 function elencoPrestiti() {
     let elenco = "";
     for (let j = 0; j < titoloLibro.length; j++) {
-        elenco += "Elenco Libri:\n  Libro: " + titoloLibro[j] + " - Utente: " + nomeUtente[j] + " - Giorni: " + giorniPrestito[j] + "\n";
+        elenco += "Libro: " + titoloLibro[j] + " - Utente: " + nomeUtente[j] + " - Giorni: " + giorniPrestito[j] + "\n";
     }
     document.getElementById("output").innerText = elenco;
 }
