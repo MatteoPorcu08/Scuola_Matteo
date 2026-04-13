@@ -2,6 +2,6 @@ package gestione;
 
 public class StackEmptyException extends Exception {
     public StackEmptyException() {
-        super("Stack is empty");
+        super("Lo stack è vuoto.");
     }
 }
