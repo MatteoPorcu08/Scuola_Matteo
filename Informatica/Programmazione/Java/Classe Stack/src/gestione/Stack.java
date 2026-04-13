@@ -24,9 +24,19 @@ public class Stack {
         return false;
     }
 
-    public void push(int x) {
-        mem[p] = x;
-        p++;
-        n++;
+    public void push(int x) throws StackFullException {
+        if(!isFull()) {
+            mem[p] = x;
+            p++;
+            n++;
+        }
+    }
+
+    
+    public void pop() throws StackEmptyException {
+        if(!isEmpty()) {
+            p--;
+            n--;
+        }
     }
 }
