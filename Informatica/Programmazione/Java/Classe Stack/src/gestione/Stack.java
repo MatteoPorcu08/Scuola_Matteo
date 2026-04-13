@@ -10,13 +10,16 @@ public class Stack {
         n = 0;
     }
 
-    public boolean isFull () {
-        return n == mem.length;
+    public boolean isFull () throws StackFullException {
+        if (n == mem.length) {
+            throw new StackFullException();
+        }
+        return false;
     }
 
-    public boolean isEmpty () { throws StackEmptyException {
+    public boolean isEmpty () throws StackEmptyException {
         if (n == 0) {
-            return true;
+            throw new StackEmptyException();
         }
         return false;
     }
