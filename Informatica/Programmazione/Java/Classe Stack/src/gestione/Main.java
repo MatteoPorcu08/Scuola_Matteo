@@ -6,29 +6,33 @@ public class Main {
 
         try {
             stack.push(1);
+            System.out.println("Elemento 1 inserito nello stack.");
             stack.push(2);
-
+            System.out.println("Elemento 2 inserito nello stack.");
         } catch (StackFullException e) {
             System.out.println("Errore: " + e.getMessage());
 
-        } 
+        }
 
         try {
             stack.push(3);
-
+            System.out.println("Elemento 3 inserito nello stack.");
         } catch (StackFullException e) {
             System.out.println("Errore: " + e.getMessage());
 
-        } 
+        }
 
         try {
-            Stack.pop());
-            System.out.println("Elemento estratto: " + stack.pop());
+            stack.pop();
+            System.out.println("Elementi estratti dallo stack.");
+            stack.pop();
+            System.out.println("Elementi estratti dallo stack.");
         } catch (StackEmptyException e) {
             System.out.println("Errore durante pop: " + e.getMessage());
         }
         try {
-            System.out.println("Elemento estratto: " + stack.pop());
+            stack.pop();
+            System.out.println("Elementi estratti dallo stack.");
         } catch (StackEmptyException e) {
             System.out.println("Errore durante pop: " + e.getMessage());
         }
