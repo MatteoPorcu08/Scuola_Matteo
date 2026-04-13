@@ -23,16 +23,16 @@ public class Main {
 
         try {
             stack.pop();
-            System.out.println("Elementi estratti dallo stack.");
+            System.out.println("Elemento 1 estratto dallo stack.");
             stack.pop();
-            System.out.println("Elementi estratti dallo stack.");
+            System.out.println("Elemento 2 estratto dallo stack.");
         } catch (StackEmptyException e) {
             System.out.println("Errore durante pop: " + e.getMessage());
         }
 
         try {
             stack.pop();
-            System.out.println("Elementi estratti dallo stack.");
+            System.out.println("Elemento 3 estratto dallo stack.");
         } catch (StackEmptyException e) {
             System.out.println("Errore durante pop: " + e.getMessage());
         }
