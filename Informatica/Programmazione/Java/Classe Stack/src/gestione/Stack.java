@@ -10,6 +10,17 @@ public class Stack {
         n = 0;
     }
 
+    public boolean isFull () {
+        return n == mem.length;
+    }
+
+    public boolean isEmpty () { throws StackEmptyException {
+        if (n == 0) {
+            return true;
+        }
+        return false;
+    }
+
     public void push(int x) {
         mem[p] = x;
         p++;

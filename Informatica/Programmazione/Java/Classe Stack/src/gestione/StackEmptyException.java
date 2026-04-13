@@ -1,7 +1,7 @@
 package gestione;
 
 public class StackEmptyException extends Exception {
-    public StackEmptyException() {
-        super("Lo stack è vuoto.");
+    public String toString() {
+        return "Stack vuoto: impossibile eseguire pop";
     }
 }
