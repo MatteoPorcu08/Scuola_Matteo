@@ -32,7 +32,7 @@ public class Stack {
         }
     }
 
-    
+
     public void pop() throws StackEmptyException {
         if(!isEmpty()) {
             p--;

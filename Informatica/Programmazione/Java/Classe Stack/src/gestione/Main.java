@@ -2,6 +2,7 @@ package gestione;
 
 public class Main {
     public static void main(String[] args) {
+
         Stack stack = new Stack(2);
 
         try {
@@ -11,7 +12,6 @@ public class Main {
             System.out.println("Elemento 2 inserito nello stack.");
         } catch (StackFullException e) {
             System.out.println("Errore: " + e.getMessage());
-
         }
 
         try {
@@ -19,7 +19,6 @@ public class Main {
             System.out.println("Elemento 3 inserito nello stack.");
         } catch (StackFullException e) {
             System.out.println("Errore: " + e.getMessage());
-
         }
 
         try {
@@ -30,6 +29,7 @@ public class Main {
         } catch (StackEmptyException e) {
             System.out.println("Errore durante pop: " + e.getMessage());
         }
+
         try {
             stack.pop();
             System.out.println("Elementi estratti dallo stack.");
