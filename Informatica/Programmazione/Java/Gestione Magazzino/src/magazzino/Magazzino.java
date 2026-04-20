@@ -14,4 +14,10 @@ public class Magazzino {
     public void setQuantitaDisponibile(int quantitaDisponibile) {
         this.quantitaDisponibile = quantitaDisponibile;
     }
+
+    public void scaricaMerce (int quantità) {
+        if (quantità > quantitaDisponibile){
+            
+        }
+    }
 }
