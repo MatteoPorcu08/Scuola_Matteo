@@ -17,7 +17,9 @@ public class Magazzino {
 
     public void scaricaMerce (int quantità) {
         if (quantità > quantitaDisponibile){
-            
+            throw new ProdottoEsauritoException();
+        } else{
+            quantitaDisponibile -= quantità;
+        }
         }
     }
-}
