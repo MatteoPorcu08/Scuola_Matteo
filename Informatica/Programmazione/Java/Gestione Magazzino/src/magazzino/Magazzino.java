@@ -15,7 +15,7 @@ public class Magazzino {
         this.quantitaDisponibile = quantitaDisponibile;
     }
 
-    public void scaricaMerce (int quantità) {
+    public void scaricaMerce (int quantità) throws ProdottoEsauritoException {
         if (quantità > quantitaDisponibile){
             throw new ProdottoEsauritoException();
         } else{
