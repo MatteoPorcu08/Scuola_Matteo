@@ -58,21 +58,28 @@ function ricercaElemento(valore) {
 }
 
 function preleva(){
-    let prelevaProdotto = prompt("Inserisci il nome del prodotto da prelevare");
-    let prelevaQuantita = prompt("Inserisci la quantita da prelevare");
-    let risultatoControllo = ricercaElemento(prelevaProdotto);
-
-    if(prelevaProdotto=="" && prelevaQuantita==""){
-        alert("Compilare prodotto e quantita");
-    }else if(risultatoControllo != -1){
-        if(quant>= prelevaQuantita){
-            quantita=quant-prelevaQuantita;
-            alert("Prelievo effetuato corretamente");
-            mostra();
-        }else if(prelevaQuantita>quant){
-            alert("La quantità richiesta e maggiore di quella disponibile");
-        }else{
-            alert("Quantità insufficiente");
-        }
+    if(prodotto.length==0){
+        alert("Serve aggiungere almeno un prodotto");
+    }else{
+        let nome=prompt("Inserisci il nome del prodotto che desideri prelevare");
+        let quantita=prompt("Inserisci la quantita che desideri prelevare")*1;
+        let risultato=cerca(prodotto,nome);
+        if(nome===""||quantita==""){
+            alert("Compilare prodotto e quantita");
     }
+        else if(risultato!=-1 && quantita<=quantitaDisponibili[risultato]){
+                let quantitaAggiornata=quantitaDisponibili[risultato]-quantita;
+                quantitaDisponibili[risultato]=quantitaAggiornata;
+                alert("Preievlo effettuato correttamente");
+                document.getElementById("visual").innerHTML="Lista da aggiornare!";
+            }
+            
+            else if(quantita>quantitaDisponibili[risultato]){
+                alert("Quantita insufficiente");
+            }
+                else if(risultato==-1){
+            alert("Prodotto inesistente");
+            }
+        }
+
 }
