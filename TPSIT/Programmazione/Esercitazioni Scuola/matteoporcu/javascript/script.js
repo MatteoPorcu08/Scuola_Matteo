@@ -81,5 +81,4 @@ function preleva(){
             alert("Prodotto inesistente");
             }
         }
-
 }
