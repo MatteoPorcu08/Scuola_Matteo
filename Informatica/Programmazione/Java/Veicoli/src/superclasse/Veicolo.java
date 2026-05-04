@@ -53,5 +53,13 @@ public class Veicolo {
     //Metodo calcolaCosto(int giorni)
     public int calcolaCosto(int giorni) {
         return (int) (prezzoGiornaliero * giorni);
-        
+    }
+
+    //Metodo stampaDettagli()
+    public void stampaDettagli() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modello: " + modello);
+        System.out.println("Anno: " + anno);
+        System.out.println("Prezzo giornaliero: " + prezzoGiornaliero);
+    }
 }

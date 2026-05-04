@@ -9,6 +9,13 @@ public class Automobile extends Veicolo {
         this.alimentazione = alimentazione;
     }
 
+    //Costruttore di copia
+    public Automobile(Automobile altraAutomobile) {
+        super(altraAutomobile.getMarca(), altraAutomobile.getModello(), altraAutomobile.getAnno(), altraAutomobile.getPrezzoGiornaliero());
+        this.porte = altraAutomobile.getPorte();
+        this.alimentazione = altraAutomobile.getAlimentazione();
+    }
+
     // Getters
     public int getPorte() {
         return porte;
@@ -25,8 +32,21 @@ public class Automobile extends Veicolo {
         this.alimentazione = alimentazione;
     }
 
-    //Metodo calcolaCosto(int giorni)
+    // Override del metodo stampaDettagli()
+    @Override
+    public void stampaDettagli() {
+        super.stampaDettagli();
+        System.out.println("Porte: " + porte);
+        System.out.println("Alimentazione: " + alimentazione);
+    }
+
+    // Override del metodo calcolaCosto(int giorni)
+    @Override
     public int calcolaCosto(int giorni) {
-        return (int) (getPrezzoGiornaliero() * giorni);
+        int costoBase = super.calcolaCosto(giorni);
+        if (giorni > 7) {
+            return (int) (costoBase * 0.9); // Applica uno sconto del 10%
+        }
+        return costoBase;
     }
 }
