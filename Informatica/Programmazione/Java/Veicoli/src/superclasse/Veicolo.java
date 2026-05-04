@@ -12,6 +12,14 @@ public class Veicolo {
         this.prezzoGiornaliero = prezzoGiornaliero;
     }
 
+    //Costruttore di copia
+    public Veicolo(Veicolo altroVeicolo) {
+        this.marca = altroVeicolo.getMarca();
+        this.modello = altroVeicolo.getModello();
+        this.anno = altroVeicolo.getAnno();
+        this.prezzoGiornaliero = altroVeicolo.getPrezzoGiornaliero();
+    }
+
     // Getters
     protected String getMarca() {
         return marca;
@@ -38,16 +46,6 @@ public class Veicolo {
     }
     protected void setPrezzoGiornaliero(double prezzoGiornaliero) {
         this.prezzoGiornaliero = prezzoGiornaliero;
-    }
-
-    @Override
-    public String toString() {
-        return "Veicolo{" +
-            "marca='" + marca + '\'' +
-            ", modello='" + modello + '\'' +
-            ", anno=" + anno +
-            ", prezzoGiornaliero=" + prezzoGiornaliero +
-            '}';
     }
 
     //Metodo calcolaCosto(int giorni)

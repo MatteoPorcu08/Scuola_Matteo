@@ -32,14 +32,6 @@ public class Automobile extends Veicolo {
         this.alimentazione = alimentazione;
     }
 
-    // Override del metodo stampaDettagli()
-    @Override
-    public void stampaDettagli() {
-        super.stampaDettagli();
-        System.out.println("Porte: " + porte);
-        System.out.println("Alimentazione: " + alimentazione);
-    }
-
     // Override del metodo calcolaCosto(int giorni)
     @Override
     public int calcolaCosto(int giorni) {
@@ -48,5 +40,13 @@ public class Automobile extends Veicolo {
             return (int) (costoBase * 0.9); // Applica uno sconto del 10%
         }
         return costoBase;
+    }
+
+    // Override del metodo stampaDettagli()
+    @Override
+    public void stampaDettagli() {
+        super.stampaDettagli();
+        System.out.println("Porte: " + porte);
+        System.out.println("Alimentazione: " + alimentazione);
     }
 }
