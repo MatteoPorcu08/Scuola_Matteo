@@ -61,6 +61,6 @@ public class Automobile {
 
     //Metodo calcolaCosto(int giorni)
     public int calcolaCosto(int giorni) {
-        return giorni * 50; // Costo fisso di 50 euro al giorno
+        return noleggioGiornaliero * giorni;
     }
 }

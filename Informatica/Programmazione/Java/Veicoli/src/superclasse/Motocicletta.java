@@ -47,4 +47,20 @@ public class Motocicletta {
     public void setBauletto(boolean bauletto) {
         this.bauletto = bauletto;
     }
+
+    @Override
+    public String toString() {
+        return "Motocicletta{" +
+                "marca='" + marca + '\'' +
+                ", modello='" + modello + '\'' +
+                ", noleggioGiornaliero=" + noleggioGiornaliero +
+                ", cilindrata=" + cilindrata +
+                ", bauletto=" + bauletto +
+                '}';
+    }
+
+    //Metodo calcolaCosto(int giorni)
+    public int calcolaCosto(int giorni) {
+        return noleggioGiornaliero * giorni;
+    }
 }

@@ -1,34 +1,42 @@
 package superclasse;
 public class Veicolo {
-    public String marca;
-    public  String modello;
-    public  int noleggioGiornaliero;
+    protected  String marca;
+    protected  String modello;
+    protected int anno;
+    protected  double  noleggioGiornaliero;
 
-    public Veicolo(String marca, String modello, int noleggioGiornaliero) {
+    public Veicolo(String marca, String modello, int anno, double noleggioGiornaliero) {
         this.marca = marca;
         this.modello = modello;
+        this.anno = anno;
         this.noleggioGiornaliero = noleggioGiornaliero;
     }
 
     // Getters
-    public String getMarca() {
+    protected String getMarca() {
         return marca;
     }
-    public String getModello() {
+    protected String getModello() {
         return modello;
     }
-    public int getNoleggioGiornaliero() {
+    protected int getAnno() {
+        return anno;
+    }
+    protected double getNoleggioGiornaliero() {
         return noleggioGiornaliero;
     }
 
     // Setters
-    public void setMarca(String marca) {
+    protected void setMarca(String marca) {
         this.marca = marca;
     }
-    public void setModello(String modello) {
+    protected void setModello(String modello) {
         this.modello = modello;
     }
-    public void setNoleggioGiornaliero(int noleggioGiornaliero) {
+    protected void setAnno(int anno) {
+        this.anno = anno;
+    }
+    protected void setNoleggioGiornaliero(double noleggioGiornaliero) {
         this.noleggioGiornaliero = noleggioGiornaliero;
     }
 
@@ -37,6 +45,7 @@ public class Veicolo {
         return "Veicolo{" +
                 "marca='" + marca + '\'' +
                 ", modello='" + modello + '\'' +
+                ", anno=" + anno +
                 ", noleggioGiornaliero=" + noleggioGiornaliero +
                 '}';
     }
