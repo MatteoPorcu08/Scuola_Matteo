@@ -3,13 +3,13 @@ public class Veicolo {
     protected  String marca;
     protected  String modello;
     protected int anno;
-    protected  double  noleggioGiornaliero;
+    protected  double  prezzoGiornaliero;
 
-    public Veicolo(String marca, String modello, int anno, double noleggioGiornaliero) {
+    public Veicolo(String marca, String modello, int anno, double prezzoGiornaliero) {
         this.marca = marca;
         this.modello = modello;
         this.anno = anno;
-        this.noleggioGiornaliero = noleggioGiornaliero;
+        this.prezzoGiornaliero = prezzoGiornaliero;
     }
 
     // Getters
@@ -22,8 +22,8 @@ public class Veicolo {
     protected int getAnno() {
         return anno;
     }
-    protected double getNoleggioGiornaliero() {
-        return noleggioGiornaliero;
+    protected double getPrezzoGiornaliero() {
+        return prezzoGiornaliero;
     }
 
     // Setters
@@ -36,17 +36,22 @@ public class Veicolo {
     protected void setAnno(int anno) {
         this.anno = anno;
     }
-    protected void setNoleggioGiornaliero(double noleggioGiornaliero) {
-        this.noleggioGiornaliero = noleggioGiornaliero;
+    protected void setPrezzoGiornaliero(double prezzoGiornaliero) {
+        this.prezzoGiornaliero = prezzoGiornaliero;
     }
 
     @Override
     public String toString() {
         return "Veicolo{" +
-                "marca='" + marca + '\'' +
-                ", modello='" + modello + '\'' +
-                ", anno=" + anno +
-                ", noleggioGiornaliero=" + noleggioGiornaliero +
-                '}';
+            "marca='" + marca + '\'' +
+            ", modello='" + modello + '\'' +
+            ", anno=" + anno +
+            ", prezzoGiornaliero=" + prezzoGiornaliero +
+            '}';
     }
+
+    //Metodo calcolaCosto(int giorni)
+    public int calcolaCosto(int giorni) {
+        return (int) (prezzoGiornaliero * giorni);
+        
 }

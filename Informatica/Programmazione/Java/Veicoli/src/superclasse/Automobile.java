@@ -1,66 +1,32 @@
 package superclasse;
-public class Automobile {
-    public String marca;
-    public  String modello;
-    public  int noleggioGiornaliero;
-    private int numeroPorte;
-    private String tipoAlimentazione;
+public class Automobile extends Veicolo {
+    private int porte;
+    private String alimentazione;
 
-    public Automobile(String marca, String modello, int noleggioGiornaliero, int numeroPorte, String tipoAlimentazione) {
-        this.marca = marca;
-        this.modello = modello;
-        this.noleggioGiornaliero = noleggioGiornaliero;
-        this.numeroPorte = numeroPorte;
-        this.tipoAlimentazione = tipoAlimentazione;
+    public Automobile(String marca, String modello, int anno, double prezzoGiornaliero, int porte, String alimentazione) {
+        super(marca, modello, anno, prezzoGiornaliero);
+        this.porte = porte;
+        this.alimentazione = alimentazione;
     }
 
     // Getters
-    public String getMarca() {
-        return marca;
+    public int getPorte() {
+        return porte;
     }
-    public String getModello() {
-        return modello;
-    }
-    public int getNoleggioGiornaliero() {
-        return noleggioGiornaliero;
-    }
-    public int getNumeroPorte() {
-        return numeroPorte;
-    }
-    public String getTipoAlimentazione() {
-        return tipoAlimentazione;
+    public String getAlimentazione() {
+        return alimentazione;
     }
 
-    //Setters
-    public void setMarca(String marca) {
-        this.marca = marca;
+    // Setters
+    public void setPorte(int porte) {
+        this.porte = porte;
     }
-    public void setModello(String modello) {
-        this.modello = modello;
-    }
-    public void setNoleggioGiornaliero(int noleggioGiornaliero) {
-        this.noleggioGiornaliero = noleggioGiornaliero;
-    }
-    public void setNumeroPorte(int numeroPorte) {
-        this.numeroPorte = numeroPorte;
-    }
-    public void setTipoAlimentazione(String tipoAlimentazione) {
-        this.tipoAlimentazione = tipoAlimentazione;
-    }
-
-    @Override
-    public String toString() {
-        return "Automobile{" +
-                "marca='" + marca + '\'' +
-                ", modello='" + modello + '\'' +
-                ", noleggioGiornaliero=" + noleggioGiornaliero +
-                ", numeroPorte=" + numeroPorte +
-                ", tipoAlimentazione='" + tipoAlimentazione + '\'' +
-                '}';
+    public void setAlimentazione(String alimentazione) {
+        this.alimentazione = alimentazione;
     }
 
     //Metodo calcolaCosto(int giorni)
     public int calcolaCosto(int giorni) {
-        return noleggioGiornaliero * giorni;
+        return (int) (getPrezzoGiornaliero() * giorni);
     }
 }
