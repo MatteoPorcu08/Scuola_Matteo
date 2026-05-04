@@ -1,10 +1,9 @@
 package superclasse;
-
 public class Main {
     public static void main(String[] args) {
         Automobile auto1 = new Automobile("Fiat", "Panda", 2020, 30.0, 5, "Benzina");
         Motocicletta moto1 = new Motocicletta("KTM", "EXC 125", 2010, 25.0, 125, false);
-        Motocicletta moto2 = new Motocicletta("Honda", "CB500X", 2021, -10.0, 471, false);
+        Motocicletta moto2 = new Motocicletta("Yamaha", "MT-07", 2021,  0.0, 471, true);
 
         System.out.println("Dettagli dell'automobile:");
         auto1.stampaDettagli();
