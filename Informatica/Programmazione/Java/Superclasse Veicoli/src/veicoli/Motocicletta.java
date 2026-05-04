@@ -1,17 +1,20 @@
-package superclasse;
+package veicoli;
+
 public class Motocicletta extends Veicolo {
     private int cilindrata;
     private boolean bauletto;
 
-    public Motocicletta(String marca, String modello, int anno, double prezzoGiornaliero, int cilindrata, boolean bauletto) {
+    public Motocicletta(String marca, String modello, int anno, double prezzoGiornaliero, int cilindrata,
+            boolean bauletto) {
         super(marca, modello, anno, prezzoGiornaliero);
         this.cilindrata = cilindrata;
         this.bauletto = bauletto;
     }
 
-    //Costruttore di copia
+    // Costruttore di copia
     public Motocicletta(Motocicletta altraMotocicletta) {
-        super(altraMotocicletta.getMarca(), altraMotocicletta.getModello(), altraMotocicletta.getAnno(), altraMotocicletta.getPrezzoGiornaliero());
+        super(altraMotocicletta.getMarca(), altraMotocicletta.getModello(), altraMotocicletta.getAnno(),
+                altraMotocicletta.getPrezzoGiornaliero());
         this.cilindrata = altraMotocicletta.getCilindrata();
         this.bauletto = altraMotocicletta.isBauletto();
     }
@@ -40,13 +43,12 @@ public class Motocicletta extends Veicolo {
         int costoBase = super.calcolaCosto(giorni);
         if (prezzoGiornaliero < 0) {
             return 0;
-        }
-        else if( giorni > 5) {
+        } else if (giorni > 5) {
             return (int) (costoBase - 20); // Applica uno sconto di 20 euro
         }
         return costoBase;
     }
-    
+
     // Override del metodo stampaDettagli()
     @Override
     public void stampaDettagli() {

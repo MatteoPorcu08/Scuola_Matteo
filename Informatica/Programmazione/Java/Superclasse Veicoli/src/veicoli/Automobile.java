@@ -1,4 +1,4 @@
-package superclasse;
+package veicoli;
 public class Automobile extends Veicolo {
     private int porte;
     private String alimentazione;

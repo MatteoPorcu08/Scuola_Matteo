@@ -1,9 +1,10 @@
-package superclasse;
+package veicoli;
+
 public class Veicolo {
-    protected  String marca;
-    protected  String modello;
+    protected String marca;
+    protected String modello;
     protected int anno;
-    protected  double  prezzoGiornaliero;
+    protected double prezzoGiornaliero;
 
     public Veicolo(String marca, String modello, int anno, double prezzoGiornaliero) {
         this.marca = marca;
@@ -12,7 +13,7 @@ public class Veicolo {
         this.prezzoGiornaliero = prezzoGiornaliero;
     }
 
-    //Costruttore di copia
+    // Costruttore di copia
     public Veicolo(Veicolo altroVeicolo) {
         this.marca = altroVeicolo.getMarca();
         this.modello = altroVeicolo.getModello();
@@ -24,12 +25,15 @@ public class Veicolo {
     protected String getMarca() {
         return marca;
     }
+
     protected String getModello() {
         return modello;
     }
+
     protected int getAnno() {
         return anno;
     }
+
     protected double getPrezzoGiornaliero() {
         return prezzoGiornaliero;
     }
@@ -38,22 +42,25 @@ public class Veicolo {
     protected void setMarca(String marca) {
         this.marca = marca;
     }
+
     protected void setModello(String modello) {
         this.modello = modello;
     }
+
     protected void setAnno(int anno) {
         this.anno = anno;
     }
+
     protected void setPrezzoGiornaliero(double prezzoGiornaliero) {
         this.prezzoGiornaliero = prezzoGiornaliero;
     }
 
-    //Metodo calcolaCosto(int giorni)
+    // Metodo calcolaCosto(int giorni)
     public int calcolaCosto(int giorni) {
         return (int) (prezzoGiornaliero * giorni);
     }
 
-    //Metodo stampaDettagli()
+    // Metodo stampaDettagli()
     public void stampaDettagli() {
         System.out.println("Marca: " + marca);
         System.out.println("Modello: " + modello);
