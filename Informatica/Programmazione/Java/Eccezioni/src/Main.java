@@ -18,13 +18,13 @@ public class Main {
             System.out.println("Errore: indice fuori dai limiti dell'array");
         }
 
-        // Null Pointer Exception
+        /* Null Pointer Exception
         String str = null;
         try {
             System.out.println(str.length());
         } catch (NullPointerException e) {
             System.out.println("Errore: riferimento null");
-        }
+        }*/
 
         // Number Format Exception
         String numStr = "abc";
