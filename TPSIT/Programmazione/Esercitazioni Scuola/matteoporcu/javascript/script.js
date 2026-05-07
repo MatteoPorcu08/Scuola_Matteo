@@ -14,7 +14,7 @@ function aggiungi(){
             document.getElementById("quantità").value = "";
         }else{
             prodotto[i] = prod;
-        quantita[i] = quant;
+            quantita[i] = quant;
 
         i++;
 
