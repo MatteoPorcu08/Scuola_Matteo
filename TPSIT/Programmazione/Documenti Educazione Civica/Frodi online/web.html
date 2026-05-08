@@ -1,11 +1,111 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frodi Online</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frodi Online: Guida di Prevenzione</title>
+  <link rel="stylesheet" href="../Frodi online/altro/style.css">
 </head>
 <body>
-    
+  <header class="hero" id="top">
+    <nav class="navbar">
+      <h1>Frodi Online</h1>
+      <ul>
+        <li><a href="#cosa-sono">Introduzione</a></li>
+        <li><a href="#tipologie">Tipologie</a></li>
+        <li><a href="#difesa">Come difendersi</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <p class="badge">Educazione civica digitale</p>
+      <h2>Capire phishing, smishing e vishing per proteggersi</h2>
+      <p>Un mini sito professionale per spiegare cosa sono le frodi online, come riconoscerle e quali azioni fare subito in caso di tentativo di truffa.</p>
+      <a href="#cosa-sono" class="btn">Inizia la presentazione</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="cosa-sono" class="section card">
+      <h3>1) Cosa sono le frodi online?</h3>
+      <p>Le frodi online sono truffe realizzate tramite strumenti digitali (email, messaggi, social, chiamate VoIP e siti falsi) con lo scopo di rubare denaro, credenziali o dati personali.</p>
+      <div class="stats">
+        <article>
+          <h4>Obiettivo tipico</h4>
+          <p>Ottenere accesso ai tuoi account o convincerti a fare un pagamento.</p>
+        </article>
+        <article>
+          <h4>Tecnica principale</h4>
+          <p>Ingegneria sociale: sfruttare urgenza, paura o fiducia.</p>
+        </article>
+        <article>
+          <h4>Conseguenze</h4>
+          <p>Furto identità, perdite economiche, diffusione di malware.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tipologie" class="section">
+      <h3>2) Le tre tipologie principali</h3>
+      <div class="grid">
+        <article class="card danger">
+          <h4>Phishing (email)</h4>
+          <p>Messaggi email che imitano banche, scuole, corrieri o servizi noti per farti cliccare su link falsi.</p>
+          <ul>
+            <li>Mittente simile ma non identico</li>
+            <li>Richiesta urgente di "verifica account"</li>
+            <li>Link sospetti o allegati inattesi</li>
+          </ul>
+        </article>
+
+        <article class="card warning">
+          <h4>Smishing (SMS/messaggi)</h4>
+          <p>Truffe via SMS o chat: "Pacco in giacenza", "conto bloccato", "premio vinto" con link malevoli.</p>
+          <ul>
+            <li>Numero sconosciuto o internazionale</li>
+            <li>Testo allarmante o troppo vantaggioso</li>
+            <li>URL abbreviati o strani</li>
+          </ul>
+        </article>
+
+        <article class="card accent">
+          <h4>Vishing (telefonate)</h4>
+          <p>Telefonate da falsi operatori che chiedono codici OTP, password o bonifici "di sicurezza".</p>
+          <ul>
+            <li>Tono autoritario e pressante</li>
+            <li>Richiesta di dati riservati</li>
+            <li>Invito a trasferire denaro subito</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="difesa" class="section card">
+      <h3>3) Come difendersi in modo efficace</h3>
+      <ol>
+        <li>Non cliccare link sospetti: apri i siti digitando l'indirizzo manualmente.</li>
+        <li>Controlla mittente e dominio con attenzione.</li>
+        <li>Attiva l'autenticazione a due fattori (2FA).</li>
+        <li>Non comunicare mai OTP, PIN o password.</li>
+        <li>In caso di dubbio, contatta l'ente ufficiale da canali verificati.</li>
+      </ol>
+    </section>
+
+    <section id="quiz" class="section card">
+      <h3>4) Mini quiz interattivo</h3>
+      <p>Leggi la situazione e scegli la risposta corretta.</p>
+      <div id="questionBox" class="question"></div>
+      <div id="answers" class="answers"></div>
+      <p id="feedback" class="feedback"></p>
+      <button id="nextBtn" class="btn secondary">Prossima domanda</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Progetto scolastico sulle frodi online — realizzato in HTML, CSS e JavaScript.</p>
+    <a href="#top">Torna su</a>
+  </footer>
+
+  <script src="../Frodi online/javascript/script.js"></script>
 </body>
 </html>
