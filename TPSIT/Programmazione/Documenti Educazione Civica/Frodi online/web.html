@@ -1,86 +1,262 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frodi Online</title>
 
-  <link rel="stylesheet" href="altro/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Frodi Online</title>
+
+    <link rel="stylesheet" href="altro/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
-<header class="hero">
+    <header class="hero" id="top">
 
-  <nav class="navbar">
+        <nav class="navbar">
 
-    <h1>Frodi Online</h1>
+            <h1>Frodi Online</h1>
 
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="altro/phishing.html">Phishing</a></li>
-      <li><a href="altro/smishing.html">Smishing</a></li>
-      <li><a href="altro/vishing.html">Vishing</a></li>
-      <li><a href="altro/difesa.html">Difesa</a></li>
-      <li><a href="altro/quiz.html">Quiz</a></li>
-    </ul>
+            <ul>
 
-  </nav>
+                <li><a href="#intro">Introduzione</a></li>
+                <li><a href="#tipologie">Tipologie</a></li>
+                <li><a href="#difesa">Difesa</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
 
-  <div class="hero-content">
+            </ul>
 
-    <p class="badge">Educazione Civica Digitale</p>
+        </nav>
 
-    <h2>Proteggiti dalle frodi online</h2>
+        <div class="hero-content">
 
-    <p>
-      Scopri come funzionano phishing, smishing e vishing
-      e impara a riconoscere le truffe digitali più diffuse.
-    </p>
+            <p class="badge">
+                Educazione Civica Digitale
+            </p>
 
-    <a href="altro/phishing.html" class="btn">Scopri di più</a>
+            <h2>
+                Impara a riconoscere le frodi online
+            </h2>
 
-  </div>
+            <p>
+                Scopri come funzionano phishing, smishing e vishing
+                e proteggi i tuoi dati personali dalle truffe digitali.
+            </p>
 
-</header>
+            <a href="#intro" class="btn">
+                Inizia
+            </a>
 
-<main>
+        </div>
 
-<section class="cards">
+    </header>
 
-  <article class="card">
-    <i class="fa-solid fa-envelope"></i>
-    <h3>Phishing</h3>
-    <p>Email false create per rubare password e dati personali.</p>
-    <a href="altro/phishing.html">Leggi</a>
-  </article>
+    <main>
 
-  <article class="card">
-    <i class="fa-solid fa-mobile-screen"></i>
-    <h3>Smishing</h3>
-    <p>SMS truffa con link malevoli e richieste urgenti.</p>
-    <a href="altro/smishing.html">Leggi</a>
-  </article>
+        <section id="intro" class="section">
 
-  <article class="card">
-    <i class="fa-solid fa-phone"></i>
-    <h3>Vishing</h3>
-    <p>Telefonate fraudolente da finti operatori.</p>
-    <a href="altro/vishing.html">Leggi</a>
-  </article>
+            <div class="container">
 
-</section>
+                <h2>Cosa sono le frodi online?</h2>
 
-</main>
+                <p>
+                    Le frodi online sono truffe informatiche realizzate
+                    tramite email, SMS, social network o telefonate.
+                </p>
 
-<footer>
+                <p>
+                    I criminali informatici cercano di rubare password,
+                    dati bancari o denaro sfruttando la paura,
+                    l’urgenza o la fiducia delle persone.
+                </p>
 
-  <p>Progetto scolastico sulle frodi online</p>
+                <p>
+                    Le tecniche più diffuse sono phishing, smishing
+                    e vishing.
+                </p>
 
-</footer>
+            </div>
+
+        </section>
+
+        <section id="tipologie" class="section dark">
+
+            <div class="container">
+
+                <h2>Le principali tipologie</h2>
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <h3>Phishing</h3>
+
+                        <p>
+                            Truffe via email che imitano banche,
+                            Amazon, PayPal o altri servizi famosi.
+                        </p>
+
+                        <ul>
+
+                            <li>Email false</li>
+                            <li>Link sospetti</li>
+                            <li>Richiesta password</li>
+                            <li>Richiesta OTP</li>
+
+                        </ul>
+
+                    </article>
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-mobile-screen"></i>
+
+                        <h3>Smishing</h3>
+
+                        <p>
+                            Truffe tramite SMS o messaggi
+                            che contengono link dannosi.
+                        </p>
+
+                        <ul>
+
+                            <li>Pacchi falsi</li>
+                            <li>Conti bloccati</li>
+                            <li>Messaggi urgenti</li>
+                            <li>Numeri sconosciuti</li>
+
+                        </ul>
+
+                    </article>
+
+                    <article class="card">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <h3>Vishing</h3>
+
+                        <p>
+                            Telefonate da falsi operatori bancari
+                            o assistenza tecnica.
+                        </p>
+
+                        <ul>
+
+                            <li>Finti operatori</li>
+                            <li>Richiesta OTP</li>
+                            <li>Pressione psicologica</li>
+                            <li>Bonifici urgenti</li>
+
+                        </ul>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="difesa" class="section">
+
+            <div class="container">
+
+                <h2>Come difendersi</h2>
+
+                <div class="defense-grid">
+
+                    <div class="defense-box">
+
+                        <h3>Controlla i link</h3>
+
+                        <p>
+                            Non cliccare link sospetti e controlla sempre
+                            il dominio del sito.
+                        </p>
+
+                    </div>
+
+                    <div class="defense-box">
+
+                        <h3>Usa il 2FA</h3>
+
+                        <p>
+                            Attiva l’autenticazione a due fattori
+                            per aumentare la sicurezza.
+                        </p>
+
+                    </div>
+
+                    <div class="defense-box">
+
+                        <h3>Non condividere OTP</h3>
+
+                        <p>
+                            Nessuna banca chiede password
+                            o codici OTP al telefono.
+                        </p>
+
+                    </div>
+
+                    <div class="defense-box">
+
+                        <h3>Password sicure</h3>
+
+                        <p>
+                            Usa password lunghe, difficili
+                            e diverse per ogni account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="section dark">
+
+            <div class="container center">
+
+                <h2>Metti alla prova le tue conoscenze</h2>
+
+                <p>
+                    Rispondi al quiz interattivo sulle frodi online.
+                </p>
+
+                <a href="quiz.html" class="btn">
+                    Vai al Quiz
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Progetto scolastico sulle frodi online
+        </p>
+
+        <a href="#top">
+            Torna su
+        </a>
+
+    </footer>
 
 </body>
+
 </html>
