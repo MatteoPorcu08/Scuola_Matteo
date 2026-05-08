@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Quiz</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Quiz Frodi Online</title>
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-<h1>Quiz</h1>
+        <h1>Quiz Frodi Online</h1>
 
-<ul>
-<li><a href="../web.html">Home</a></li>
-</ul>
+        <ul>
 
-</nav>
+            <li>
+                <a href="../web.html">Home</a>
+            </li>
 
-<main class="page">
+        </ul>
 
-<section class="content">
+    </nav>
 
-<h2>Quiz sulle frodi online</h2>
+    <main class="quiz-page">
 
-<div id="question"></div>
+        <div class="quiz-container">
 
-<div id="answers"></div>
+            <div class="quiz-box">
 
-<p id="result"></p>
+                <p id="questionNumber"
+                   class="question-number">
+                </p>
 
-<button id="nextBtn" class="btn">
-Prossima domanda
-</button>
+                <h2 id="question"
+                    class="question">
+                </h2>
 
-</section>
+                <div id="answers"
+                     class="answers">
+                </div>
 
-</main>
+                <p id="result"
+                   class="result">
+                </p>
 
-<script src="js/quiz.js"></script>
+                <button id="nextBtn"
+                        class="btn">
+
+                    Prossima domanda
+
+                </button>
+
+            </div>
+
+            <div id="finalScore"
+                 class="final-score">
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="javascript/quiz.js"></script>
 
 </body>
+
 </html>

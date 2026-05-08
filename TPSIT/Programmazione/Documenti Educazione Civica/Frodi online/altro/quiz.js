@@ -1,17 +1,17 @@
-// javascript/quiz.js
-
 const quiz = [
 
     {
 
         question:
-            "Ricevi una email della banca che chiede password e OTP. Cosa fai?",
+            "Ricevi una email della banca che richiede password e OTP. Cosa fai?",
 
         answers: [
 
             "Invio subito i dati",
+
             "Ignoro la mail e contatto la banca",
-            "Clicco il link per controllare"
+
+            "Clicco il link"
 
         ],
 
@@ -22,30 +22,34 @@ const quiz = [
     {
 
         question:
-            "Uno SMS dice: 'Pacco bloccato, clicca qui'. Qual è il rischio?",
+            "Ricevi un SMS: 'Pacco bloccato, clicca qui'. Che tipo di truffa è?",
 
         answers: [
 
+            "Phishing",
+
             "Smishing",
-            "Aggiornamento normale",
-            "Pubblicità"
+
+            "Vishing"
 
         ],
 
-        correct: 0
+        correct: 1
 
     },
 
     {
 
         question:
-            "Un operatore telefonico ti chiede il codice OTP. Cosa fai?",
+            "Un falso operatore ti chiede un codice OTP al telefono. Cosa fai?",
 
         answers: [
 
             "Comunico il codice",
-            "Riaggancio subito",
-            "Invio il codice via SMS"
+
+            "Riaggancio",
+
+            "Invio un messaggio"
 
         ],
 
@@ -61,7 +65,9 @@ const quiz = [
         answers: [
 
             "123456",
+
             "password",
+
             "T7#kL91@xP"
 
         ],
@@ -76,28 +82,48 @@ let currentQuestion = 0;
 
 let score = 0;
 
-const question = document.getElementById("question");
+let answered = false;
 
-const answers = document.getElementById("answers");
+const question =
+    document.getElementById("question");
 
-const result = document.getElementById("result");
+const answers =
+    document.getElementById("answers");
 
-const nextBtn = document.getElementById("nextBtn");
+const result =
+    document.getElementById("result");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const finalScore =
+    document.getElementById("finalScore");
+
+const questionNumber =
+    document.getElementById("questionNumber");
 
 function showQuestion() {
 
-    resetState();
+    answered = false;
+
+    result.innerHTML = "";
+
+    answers.innerHTML = "";
 
     const current = quiz[currentQuestion];
 
+    questionNumber.innerHTML =
+        `Domanda ${currentQuestion + 1} di ${quiz.length}`;
+
     question.innerHTML =
-        `<h3>${currentQuestion + 1}. ${current.question}</h3>`;
+        current.question;
 
     current.answers.forEach((answer, index) => {
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
-        button.innerText = answer;
+        button.innerHTML = answer;
 
         button.classList.add("answer-btn");
 
@@ -113,47 +139,61 @@ function showQuestion() {
 
 }
 
-function resetState() {
-
-    result.innerHTML = "";
-
-    answers.innerHTML = "";
-
-}
-
 function selectAnswer(index) {
+
+    if (answered) {
+
+        return;
+
+    }
+
+    answered = true;
 
     const current = quiz[currentQuestion];
 
-    const buttons = document.querySelectorAll(".answer-btn");
+    const buttons =
+        document.querySelectorAll(".answer-btn");
 
-    buttons.forEach(button => {
+    buttons.forEach((button, i) => {
 
         button.disabled = true;
+
+        if (i === current.correct) {
+
+            button.classList.add("correct");
+
+        }
 
     });
 
     if (index === current.correct) {
 
         result.innerHTML =
-            "✅ Risposta corretta";
-
-        result.style.color = "#4ade80";
+            "✅ Risposta corretta!";
 
         score++;
 
     } else {
 
-        result.innerHTML =
-            "❌ Risposta sbagliata";
+        buttons[index].classList.add("wrong");
 
-        result.style.color = "#f87171";
+        result.innerHTML =
+            "❌ Risposta sbagliata!";
 
     }
 
 }
 
 nextBtn.addEventListener("click", () => {
+
+    if (!answered) {
+
+        result.innerHTML =
+            "⚠️ Seleziona una risposta";
+
+        return;
+
+    }
 
     currentQuestion++;
 
@@ -163,30 +203,34 @@ nextBtn.addEventListener("click", () => {
 
     } else {
 
-        showFinalScore();
+        showFinalResult();
 
     }
 
 });
 
-function showFinalScore() {
+function showFinalResult() {
 
-    question.innerHTML =
-        `<h2>Quiz completato!</h2>`;
+    document.querySelector(".quiz-box")
+        .style.display = "none";
 
-    answers.innerHTML = "";
+    finalScore.innerHTML =
 
-    result.innerHTML =
-        `Hai ottenuto ${score} punti su ${quiz.length}`;
+        `
+        <h2>Quiz completato!</h2>
 
-    nextBtn.innerHTML =
-        "Ricomincia";
+        <p class="score">
+            Hai ottenuto ${score}
+            punti su ${quiz.length}
+        </p>
 
-    nextBtn.addEventListener("click", () => {
+        <button class="btn"
+                onclick="location.reload()">
 
-        location.reload();
+            Riprova
 
-    });
+        </button>
+        `;
 
 }
 
