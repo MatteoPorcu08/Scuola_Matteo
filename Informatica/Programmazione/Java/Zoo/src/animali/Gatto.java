@@ -26,12 +26,12 @@ public class Gatto extends Animali {
         return razza;
     }
 
-    public void setRazza(String razza) {
-        this.razza = razza;
-    }
-
     public String getColore() {
         return colore;
+    }
+
+    public void setRazza(String razza) {
+        this.razza = razza;
     }
 
     public void setColore(String colore) {
