@@ -1,5 +1,4 @@
 package immobili;
-
 public class Abitazione {
 
     protected int numStanze;
@@ -66,17 +65,11 @@ public class Abitazione {
                 "\nCittà: " + citta + "\n";
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Abitazione a) {
 
-        if(obj instanceof Abitazione) {
-            Abitazione a = (Abitazione) obj;
-
-            return this.numStanze == a.numStanze &&
-                this.superficie == a.superficie &&
-                this.indirizzo.equals(a.indirizzo) &&
-                this.citta.equals(a.citta);
-        }
-        return false;
+        return this.numStanze == a.numStanze &&
+            this.superficie == a.superficie &&
+            this.indirizzo.equals(a.indirizzo) &&
+            this.citta.equals(a.citta);
     }
 }

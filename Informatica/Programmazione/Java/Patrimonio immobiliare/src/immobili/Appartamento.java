@@ -1,5 +1,4 @@
 package immobili;
-
 public class Appartamento extends Abitazione {
 
     private int piano;
@@ -64,19 +63,11 @@ public class Appartamento extends Abitazione {
                 "\nNumero terrazzi: " + numTerrazzi + "\n";
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Appartamento a) {
 
-        if(obj instanceof Appartamento) {
-
-            Appartamento a = (Appartamento) obj;
-
-            return super.equals(a) &&
-                this.piano == a.piano &&
-                this.ascensore == a.ascensore &&
-                this.numTerrazzi == a.numTerrazzi;
-        }
-
-        return false;
+        return super.equals(a) &&
+            this.piano == a.piano &&
+            this.ascensore == a.ascensore &&
+            this.numTerrazzi == a.numTerrazzi;
     }
 }
