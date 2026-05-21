@@ -1,5 +1,4 @@
 package operaio;
-
 public class DipendenteStipendiato extends Dipendente {
     private double stipendioFisso;
 
