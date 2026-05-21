@@ -32,5 +32,34 @@ public class Main {
         Appartamento ap2 = new Appartamento(4,90,"Via Napoli 5","Torino",3,true,2);
 
         System.out.println("ap1 uguale ad ap2? " + ap1.equals(ap2));
+
+        ArrayAbitazioni arrayAbitazioni = new ArrayAbitazioni();
+        try {
+            arrayAbitazioni.inserisci(a1);
+            arrayAbitazioni.inserisci(v1);
+            arrayAbitazioni.inserisci(ap1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        // Stampa array
+        System.out.println("Abitazioni nell'array:");
+        System.out.println(arrayAbitazioni.toString());
+        // Cerca abitazione
+        try {
+            Abitazione abitazioneCercata = arrayAbitazioni.cercaAbitazione("Via Roma 10");
+            System.out.println("Abitazione trovata: " + abitazioneCercata.toString());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        // Elimina abitazione
+        try {
+            arrayAbitazioni.elimina("Via Verdi 20");
+            System.out.println("Abitazione eliminata.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        // Stampa array dopo eliminazione
+        System.out.println("Abitazioni nell'array dopo eliminazione:");
+        System.out.println(arrayAbitazioni.toString());
     }
 }
