@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Dipendente d1 = new DipendenteStipendiato("Mario Rossi", 2000);
         Dipendente d2 = new DipendenteOrario("Luigi Bianchi", 160, 15);
-        Dipendente d3 = new DipendenteCommissione("Giovanni Verdi", 10000, 5.0);
+        Dipendente d3 = new DipendenteCommissione("Giovanni Verdi", 10000, 5);
 
         // Aggiungo i dipendenti a un array
         GestoreDipendenti gestore = new GestoreDipendenti(10);
@@ -21,7 +21,7 @@ public class Main {
 
         // Stampo lo stipendio di ogni dipendente
         System.out.println("\nStipendio di ogni dipendente:");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < gestore.numeroDipendenti; i++) {
             System.out.println(gestore.dipendenti[i].getNome() + ": " + gestore.dipendenti[i].calcolaStipendio());
         }
     }

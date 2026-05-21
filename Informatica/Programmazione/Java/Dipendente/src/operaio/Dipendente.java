@@ -25,6 +25,6 @@ public abstract class Dipendente {
 
     @Override
     public String toString() {
-        return "Dipendente{" + "nome='" + nome + '\'' + '}';
+        return "Dipendente: " + nome;
     }
 }

@@ -1,7 +1,8 @@
 package operaio;
+
 public class GestoreDipendenti {
     public Dipendente[] dipendenti;
-    private int numeroDipendenti;
+    public int numeroDipendenti;
 
     public GestoreDipendenti(int capacita) {
         dipendenti = new Dipendente[capacita];
