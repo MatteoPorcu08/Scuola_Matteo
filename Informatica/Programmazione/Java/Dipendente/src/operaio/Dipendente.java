@@ -7,7 +7,10 @@ public abstract class Dipendente {
         this.nome = nome;
     }
 
-    
+    // Costruttore di copia
+    public Dipendente(Dipendente d) {
+        this.nome = d.nome;
+    }
 
     public String getNome() {
         return nome;
@@ -17,8 +20,11 @@ public abstract class Dipendente {
         this.nome = nome;
     }
 
-    // Metodo astratto per calcolare lo stipendio
+    // Metodo astratto calcolaStipendio()
     public abstract double calcolaStipendio();
-    
-    
+
+    @Override
+    public String toString() {
+        return "Dipendente{" + "nome='" + nome + '\'' + '}';
+    }
 }
