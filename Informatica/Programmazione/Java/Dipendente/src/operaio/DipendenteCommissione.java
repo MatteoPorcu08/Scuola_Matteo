@@ -1,5 +1,4 @@
 package operaio;
-
 public class DipendenteCommissione extends Dipendente {
     private double vendite;
     private double percentualeCommissione;

@@ -12,15 +12,17 @@ public class Main {
         gestore.aggiungiDipendente(d3);
 
         // Stampo tutti i dipendenti
-        System.out.println("Tutti i dipendenti:");
+        System.out.println("\nTutti i dipendenti:");
         gestore.stampaTuttiIDipendenti();
 
         // Calcolo e stampo lo stipendio totale
         double stipendioTotale = gestore.calcolaStipendioTotale();
-        System.out.println("Stipendio totale: " + stipendioTotale);
+        System.out.println("\nStipendio totale: " + stipendioTotale);
 
-        // Calcolo lo stipendi totale
-        double stipendioTotale2 = gestore.calcolaStipendioTotale();
-        System.out.println("Stipendio totale: " + stipendioTotale2);
+        // Stampo lo stipendio di ogni dipendente
+        System.out.println("\nStipendio di ogni dipendente:");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(gestore.dipendenti[i].getNome() + ": " + gestore.dipendenti[i].calcolaStipendio());
+        }
     }
 }
