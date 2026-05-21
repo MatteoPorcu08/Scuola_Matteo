@@ -1,7 +1,7 @@
 package immobili;
 public class ArrayAbitazioni {
-    private Abitazione abitazioni[];
-    private int contatore;
+    public Abitazione abitazioni[];
+    public  int contatore;
 
     public ArrayAbitazioni() {
         this.abitazioni = new Abitazione[20];
