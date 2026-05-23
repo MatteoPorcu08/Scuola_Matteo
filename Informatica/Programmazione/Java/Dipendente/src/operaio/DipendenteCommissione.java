@@ -5,12 +5,22 @@ public class DipendenteCommissione extends Dipendente {
 
     public DipendenteCommissione(String nome, double vendite, double percentualeCommissione) {
         super(nome);
-        this.vendite = vendite;
-        this.percentualeCommissione = percentualeCommissione;
+
+        try {
+            if (vendite < 0 || percentualeCommissione < 0) {
+                throw new IllegalArgumentException("Valori non validi");
+            }
+
+            this.vendite = vendite;
+            this.percentualeCommissione = percentualeCommissione;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
     }
 
     @Override
     public double calcolaStipendio() {
-        return vendite * percentualeCommissione;
+        return vendite * (percentualeCommissione / 100);
     }
 }

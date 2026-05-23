@@ -1,5 +1,4 @@
 package operaio;
-
 public class GestoreDipendenti {
     public Dipendente[] dipendenti;
     public int numeroDipendenti;
@@ -11,11 +10,17 @@ public class GestoreDipendenti {
 
     // Metodo aggiungiDipendente(Dipendente d)
     public void aggiungiDipendente(Dipendente d) {
-        if (numeroDipendenti < dipendenti.length) {
+        try {
+
+            if (numeroDipendenti >= dipendenti.length) {
+                throw new Exception("Array pieno");
+            }
+
             dipendenti[numeroDipendenti] = d;
             numeroDipendenti++;
-        } else {
-            System.out.println("Capacità massima raggiunta. Impossibile aggiungere il dipendente.");
+
+        } catch (Exception e) {
+            System.out.println("Errore: " + e.getMessage());
         }
     }
 
