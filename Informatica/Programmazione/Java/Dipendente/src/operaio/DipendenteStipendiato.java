@@ -9,12 +9,12 @@ public class DipendenteStipendiato extends Dipendente {
         try {
 
             if (stipendioFisso < 0) {
-                throw new IllegalArgumentException("Stipendio non valido");
+                throw new Exception("Stipendio non valido");
             }
 
             this.stipendioFisso = stipendioFisso;
 
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Errore: " + e.getMessage());
         }
     }

@@ -8,13 +8,13 @@ public class DipendenteCommissione extends Dipendente {
 
         try {
             if (vendite < 0 || percentualeCommissione < 0) {
-                throw new IllegalArgumentException("Valori non validi");
+                throw new Exception("Valori non validi");
             }
 
             this.vendite = vendite;
             this.percentualeCommissione = percentualeCommissione;
 
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println("Errore: " + e.getMessage());
         }
     }
