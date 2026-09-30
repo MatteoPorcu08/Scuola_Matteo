@@ -1,0 +1,9 @@
+{
+  "cipher": "SchoolHub-SHENC2",
+  "encrypted_size": 20526,
+  "format": 1,
+  "parts": [
+    "payload.part000"
+  ],
+  "sha256": "430cfb38ad446240fadfa561e41c7eebc20a64fea0f6cc57e722762c6a12474e"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "kdf": "scrypt",
+  "n": 16384,
+  "r": 8,
+  "p": 1,
+  "salt": "CTijfnDqdQJn1XtdLTcfCQ==",
+  "verification_nonce": "mu5k9WqZ7Qs+jnWt",
+  "verification": "58442flYs/dUg86nCORadmLZB4SNJNTX8/LloUDcty4T6Yxun9w="
+}
