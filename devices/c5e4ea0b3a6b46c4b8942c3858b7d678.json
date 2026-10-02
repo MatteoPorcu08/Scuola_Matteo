@@ -3,10 +3,10 @@
   "data_branch": "main",
   "data_head": "949eacc5c3160ee405446f4f2488a4941e176ae8",
   "device_id": "c5e4ea0b3a6b46c4b8942c3858b7d678",
-  "last_seen_utc": "2026-10-02T15:43:06+00:00",
-  "local_pending": 0,
+  "last_seen_utc": "2026-10-02T16:04:02+00:00",
+  "local_pending": 3,
   "name": "Laptop Matteo",
   "remote_pending": 0,
   "schema": 1,
-  "state": "updated"
+  "state": "upload"
 }
