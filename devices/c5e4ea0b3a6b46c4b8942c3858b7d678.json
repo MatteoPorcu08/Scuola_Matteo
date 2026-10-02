@@ -1,0 +1,12 @@
+{
+  "app_version": "2.6.0",
+  "data_branch": "main",
+  "data_head": "949eacc5c3160ee405446f4f2488a4941e176ae8",
+  "device_id": "c5e4ea0b3a6b46c4b8942c3858b7d678",
+  "last_seen_utc": "2026-10-02T15:36:13+00:00",
+  "local_pending": 0,
+  "name": "Dispositivo C5E4EA",
+  "remote_pending": 0,
+  "schema": 1,
+  "state": "unknown"
+}
