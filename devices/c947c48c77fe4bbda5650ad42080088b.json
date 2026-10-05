@@ -3,10 +3,10 @@
   "data_branch": "main",
   "data_head": "19d9c5c3f25214ac5bec4373cb8b0488092ab867",
   "device_id": "c947c48c77fe4bbda5650ad42080088b",
-  "last_seen_utc": "2026-10-05T10:37:02+00:00",
+  "last_seen_utc": "2026-10-05T10:37:07+00:00",
   "local_pending": 0,
   "name": "Dispositivo C947C4",
   "remote_pending": 0,
   "schema": 1,
-  "state": "unknown"
+  "state": "locked"
 }
