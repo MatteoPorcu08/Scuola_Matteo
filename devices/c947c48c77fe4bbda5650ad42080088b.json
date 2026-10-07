@@ -3,10 +3,10 @@
   "data_branch": "main",
   "data_head": "7f5828fab5c9156d2b14129f32cef7aae5c8e153",
   "device_id": "c947c48c77fe4bbda5650ad42080088b",
-  "last_seen_utc": "2026-10-07T08:19:39+00:00",
+  "last_seen_utc": "2026-10-07T08:35:50+00:00",
   "local_pending": 0,
   "name": "Cyberlab",
   "remote_pending": 0,
   "schema": 1,
-  "state": "updated"
+  "state": "unknown"
 }
