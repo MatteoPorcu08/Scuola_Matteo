@@ -1,12 +1,12 @@
 {
   "app_version": "2.6.0",
   "data_branch": "main",
-  "data_head": "1cf755f8a4627ab7c1dc05bd3101dc40a71b5fe9",
+  "data_head": "669243e829d84ad7f4b5dd6e4defd07bea7fd30e",
   "device_id": "c947c48c77fe4bbda5650ad42080088b",
-  "last_seen_utc": "2026-10-08T07:47:25+00:00",
-  "local_pending": 4,
+  "last_seen_utc": "2026-10-08T07:48:09+00:00",
+  "local_pending": 0,
   "name": "Cyberlab",
   "remote_pending": 0,
   "schema": 1,
-  "state": "upload"
+  "state": "updated"
 }
