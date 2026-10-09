@@ -3,10 +3,10 @@
   "data_branch": "main",
   "data_head": "8805bf9f6f7f1a9262b02709fc639bd5b52654ae",
   "device_id": "9216d1ee131f4bb0b283c51645636f00",
-  "last_seen_utc": "2026-10-09T08:14:42+00:00",
+  "last_seen_utc": "2026-10-09T08:21:03+00:00",
   "local_pending": 0,
   "name": "Dispositivo 9216D1",
   "remote_pending": 0,
   "schema": 1,
-  "state": "locked"
+  "state": "unknown"
 }
