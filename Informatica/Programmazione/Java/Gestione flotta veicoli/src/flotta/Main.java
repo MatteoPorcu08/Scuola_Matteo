@@ -1,52 +1,38 @@
 package flotta;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Automobile automobile = new Automobile("Fiat", "Panda", 2020, 5);
-        Camion camion = new Camion("Iveco", "Turbostar", 1989, 20000);
-        Bicicletta bicicletta = new Bicicletta("Lombardo", "Oltre XR4", 2024, 18);
 
-        
         ArrayList<Veicolo> veicoli = new ArrayList<>();
-        veicoli.add(automobile);
+
+        Automobile auto = new Automobile("Fiat", "Panda", 170, 5, false, 70);
+
+        Camion camion = new Camion("Iveco", "Daily", 130, 3500, 0, false, 80);
+
+        Bicicletta bici = new Bicicletta("Trek", "Marlin", 40, 21);
+
+        // Inserimento dei veicoli
+        veicoli.add(auto);
         veicoli.add(camion);
-        veicoli.add(bicicletta);
+        veicoli.add(bici);
 
-        do{
-            System.out.println("Scegli un'opzione:");
-            System.out.println("1. Visualizza veicoli");
-            System.out.println("2. Aggiungi veicolo");
-            System.out.println("3. Rimuovi veicolo");
-            System.out.println("4. Sposta veicolo");
-            System.out.println("5. Esci");
+        // Visualizzazione dei veicoli
+        System.out.println("Lista dei veicoli:");
 
-            int scelta = scanner.nextInt();
+        for (int i = 0; i < veicoli.size(); i++) {
+            System.out.println("Veicolo " + i + ": "+ veicoli.get(i).getMarca() + " "+ veicoli.get(i).getModello());
 
-            switch (scelta) {
-                case 1:
-                    for (Veicolo v : veicoli) {
-                        System.out.println(v);
-                    }
-                    break;
-                case 2:
-                    // Aggiungi veicolo
-                    break;
-                case 3:
-                    // Rimuovi veicolo
-                    break;
-                case 4:
-                    // Sposta veicolo
-                    break;
-                case 5:
-                    System.out.println("Uscita dal programma.");
-                    return;
-                default:
-                    System.out.println("Scelta non valida.");
-            }
-        } while (true);
+            veicoli.get(i).muovi();
+        }
+
+        // Rimozione di un veicolo
+        veicoli.remove(1);
+
+        for (int i = 0; i < veicoli.size(); i++) {
+            System.out.println(veicoli.get(i).getMarca()
+                    + " " + veicoli.get(i).getModello());
+        }
     }
 }

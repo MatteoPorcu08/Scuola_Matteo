@@ -5,10 +5,6 @@ import java.util.ArrayList;
 public class PlaylistManager {
     private ArrayList<Canzone> playlist;
 
-    public PlaylistManager() {
-        playlist = new ArrayList<>();
-    }
-
     public void aggiungiCanzone(Canzone canzone) {
         playlist.add(canzone);
     }

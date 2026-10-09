@@ -36,15 +36,6 @@ public class Canzone {
         this.durata = durata;
     }
 
-    //Metodo equals per confrontare due canzoni
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Canzone canzone = (Canzone) obj;
-        return titolo.equals(canzone.titolo) && artista.equals(canzone.artista);
-    }
-
     //Metodo toString per rappresentare la canzone come stringa
     @Override
     public String toString() {

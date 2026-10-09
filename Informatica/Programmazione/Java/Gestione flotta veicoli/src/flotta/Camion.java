@@ -1,6 +1,6 @@
 package flotta;
 
-public class Camion extends Veicolo {
+public class Camion extends Veicolo implements Motorizzato, Ricaricabile {
     private double capacitaCaricoMassimo;
     private double caricoAttuale;
     private boolean motoreAcceso;
@@ -16,18 +16,21 @@ public class Camion extends Veicolo {
     
     @Override
     public void muovi() {
-        if (!motoreAcceso) {
-            System.out.println("Il camion non può muoversi: motore spento.");
-            return;
-        }
+        System.out.println("Il camion sta trasportando "+ caricoAttuale + " kg di merci.");
+    }
 
-        if (carburante <= 0) {
-            System.out.println("Il camion non può muoversi: carburante insufficiente.");
-            motoreAcceso = false;
-            return;
-        }
+    @Override
+    public void accendiMotore() {
+        motoreAcceso = true;
+    }
 
-        carburante -= 5.0;
-        System.out.println("Il camion sta viaggiando.");
+    @Override
+    public void spegniMotore() {
+        motoreAcceso = false;
+    }
+
+    @Override
+    public double getLivelloCarburante() {
+        return carburante;
     }
 }

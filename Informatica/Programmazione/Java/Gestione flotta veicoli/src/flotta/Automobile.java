@@ -19,27 +19,16 @@ public class Automobile extends Veicolo implements Motorizzato, Ricaricabile {
 
     @Override
     public void accendiMotore() {
-        if (carburante > 0) {
-            motoreAcceso = true;
-            System.out.println("Motore Acceso");
-        } else {
-            System.out.println("Impossibile accendere il motore. Carburante insufficiente.");
-        }
+        motoreAcceso = true;
     }
 
     @Override
     public void spegniMotore() {
         motoreAcceso = false;
-        System.out.println("Motore Spento");
     }
 
     @Override
-    public void ricarica(double quantita) {
-        if (quantita > 0) {
-            carburante += quantita;
-            System.out.println("Ricarica completata. Livello carburante: " + carburante);
-        } else {
-            System.out.println("Quantità di ricarica non valida.");
-        }
+    public double getLivelloCarburante() {
+        return carburante;
     }
 }

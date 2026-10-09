@@ -1,4 +1,5 @@
 package flotta;
+
 public abstract class Veicolo {
     protected String marca;
     protected String modello;
