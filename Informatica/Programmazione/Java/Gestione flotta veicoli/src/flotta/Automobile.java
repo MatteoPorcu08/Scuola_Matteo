@@ -42,5 +42,4 @@ public class Automobile extends Veicolo implements Motorizzato, Ricaricabile {
             System.out.println("Quantità di ricarica non valida.");
         }
     }
-
 }

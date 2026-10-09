@@ -1,5 +1,3 @@
-package asproni_fermi_edu_it_client;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;

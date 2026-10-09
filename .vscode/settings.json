@@ -25,5 +25,6 @@
     "terminal.integrated.scrollback": 5000,
     "emmet.triggerExpansionOnTab": true,
     "java.format.enabled": true,
-    "java.saveActions.organizeImports": true
+    "java.saveActions.organizeImports": true,
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable"
 }
