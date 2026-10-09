@@ -9,26 +9,24 @@ public class MyServer {
     public static void main(String[] args) throws IOException {
         System.out.println("Avvio del server...");
 
-        ServerSocket serverSocket = new ServerSocket(50000);
+        try (ServerSocket serverSocket = new ServerSocket(50000)) {
 
-        System.out.println("Server in esecuzione sulla porta 50000...");
-        System.out.println("In attesa di un client...");
+            System.out.println("Server in esecuzione sulla porta 50000...");
+            System.out.println("In attesa di un client...");
 
-        Socket socket = serverSocket.accept();
+            try (Socket socket = serverSocket.accept()) {
+                System.out.println("Client connesso!");
 
-        System.out.println("Client connesso!");
+                InputStream input = socket.getInputStream();
 
-        InputStream input = socket.getInputStream();
+                byte[] buffer = new byte[1024];
+                int dimensioneDati = input.read(buffer);
 
-        byte[] buffer = new byte[1024];
-        int dimensioneDati = input.read(buffer);
-
-        if (dimensioneDati != -1) {
-            String messaggio = new String(buffer, 0, dimensioneDati);
-            System.out.println("Messaggio ricevuto: " + messaggio);
+                if (dimensioneDati != -1) {
+                    String messaggio = new String(buffer, 0, dimensioneDati);
+                    System.out.println("Messaggio ricevuto: " + messaggio);
+                }
+            }
         }
-
-        socket.close();
-        serverSocket.close();
     }
 }

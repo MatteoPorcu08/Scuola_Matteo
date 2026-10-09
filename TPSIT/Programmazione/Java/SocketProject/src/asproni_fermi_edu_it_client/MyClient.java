@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 
 public class MyClient {
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		Socket socket = new Socket("localhost", 50000);
+		Socket socket = new Socket("localhost", 9000);
 		
 		OutputStream out = socket.getOutputStream();
 		
