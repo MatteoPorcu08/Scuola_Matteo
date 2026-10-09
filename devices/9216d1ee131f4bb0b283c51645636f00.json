@@ -1,12 +1,12 @@
 {
   "app_version": "2.6.2",
   "data_branch": "main",
-  "data_head": "86d9a678f79a61f64f55ff80f2c66a89f75d211c",
+  "data_head": "9c87551a11c67a906f6f11fc61622d2c1480fcc0",
   "device_id": "9216d1ee131f4bb0b283c51645636f00",
-  "last_seen_utc": "2026-10-09T07:30:10+00:00",
+  "last_seen_utc": "2026-10-09T07:31:54+00:00",
   "local_pending": 0,
   "name": "Dispositivo 9216D1",
   "remote_pending": 0,
   "schema": 1,
-  "state": "locked"
+  "state": "updated"
 }
