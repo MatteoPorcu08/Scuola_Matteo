@@ -1,12 +1,12 @@
 {
-  "app_version": "2.6.0",
+  "app_version": "2.6.3",
   "data_branch": "main",
-  "data_head": "79e175bdb3bb9a0c0071c62b14e90e5474b73a7d",
+  "data_head": "b3a33c24ccd67c6cd444654ba5a5a60faad60636",
   "device_id": "c5e4ea0b3a6b46c4b8942c3858b7d678",
-  "last_seen_utc": "2026-10-05T16:07:35+00:00",
+  "last_seen_utc": "2026-10-09T15:40:16+00:00",
   "local_pending": 0,
   "name": "Laptop Matteo",
   "remote_pending": 0,
   "schema": 1,
-  "state": "updated"
+  "state": "unknown"
 }
