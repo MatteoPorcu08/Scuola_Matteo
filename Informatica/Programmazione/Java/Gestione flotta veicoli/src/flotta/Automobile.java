@@ -31,4 +31,17 @@ public class Automobile extends Veicolo implements Motorizzato, Ricaricabile {
     public double getLivelloCarburante() {
         return carburante;
     }
+
+    @Override
+    public void ricarica(double quantita) {
+        carburante += quantita;
+        if (carburante > 100.0) {
+            carburante = 100.0; // Livello massimo di carburante
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Automobile{" +"marca='" + marca + '\'' +", modello='" + modello + '\'' +", velocitaMassima=" + velocitaMassima +", numeroPorte=" + numeroPorte +", motoreAcceso=" + motoreAcceso +", carburante=" + carburante + '}';
+    }
 }

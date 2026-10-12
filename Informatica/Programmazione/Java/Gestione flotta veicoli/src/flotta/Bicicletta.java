@@ -12,4 +12,10 @@ public class Bicicletta extends Veicolo {
     public void muovi() {
         System.out.println("La bicicletta " + marca + " " + modello + " si sta muovendo su strada");
     }
+
+    @Override
+    public String toString() {
+        return "Bicicletta{" +
+                "marca='" + marca + '\'' +", modello='" + modello + '\'' +", anno=" + velocitaMassima +", numeroRapporti=" + numeroRapporti +'}';
+    }
 }

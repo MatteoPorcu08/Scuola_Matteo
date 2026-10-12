@@ -33,4 +33,17 @@ public class Camion extends Veicolo implements Motorizzato, Ricaricabile {
     public double getLivelloCarburante() {
         return carburante;
     }
+
+    @Override
+    public void ricarica(double quantita) {
+        carburante += quantita;
+        if (carburante > 100.0) {
+            carburante = 100.0; // Livello massimo di carburante
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Camion{" +"marca='" + marca + '\'' +", modello='" + modello + '\'' +", velocitaMassima=" + velocitaMassima +", capacitaCaricoMassimo=" + capacitaCaricoMassimo +", caricoAttuale=" + caricoAttuale +", motoreAcceso=" + motoreAcceso +", carburante=" + carburante +'}';
+    }
 }
