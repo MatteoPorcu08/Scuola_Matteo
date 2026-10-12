@@ -13,6 +13,15 @@ public class Camion extends Veicolo implements Motorizzato, Ricaricabile {
         this.motoreAcceso = false;
         this.carburante = 100.0; // Livello iniziale di carburante
     }
+
+    public void caricaMerci(double peso) {
+        if (peso> 0 && caricoAttuale + peso <= capacitaCaricoMassimo) {
+            caricoAttuale += peso;
+            System.out.println("Carico di " + peso + " kg aggiunto. Carico attuale: " + caricoAttuale + " kg.");
+        } else {
+            System.out.println("Impossibile caricare: superata la capacità massima del camion.");
+        }
+    }
     
     @Override
     public void muovi() {

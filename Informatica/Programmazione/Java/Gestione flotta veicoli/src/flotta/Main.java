@@ -7,9 +7,9 @@ public class Main {
 
         ArrayList<Veicolo> veicoli = new ArrayList<>();
 
-        Automobile auto = new Automobile("Fiat", "Panda", 170, 5, false, 70);
+        Automobile auto = new Automobile("Fiat", "Panda", 170, 5);
 
-        Camion camion = new Camion("Iveco", "Daily", 130, 3500, 0, false, 80);
+        Camion camion = new Camion("Iveco", "Daily", 130, 3500);
 
         Bicicletta bici = new Bicicletta("Trek", "Marlin", 40, 21);
 

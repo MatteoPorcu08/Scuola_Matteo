@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "flotta.Main",
+            "projectName": "Scuola_a0be6738"
+        },
+        {
+            "type": "java",
             "name": "MyClient",
             "request": "launch",
             "mainClass": "asproni_fermi_edu_it_client.MyClient",
