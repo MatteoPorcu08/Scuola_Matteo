@@ -1,12 +1,13 @@
 {
-  "app_version": "2.6.3",
+  "app_version": "2.6.4",
   "data_branch": "main",
+  "data_fingerprint": "92761c506da6e22e72eef5dc8e8e0b1feb844a94a1c3767a5af587aa0fd7d6da",
   "data_head": "eb1699c53ef8ea971f4c06c8fb96efd11e90e7e0",
   "device_id": "9216d1ee131f4bb0b283c51645636f00",
-  "last_seen_utc": "2026-10-12T07:08:44+00:00",
+  "last_seen_utc": "2026-10-12T07:12:35+00:00",
   "local_pending": 0,
   "name": "Computer MR",
   "remote_pending": 0,
-  "schema": 1,
-  "state": "updated"
+  "schema": 2,
+  "state": "unknown"
 }
