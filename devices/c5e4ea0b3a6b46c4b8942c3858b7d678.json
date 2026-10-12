@@ -4,10 +4,10 @@
   "data_fingerprint": "c4356fdf424503a3fb60fd9af3c74d674dfefb3b26cbf1bce6519d833f50b73b",
   "data_head": "520f7836dc54de6cd30fb5ca05311ee68cfcfc3f",
   "device_id": "c5e4ea0b3a6b46c4b8942c3858b7d678",
-  "last_seen_utc": "2026-10-12T16:16:12+00:00",
+  "last_seen_utc": "2026-10-12T16:18:08+00:00",
   "local_pending": 0,
   "name": "Laptop Matteo",
   "remote_pending": 0,
   "schema": 2,
-  "state": "unknown"
+  "state": "locked"
 }
