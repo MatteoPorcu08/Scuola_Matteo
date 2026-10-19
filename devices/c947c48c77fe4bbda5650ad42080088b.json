@@ -4,10 +4,10 @@
   "data_fingerprint": "697b0eabc2ad2d4d21f6b1dc399d9edb0ad67d70af7a688ed204421e2e75a5dd",
   "data_head": "e82ed4883f37e0493c1773d072abe09cc141318e",
   "device_id": "c947c48c77fe4bbda5650ad42080088b",
-  "last_seen_utc": "2026-10-19T06:25:42+00:00",
+  "last_seen_utc": "2026-10-19T06:36:41+00:00",
   "local_pending": 0,
   "name": "Cyberlab",
   "remote_pending": 0,
   "schema": 2,
-  "state": "unknown"
+  "state": "updated"
 }
