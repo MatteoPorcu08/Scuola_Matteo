@@ -1,13 +1,13 @@
 {
   "app_version": "2.6.4",
   "data_branch": "main",
-  "data_fingerprint": "5a2d79d6bae80143a13cfee2bcc899c2a83f1342fe6815414947f51ed5952f48",
+  "data_fingerprint": "",
   "data_head": "45cc32da0e0947dba1eb5e28a94a589bbe639b81",
   "device_id": "9216d1ee131f4bb0b283c51645636f00",
-  "last_seen_utc": "2026-10-21T06:57:41+00:00",
+  "last_seen_utc": "2026-10-21T07:06:39+00:00",
   "local_pending": 0,
   "name": "MR",
   "remote_pending": 0,
   "schema": 2,
-  "state": "updated"
+  "state": "unknown"
 }
