@@ -58,7 +58,7 @@ public class Main {
             for (int i = 0; i < lista.size(); i++) {
                 MembroSquadra m = lista.get(i);
                 String tipo = m.getClass().getSimpleName();
-                System.out.println("[" + i + "] Tipo: " + tipo + " | " + m.getNome() + " " + m.getCognome() + " (Maglia: " + m.getNumeroMaglia() + ")");
+                System.out.println("" + i + " Tipo: " + tipo + " | " + m.getNome() + " " + m.getCognome() + " Maglia: " + m.getNumeroMaglia());
             }
         }
         System.out.println();
