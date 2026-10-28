@@ -1,0 +1,36 @@
+package it.asproni.fermi.edu.esercitazione3;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class MyClient {
+
+	public static void main(String[] args) throws IOException {
+		
+				Socket socket = new Socket("localhost", 50005);
+				
+				// RECUPERO IL CANALE PER LEGGERE QUELLO CHE IL SERVER MI STA INVIANDO
+				InputStream input = socket.getInputStream();
+				
+				// ARRAY CHE CONTERRA' I BYTES CHE STO LEGGENDO
+				byte[] buffer = new byte[1024];
+				int dimensioneDati;
+				
+				// LEGGO PRIMO MESSAGGIO INVIATO DAL SEVER
+				dimensioneDati = input.read(buffer);	
+				String messaggio = new String(buffer, 0, dimensioneDati);
+				System.out.println(messaggio);
+				
+				OutputStream out= socket.getOutputStream();
+				String messaggio1 = "Grazie";
+				out.write(messaggio1.getBytes()); 
+				
+				out.close();
+				input.close();
+				socket.close();
+	}
+}

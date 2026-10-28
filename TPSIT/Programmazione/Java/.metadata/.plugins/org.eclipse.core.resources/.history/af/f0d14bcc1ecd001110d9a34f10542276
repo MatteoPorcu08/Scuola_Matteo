@@ -1,0 +1,36 @@
+package it.asproni.fermi.edu.esercitazione3;
+
+public class MyClient {
+
+	public static void main(String[] args) throws IOException {
+		// MI CONNETTO AL SERVER IN ASCOLTO SU (LOCALHOST, 50000)
+				Socket socket = new Socket("localhost", 50000);
+				
+				// RECUPERO IL CANALE PER LEGGERE QUELLO CHE IL SERVER MI STA INVIANDO
+				InputStream input = socket.getInputStream();
+				
+				// ARRAY CHE CONTERRA' I BYTES CHE STO LEGGENDO
+				byte[] buffer = new byte[1024];
+				int dimensioneDati;
+				
+				// LEGGO PRIMO MESSAGGIO INVIATO DAL SEVER
+				dimensioneDati = input.read(buffer);	
+				String messaggio = new String(buffer, 0, dimensioneDati);
+				System.out.println(messaggio);
+				
+				// LEGGO SECONDO MESSAGGIO INVIATO DAL SEVER
+				buffer = new byte[1024];
+				dimensioneDati = input.read(buffer);
+				String messaggio2 = new String(buffer, 0, dimensioneDati);
+				System.out.println(messaggio2);
+				
+				// LEGGO TERZO MESSAGGIO INVIATO DAL SEVER
+				buffer = new byte[1024];
+				dimensioneDati = input.read(buffer);
+				String messaggio3 = new String(buffer, 0, dimensioneDati);
+				System.out.println(messaggio3);
+				
+				input.close();
+				socket.close();
+	}
+}
