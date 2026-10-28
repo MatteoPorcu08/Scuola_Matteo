@@ -1,13 +1,13 @@
 {
   "app_version": "2.6.7",
   "data_branch": "main",
-  "data_fingerprint": "5a2d79d6bae80143a13cfee2bcc899c2a83f1342fe6815414947f51ed5952f48",
+  "data_fingerprint": "865ace4aa66d87094aa5bd87216325ee750cd2e79413a3dce225fe8c8e9194fe",
   "data_head": "b87c99f044983c321468a41b7d00555b9977f4c1",
   "device_id": "c5e4ea0b3a6b46c4b8942c3858b7d678",
-  "last_seen_utc": "2026-10-28T18:26:18+00:00",
-  "local_pending": 0,
+  "last_seen_utc": "2026-10-28T18:30:55+00:00",
+  "local_pending": 7,
   "name": "Laptop Matteo",
-  "remote_pending": 0,
+  "remote_pending": 109,
   "schema": 2,
-  "state": "unknown"
+  "state": "conflict"
 }
