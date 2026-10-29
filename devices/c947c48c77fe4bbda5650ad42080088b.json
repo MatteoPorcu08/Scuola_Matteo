@@ -1,13 +1,13 @@
 {
   "app_version": "2.6.7",
   "data_branch": "main",
-  "data_fingerprint": "80f5a94dcf51969bd08a3432c89b24c162fd311bc4fac4eaf3e082c226f81e97",
+  "data_fingerprint": "c40360587294e81159a52b08be5a22a16baf9d57fc187a582fa72783b0d7085a",
   "data_head": "b87c99f044983c321468a41b7d00555b9977f4c1",
   "device_id": "c947c48c77fe4bbda5650ad42080088b",
-  "last_seen_utc": "2026-10-29T07:56:15+00:00",
+  "last_seen_utc": "2026-10-29T07:58:16+00:00",
   "local_pending": 0,
   "name": "Cyberlab",
   "remote_pending": 0,
   "schema": 2,
-  "state": "unknown"
+  "state": "updated"
 }
