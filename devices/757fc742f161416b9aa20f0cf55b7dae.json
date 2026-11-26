@@ -1,0 +1,13 @@
+{
+  "app_version": "0.2.3",
+  "data_branch": "main",
+  "data_fingerprint": "",
+  "data_head": "cb249aead69c6fe9b51a46b7b9b2c15e384e2a69",
+  "device_id": "757fc742f161416b9aa20f0cf55b7dae",
+  "last_seen_utc": "2026-11-26T13:11:48+00:00",
+  "local_pending": 0,
+  "name": "MR",
+  "remote_pending": 0,
+  "schema": 2,
+  "state": "unknown"
+}
